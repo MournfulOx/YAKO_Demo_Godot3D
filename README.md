@@ -31,6 +31,12 @@ demo/
 - First-person mouse look (mouse captured on start, Esc to release)
 - WASD movement relative to facing direction
 - PSX post-processing (320×240 render resolution + dithering)
+- **Night urban atmosphere** — millennium-era city night feel:
+  - Deep blue-black sky with warm horizon glow (city light pollution)
+  - Low-energy cool blue moonlight with shadows
+  - Subtle blue-grey fog (urban haze)
+  - Boosted glow for streetlight bloom effect
+  - Street lamp posts with sodium-orange OmniLight3D (warm, no shadow)
 - **Cigarette system** — full interaction loop with state machine:
   - F to pull out / put away carton (slides up/down with eased tween)
   - Left click to open carton lid (plays GLB animation)

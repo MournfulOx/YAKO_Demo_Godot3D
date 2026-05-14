@@ -46,11 +46,29 @@ demo/
 Main (Node)
 ├── CanvasLayer (Layer=10)
 │   └── ColorRect                     # fullscreen dither post-process
-├── WorldEnvironment
-├── DirectionalLight3D
+├── WorldEnvironment                  # night atmosphere environment
+├── DirectionalLight3D                # moonlight: cool blue, energy 0.12
 ├── Floor
-└── Player
+├── Player
+└── Assets (Node3D, scale=0.45, 90° rotated)
+    └── Props (GLB instance)
+        ├── LampPost_001 (MeshInstance3D)
+        │   └── LampLight (OmniLight3D)   # sodium orange, energy 3.5, range 10
+        ├── LampPost_002 … LampPost_004   # same structure
+        └── … (FireHydrant, Mailbox, etc.)
 ```
+
+## Night Atmosphere (WorldEnvironment)
+
+- Sky: deep blue-black top `(0.012, 0.012, 0.045)`, dark purple horizon, warm amber ground horizon (city light bleed)
+- Sky energy multiplier: `0.15`
+- Ambient: Color source, cool blue `(0.08, 0.1, 0.2)`, energy `0.18`
+- Moonlight (DirectionalLight3D): `Color(0.7, 0.78, 1.0)`, energy `0.12`, shadows on
+- Fog: enabled, blue-grey `(0.07, 0.08, 0.14)`, density `0.014`
+- Glow: intensity `1.4`, bloom `0.25`, HDR threshold `0.75` (low threshold so lamp orange triggers bloom)
+- LampPost lights: `OmniLight3D` child at local `Y=0.085` — sodium orange `(1.0, 0.62, 0.18)`, energy `3.5`, range `10`, no shadow
+
+**TODO:** Convert LampPost MeshInstance3D nodes into a `LampPost.tscn` prefab (Node3D + MeshInstance3D + OmniLight3D) so lights are bundled with the model.
 
 ## Player Scene Structure
 
