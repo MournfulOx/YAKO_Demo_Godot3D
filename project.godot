@@ -23,6 +23,14 @@ window/size/window_width_override=1980
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="Demo"
+
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 Fowared={
