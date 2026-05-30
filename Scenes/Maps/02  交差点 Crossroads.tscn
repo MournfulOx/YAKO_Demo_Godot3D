@@ -1100,7 +1100,7 @@ shadow_mesh = SubResource("ArrayMesh_n82x6")
 environment = SubResource("Environment_ohl52")
 
 [node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3344345, 2.4333313, -0.48608017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.855225, 2.4333313, 2.9298096)
 
 [node name="Map 02" type="Node3D" parent="." unique_id=1261792792]
 
@@ -2741,7 +2741,7 @@ transform = Transform3D(-86.77, 0, -1.3101905e-05, 0, 86.77, 0, 1.3101905e-05, 0
 transform = Transform3D(-128.04498, 0, -1.1194048e-05, 0, 128.045, 0, 1.1194048e-05, 0, -128.04498, -47.034546, -25.157661, 79.22857)
 
 [node name="16_1" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/16" unique_id=1270766112]
-transform = Transform3D(-4.9393876e-08, 1.13, -4.9393925e-08, 0, -4.9393925e-08, -1.13, -1.13, -4.9393876e-08, 2.1590798e-15, -0.0074822903, -0.028088585, -0.13168365)
+transform = Transform3D(-7.474645e-08, -1.7100004, 7.4746495e-08, 0, -7.4746474e-08, -1.7100004, 1.7100004, -7.474645e-08, 3.267272e-15, -0.048765868, -0.13706033, 0.19170728)
 mesh = SubResource("ArrayMesh_obxau")
 
 [node name="16_2" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/16" unique_id=255602368]
@@ -2749,7 +2749,7 @@ transform = Transform3D(3.5570002, 2.842171e-14, -1.6940659e-21, 0, -1.1998776e-
 mesh = SubResource("ArrayMesh_4nekq")
 
 [node name="16_3" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/16" unique_id=1533562843]
-transform = Transform3D(-8.816584e-08, -1.5570005, 9.262446e-08, 0, -6.805863e-08, -2.119, 2.017, -6.805863e-08, 4.0487425e-15, -0.043551624, -0.21849202, 0.31261808)
+transform = Transform3D(-8.81658e-08, -1.5570012, 9.2624504e-08, 0, -6.805863e-08, -2.119, 2.017, -6.805863e-08, 4.0487425e-15, 0.60285187, -0.2184922, -0.1760068)
 mesh = SubResource("ArrayMesh_7hnxc")
 
 [node name="17" parent="Map 02/Asset New/Building/Commercial" unique_id=1954127210 instance=ExtResource("27_3ygvi")]
@@ -2762,7 +2762,7 @@ transform = Transform3D(-170.205, 0, -2.5700241e-05, 0, 170.205, 0, 2.5700241e-0
 transform = Transform3D(-38, 0, -3.3220656e-06, 0, 38, 0, 3.3220656e-06, 0, -38, 18.798615, 15.451332, 71.540436)
 
 [node name="20" parent="Map 02/Asset New/Building/Commercial" unique_id=533620628 instance=ExtResource("30_bej06")]
-transform = Transform3D(-1.0255566e-05, 0, 234.62, 0, 234.62, 0, -234.62, 0, -1.0255566e-05, -96.79666, -0.033302307, -43.768997)
+transform = Transform3D(-1.0255566e-05, 0, -234.62, 0, 234.62, 0, 234.62, 0, -1.0255566e-05, -61.370365, -0.033302307, -18.149364)
 
 [node name="24" parent="Map 02/Asset New/Building/Commercial" unique_id=1114287172 instance=ExtResource("30_bej06")]
 transform = Transform3D(-1.0255566e-05, 0, 234.62, 0, 234.62, 0, -234.62, 0, -1.0255566e-05, -89.50398, -0.033302307, -166.03265)
