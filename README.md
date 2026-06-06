@@ -20,9 +20,15 @@ A retro low-poly game built in Godot 4.6, inspired by PS1/PS2 aesthetics. Core g
 ```
 demo/
 ├── Scenes/
+│   ├── scene_trigger.gd  # reusable map transition trigger
 │   ├── Player/           # Player scene, controller, cigarette system
-│   └── Assets/Player/    # Cig.glb, cigs_carton.glb
+│   ├── Maps/             # Map_01 – Map_03 scenes
+│   └── Assets/
+│       ├── Player/       # Cig.glb, cigs_carton.glb
+│       ├── LampPost/     # LampPost.tscn prefab (mesh + light bundled)
+│       └── skyscraper_pack/glb/  # background buildings with emission
 ├── shaders/              # PSX-style shaders — do not modify
+├── tools/                # Blender batch conversion scripts
 └── project.godot
 ```
 
@@ -37,6 +43,7 @@ demo/
   - Subtle blue-grey fog (urban haze)
   - Boosted glow for streetlight bloom effect
   - Street lamp posts with sodium-orange OmniLight3D (warm, no shadow)
+- **LampPost prefab** — `LampPost.tscn` bundles mesh + OmniLight3D; change once, all instances update
 - **Cigarette system** — full interaction loop with state machine:
   - F to pull out / put away carton (slides up/down with eased tween)
   - Left click to open carton lid (plays GLB animation)
@@ -45,6 +52,8 @@ demo/
   - Cigarette burns through 3 mesh stages over 15 s, then auto-reloads
   - Smoke + ember GPU particles, world-scale compensated for node scale
   - Movement speed halved while actively smoking
+- **Map 01 — 便利店 Convenience Store** — skeleton scene with night atmosphere, sidewalk, player spawn, skyscraper background buildings
+- **Scene transition system** — `scene_trigger.gd` on any `Area3D`; set `target_scene` in Inspector to wire up map exits; works across all maps
 
 ## Scene Conventions
 

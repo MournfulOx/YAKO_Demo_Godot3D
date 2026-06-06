@@ -16,15 +16,25 @@ Gameplay: first-person exploration + NPC dialogue. No jumping, no combat.
 ```
 demo/
 ├── Scenes/
+│   ├── scene_trigger.gd              # reusable map transition trigger (Area3D)
 │   ├── Player/
 │   │   ├── player.tscn
 │   │   ├── player.gd
 │   │   └── cigarette.gd
+│   ├── Maps/
+│   │   ├── Map_01_ConvenienceStore.tscn
+│   │   ├── Map_02_Crossroads.tscn
+│   │   └── Map_03_UnderTheOverPass.tscn
 │   └── Assets/
 │       ├── Player/
-│       │   ├── Cig.glb          # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
-│       │   └── cigs_carton.glb  # cigarette carton with CartonTopOpen animation
-│       └── UrbanPack1/          # street props
+│       │   ├── Cig.glb               # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
+│       │   └── cigs_carton.glb       # cigarette carton with CartonTopOpen animation
+│       ├── LampPost/
+│       │   └── LampPost.tscn         # prefab: Node3D + MeshInstance3D + OmniLight3D
+│       ├── UrbanPack1/               # street props
+│       └── skyscraper_pack/
+│           ├── models/               # source FBX + textures/
+│           └── glb/                  # converted GLB with emission baked in
 ├── shaders/
 │   ├── psx_base.gdshaderinc
 │   ├── psx_lit.gdshader              # standard lit mesh
@@ -37,6 +47,8 @@ demo/
 │   ├── post_process_blur.gdshader
 │   ├── lcd_post_process.gdshader
 │   └── psxdither.png
+├── tools/
+│   └── fbx_to_glb_with_texture.py   # Blender batch FBX→GLB converter with emission
 └── project.godot
 ```
 
@@ -68,7 +80,7 @@ Main (Node)
 - Glow: intensity `1.4`, bloom `0.25`, HDR threshold `0.75` (low threshold so lamp orange triggers bloom)
 - LampPost lights: `OmniLight3D` child at local `Y=0.085` — sodium orange `(1.0, 0.62, 0.18)`, energy `3.5`, range `10`, no shadow
 
-**TODO:** Convert LampPost MeshInstance3D nodes into a `LampPost.tscn` prefab (Node3D + MeshInstance3D + OmniLight3D) so lights are bundled with the model.
+**LampPost prefab:** `Scenes/Assets/LampPost/LampPost.tscn` — Node3D root with Mesh + LampLight (OmniLight3D). Instancing this prefab in any map auto-includes the light with correct parameters.
 
 ## Player Scene Structure
 
@@ -134,6 +146,35 @@ Script lives on `CigAnchor`. GLB root is `Cig2` with four child Node3D stages: `
 - Particle sizes/velocities are compensated for CigAnchor's ~0.15 world scale (`inv = 1 / gs`)
 - Direction and gravity are rotated to local space via `basis.inverse()` so they act as world-up
 - Emitter position (`_sync_tip`) is computed once per stage change — not every frame — to avoid jitter
+
+## Scene Transition System
+
+`Scenes/scene_trigger.gd` — attach to any `Area3D` node to create a map exit trigger.
+
+```gdscript
+@export_file("*.tscn") var target_scene: String = ""
+```
+
+- Detects `CharacterBody3D` entering the area via `body_entered`
+- Uses `call_deferred` to avoid physics callback errors
+- Set **Target Scene** in Inspector to the destination `.tscn` path
+- CollisionShape3D: use a thin BoxShape3D (`Vector3(5, 3, 0.5)`) spanning the exit edge
+- Collision Layer = 0 (none), Mask = Layer 1 (Player)
+
+## Skyscraper Background Buildings
+
+Source: `skyscraper_pack` (CC0). FBX files contain no embedded texture paths — textures must be baked in via Blender before importing to Godot.
+
+**Conversion tool:** `tools/fbx_to_glb_with_texture.py`
+
+```powershell
+& "D:\Blender\blender.exe" --background --python tools\fbx_to_glb_with_texture.py `
+  -- <models_dir> <textures_dir> <output_dir>
+```
+
+Naming convention: `building_01.x.fbx` → `building_01.png`. Script assigns the matching texture as both albedo and emission (strength 1.5) so buildings glow at night without requiring scene lighting.
+
+Output GLBs go to `Scenes/Assets/skyscraper_pack/glb/`.
 
 ## Code Conventions
 
