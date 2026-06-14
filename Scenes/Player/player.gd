@@ -3,20 +3,29 @@ extends CharacterBody3D
 enum State { HIDDEN, CARTON_CLOSED, CARTON_OPENING, CARTON_OPEN, SMOKING }
 
 @onready var head        := $Head
-@onready var cigarette           = $Head/Camera3D/ItemAnchor/CigAnchor
-@onready var carton              = $Head/Camera3D/ItemAnchor/CigCartonAnchor
-@onready var carton_anim: AnimationPlayer = $Head/Camera3D/ItemAnchor/CigCartonAnchor/cigs_carton/AnimationPlayer
+@onready var camera      : Camera3D       = $Head/Camera3D
+@onready var cigarette                    = $Head/Camera3D/ItemAnchor/CigAnchor
+@onready var carton                       = $Head/Camera3D/ItemAnchor/CigCartonAnchor
+@onready var carton_anim : AnimationPlayer = $Head/Camera3D/ItemAnchor/CigCartonAnchor/cigs_carton/AnimationPlayer
 
-var sensitivity := 0.002
-const SPEED := 3.0
-var state   := State.HIDDEN
+@export var sensitivity   : float = 0.002
+@export var speed         : float = 6.0
+@export var speed_smoking : float = 3.0
 
-var _carton_rest: Vector3
-var _cig_rest:    Vector3
+var state := State.HIDDEN
+
+var _carton_rest : Vector3
+var _cig_rest    : Vector3
 const _APPEAR_OFFSET := Vector3(0.0, -0.06, 0.0)
 const _APPEAR_TIME   := 0.25
-var _carton_tween: Tween
-var _cig_tween:    Tween
+var _carton_tween : Tween
+var _cig_tween    : Tween
+
+const NPC_INTERACT_RANGE := 1.5
+
+var _aimed_npc   : Node3D = null
+var _current_npc : Node3D = null
+var _dialogue_ui : CanvasLayer
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -26,6 +35,9 @@ func _ready() -> void:
 	cigarette.visible = false
 	carton_anim.animation_finished.connect(_on_carton_anim_finished)
 	cigarette.burned_out.connect(_on_cigarette_burned_out)
+
+	_dialogue_ui = load("res://Scenes/UI/dialogue_ui.gd").new()
+	add_child(_dialogue_ui)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -37,13 +49,20 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if event is InputEventKey and event.is_action_pressed("Smoke") and not event.is_echo():
-		if state == State.HIDDEN:
-			_enter_carton_closed()
-		else:
-			_enter_hidden()
+		if _current_npc == null:
+			if state == State.HIDDEN:
+				_enter_carton_closed()
+			else:
+				_enter_hidden()
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			if _current_npc != null:
+				_npc_advance()
+				return
+			if _aimed_npc != null:
+				_npc_start(_aimed_npc)
+				return
 			match state:
 				State.CARTON_CLOSED:
 					_enter_carton_opening()
@@ -54,6 +73,64 @@ func _input(event: InputEvent) -> void:
 		else:
 			if state == State.SMOKING:
 				cigarette.stop_smoking()
+
+func _process(_delta: float) -> void:
+	if _current_npc == null:
+		_update_npc_aim()
+
+func _update_npc_aim() -> void:
+	var space  := get_world_3d().direct_space_state
+	var origin := camera.global_position
+	var target := origin + -camera.global_transform.basis.z * 2.0
+	var query  := PhysicsRayQueryParameters3D.create(origin, target)
+	query.exclude = [self]
+	var hit := space.intersect_ray(query)
+
+	var found: Node3D = null
+	if not hit.is_empty():
+		var dist := global_position.distance_to(hit["position"])
+		if dist <= NPC_INTERACT_RANGE:
+			var node: Node = hit.get("collider", null)
+			while node != null:
+				if node.is_in_group("npc"):
+					found = node as Node3D
+					break
+				node = node.get_parent()
+
+	if found != _aimed_npc:
+		if _aimed_npc != null and _aimed_npc.has_method("set_outline"):
+			_aimed_npc.set_outline(false)
+		_aimed_npc = found
+		if _aimed_npc != null and _aimed_npc.has_method("set_outline"):
+			_aimed_npc.set_outline(true)
+
+func _npc_start(npc: Node3D) -> void:
+	if state != State.HIDDEN:
+		_enter_hidden()
+	_current_npc = npc
+	if _aimed_npc == npc:
+		if npc.has_method("set_outline"):
+			npc.set_outline(false)
+		_aimed_npc = null
+	npc.line_shown.connect(_on_npc_line_shown)
+	npc.ended.connect(_on_npc_ended, CONNECT_ONE_SHOT)
+	npc.start()
+
+func _npc_advance() -> void:
+	if _current_npc != null and _current_npc.has_method("advance"):
+		_current_npc.advance()
+
+func _on_npc_line_shown(text: String) -> void:
+	_dialogue_ui.show_line(text)
+
+func _on_npc_ended() -> void:
+	_dialogue_ui.hide_ui()
+	if _current_npc != null:
+		if _current_npc.line_shown.is_connected(_on_npc_line_shown):
+			_current_npc.line_shown.disconnect(_on_npc_line_shown)
+		_current_npc = null
+
+# ── Cigarette state machine ────────────────────────────────────────────────
 
 func _appear(node: Node3D, rest: Vector3) -> Tween:
 	var t := create_tween()
@@ -131,8 +208,8 @@ func _on_cigarette_burned_out() -> void:
 	)
 
 func _physics_process(_delta: float) -> void:
-	var input := Input.get_vector("Left", "Right", "Fowared", "Back")
+	var input     := Input.get_vector("Left", "Right", "Fowared", "Back")
 	var direction := (transform.basis.x * input.x + transform.basis.z * input.y).normalized()
-	var speed := SPEED * 0.5 if cigarette.is_smoking else SPEED
-	velocity = direction * speed
+	var cur_speed := speed_smoking if cigarette.is_smoking else speed
+	velocity = direction * cur_speed
 	move_and_slide()

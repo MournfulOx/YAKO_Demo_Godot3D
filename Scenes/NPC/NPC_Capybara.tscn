@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cevr7qby0h7w3"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cw2ppgxj1venh" path="res://Scenes/Assets/more assets/animal/capybara_ps1_style.glb" id="2_mv5c2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fdqq"]
+size = Vector3(2.118744, 1.4320068, 0.842041)
+
+[node name="NPC_Capybara" type="StaticBody3D" unique_id=734304139]
+script = ExtResource("1")
+dialogue_lines = Array[String](["The last train was cancelled.", "I've been here since Tuesday.", "My wife makes very good soup."])
+repeat_lines = Array[String](["The last train was cancelled.", "She uses the good pot."])
+
+[node name="Capybara" parent="." unique_id=1463050799 instance=ExtResource("2_mv5c2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1496224660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14833069, 0.79803467, 0)
+shape = SubResource("BoxShape3D_3fdqq")

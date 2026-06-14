@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chcwjeo3nfsop"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dh6c4il7sl7bs" path="res://Scenes/Assets/more assets/animal/cat_-_ps1_low_poly_rigged.glb" id="2_sd3wk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd3wk"]
+size = Vector3(0.46704102, 1.9510498, 2.4943848)
+
+[node name="NPC_Cat" type="StaticBody3D" unique_id=338536109]
+script = ExtResource("1")
+dialogue_lines = Array[String](["Business has been slow.", "It's the economy."])
+repeat_lines = Array[String](["Business has been slow."])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=698799738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95366424, 0.12264061)
+shape = SubResource("BoxShape3D_sd3wk")
+
+[node name="Cat" parent="." unique_id=1061378856 instance=ExtResource("2_sd3wk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

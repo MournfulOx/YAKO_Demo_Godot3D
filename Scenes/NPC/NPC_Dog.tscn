@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://8jqhkhb0yy41"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dhlwwpnh7c5xb" path="res://Scenes/Assets/more assets/animal/ps1_dog.glb" id="2_0tuq0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tuq0"]
+size = Vector3(1, 0.7527771, 1.1590576)
+
+[node name="NPC_Dog" type="StaticBody3D" unique_id=70731783]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I only have one.", "I have been deciding for forty minutes.", "It's a big decision."])
+repeat_lines = Array[String](["It really is."])
+
+[node name="Sketchfab_Scene" parent="." unique_id=1250807974 instance=ExtResource("2_0tuq0")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2126096464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49440002, 0.03314209)
+shape = SubResource("BoxShape3D_0tuq0")

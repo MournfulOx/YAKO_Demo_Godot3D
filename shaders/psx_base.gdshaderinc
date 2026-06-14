@@ -19,6 +19,10 @@ uniform bool y_billboard = false;
 uniform float alpha_scissor : hint_range(0, 1) = 0.1;
 #endif
 
+#ifdef NPC_WOBBLE
+uniform float wobble_amount : hint_range(0.0, 0.02) = 0.005;
+#endif
+
 // https://github.com/dsoft20/psx_retroshader/blob/master/Assets/Shaders/psx-vertexlit.shader
 const vec2 base_snap_res = vec2(160.0, 120.0);
 vec4 get_snapped_pos(vec4 base_pos)
@@ -49,6 +53,14 @@ void vertex()
 	{
 		MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
 	}
+#endif
+
+#ifdef NPC_WOBBLE
+	// Per-vertex jitter before snap — each vertex moves independently, mimicking PSX GTE integer imprecision
+	float _t = TIME * 8.0;
+	VERTEX.x += sin(_t        + VERTEX.x * 43.2 + VERTEX.z * 17.8) * wobble_amount;
+	VERTEX.y += sin(_t * 0.5  + VERTEX.y * 31.5 + VERTEX.x * 23.1) * wobble_amount * 0.25;
+	VERTEX.z += sin(_t * 1.31 + VERTEX.z * 51.7 + VERTEX.y * 11.4) * wobble_amount;
 #endif
 
 	POSITION = get_snapped_pos(PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX, 1.0));  // snap position to grid

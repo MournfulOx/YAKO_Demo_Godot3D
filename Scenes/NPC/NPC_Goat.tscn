@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bi7klq1yjoxpy"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dtp4u6kjpxu82" path="res://Scenes/Assets/more assets/animal/baby_goat_low_poly.glb" id="2_oa2hp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ax54"]
+size = Vector3(1, 1.7634277, 3.190918)
+
+[node name="NPC_Goat" type="StaticBody3D" unique_id=874597358]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I am thinking."])
+repeat_lines = Array[String](["Still thinking."])
+
+[node name="Sketchfab_Scene" parent="." unique_id=1374367015 instance=ExtResource("2_oa2hp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=826013410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8092041, 0.44262695)
+shape = SubResource("BoxShape3D_3ax54")

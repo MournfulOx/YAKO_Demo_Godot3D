@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scenes/NPC/npc_base.gd" id="1"]
+
+[node name="NPC_Fish" type="StaticBody3D"]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I used to have a five year plan.", "Present time.", "Present day."])
+repeat_lines = Array[String](["I forgot to eat breakfast."])

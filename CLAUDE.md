@@ -25,6 +25,18 @@ demo/
 │   │   ├── Map_01_ConvenienceStore.tscn
 │   │   ├── Map_02_Crossroads.tscn
 │   │   └── Map_03_UnderTheOverPass.tscn
+│   ├── NPC/
+│   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
+│   │   ├── NPC_Cat.tscn              # Map 01
+│   │   ├── NPC_Cow.tscn              # Map 02 (Capybara model)
+│   │   ├── NPC_Penguin.tscn          # Map 02 (Goat model)
+│   │   ├── NPC_Otter.tscn            # Map 03
+│   │   ├── NPC_Raccoon.tscn          # Map 04
+│   │   ├── NPC_Fish.tscn             # Map 04
+│   │   ├── NPC_Dog.tscn              # Map 04
+│   │   └── NPC_Sheep.tscn            # Map 05 (ending trigger)
+│   ├── UI/
+│   │   └── dialogue_ui.gd            # CanvasLayer (layer=5), subtitle display, code-only
 │   └── Assets/
 │       ├── Player/
 │       │   ├── Cig.glb               # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
@@ -36,9 +48,12 @@ demo/
 │           ├── models/               # source FBX + textures/
 │           └── glb/                  # converted GLB with emission baked in
 ├── shaders/
-│   ├── psx_base.gdshaderinc
+│   ├── psx_base.gdshaderinc          # shared: vertex snap + #ifdef NPC_WOBBLE
 │   ├── psx_lit.gdshader              # standard lit mesh
 │   ├── psx_unlit.gdshader            # unlit/self-lit mesh
+│   ├── psx_lit_npc.gdshader          # NPC: psx_lit + NPC_WOBBLE per-vertex jitter
+│   ├── npc_outline.gdshader          # white outline (cull_front, applied as next_pass)
+│   ├── sky_stars.gdshader            # shader_type sky — procedural pixel stars
 │   ├── psx_lit_metal.gdshader
 │   ├── psx_lit_transparent.gdshader
 │   ├── psx_lit_alpha-scissor.gdshader
@@ -58,7 +73,7 @@ demo/
 Main (Node)
 ├── CanvasLayer (Layer=10)
 │   └── ColorRect                     # fullscreen dither post-process
-├── WorldEnvironment                  # night atmosphere environment
+├── WorldEnvironment                  # night atmosphere + sky_stars.gdshader
 ├── DirectionalLight3D                # moonlight: cool blue, energy 0.12
 ├── Floor
 ├── Player
@@ -66,14 +81,13 @@ Main (Node)
     └── Props (GLB instance)
         ├── LampPost_001 (MeshInstance3D)
         │   └── LampLight (OmniLight3D)   # sodium orange, energy 3.5, range 10
-        ├── LampPost_002 … LampPost_004   # same structure
+        ├── LampPost_002 … LampPost_004
         └── … (FireHydrant, Mailbox, etc.)
 ```
 
 ## Night Atmosphere (WorldEnvironment)
 
-- Sky: deep blue-black top `(0.012, 0.012, 0.045)`, dark purple horizon, warm amber ground horizon (city light bleed)
-- Sky energy multiplier: `0.15`
+- Sky: uses `sky_stars.gdshader` (shader_type sky) — gradient matches original ProceduralSky colours + procedural pixel stars
 - Ambient: Color source, cool blue `(0.08, 0.1, 0.2)`, energy `0.18`
 - Moonlight (DirectionalLight3D): `Color(0.7, 0.78, 1.0)`, energy `0.12`, shadows on
 - Fog: enabled, blue-grey `(0.07, 0.08, 0.14)`, density `0.014`
@@ -106,7 +120,9 @@ Player (CharacterBody3D)
 | `Back` | S | |
 | `Left` | A | |
 | `Right` | D | |
-| `Smoke` | F | Toggle cigarette carton / put away |
+| `Smoke` | F | Toggle cigarette carton / put away (disabled during NPC dialogue) |
+| LMB press | Left Mouse | NPC: open dialogue / advance line; Cigarette: open carton / take cig |
+| LMB hold | Left Mouse | Smoke while in SMOKING state |
 
 ## Player Controller (player.gd)
 
@@ -115,6 +131,15 @@ Player (CharacterBody3D)
 - Movement uses `transform.basis` so direction follows player facing
 - No gravity, no jumping — `velocity.y` is unused
 - Speed halved (`SPEED * 0.5`) while `cigarette.is_smoking` is true
+- `DialogueUI` CanvasLayer instantiated in `_ready()` from `Scenes/UI/dialogue_ui.gd`
+
+### NPC Interaction (player.gd)
+
+- `_process()`: PhysicsRayQueryParameters3D from camera centre, 2 m length
+- Outline shown when ray hits NPC (group `"npc"`) within `NPC_INTERACT_RANGE = 1.5` m
+- LMB priority: `_current_npc` advance → `_aimed_npc` start → cigarette logic
+- Starting NPC dialogue force-closes cigarette (`_enter_hidden()`) and disables F key
+- Signals: `npc.line_shown` → `dialogue_ui.show_line()`; `npc.ended` → `dialogue_ui.hide_ui()`
 
 ### Cigarette State Machine
 
@@ -131,7 +156,7 @@ States: `HIDDEN → CARTON_CLOSED → CARTON_OPENING → CARTON_OPEN → SMOKING
 | Release left mouse | SMOKING | cigarette pauses |
 | Cigarette burned out | SMOKING | CARTON_CLOSED (auto-reload) |
 
-- Transitions use Tween (0.25 s, CubicEaseOut appear / CubicEaseIn disappear) so items slide up/down in camera space
+- Transitions use Tween (0.25 s, CubicEaseOut appear / CubicEaseIn disappear)
 - Carton and cigarette each have their own Tween so they can animate simultaneously
 
 ## Cigarette System (cigarette.gd)
@@ -146,6 +171,56 @@ Script lives on `CigAnchor`. GLB root is `Cig2` with four child Node3D stages: `
 - Particle sizes/velocities are compensated for CigAnchor's ~0.15 world scale (`inv = 1 / gs`)
 - Direction and gravity are rotated to local space via `basis.inverse()` so they act as world-up
 - Emitter position (`_sync_tip`) is computed once per stage change — not every frame — to avoid jitter
+
+## NPC System (npc_base.gd)
+
+`Scenes/NPC/npc_base.gd` — extends `StaticBody3D`. All NPC scenes use this as their root script.
+
+**Scene structure required:**
+```
+NPC_Xxx (StaticBody3D, npc_base.gd, group "npc" added automatically)
+├── CollisionShape3D    # required for raycast detection
+└── [Animal GLB]        # any MeshInstance3D hierarchy
+```
+
+**Exported properties:**
+- `dialogue_lines: Array[String]` — first interaction lines
+- `repeat_lines: Array[String]` — shown on all subsequent interactions
+- `wobble_amount: float = 0.005` — PSX per-vertex jitter intensity
+- `light_energy: float = 1.2` — OmniLight3D brightness
+- `light_color: Color` — Convenience Yellow `(0.91, 0.77, 0.28)` by default
+
+**What `_ready()` does automatically:**
+1. Adds node to group `"npc"`
+2. Applies `psx_lit_npc.gdshader` to all MeshInstance3D children (transfers `albedo_texture` from original BaseMaterial3D)
+3. Attaches `OmniLight3D` (range 3, no shadow) at Y=1.0 above root
+
+**Dialogue state machine:**
+- `start()` → emits `line_shown(text)` with first line; sets `_active = true`
+- `advance()` → emits `line_shown` for next line, or emits `ended` and sets `_complete = true`
+- After `_complete`, subsequent `start()` calls use `repeat_lines`
+- `is_active() → bool`
+
+**Outline system:**
+- `set_outline(true/false)` — recursively finds MeshInstance3D children, applies/removes `npc_outline.gdshader` as `next_pass` on surface override materials
+- Called by player.gd when NPC enters/leaves aim
+
+## NPC Shader Pipeline
+
+`shaders/psx_lit_npc.gdshader` — defines `NPC_WOBBLE`, includes `psx_base.gdshaderinc`.
+
+`psx_base.gdshaderinc` wobble code (activated by `#define NPC_WOBBLE`):
+- Runs **before** `get_snapped_pos()` so snap quantizes the wobbled vertex position
+- Per-vertex: uses `VERTEX` position components as hash seeds → each vertex moves independently
+- X/Z: 8 Hz; Y: 4 Hz at 25% amplitude
+
+## Sky Star Shader (sky_stars.gdshader)
+
+`shader_type sky` — assign as ShaderMaterial on WorldEnvironment → Sky → Sky Material.
+
+Key uniforms: `star_density` (0.968), `star_brightness` (0.65), `star_size` (0.12), `twinkle_speed` (0.9).
+
+Grid-based star placement: spherical UV divided into ~110×110 cells; `hash()` per cell determines star presence and position. `step(dist, star_size)` makes each star exactly 1–2 pixels at 320×240.
 
 ## Scene Transition System
 

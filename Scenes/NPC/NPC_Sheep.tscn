@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scenes/NPC/npc_base.gd" id="1"]
+
+[node name="NPC_Sheep" type="StaticBody3D"]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I left my umbrella at school.", "It wasn't even raining."])
+repeat_lines = Array[String](["I should probably go home."])
