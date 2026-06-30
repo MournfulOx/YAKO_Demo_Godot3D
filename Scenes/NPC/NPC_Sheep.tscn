@@ -4,5 +4,6 @@
 
 [node name="NPC_Sheep" type="StaticBody3D"]
 script = ExtResource("1")
+voice_pitch = 0.78
 dialogue_lines = Array[String](["I left my umbrella at school.", "It wasn't even raining."])
 repeat_lines = Array[String](["I should probably go home."])

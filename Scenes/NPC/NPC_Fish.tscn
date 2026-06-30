@@ -4,5 +4,6 @@
 
 [node name="NPC_Fish" type="StaticBody3D"]
 script = ExtResource("1")
+voice_pitch = 0.82
 dialogue_lines = Array[String](["I used to have a five year plan.", "Present time.", "Present day."])
 repeat_lines = Array[String](["I forgot to eat breakfast."])

@@ -8,6 +8,7 @@ size = Vector3(2.118744, 1.4320068, 0.842041)
 
 [node name="NPC_Capybara" type="StaticBody3D" unique_id=734304139]
 script = ExtResource("1")
+voice_pitch = 0.72
 dialogue_lines = Array[String](["The last train was cancelled.", "I've been here since Tuesday.", "My wife makes very good soup."])
 repeat_lines = Array[String](["The last train was cancelled.", "She uses the good pot."])
 

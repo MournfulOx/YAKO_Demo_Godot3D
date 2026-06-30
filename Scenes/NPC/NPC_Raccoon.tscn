@@ -4,5 +4,6 @@
 
 [node name="NPC_Raccoon" type="StaticBody3D"]
 script = ExtResource("1")
+voice_pitch = 1.1
 dialogue_lines = Array[String](["She said I was too much.", "I'm not that much."])
 repeat_lines = Array[String](["Do you think I'm too much?"])

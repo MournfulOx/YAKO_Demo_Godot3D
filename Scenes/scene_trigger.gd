@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is CharacterBody3D and not target_scene.is_empty():
-		get_tree().change_scene_to_file.call_deferred(target_scene)
+		SceneManager.change_scene(target_scene)

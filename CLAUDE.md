@@ -15,6 +15,9 @@ Gameplay: first-person exploration + NPC dialogue. No jumping, no combat.
 
 ```
 demo/
+├── autoload/
+│   ├── DuckState.gd                  # cross-scene singleton: tracks which maps played Duck dialogue
+│   └── SceneManager.gd               # CanvasLayer (layer=20): fade transition + location name display
 ├── Scenes/
 │   ├── scene_trigger.gd              # reusable map transition trigger (Area3D)
 │   ├── Player/
@@ -25,6 +28,10 @@ demo/
 │   │   ├── Map_01_ConvenienceStore.tscn
 │   │   ├── Map_02_Crossroads.tscn
 │   │   └── Map_03_UnderTheOverPass.tscn
+│   ├── Duck/
+│   │   ├── duck.gd                   # Duck Node3D: PSX shader, warm light, one-shot dialogue, queue_free after lines
+│   │   ├── duck_dialogue_ui.gd       # CanvasLayer (layer=4): typewriter + blip audio (400 Hz, fixed pitch)
+│   │   └── duck_trigger.gd           # Area3D: fires duck.trigger() once on player entry
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
 │   │   ├── NPC_Cat.tscn              # Map 01
@@ -36,7 +43,9 @@ demo/
 │   │   ├── NPC_Dog.tscn              # Map 04
 │   │   └── NPC_Sheep.tscn            # Map 05 (ending trigger)
 │   ├── UI/
-│   │   └── dialogue_ui.gd            # CanvasLayer (layer=5), subtitle display, code-only
+│   │   └── dialogue_ui.gd            # CanvasLayer (layer=5): typewriter subtitle + blip audio, code-only
+│   ├── Fonts/
+│   │   └── pixel.ttf                 # pixel bitmap font used for all in-game text
 │   └── Assets/
 │       ├── Player/
 │       │   ├── Cig.glb               # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
@@ -132,6 +141,8 @@ Player (CharacterBody3D)
 - No gravity, no jumping — `velocity.y` is unused
 - Speed halved (`SPEED * 0.5`) while `cigarette.is_smoking` is true
 - `DialogueUI` CanvasLayer instantiated in `_ready()` from `Scenes/UI/dialogue_ui.gd`
+- Head bob: `BOB_SPEED=1.3`, `BOB_AMP_Y=0.008`, `BOB_AMP_X=0.004`; accumulates only while velocity > 0
+- Footstep audio via `AudioStreamGenerator`: `STEP_INTERVAL=0.42s` (normal), `0.60s` (slow/smoking); 25% sine tone (55–95 Hz, pitch scales with speed) + 75% white noise, −18 dB
 
 ### NPC Interaction (player.gd)
 
@@ -189,6 +200,7 @@ NPC_Xxx (StaticBody3D, npc_base.gd, group "npc" added automatically)
 - `wobble_amount: float = 0.005` — PSX per-vertex jitter intensity
 - `light_energy: float = 1.2` — OmniLight3D brightness
 - `light_color: Color` — Convenience Yellow `(0.91, 0.77, 0.28)` by default
+- `voice_pitch: float = 1.0` — base pitch for procedural blip audio (passed to `dialogue_ui.show_line()`)
 
 **What `_ready()` does automatically:**
 1. Adds node to group `"npc"`
@@ -222,6 +234,21 @@ Key uniforms: `star_density` (0.968), `star_brightness` (0.65), `star_size` (0.1
 
 Grid-based star placement: spherical UV divided into ~110×110 cells; `hash()` per cell determines star presence and position. `step(dist, star_size)` makes each star exactly 1–2 pixels at 320×240.
 
+## Autoload Singletons
+
+Registered in `project.godot` under `[autoload]`.
+
+**`autoload/DuckState.gd`** — tracks which maps have played the Duck encounter (persists across scene loads).
+- `has_played(map_id: String) → bool`
+- `mark_played(map_id: String) → void`
+
+**`autoload/SceneManager.gd`** — CanvasLayer (layer=20, PROCESS_MODE_ALWAYS). Handles all scene transitions with a fade + location name display. Route all scene changes through `SceneManager.change_scene(path)` — never call `change_scene_to_file` directly.
+- Overlay: black ColorRect fades in (0.35 s) before switching; fades out (0.45 s) after
+- Location name: appears on black during fade-in, stays until 1.8 s after fade-out, then fades (0.6 s)
+- `_resolve(path)` — converts `uid://xxxx` paths (stored by Godot 4.4+) to file paths via `ResourceUID`
+- `_parse_name(path)` — strips `Map_XX_` prefix, splits CamelCase by character iteration (not RegEx — RegEx in static func returns empty results)
+- Font: `res://Scenes/Fonts/pixel.ttf`, size 6, white with 1px black outline via `add_theme_*_override`
+
 ## Scene Transition System
 
 `Scenes/scene_trigger.gd` — attach to any `Area3D` node to create a map exit trigger.
@@ -231,10 +258,53 @@ Grid-based star placement: spherical UV divided into ~110×110 cells; `hash()` p
 ```
 
 - Detects `CharacterBody3D` entering the area via `body_entered`
-- Uses `call_deferred` to avoid physics callback errors
+- Calls `SceneManager.change_scene(target_scene)` — do NOT use `call_deferred(change_scene_to_file, …)` directly
 - Set **Target Scene** in Inspector to the destination `.tscn` path
 - CollisionShape3D: use a thin BoxShape3D (`Vector3(5, 3, 0.5)`) spanning the exit edge
 - Collision Layer = 0 (none), Mask = Layer 1 (Player)
+
+## Duck Companion System
+
+`Scenes/Duck/` — one-shot NPC encounter that plays per-map dialogue then `queue_free()`s itself.
+
+**`duck.gd`** (Node3D):
+- `@export var map_id: String` — unique key passed to `DuckState` to guard replay
+- `@export var sheep_npc: NodePath` — on Map 05 only, connects to Sheep NPC's `ended` signal to trigger Duck lines after the ending
+- `_ready()`: applies `psx_lit.gdshader` (no wobble) to all MeshInstance3D children; spawns `OmniLight3D` — warm `Color(1.0, 0.88, 0.55)`, energy 2.8, range 2.5, Y=0.3
+- `trigger()` — called by `duck_trigger.gd`; guards via `DuckState.has_played(map_id)`; plays `duck_dialogue_ui.play_lines()`; calls `queue_free()` when done
+- Duck does **not** follow the player; it disappears after dialogue on every map
+
+**`duck_dialogue_ui.gd`** (CanvasLayer, layer=4):
+- Typewriter at `CHAR_INTERVAL=0.045 s`, hold `1.8 s`, fade `0.5 s`, gap between lines `0.25 s`
+- Blip audio: `BLIP_FREQ=400 Hz`, fixed pitch (no variation — distinguishes Duck from NPC's 520 Hz with per-character jitter)
+- Font: `res://Scenes/Fonts/pixel.ttf`, size 6, white + 1px outline via `LabelSettings`
+
+**`duck_trigger.gd`** (Area3D):
+- Fires once; disconnects `body_entered` after first trigger to prevent replay in same scene load
+- Calls `duck.trigger()` via `call_deferred`
+
+**Per-map dialogue:** defined in `duck.gd` via `_lines_for(map_id)` `match` statement — covers all 5 maps.
+
+## Procedural Audio
+
+All in-game audio uses `AudioStreamGenerator` (PCM push) — no audio files required.
+
+**NPC dialogue blips** (`Scenes/UI/dialogue_ui.gd`):
+- Square wave, `BLIP_FREQ=520 Hz`, `BLIP_DURATION=0.055 s`, `BLIP_RATE=11025`
+- Pitch per character: `voice_pitch ± randf_range(−0.06, 0.06)` — creates per-NPC voice character
+- Envelope: `pow(1 − t, 0.4)` decay
+
+**Duck blips** (`Scenes/Duck/duck_dialogue_ui.gd`):
+- Same square wave; `BLIP_FREQ=400 Hz`, fixed pitch — quieter, mellower tone
+
+**Footsteps** (`Scenes/Player/player.gd`):
+- `AudioStreamGenerator`, −18 dB; fires every `STEP_INTERVAL=0.42 s` (or `0.60 s` when smoking)
+- Mix: 25% sine tone (frequency interpolated 55–95 Hz by speed) + 75% white noise
+- Decay envelope 0.55; no footstep sound when stationary
+
+**GDScript 4 audio notes:**
+- `AudioStreamWAV` format enums (`FORMAT_16_BIT`, `FORMAT_8_BIT`) are inaccessible at runtime in Godot 4.6 — always use `AudioStreamGenerator` + `push_frame()`
+- `lerp()` returns `Variant`; use `lerpf()` for float mixing to avoid type inference errors
 
 ## Skyscraper Background Buildings
 

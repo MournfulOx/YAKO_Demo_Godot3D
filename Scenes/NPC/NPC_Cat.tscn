@@ -8,6 +8,7 @@ size = Vector3(0.46704102, 1.9510498, 2.4943848)
 
 [node name="NPC_Cat" type="StaticBody3D" unique_id=338536109]
 script = ExtResource("1")
+voice_pitch = 1.35
 dialogue_lines = Array[String](["Business has been slow.", "It's the economy."])
 repeat_lines = Array[String](["Business has been slow."])
 

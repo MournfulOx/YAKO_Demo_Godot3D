@@ -4,5 +4,6 @@
 
 [node name="NPC_Otter" type="StaticBody3D"]
 script = ExtResource("1")
+voice_pitch = 0.88
 dialogue_lines = Array[String](["I had a terrible day once.", "1987, I think.", "Very cold. Terrible soup."])
 repeat_lines = Array[String](["Or maybe it was 1988.", "Anyway."])

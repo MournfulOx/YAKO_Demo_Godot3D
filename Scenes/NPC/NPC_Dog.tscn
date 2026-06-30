@@ -8,6 +8,7 @@ size = Vector3(1, 0.7527771, 1.1590576)
 
 [node name="NPC_Dog" type="StaticBody3D" unique_id=70731783]
 script = ExtResource("1")
+voice_pitch = 0.95
 dialogue_lines = Array[String](["I only have one.", "I have been deciding for forty minutes.", "It's a big decision."])
 repeat_lines = Array[String](["It really is."])
 

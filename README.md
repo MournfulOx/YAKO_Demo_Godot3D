@@ -20,12 +20,17 @@ A short first-person walking game set on a midnight Japanese city street. PSX-er
 ## Project Structure
 
 ```
+├── autoload/
+│   ├── DuckState.gd           # cross-scene singleton: Duck encounter state
+│   └── SceneManager.gd        # fade transition + location name display (layer=20)
 ├── Scenes/
 │   ├── scene_trigger.gd       # reusable map transition trigger (Area3D)
 │   ├── Player/                # CharacterBody3D, cigarette state machine
 │   ├── Maps/                  # Map_01 – Map_03 scenes
+│   ├── Duck/                  # duck.gd, duck_dialogue_ui.gd, duck_trigger.gd
 │   ├── NPC/                   # npc_base.gd + 8 pre-configured NPC scenes
 │   ├── UI/                    # dialogue_ui.gd (CanvasLayer, created in code)
+│   ├── Fonts/                 # pixel.ttf — pixel bitmap font
 │   └── Assets/
 │       ├── Player/            # Cig.glb, cigs_carton.glb
 │       ├── LampPost/          # LampPost.tscn prefab (mesh + light bundled)
@@ -57,28 +62,46 @@ Full interaction loop with state machine (F → open carton → left click → s
   - Auto-applies `psx_lit_npc.gdshader` (PSX vertex snap + per-vertex wobble) to all mesh children
   - White outline on focused NPC via `npc_outline.gdshader` (next_pass on surface material)
   - OmniLight3D auto-attached — makes NPCs visible in dark environments
-  - `wobble_amount`, `light_energy`, `light_color` all exposed as `@export`
+  - `wobble_amount`, `light_energy`, `light_color`, `voice_pitch` all exposed as `@export`
+- **Typewriter dialogue** — timer-driven character reveal (0.045 s/char); LMB skips to end, then advances
+- **Procedural NPC voices** — `AudioStreamGenerator` square wave blips (520 Hz base); pitch varies per character + per NPC via `voice_pitch`; no audio files required
 - **`Scenes/UI/dialogue_ui.gd`** — bottom-centre subtitle CanvasLayer, created in code
 - **Player raycast** — 2 m ray from camera centre; outline + interaction at ≤ 1.5 m
 - If cigarette is active when interacting with NPC, it is forcibly put away first
 - **8 NPC scenes** pre-configured with GDD dialogue (`Scenes/NPC/`):
 
-  | Scene | Character | Map |
-  |---|---|---|
-  | `NPC_Cat.tscn` | Cat | Map 01 — Convenience Store |
-  | `NPC_Cow.tscn` | Capybara | Map 02 — Crossroads |
-  | `NPC_Penguin.tscn` | Goat | Map 02 — Crossroads |
-  | `NPC_Otter.tscn` | Otter | Map 03 — Under the Overpass |
-  | `NPC_Raccoon.tscn` | Raccoon | Map 04 — Arcade Alley |
-  | `NPC_Fish.tscn` | Fish | Map 04 — Arcade Alley |
-  | `NPC_Dog.tscn` | Dog | Map 04 — Arcade Alley |
-  | `NPC_Sheep.tscn` | Sheep | Map 05 — School Rooftop |
+  | Scene | Character | Map | Voice Pitch |
+  |---|---|---|---|
+  | `NPC_Cat.tscn` | Cat | Map 01 — Convenience Store | 1.35 |
+  | `NPC_Cow.tscn` | Capybara | Map 02 — Crossroads | 0.72 |
+  | `NPC_Penguin.tscn` | Goat | Map 02 — Crossroads | 1.15 |
+  | `NPC_Otter.tscn` | Otter | Map 03 — Under the Overpass | 0.88 |
+  | `NPC_Raccoon.tscn` | Raccoon | Map 04 — Arcade Alley | 1.10 |
+  | `NPC_Fish.tscn` | Fish | Map 04 — Arcade Alley | 0.82 |
+  | `NPC_Dog.tscn` | Dog | Map 04 — Arcade Alley | 0.95 |
+  | `NPC_Sheep.tscn` | Sheep | Map 05 — School Rooftop | 0.78 |
 
-### Maps
+### Duck Companion
+- One-shot encounter per map; rubber duck NPC with warm self-illumination (`OmniLight3D`, 2.8 energy)
+- Plays map-specific dialogue via typewriter, then `queue_free()`s — does not follow the player
+- Duck voice: 400 Hz square wave blip, fixed pitch (distinct from NPC voices)
+- `DuckState` autoload tracks which maps have triggered the encounter across scene loads
+- Place `duck_trigger.gd` on an `Area3D` near the duck model; fires once per scene load
+
+### Player Feel
+- **Head bob** — subtle camera oscillation while moving (`BOB_SPEED=1.3`, `BOB_AMP_Y=0.008`, `BOB_AMP_X=0.004`)
+- **Footstep audio** — procedural: sine tone (55–95 Hz, pitch scales with speed) + white noise mix, −18 dB; cadence slows when smoking
+
+### Maps & Scene Transitions
 - **Map 01 — 便利店 Convenience Store** — night atmosphere, sidewalk, player spawn, skyscraper background
 - **Map 02 — 交差点 Crossroads** — in progress
 - **Map 03 — 高架下 Under the Overpass** — in progress
 - **Scene transition system** — `scene_trigger.gd` on any `Area3D`; set `target_scene` in Inspector
+- **Loading screen + location name** — `SceneManager` autoload fades to black, displays the map name (parsed from filename), then fades in; name stays visible 1.8 s after arrival
+
+### UI & Font
+- All in-game text uses `Scenes/Fonts/pixel.ttf` — pixel bitmap font, size 6
+- Dialogue, Duck lines, and the scene name display all share the same font stack
 
 ## Adding a New NPC to a Map
 

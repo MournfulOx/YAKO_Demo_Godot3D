@@ -12,6 +12,11 @@ enum State { HIDDEN, CARTON_CLOSED, CARTON_OPENING, CARTON_OPEN, SMOKING }
 @export var speed         : float = 6.0
 @export var speed_smoking : float = 3.0
 
+const STEP_INTERVAL        := 0.42
+const STEP_INTERVAL_SLOW   := 0.60
+const STEP_BLIP_RATE       := 11025.0
+const STEP_BLIP_DURATION   := 0.07
+
 var state := State.HIDDEN
 
 var _carton_rest : Vector3
@@ -23,9 +28,17 @@ var _cig_tween    : Tween
 
 const NPC_INTERACT_RANGE := 1.5
 
+const BOB_SPEED := 1.3
+const BOB_AMP_Y := 0.008
+const BOB_AMP_X := 0.004
+
 var _aimed_npc   : Node3D = null
 var _current_npc : Node3D = null
 var _dialogue_ui : CanvasLayer
+
+var _step_audio : AudioStreamPlayer
+var _step_timer : float = 0.0
+var _bob_time   : float = 0.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -38,6 +51,14 @@ func _ready() -> void:
 
 	_dialogue_ui = load("res://Scenes/UI/dialogue_ui.gd").new()
 	add_child(_dialogue_ui)
+
+	var gen := AudioStreamGenerator.new()
+	gen.mix_rate      = STEP_BLIP_RATE
+	gen.buffer_length = STEP_BLIP_DURATION + 0.02
+	_step_audio = AudioStreamPlayer.new()
+	_step_audio.stream    = gen
+	_step_audio.volume_db = -18.0
+	add_child(_step_audio)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -74,9 +95,22 @@ func _input(event: InputEvent) -> void:
 			if state == State.SMOKING:
 				cigarette.stop_smoking()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if _current_npc == null:
 		_update_npc_aim()
+	_update_head_bob(delta)
+
+func _update_head_bob(delta: float) -> void:
+	var spd: float = velocity.length()
+	if spd > 0.5:
+		_bob_time += spd * delta * BOB_SPEED
+		var target := Vector3(
+			sin(_bob_time * 0.5) * BOB_AMP_X,
+			sin(_bob_time)       * BOB_AMP_Y,
+			0.0)
+		camera.position = camera.position.lerp(target, 12.0 * delta)
+	else:
+		camera.position = camera.position.lerp(Vector3.ZERO, 8.0 * delta)
 
 func _update_npc_aim() -> void:
 	var space  := get_world_3d().direct_space_state
@@ -117,11 +151,17 @@ func _npc_start(npc: Node3D) -> void:
 	npc.start()
 
 func _npc_advance() -> void:
+	if _dialogue_ui.is_typing():
+		_dialogue_ui.skip_typing()
+		return
 	if _current_npc != null and _current_npc.has_method("advance"):
 		_current_npc.advance()
 
 func _on_npc_line_shown(text: String) -> void:
-	_dialogue_ui.show_line(text)
+	var pitch: float = 1.0
+	if _current_npc != null and "voice_pitch" in _current_npc:
+		pitch = _current_npc.voice_pitch
+	_dialogue_ui.show_line(text, pitch)
 
 func _on_npc_ended() -> void:
 	_dialogue_ui.hide_ui()
@@ -207,9 +247,33 @@ func _on_cigarette_burned_out() -> void:
 			_carton_tween = _appear(carton, _carton_rest)
 	)
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var input     := Input.get_vector("Left", "Right", "Fowared", "Back")
 	var direction := (transform.basis.x * input.x + transform.basis.z * input.y).normalized()
 	var cur_speed := speed_smoking if cigarette.is_smoking else speed
 	velocity = direction * cur_speed
 	move_and_slide()
+
+	if direction.length_squared() > 0.01:
+		_step_timer -= delta
+		if _step_timer <= 0.0:
+			var spd: float = velocity.length()
+			_step_timer = STEP_INTERVAL_SLOW if cigarette.is_smoking else STEP_INTERVAL
+			_play_footstep(spd / speed)
+	else:
+		_step_timer = 0.0
+
+func _play_footstep(speed_ratio: float) -> void:
+	_step_audio.stop()
+	_step_audio.play()
+	var pb := _step_audio.get_stream_playback() as AudioStreamGeneratorPlayback
+	if pb == null:
+		return
+	var n    := int(STEP_BLIP_RATE * STEP_BLIP_DURATION)
+	var freq: float = lerpf(55.0, 95.0, clamp(speed_ratio, 0.0, 1.0))
+	for i: int in n:
+		var t     := float(i) / STEP_BLIP_RATE
+		var env   := pow(1.0 - float(i) / n, 0.55)
+		var tone  := sin(TAU * freq * t) * 0.25
+		var noise := randf_range(-1.0, 1.0) * 0.75
+		pb.push_frame(Vector2.ONE * (tone + noise) * env * 0.45)

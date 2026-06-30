@@ -1,7 +1,19 @@
 extends CanvasLayer
 
-var _label  : Label
-var _prompt : Label
+const CHAR_INTERVAL := 0.045
+const BLIP_FREQ     := 520.0
+const BLIP_DURATION := 0.055
+const BLIP_RATE     := 11025.0
+
+var _label      : Label
+var _prompt     : Label
+var _audio      : AudioStreamPlayer
+var _type_timer : Timer
+
+var _full_text  : String = ""
+var _char_idx   : int    = 0
+var _typing     : bool   = false
+var _base_pitch : float  = 1.0
 
 func _ready() -> void:
 	layer = 5
@@ -17,9 +29,12 @@ func _ready() -> void:
 	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var ls := LabelSettings.new()
 	ls.font_color    = Color.WHITE
-	ls.font_size     = 8
+	ls.font_size     = 6
 	ls.outline_size  = 1
 	ls.outline_color = Color.BLACK
+	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
+	if pf:
+		ls.font = pf
 	_label.label_settings = ls
 	_label.visible = false
 	add_child(_label)
@@ -40,11 +55,68 @@ func _ready() -> void:
 	_prompt.visible = false
 	add_child(_prompt)
 
-func show_line(text: String) -> void:
-	_label.text     = text
+	var gen := AudioStreamGenerator.new()
+	gen.mix_rate     = BLIP_RATE
+	gen.buffer_length = BLIP_DURATION + 0.02
+	_audio = AudioStreamPlayer.new()
+	_audio.stream    = gen
+	_audio.volume_db = -8.0
+	add_child(_audio)
+
+	_type_timer = Timer.new()
+	_type_timer.wait_time = CHAR_INTERVAL
+	_type_timer.one_shot  = false
+	_type_timer.timeout.connect(_on_type_tick)
+	add_child(_type_timer)
+
+func show_line(text: String, pitch: float = 1.0) -> void:
+	_type_timer.stop()
+	_full_text  = text
+	_char_idx   = 0
+	_base_pitch = pitch
+	_typing     = true
+	_label.text     = ""
 	_label.visible  = true
+	_prompt.visible = false
+	_type_timer.start()
+
+func _on_type_tick() -> void:
+	if _char_idx >= _full_text.length():
+		_finish_typing()
+		return
+	_char_idx += 1
+	_label.text = _full_text.substr(0, _char_idx)
+	if _full_text[_char_idx - 1] != " ":
+		_play_blip(_base_pitch + randf_range(-0.06, 0.06))
+
+func _play_blip(pitch: float) -> void:
+	_audio.stop()
+	_audio.play()
+	var pb := _audio.get_stream_playback() as AudioStreamGeneratorPlayback
+	if pb == null:
+		return
+	var n    := int(BLIP_RATE * BLIP_DURATION)
+	var freq := BLIP_FREQ * pitch
+	for i: int in n:
+		var env  := pow(1.0 - float(i) / n, 0.4)
+		var wave := 1.0 if sin(TAU * freq * float(i) / BLIP_RATE) >= 0.0 else -1.0
+		pb.push_frame(Vector2.ONE * wave * env * 0.5)
+
+func _finish_typing() -> void:
+	_type_timer.stop()
+	_label.text     = _full_text
+	_typing         = false
 	_prompt.visible = true
 
+func is_typing() -> bool:
+	return _typing
+
+func skip_typing() -> void:
+	if _typing:
+		_finish_typing()
+
 func hide_ui() -> void:
+	_type_timer.stop()
+	_typing         = false
 	_label.visible  = false
 	_prompt.visible = false

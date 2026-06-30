@@ -3,6 +3,7 @@ extends StaticBody3D
 @export var dialogue_lines : Array[String] = []
 @export var repeat_lines   : Array[String] = []
 @export var wobble_amount  : float         = 0.005
+@export var voice_pitch    : float         = 1.0
 
 signal line_shown(text: String)
 signal ended
