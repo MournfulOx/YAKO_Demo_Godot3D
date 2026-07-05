@@ -7,35 +7,35 @@
 [ext_resource type="Texture2D" uid="uid://cqce8y3558wbw" path="res://Scenes/Assets/UrbanPack/Textures/LampPost2.png" id="6_k8cby"]
 [ext_resource type="Texture2D" uid="uid://db0r1qmonioym" path="res://Scenes/Assets/UrbanPack/Textures/LampPost3.png" id="7_fq61o"]
 [ext_resource type="Texture2D" uid="uid://d1lfn2xchhtu2" path="res://Scenes/Assets/UrbanPack/Textures/LampPost4.png" id="8_3ygvi"]
-[ext_resource type="Texture2D" uid="uid://bilxbcotpxxic" path="res://Scenes/Assets/Zee/Road/modular_roads_pack_0.jpg" id="8_dc475"]
-[ext_resource type="Texture2D" uid="uid://bq3s5c35ji5e4" path="res://Scenes/Assets/Zee/Road/modular_roads_pack_1.jpg" id="9_b1avh"]
-[ext_resource type="PackedScene" uid="uid://cmjki0j653yrc" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 05/Commercial 05.glb" id="12_qege4"]
-[ext_resource type="PackedScene" uid="uid://b7hmph1asc8rn" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 06/Commercial 06.glb" id="13_637xr"]
-[ext_resource type="Texture2D" uid="uid://c84wrj2lso02b" path="res://Scenes/Assets/Zee/Floor/Cracked Road/low_road_9.jpg" id="14_637xr"]
-[ext_resource type="PackedScene" uid="uid://dhto18vs04qn3" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 07/Untitled.glb" id="15_kt1fd"]
-[ext_resource type="PackedScene" uid="uid://vq65x42poy2q" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 08/Untitled.glb" id="16_4lfpb"]
-[ext_resource type="PackedScene" uid="uid://c8ipapk0e5vx8" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 09/Untitled.glb" id="17_eqvcl"]
-[ext_resource type="PackedScene" uid="uid://ybnhnisgj4j4" path="res://Scenes/Assets/Zee/Buildings/Station/Station 01/Untitled.glb" id="18_bnl3i"]
-[ext_resource type="PackedScene" uid="uid://dud6bxwjeaotb" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 10/Untitled.glb" id="18_cdvdk"]
-[ext_resource type="PackedScene" uid="uid://cxkw3hsnrukbg" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 02/Commercial 02.glb" id="18_kt1fd"]
-[ext_resource type="PackedScene" uid="uid://ccnm007bm6beb" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 03/Commercial 03.glb" id="19_4lfpb"]
-[ext_resource type="PackedScene" uid="uid://dmelh4m5rmob4" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 11/Untitled.glb" id="19_l06od"]
-[ext_resource type="PackedScene" uid="uid://d4lqnau5mjip5" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 04/Commercial04.glb" id="20_eqvcl"]
-[ext_resource type="PackedScene" uid="uid://cffha10mu235a" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 12/Untitled.glb" id="20_k8cby"]
-[ext_resource type="PackedScene" uid="uid://cs0efpsdmvs85" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 13/Untitled.glb" id="21_fq61o"]
-[ext_resource type="PackedScene" uid="uid://bh8qfx41fcpb5" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 14/Untitled.glb" id="22_3ygvi"]
-[ext_resource type="PackedScene" uid="uid://cht33pl5u5gmx" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 15/Untitled.glb" id="23_rsf5s"]
-[ext_resource type="Texture2D" uid="uid://bnri0ls62gfxf" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 16/Commercial 16_Gemini_Generated_Image_qae7k0qae7k0qae7.png" id="24_k8cby"]
-[ext_resource type="Texture2D" uid="uid://bks6q4vydkb53" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 16/Commercial 16_Gemini_Generated_Image_qae7k0qae7k0qae7_1.png" id="25_fq61o"]
-[ext_resource type="PackedScene" uid="uid://dads7wmodvel" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 17/Commercial 17.glb" id="27_3ygvi"]
-[ext_resource type="PackedScene" uid="uid://cvydiaakdtbcg" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 18/Commercial 18.glb" id="28_rsf5s"]
-[ext_resource type="PackedScene" uid="uid://dqx7oexiee784" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 19/Commercial 19.glb" id="29_m17pf"]
-[ext_resource type="PackedScene" uid="uid://cnsgel780kne0" path="res://Scenes/Assets/Zee/Buildings/Commercial/Commercial 20/20.glb" id="30_bej06"]
-[ext_resource type="PackedScene" uid="uid://bcqxvs364mtbr" path="res://Scenes/Assets/Zee/Buildings/Commercial/22/22.glb" id="32_hehmy"]
-[ext_resource type="PackedScene" uid="uid://cmjq6ym05hbha" path="res://Scenes/Assets/Zee/Buildings/Commercial/21/21.glb" id="32_jpv0b"]
-[ext_resource type="PackedScene" uid="uid://cv5atfjpqtijy" path="res://Scenes/Assets/Zee/Buildings/Commercial/23/23.glb" id="33_tkkyw"]
-[ext_resource type="PackedScene" uid="uid://dlymbdkpx73cb" path="res://Scenes/Assets/Zee/Buildings/Commercial/24/24.glb" id="34_ppx1j"]
-[ext_resource type="Texture2D" uid="uid://c14nhidewxl2o" path="res://Scenes/Assets/Zee/Buildings/Commercial/25/25_Gemini_Generated_Image_giz4okgiz4okgiz4.png" id="35_amfk7"]
+[ext_resource type="Texture2D" uid="uid://bilxbcotpxxic" path="res://Scenes/Assets/Zee/all_road/Road/modular_road/modular_roads_pack_0.jpg" id="8_dc475"]
+[ext_resource type="Texture2D" uid="uid://bq3s5c35ji5e4" path="res://Scenes/Assets/Zee/all_road/Road/modular_road/modular_roads_pack_1.jpg" id="9_b1avh"]
+[ext_resource type="PackedScene" uid="uid://cmjki0j653yrc" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 05/Commercial 05.glb" id="12_qege4"]
+[ext_resource type="PackedScene" uid="uid://b7hmph1asc8rn" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 06/Commercial 06.glb" id="13_637xr"]
+[ext_resource type="Texture2D" uid="uid://c84wrj2lso02b" path="res://Scenes/Assets/Zee/all_road/Floor/Cracked Road/low_road_9.jpg" id="14_637xr"]
+[ext_resource type="PackedScene" uid="uid://dhto18vs04qn3" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 07/Untitled.glb" id="15_kt1fd"]
+[ext_resource type="PackedScene" uid="uid://vq65x42poy2q" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 08/Untitled.glb" id="16_4lfpb"]
+[ext_resource type="PackedScene" uid="uid://c8ipapk0e5vx8" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 09/Untitled.glb" id="17_eqvcl"]
+[ext_resource type="PackedScene" uid="uid://ybnhnisgj4j4" path="res://Scenes/Assets/Zee/all_buildings/architecture/Station/Station 01/Untitled.glb" id="18_bnl3i"]
+[ext_resource type="PackedScene" uid="uid://dud6bxwjeaotb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 10/Untitled.glb" id="18_cdvdk"]
+[ext_resource type="PackedScene" uid="uid://cxkw3hsnrukbg" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 02/Commercial 02.glb" id="18_kt1fd"]
+[ext_resource type="PackedScene" uid="uid://ccnm007bm6beb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 03/Commercial 03.glb" id="19_4lfpb"]
+[ext_resource type="PackedScene" uid="uid://dmelh4m5rmob4" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 11/Untitled.glb" id="19_l06od"]
+[ext_resource type="PackedScene" uid="uid://d4lqnau5mjip5" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 04/Commercial04.glb" id="20_eqvcl"]
+[ext_resource type="PackedScene" uid="uid://cffha10mu235a" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 12/Untitled.glb" id="20_k8cby"]
+[ext_resource type="PackedScene" uid="uid://cs0efpsdmvs85" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 13/Untitled.glb" id="21_fq61o"]
+[ext_resource type="PackedScene" uid="uid://bh8qfx41fcpb5" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 14/Untitled.glb" id="22_3ygvi"]
+[ext_resource type="PackedScene" uid="uid://cht33pl5u5gmx" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 15/Untitled.glb" id="23_rsf5s"]
+[ext_resource type="Texture2D" uid="uid://bnri0ls62gfxf" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 16/Commercial 16_Gemini_Generated_Image_qae7k0qae7k0qae7.png" id="24_k8cby"]
+[ext_resource type="Texture2D" uid="uid://bks6q4vydkb53" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 16/Commercial 16_Gemini_Generated_Image_qae7k0qae7k0qae7_1.png" id="25_fq61o"]
+[ext_resource type="PackedScene" uid="uid://dads7wmodvel" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 17/Commercial 17.glb" id="27_3ygvi"]
+[ext_resource type="PackedScene" uid="uid://cvydiaakdtbcg" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 18/Commercial 18.glb" id="28_rsf5s"]
+[ext_resource type="PackedScene" uid="uid://dqx7oexiee784" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 19/Commercial 19.glb" id="29_m17pf"]
+[ext_resource type="PackedScene" uid="uid://cnsgel780kne0" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 20/20.glb" id="30_bej06"]
+[ext_resource type="PackedScene" uid="uid://bcqxvs364mtbr" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/22/22.glb" id="32_hehmy"]
+[ext_resource type="PackedScene" uid="uid://cmjq6ym05hbha" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/21/21.glb" id="32_jpv0b"]
+[ext_resource type="PackedScene" uid="uid://cv5atfjpqtijy" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/23/23.glb" id="33_tkkyw"]
+[ext_resource type="PackedScene" uid="uid://dlymbdkpx73cb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/24/24.glb" id="34_ppx1j"]
+[ext_resource type="Texture2D" uid="uid://c14nhidewxl2o" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/25/25_Gemini_Generated_Image_giz4okgiz4okgiz4.png" id="35_amfk7"]
 [ext_resource type="Texture2D" uid="uid://piodgjfckgxl" path="res://Scenes/Assets/Zee/Vending Machine/jpn_vending_machine_0.png" id="37_c1qpo"]
 [ext_resource type="Texture2D" uid="uid://wj8btw12mro4" path="res://Scenes/Assets/Zee/Vending Machine/jpn_vending_machine_1.png" id="38_u4g3t"]
 
@@ -1336,9 +1336,6 @@ shadow_mesh = SubResource("ArrayMesh_q5c5s")
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=819991932]
 environment = SubResource("Environment_ohl52")
-
-[node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1983347, 2.4333313, -38.27182)
 
 [node name="Map 02" type="Node3D" parent="." unique_id=1261792792]
 
@@ -2803,13 +2800,13 @@ mesh = SubResource("ArrayMesh_kxe0e")
 
 [node name="Commercial" type="Node3D" parent="Map 02/Asset New/Building" unique_id=1982129725]
 
-[node name="01" parent="Map 02/Asset New/Building/Commercial" unique_id=1342873803 instance=ExtResource("18_kt1fd")]
+[node name="01" parent="Map 02/Asset New/Building/Commercial" unique_id=1807299260 instance=ExtResource("18_kt1fd")]
 transform = Transform3D(38.055, 0, 0, 0, 38.055, 0, 0, 0, 38.055, -19.906982, -9.189871, -192.39305)
 
-[node name="02" parent="Map 02/Asset New/Building/Commercial" unique_id=2058480134 instance=ExtResource("18_kt1fd")]
+[node name="02" parent="Map 02/Asset New/Building/Commercial" unique_id=1543060061 instance=ExtResource("18_kt1fd")]
 transform = Transform3D(-1.6634369e-06, 0, 38.055, 0, 38.055, 0, -38.055, 0, -1.6634369e-06, -193.42825, -9.189871, -165.31801)
 
-[node name="03" parent="Map 02/Asset New/Building/Commercial" unique_id=1532984869 instance=ExtResource("19_4lfpb")]
+[node name="03" parent="Map 02/Asset New/Building/Commercial" unique_id=1210270473 instance=ExtResource("19_4lfpb")]
 transform = Transform3D(140.74, 0, 0, 0, 140.74, 0, 0, 0, 140.74, -20.83334, 29.556734, -122.288864)
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/03" unique_id=794803827]
@@ -2821,7 +2818,7 @@ light_color = Color(1, 0.62, 0.18, 1)
 light_energy = 3.5
 omni_range = 10.0
 
-[node name="04" parent="Map 02/Asset New/Building/Commercial" unique_id=1362544411 instance=ExtResource("20_eqvcl")]
+[node name="04" parent="Map 02/Asset New/Building/Commercial" unique_id=327140049 instance=ExtResource("20_eqvcl")]
 transform = Transform3D(-4.2435017e-06, 0, 97.08, 0, 97.08, 0, -97.08, 0, -4.2435017e-06, 93.332565, 38.893, 17.58781)
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/04" unique_id=72807944]
@@ -2845,7 +2842,7 @@ light_color = Color(1, 0.62, 0.18, 1)
 light_energy = 3.5
 omni_range = 27.809786
 
-[node name="27" parent="Map 02/Asset New/Building/Commercial" unique_id=2056217750 instance=ExtResource("20_eqvcl")]
+[node name="27" parent="Map 02/Asset New/Building/Commercial" unique_id=1750232530 instance=ExtResource("20_eqvcl")]
 transform = Transform3D(-4.2435017e-06, 0, -97.08, 0, 97.08, 0, 97.08, 0, -4.2435017e-06, -61.019, 38.893, -20.003)
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/27" unique_id=1377277794]
@@ -2869,7 +2866,7 @@ light_color = Color(1, 0.62, 0.18, 1)
 light_energy = 3.5
 omni_range = 27.809786
 
-[node name="05" parent="Map 02/Asset New/Building/Commercial" unique_id=1196161401 instance=ExtResource("12_qege4")]
+[node name="05" parent="Map 02/Asset New/Building/Commercial" unique_id=858993429 instance=ExtResource("12_qege4")]
 transform = Transform3D(-4.984191e-06, 0, 114.025, 0, 114.025, 0, -114.025, 0, -4.984191e-06, -108.164604, -2.4013042, 19.860767)
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/05" unique_id=1823232945]
@@ -2886,7 +2883,7 @@ light_color = Color(1, 0.62, 0.18, 1)
 light_energy = 3.5
 omni_range = 598.71625
 
-[node name="06" parent="Map 02/Asset New/Building/Commercial" unique_id=1524158542 instance=ExtResource("13_637xr")]
+[node name="06" parent="Map 02/Asset New/Building/Commercial" unique_id=1792814273 instance=ExtResource("13_637xr")]
 transform = Transform3D(-3.5893606e-06, 0, 82.115, 0, 82.115, 0, -82.115, 0, -3.5893606e-06, -22.94622, -0.7360563, -57.723816)
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/06" unique_id=268664102]
@@ -2898,31 +2895,31 @@ light_color = Color(1, 0.62, 0.18, 1)
 light_energy = 3.5
 omni_range = 598.71625
 
-[node name="07" parent="Map 02/Asset New/Building/Commercial" unique_id=1719199364 instance=ExtResource("15_kt1fd")]
+[node name="07" parent="Map 02/Asset New/Building/Commercial" unique_id=1833221776 instance=ExtResource("15_kt1fd")]
 transform = Transform3D(-2.7435453e-06, -0.21909073, 62.764618, 0, 62.764614, 0.21909074, -62.765, 9.57676e-09, -2.7435285e-06, -159.61215, 27.848032, 19.196934)
 
-[node name="08" parent="Map 02/Asset New/Building/Commercial" unique_id=821584021 instance=ExtResource("16_4lfpb")]
+[node name="08" parent="Map 02/Asset New/Building/Commercial" unique_id=791603546 instance=ExtResource("16_4lfpb")]
 transform = Transform3D(-160.155, 0, -2.4182733e-05, 0, 160.155, 0, 2.4182733e-05, 0, -160.155, 19.257912, -3.3485198, -19.51148)
 
-[node name="09" parent="Map 02/Asset New/Building/Commercial" unique_id=961990265 instance=ExtResource("17_eqvcl")]
+[node name="09" parent="Map 02/Asset New/Building/Commercial" unique_id=1233827115 instance=ExtResource("17_eqvcl")]
 transform = Transform3D(38, 0, 0, 0, 38, 0, 0, 0, 38, -47.229767, 14.5346985, -133.32697)
 
-[node name="10" parent="Map 02/Asset New/Building/Commercial" unique_id=552016741 instance=ExtResource("18_cdvdk")]
+[node name="10" parent="Map 02/Asset New/Building/Commercial" unique_id=1359985373 instance=ExtResource("18_cdvdk")]
 transform = Transform3D(-6.0983944e-06, 0, -139.515, 0, 139.515, 0, 139.515, 0, -6.0983944e-06, -21.039, 55.865, -19.849)
 
-[node name="11" parent="Map 02/Asset New/Building/Commercial" unique_id=1513997534 instance=ExtResource("19_l06od")]
+[node name="11" parent="Map 02/Asset New/Building/Commercial" unique_id=1821302357 instance=ExtResource("19_l06od")]
 transform = Transform3D(135.755, 0, 0, 0, 135.755, 0, 0, 0, 135.755, -20.114, 63.387, -118.88288)
 
-[node name="12" parent="Map 02/Asset New/Building/Commercial" unique_id=950790637 instance=ExtResource("20_k8cby")]
+[node name="12" parent="Map 02/Asset New/Building/Commercial" unique_id=1363601325 instance=ExtResource("20_k8cby")]
 transform = Transform3D(-6.2288727e-06, 0, -142.5, 0, 142.5, 0, 142.5, 0, -6.2288727e-06, -20.437925, 18.997936, -19.028347)
 
-[node name="13" parent="Map 02/Asset New/Building/Commercial" unique_id=745265498 instance=ExtResource("21_fq61o")]
+[node name="13" parent="Map 02/Asset New/Building/Commercial" unique_id=2002412343 instance=ExtResource("21_fq61o")]
 transform = Transform3D(-7.3161937e-06, 0, 167.375, 0, 167.375, 0, -167.375, 0, -7.3161937e-06, -29.14883, -0.5001581, 29.199429)
 
-[node name="14" parent="Map 02/Asset New/Building/Commercial" unique_id=1899330939 instance=ExtResource("22_3ygvi")]
+[node name="14" parent="Map 02/Asset New/Building/Commercial" unique_id=306070433 instance=ExtResource("22_3ygvi")]
 transform = Transform3D(-6.940057e-06, 0, 158.77, 0, 158.77, 0, -158.77, 0, -6.940057e-06, 19.106, -0.402, 19.269)
 
-[node name="15" parent="Map 02/Asset New/Building/Commercial" unique_id=15466026 instance=ExtResource("23_rsf5s")]
+[node name="15" parent="Map 02/Asset New/Building/Commercial" unique_id=640593737 instance=ExtResource("23_rsf5s")]
 transform = Transform3D(-86.77, 0, -1.3101905e-05, 0, 86.77, 0, 1.3101905e-05, 0, -86.77, 20.38141, -0.4838705, 164.77301)
 
 [node name="16" type="Node3D" parent="Map 02/Asset New/Building/Commercial" unique_id=1659640197]
@@ -2940,37 +2937,37 @@ mesh = SubResource("ArrayMesh_4nekq")
 transform = Transform3D(-8.81658e-08, -1.5570012, 9.2624504e-08, 0, -6.805863e-08, -2.119, 2.017, -6.805863e-08, 4.0487425e-15, 0.60285187, -0.2184922, -0.1760068)
 mesh = SubResource("ArrayMesh_7hnxc")
 
-[node name="17" parent="Map 02/Asset New/Building/Commercial" unique_id=1954127210 instance=ExtResource("27_3ygvi")]
+[node name="17" parent="Map 02/Asset New/Building/Commercial" unique_id=369230251 instance=ExtResource("27_3ygvi")]
 transform = Transform3D(-322.81, 0, -4.8742953e-05, 0, 322.81, 0, 4.8742953e-05, 0, -322.81, 16.876606, -77.32036, -166.25906)
 
-[node name="18" parent="Map 02/Asset New/Building/Commercial" unique_id=1826267400 instance=ExtResource("28_rsf5s")]
+[node name="18" parent="Map 02/Asset New/Building/Commercial" unique_id=480230990 instance=ExtResource("28_rsf5s")]
 transform = Transform3D(-170.205, 0, -2.5700241e-05, 0, 170.205, 0, 2.5700241e-05, 0, -170.205, 51.2852, -2.4291887, -94.883286)
 
-[node name="19" parent="Map 02/Asset New/Building/Commercial" unique_id=1689862803 instance=ExtResource("29_m17pf")]
+[node name="19" parent="Map 02/Asset New/Building/Commercial" unique_id=1825714553 instance=ExtResource("29_m17pf")]
 transform = Transform3D(-38, 0, -3.3220656e-06, 0, 38, 0, 3.3220656e-06, 0, -38, 18.798615, 15.451332, 71.540436)
 
-[node name="20" parent="Map 02/Asset New/Building/Commercial" unique_id=533620628 instance=ExtResource("30_bej06")]
+[node name="20" parent="Map 02/Asset New/Building/Commercial" unique_id=248001362 instance=ExtResource("30_bej06")]
 transform = Transform3D(-1.0255566e-05, 0, -234.62, 0, 234.62, 0, 234.62, 0, -1.0255566e-05, -61.370365, -0.033302307, -18.149364)
 
-[node name="24" parent="Map 02/Asset New/Building/Commercial" unique_id=1114287172 instance=ExtResource("30_bej06")]
+[node name="24" parent="Map 02/Asset New/Building/Commercial" unique_id=1656293738 instance=ExtResource("30_bej06")]
 transform = Transform3D(-1.0255566e-05, 0, 234.62, 0, 234.62, 0, -234.62, 0, -1.0255566e-05, -89.50398, -0.033302307, -166.03265)
 
-[node name="21" parent="Map 02/Asset New/Building/Commercial" unique_id=761708855 instance=ExtResource("32_jpv0b")]
+[node name="21" parent="Map 02/Asset New/Building/Commercial" unique_id=84088429 instance=ExtResource("32_jpv0b")]
 transform = Transform3D(-9.186167e-06, 0, 210.155, 0, 210.155, 0, -210.155, 0, -9.186167e-06, -41.974, -5.716, 19.351809)
 
-[node name="22" parent="Map 02/Asset New/Building/Commercial" unique_id=785976353 instance=ExtResource("32_hehmy")]
+[node name="22" parent="Map 02/Asset New/Building/Commercial" unique_id=1931670058 instance=ExtResource("32_hehmy")]
 transform = Transform3D(193.72, 0, 0, 0, 193.72, 0, 0, 0, 193.72, -19.317894, 0.5340748, 108.0282)
 
-[node name="23" parent="Map 02/Asset New/Building/Commercial" unique_id=1252378743 instance=ExtResource("32_jpv0b")]
+[node name="23" parent="Map 02/Asset New/Building/Commercial" unique_id=41000299 instance=ExtResource("32_jpv0b")]
 transform = Transform3D(-220.995, 0, -3.3369317e-05, 0, 220.995, 0, 3.3369317e-05, 0, -220.995, 17.104809, -6.411231, -205.70386)
 
-[node name="25" parent="Map 02/Asset New/Building/Commercial" unique_id=1782931808 instance=ExtResource("32_jpv0b")]
+[node name="25" parent="Map 02/Asset New/Building/Commercial" unique_id=1144223122 instance=ExtResource("32_jpv0b")]
 transform = Transform3D(-9.659998e-06, 0, 220.995, 0, 220.995, 0, -220.995, 0, -9.659998e-06, -22.538147, -6.411227, -165.09062)
 
-[node name="26" parent="Map 02/Asset New/Building/Commercial" unique_id=1277595535 instance=ExtResource("33_tkkyw")]
+[node name="26" parent="Map 02/Asset New/Building/Commercial" unique_id=1119204581 instance=ExtResource("33_tkkyw")]
 transform = Transform3D(-7.2508446e-06, 0, -165.87999, 0, 165.87999, 0, 165.87999, 0, -7.2508446e-06, -131.51538, -8.900286, -20.21117)
 
-[node name="28" parent="Map 02/Asset New/Building/Commercial" unique_id=573806614 instance=ExtResource("34_ppx1j")]
+[node name="28" parent="Map 02/Asset New/Building/Commercial" unique_id=1080944712 instance=ExtResource("34_ppx1j")]
 transform = Transform3D(-5.463486e-06, 0, -124.99, 0, 124.99, 0, 124.99, 0, -5.463486e-06, 194.613, -3.975, 164.997)
 
 [node name="29" type="Node3D" parent="Map 02/Asset New/Building/Commercial" unique_id=645491000]
@@ -3002,28 +2999,28 @@ mesh = SubResource("ArrayMesh_245gi")
 
 [node name="Station" type="Node3D" parent="Map 02/Asset New/Building" unique_id=542144531]
 
-[node name="Station 01" parent="Map 02/Asset New/Building/Station" unique_id=2072985624 instance=ExtResource("18_bnl3i")]
+[node name="Station 01" parent="Map 02/Asset New/Building/Station" unique_id=459059252 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -203.02399, 0, 61.870026)
 
-[node name="Station 05" parent="Map 02/Asset New/Building/Station" unique_id=765660752 instance=ExtResource("18_bnl3i")]
+[node name="Station 05" parent="Map 02/Asset New/Building/Station" unique_id=1485266755 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -22.572586, 0, 416.46567)
 
-[node name="Station 02" parent="Map 02/Asset New/Building/Station" unique_id=1289377021 instance=ExtResource("18_bnl3i")]
+[node name="Station 02" parent="Map 02/Asset New/Building/Station" unique_id=948343945 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-3.4969112e-06, 0, -80, 0, 80, 0, 80, 0, -3.4969112e-06, -102.98569, -1.5258789e-05, -203.4112)
 
-[node name="Station 06" parent="Map 02/Asset New/Building/Station" unique_id=1525043982 instance=ExtResource("18_bnl3i")]
+[node name="Station 06" parent="Map 02/Asset New/Building/Station" unique_id=1249006085 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-3.4969112e-06, 0, -80, 0, 80, 0, 80, 0, -3.4969112e-06, 212.5296, -1.5258789e-05, -19.29647)
 
-[node name="Station 03" parent="Map 02/Asset New/Building/Station" unique_id=1119006719 instance=ExtResource("18_bnl3i")]
+[node name="Station 03" parent="Map 02/Asset New/Building/Station" unique_id=433601873 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-80, 0, -6.9938224e-06, 0, 80, 0, 6.9938224e-06, 0, -80, 203.89874, 0, -61.78244)
 
-[node name="Station 08" parent="Map 02/Asset New/Building/Station" unique_id=779856112 instance=ExtResource("18_bnl3i")]
+[node name="Station 08" parent="Map 02/Asset New/Building/Station" unique_id=1324692089 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-80, 0, -6.9938224e-06, 0, 80, 0, 6.9938224e-06, 0, -80, 18.230572, 0, -409.1825)
 
-[node name="Station 04" parent="Map 02/Asset New/Building/Station" unique_id=81462143 instance=ExtResource("18_bnl3i")]
+[node name="Station 04" parent="Map 02/Asset New/Building/Station" unique_id=1455870345 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-3.4969112e-06, 0, 80, 0, 80, 0, -80, 0, -3.4969112e-06, 104.079834, 0, 203.05243)
 
-[node name="Station 07" parent="Map 02/Asset New/Building/Station" unique_id=1175520533 instance=ExtResource("18_bnl3i")]
+[node name="Station 07" parent="Map 02/Asset New/Building/Station" unique_id=18248317 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-3.4969112e-06, 0, 80, 0, 80, 0, -80, 0, -3.4969112e-06, -260.644, 0, 20.967)
 
 [node name="Vending machine" type="Node3D" parent="." unique_id=664906218]
@@ -3075,3 +3072,7 @@ transform = Transform3D(1, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 1, 0, 0
 
 [node name="Object_15" type="MeshInstance3D" parent="Vending machine/Sketchfab_model/root/GLTF_SceneRootNode/JIHANKI_001_6" unique_id=754606371]
 mesh = SubResource("ArrayMesh_cmn67")
+
+[node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, -0.7169399)
+speed = 10.0
