@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dqdg33y1adlor"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gbdlm"]
+sky_top_color = Color(0.012, 0.012, 0.045, 1)
+sky_horizon_color = Color(0.05, 0.04, 0.09, 1)
+sky_energy_multiplier = 0.15
+ground_horizon_color = Color(0.12, 0.07, 0.03, 1)
+
+[sub_resource type="Sky" id="Sky_2h353"]
+sky_material = SubResource("ProceduralSkyMaterial_gbdlm")
+
+[sub_resource type="Environment" id="Environment_ks1q5"]
+background_mode = 2
+sky = SubResource("Sky_2h353")
+ambient_light_source = 2
+ambient_light_color = Color(0.08, 0.1, 0.2, 1)
+ambient_light_energy = 0.18
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.4
+glow_bloom = 0.25
+glow_hdr_threshold = 0.75
+fog_enabled = true
+fog_light_color = Color(0.07, 0.08, 0.14, 1)
+fog_density = 0.014
+fog_sky_affect = 0.8
+
+[node name="Map 03" type="Node3D" unique_id=997504014]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1598358311]
+environment = SubResource("Environment_ks1q5")
