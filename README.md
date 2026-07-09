@@ -32,9 +32,9 @@ A short first-person walking game set on a midnight Japanese city street. PSX-er
 │   ├── UI/                    # dialogue_ui.gd (CanvasLayer, created in code)
 │   ├── Fonts/                 # pixel.ttf — pixel bitmap font
 │   └── Assets/
-│       ├── Player/            # Cig.glb, cigs_carton.glb
+│       ├── Cigarette/         # Cig.glb, cigs_carton.glb
 │       ├── LampPost/          # LampPost.tscn prefab (mesh + light bundled)
-│       └── skyscraper_pack/glb/   # background buildings with emission baked in
+│       └── SkyscraperPack/glb/   # background buildings with emission baked in
 ├── shaders/                   # PSX pipeline — see Shader Reference below
 ├── tools/
 │   └── fbx_to_glb_with_texture.py   # Blender batch FBX→GLB converter
