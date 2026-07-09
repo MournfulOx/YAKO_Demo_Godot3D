@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8jqhkhb0yy41"]
 
 [ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://dhlwwpnh7c5xb" path="res://Scenes/Assets/more assets/animal/ps1_dog.glb" id="2_0tuq0"]
+[ext_resource type="PackedScene" uid="uid://dhlwwpnh7c5xb" path="res://Scenes/Assets/MiscAssets/animal/ps1_dog.glb" id="2_0tuq0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0tuq0"]
 size = Vector3(1, 0.7527771, 1.1590576)

@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bvx7djmge3n5p"
+path.s3tc="res://.godot/imported/7_eleven_14.jpg-4e5a4bd2c7f4661a6ce972c1a0a5bf42.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "fce7993deb8faabfa4259a83dc8a58af"
+}
+
+[deps]
+
+source_file="res://Scenes/Assets/SevenEleven/7_eleven_14.jpg"
+dest_files=["res://.godot/imported/7_eleven_14.jpg-4e5a4bd2c7f4661a6ce972c1a0a5bf42.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

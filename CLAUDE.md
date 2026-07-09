@@ -47,15 +47,19 @@ demo/
 │   ├── Fonts/
 │   │   └── pixel.ttf                 # pixel bitmap font used for all in-game text
 │   └── Assets/
-│       ├── Player/
+│       ├── Cigarette/
 │       │   ├── Cig.glb               # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
 │       │   └── cigs_carton.glb       # cigarette carton with CartonTopOpen animation
 │       ├── LampPost/
 │       │   └── LampPost.tscn         # prefab: Node3D + MeshInstance3D + OmniLight3D
-│       ├── UrbanPack1/               # street props
-│       └── skyscraper_pack/
+│       ├── SevenEleven/              # convenience store model + textures (Map 01)
+│       ├── UrbanPack/                # street props (Map 02); Textures/, Textures Pack2/, Textures Pack3/
+│       ├── Zee/                      # third-party low-poly city pack (Map 02): Buildings/, Car, Road, etc.
+│       ├── MiscAssets/                # grab-bag of individually sourced props (Map 01), by category:
+│       │   └── animal/ car/ environment/ furniture/ small assets/
+│       └── SkyscraperPack/
 │           ├── models/               # source FBX + textures/
-│           └── glb/                  # converted GLB with emission baked in
+│           └── glb/                  # converted GLB with emission baked in — currently unreferenced by any map
 ├── shaders/
 │   ├── psx_base.gdshaderinc          # shared: vertex snap + #ifdef NPC_WOBBLE
 │   ├── psx_lit.gdshader              # standard lit mesh
@@ -308,7 +312,7 @@ All in-game audio uses `AudioStreamGenerator` (PCM push) — no audio files requ
 
 ## Skyscraper Background Buildings
 
-Source: `skyscraper_pack` (CC0). FBX files contain no embedded texture paths — textures must be baked in via Blender before importing to Godot.
+Source: `SkyscraperPack` (CC0). FBX files contain no embedded texture paths — textures must be baked in via Blender before importing to Godot.
 
 **Conversion tool:** `tools/fbx_to_glb_with_texture.py`
 
@@ -319,7 +323,7 @@ Source: `skyscraper_pack` (CC0). FBX files contain no embedded texture paths —
 
 Naming convention: `building_01.x.fbx` → `building_01.png`. Script assigns the matching texture as both albedo and emission (strength 1.5) so buildings glow at night without requiring scene lighting.
 
-Output GLBs go to `Scenes/Assets/skyscraper_pack/glb/`.
+Output GLBs go to `Scenes/Assets/SkyscraperPack/glb/`.
 
 ## Code Conventions
 
