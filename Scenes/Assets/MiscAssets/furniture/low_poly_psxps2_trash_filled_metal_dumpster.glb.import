@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cdob3qs4vuxvx"
-path="res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster.glb-c019da3171f2f1c2c1d77ba408f07204.scn"
+path="res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster.glb-75be1c0dca25f0b4a8ab394d09a01fac.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/low_poly_psxps2_trash_filled_metal_dumpster.glb"
-dest_files=["res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster.glb-c019da3171f2f1c2c1d77ba408f07204.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/low_poly_psxps2_trash_filled_metal_dumpster.glb"
+dest_files=["res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster.glb-75be1c0dca25f0b4a8ab394d09a01fac.scn"]
 
 [params]
 

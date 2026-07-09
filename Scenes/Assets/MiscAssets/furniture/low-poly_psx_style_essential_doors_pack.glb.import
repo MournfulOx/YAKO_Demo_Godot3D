@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3q7rw7thxvjk"
-path="res://.godot/imported/low-poly_psx_style_essential_doors_pack.glb-9d18110f45b66bd317bdda9d3929ccfc.scn"
+path="res://.godot/imported/low-poly_psx_style_essential_doors_pack.glb-e46b2c2d1aea1cd9cb092b2127435f9c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/low-poly_psx_style_essential_doors_pack.glb"
-dest_files=["res://.godot/imported/low-poly_psx_style_essential_doors_pack.glb-9d18110f45b66bd317bdda9d3929ccfc.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/low-poly_psx_style_essential_doors_pack.glb"
+dest_files=["res://.godot/imported/low-poly_psx_style_essential_doors_pack.glb-e46b2c2d1aea1cd9cb092b2127435f9c.scn"]
 
 [params]
 

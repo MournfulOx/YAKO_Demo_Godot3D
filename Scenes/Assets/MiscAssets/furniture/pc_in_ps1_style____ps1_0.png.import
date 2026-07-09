@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnyfducqj5a26"
-path.s3tc="res://.godot/imported/pc_in_ps1_style____ps1_0.png-005652ab77083f7dbad16ec0d7ee160e.s3tc.ctex"
+path.s3tc="res://.godot/imported/pc_in_ps1_style____ps1_0.png-9bbe7a0a619635723acc47f1e747aacb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/pc_in_ps1_style____ps1_0.png"
-dest_files=["res://.godot/imported/pc_in_ps1_style____ps1_0.png-005652ab77083f7dbad16ec0d7ee160e.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/pc_in_ps1_style____ps1_0.png"
+dest_files=["res://.godot/imported/pc_in_ps1_style____ps1_0.png-9bbe7a0a619635723acc47f1e747aacb.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkc08xgwns4j5"
-path.s3tc="res://.godot/imported/ps1_pizza_0.png-fdc571569e6060bb498881085d5f7963.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_pizza_0.png-4fb1271be7ee2b41d73d7abc246b62f3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_pizza_0.png"
-dest_files=["res://.godot/imported/ps1_pizza_0.png-fdc571569e6060bb498881085d5f7963.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_pizza_0.png"
+dest_files=["res://.godot/imported/ps1_pizza_0.png-4fb1271be7ee2b41d73d7abc246b62f3.s3tc.ctex"]
 
 [params]
 

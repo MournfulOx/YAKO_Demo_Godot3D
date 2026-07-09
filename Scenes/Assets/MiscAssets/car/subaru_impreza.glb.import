@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c4santpe7ixcq"
-path="res://.godot/imported/subaru_impreza.glb-72a56a0cb0fd402f9872950ac9659c57.scn"
+path="res://.godot/imported/subaru_impreza.glb-457c8d6b538c0183050866a879e448e5.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/subaru_impreza.glb"
-dest_files=["res://.godot/imported/subaru_impreza.glb-72a56a0cb0fd402f9872950ac9659c57.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/subaru_impreza.glb"
+dest_files=["res://.godot/imported/subaru_impreza.glb-457c8d6b538c0183050866a879e448e5.scn"]
 
 [params]
 

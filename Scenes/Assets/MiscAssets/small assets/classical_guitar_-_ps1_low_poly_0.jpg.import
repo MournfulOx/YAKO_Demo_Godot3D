@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dncftxut2qij"
-path.s3tc="res://.godot/imported/classical_guitar_-_ps1_low_poly_0.jpg-f0d266b8edf72e19e931c77666cab04c.s3tc.ctex"
+path.s3tc="res://.godot/imported/classical_guitar_-_ps1_low_poly_0.jpg-263e377397e8d62c1168773f63395d63.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/classical_guitar_-_ps1_low_poly_0.jpg"
-dest_files=["res://.godot/imported/classical_guitar_-_ps1_low_poly_0.jpg-f0d266b8edf72e19e931c77666cab04c.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/classical_guitar_-_ps1_low_poly_0.jpg"
+dest_files=["res://.godot/imported/classical_guitar_-_ps1_low_poly_0.jpg-263e377397e8d62c1168773f63395d63.s3tc.ctex"]
 
 [params]
 

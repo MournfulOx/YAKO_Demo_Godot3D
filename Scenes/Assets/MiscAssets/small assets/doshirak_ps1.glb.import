@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f21q4ctqaw04"
-path="res://.godot/imported/doshirak_ps1.glb-369dd40e799413aea3eed308e4cd6e05.scn"
+path="res://.godot/imported/doshirak_ps1.glb-d6b567a4bd5dcdfeed88a1c8b3813d3a.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/doshirak_ps1.glb"
-dest_files=["res://.godot/imported/doshirak_ps1.glb-369dd40e799413aea3eed308e4cd6e05.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/doshirak_ps1.glb"
+dest_files=["res://.godot/imported/doshirak_ps1.glb-d6b567a4bd5dcdfeed88a1c8b3813d3a.scn"]
 
 [params]
 

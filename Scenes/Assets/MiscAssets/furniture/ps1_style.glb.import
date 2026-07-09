@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d34a0ibi2c2pi"
-path="res://.godot/imported/ps1_style.glb-a0dd13ce2e1b1f0c02c8d27ffedf7599.scn"
+path="res://.godot/imported/ps1_style.glb-78847f8969a04a6d713feeb5eed7fcfc.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_style.glb"
-dest_files=["res://.godot/imported/ps1_style.glb-a0dd13ce2e1b1f0c02c8d27ffedf7599.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_style.glb"
+dest_files=["res://.godot/imported/ps1_style.glb-78847f8969a04a6d713feeb5eed7fcfc.scn"]
 
 [params]
 

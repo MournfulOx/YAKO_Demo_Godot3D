@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cinvfme60w1j7"
-path.s3tc="res://.godot/imported/ps1_styled_bus_0.jpg-e0f4f23654edaa2c8b97aeb8f2641776.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_styled_bus_0.jpg-97314d2d9d5cfd25a02517ed0931885a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1_styled_bus_0.jpg"
-dest_files=["res://.godot/imported/ps1_styled_bus_0.jpg-e0f4f23654edaa2c8b97aeb8f2641776.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1_styled_bus_0.jpg"
+dest_files=["res://.godot/imported/ps1_styled_bus_0.jpg-97314d2d9d5cfd25a02517ed0931885a.s3tc.ctex"]
 
 [params]
 

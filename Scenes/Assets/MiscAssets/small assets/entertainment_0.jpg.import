@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg43a4dh45wu0"
-path.s3tc="res://.godot/imported/entertainment_0.jpg-72e9d5c96e2520d7af157ede0ed20daf.s3tc.ctex"
+path.s3tc="res://.godot/imported/entertainment_0.jpg-59b0a38b6167d5d68910fc1f29d8a6e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/entertainment_0.jpg"
-dest_files=["res://.godot/imported/entertainment_0.jpg-72e9d5c96e2520d7af157ede0ed20daf.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/entertainment_0.jpg"
+dest_files=["res://.godot/imported/entertainment_0.jpg-59b0a38b6167d5d68910fc1f29d8a6e5.s3tc.ctex"]
 
 [params]
 

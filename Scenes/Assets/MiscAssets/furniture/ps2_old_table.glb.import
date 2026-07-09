@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dy2pvs38idhor"
-path="res://.godot/imported/ps2_old_table.glb-0691ce3b495d5089989ed355220ddf3b.scn"
+path="res://.godot/imported/ps2_old_table.glb-7c22891506838aa9c6035e5e9b330f0c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps2_old_table.glb"
-dest_files=["res://.godot/imported/ps2_old_table.glb-0691ce3b495d5089989ed355220ddf3b.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps2_old_table.glb"
+dest_files=["res://.godot/imported/ps2_old_table.glb-7c22891506838aa9c6035e5e9b330f0c.scn"]
 
 [params]
 

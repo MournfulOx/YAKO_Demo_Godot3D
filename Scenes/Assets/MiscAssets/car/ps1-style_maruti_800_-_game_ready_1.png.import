@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diffqbmrrbgd6"
-path.s3tc="res://.godot/imported/ps1-style_maruti_800_-_game_ready_1.png-192f2e3df5a4cfebedef497d5b10961e.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1-style_maruti_800_-_game_ready_1.png-12211340bb41ff5f86dbb7cccecec026.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1-style_maruti_800_-_game_ready_1.png"
-dest_files=["res://.godot/imported/ps1-style_maruti_800_-_game_ready_1.png-192f2e3df5a4cfebedef497d5b10961e.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1-style_maruti_800_-_game_ready_1.png"
+dest_files=["res://.godot/imported/ps1-style_maruti_800_-_game_ready_1.png-12211340bb41ff5f86dbb7cccecec026.s3tc.ctex"]
 
 [params]
 

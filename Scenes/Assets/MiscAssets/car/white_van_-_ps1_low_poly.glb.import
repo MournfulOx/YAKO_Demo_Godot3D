@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6o4335vjh7e1"
-path="res://.godot/imported/white_van_-_ps1_low_poly.glb-81222547360845e27dcf4f31281a1206.scn"
+path="res://.godot/imported/white_van_-_ps1_low_poly.glb-83e044520cf361f8933a86d2d16a7f10.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/white_van_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/white_van_-_ps1_low_poly.glb-81222547360845e27dcf4f31281a1206.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/white_van_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/white_van_-_ps1_low_poly.glb-83e044520cf361f8933a86d2d16a7f10.scn"]
 
 [params]
 

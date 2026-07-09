@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://binkbkv0q67je"
-path="res://.godot/imported/psx_storage_shelves__cardboard_boxs.glb-40544eb50377110392d1ef830e10d87e.scn"
+path="res://.godot/imported/psx_storage_shelves__cardboard_boxs.glb-4717fd6dc6a140fb95a70cdf95272ed4.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/psx_storage_shelves__cardboard_boxs.glb"
-dest_files=["res://.godot/imported/psx_storage_shelves__cardboard_boxs.glb-40544eb50377110392d1ef830e10d87e.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/psx_storage_shelves__cardboard_boxs.glb"
+dest_files=["res://.godot/imported/psx_storage_shelves__cardboard_boxs.glb-4717fd6dc6a140fb95a70cdf95272ed4.scn"]
 
 [params]
 

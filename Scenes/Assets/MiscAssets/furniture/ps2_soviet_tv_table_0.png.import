@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q3jj84sfkihb"
-path.s3tc="res://.godot/imported/ps2_soviet_tv_table_0.png-1412fa64f4441e1c685d6d9c9ec8a879.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps2_soviet_tv_table_0.png-f69838cbdcc89b02f24078be75d31fed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps2_soviet_tv_table_0.png"
-dest_files=["res://.godot/imported/ps2_soviet_tv_table_0.png-1412fa64f4441e1c685d6d9c9ec8a879.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps2_soviet_tv_table_0.png"
+dest_files=["res://.godot/imported/ps2_soviet_tv_table_0.png-f69838cbdcc89b02f24078be75d31fed.s3tc.ctex"]
 
 [params]
 

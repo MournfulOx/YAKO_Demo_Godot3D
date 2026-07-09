@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b354845oktkg6"
-path="res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props.glb-2a6d11ab33112a2e7b8886ab50e0089a.scn"
+path="res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props.glb-0a61da1d2a22e01eeaec30efbc86141f.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/free_car_tire_set_-_ps2_style_urban_props.glb"
-dest_files=["res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props.glb-2a6d11ab33112a2e7b8886ab50e0089a.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/free_car_tire_set_-_ps2_style_urban_props.glb"
+dest_files=["res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props.glb-0a61da1d2a22e01eeaec30efbc86141f.scn"]
 
 [params]
 

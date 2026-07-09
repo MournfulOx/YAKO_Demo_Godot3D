@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c84rf727uke4x"
-path="res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris.glb-cdffa786c2398fbe855233b72af1921c.scn"
+path="res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris.glb-1632087a04cfc9959c307569ea469a29.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/free_red_bricks_-_ps2_style_scattered_debris.glb"
-dest_files=["res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris.glb-cdffa786c2398fbe855233b72af1921c.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/free_red_bricks_-_ps2_style_scattered_debris.glb"
+dest_files=["res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris.glb-1632087a04cfc9959c307569ea469a29.scn"]
 
 [params]
 

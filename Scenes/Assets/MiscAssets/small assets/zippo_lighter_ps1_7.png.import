@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb156yc8lna6p"
-path.s3tc="res://.godot/imported/zippo_lighter_ps1_7.png-94087064d6e43ddcaeba20a517852eaa.s3tc.ctex"
+path.s3tc="res://.godot/imported/zippo_lighter_ps1_7.png-ee12b06d3b3fbcd16bed756b9282f56b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/zippo_lighter_ps1_7.png"
-dest_files=["res://.godot/imported/zippo_lighter_ps1_7.png-94087064d6e43ddcaeba20a517852eaa.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/zippo_lighter_ps1_7.png"
+dest_files=["res://.godot/imported/zippo_lighter_ps1_7.png-ee12b06d3b3fbcd16bed756b9282f56b.s3tc.ctex"]
 
 [params]
 

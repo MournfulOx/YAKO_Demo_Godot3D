@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c1htme6vtoiv3"
-path="res://.godot/imported/banco_no_estilo_de_ps1.glb-38cf3070b5a211aec04add26b8b53916.scn"
+path="res://.godot/imported/banco_no_estilo_de_ps1.glb-bda3501b719e198c4c82e906394ccca9.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/banco_no_estilo_de_ps1.glb"
-dest_files=["res://.godot/imported/banco_no_estilo_de_ps1.glb-38cf3070b5a211aec04add26b8b53916.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/banco_no_estilo_de_ps1.glb"
+dest_files=["res://.godot/imported/banco_no_estilo_de_ps1.glb-bda3501b719e198c4c82e906394ccca9.scn"]
 
 [params]
 

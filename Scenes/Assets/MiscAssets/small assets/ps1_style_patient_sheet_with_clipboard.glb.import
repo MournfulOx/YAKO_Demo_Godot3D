@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvxswchjjsq5b"
-path="res://.godot/imported/ps1_style_patient_sheet_with_clipboard.glb-297da966683839db6469eab9a9ee5acb.scn"
+path="res://.godot/imported/ps1_style_patient_sheet_with_clipboard.glb-bdc7467bd05b10989e402401e2fb4e26.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_style_patient_sheet_with_clipboard.glb"
-dest_files=["res://.godot/imported/ps1_style_patient_sheet_with_clipboard.glb-297da966683839db6469eab9a9ee5acb.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_style_patient_sheet_with_clipboard.glb"
+dest_files=["res://.godot/imported/ps1_style_patient_sheet_with_clipboard.glb-bdc7467bd05b10989e402401e2fb4e26.scn"]
 
 [params]
 

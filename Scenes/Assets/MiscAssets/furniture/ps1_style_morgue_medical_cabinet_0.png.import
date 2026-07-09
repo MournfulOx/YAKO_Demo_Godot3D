@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c27hmhhkki1j8"
-path.s3tc="res://.godot/imported/ps1_style_morgue_medical_cabinet_0.png-a1f991e12ccbec9ec113d4638bd77e78.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_style_morgue_medical_cabinet_0.png-8456c3580d00dde13fc4b21ebfee13e0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_style_morgue_medical_cabinet_0.png"
-dest_files=["res://.godot/imported/ps1_style_morgue_medical_cabinet_0.png-a1f991e12ccbec9ec113d4638bd77e78.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_style_morgue_medical_cabinet_0.png"
+dest_files=["res://.godot/imported/ps1_style_morgue_medical_cabinet_0.png-8456c3580d00dde13fc4b21ebfee13e0.s3tc.ctex"]
 
 [params]
 

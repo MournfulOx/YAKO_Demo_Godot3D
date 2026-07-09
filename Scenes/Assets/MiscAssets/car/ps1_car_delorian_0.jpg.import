@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dothuftphwv3c"
-path.s3tc="res://.godot/imported/ps1_car_delorian_0.jpg-f319c64bda3b9c6abde2eb0cbbc76f12.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_car_delorian_0.jpg-2e7d6c11c61a54b5ef4bdb416c1a785b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1_car_delorian_0.jpg"
-dest_files=["res://.godot/imported/ps1_car_delorian_0.jpg-f319c64bda3b9c6abde2eb0cbbc76f12.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1_car_delorian_0.jpg"
+dest_files=["res://.godot/imported/ps1_car_delorian_0.jpg-2e7d6c11c61a54b5ef4bdb416c1a785b.s3tc.ctex"]
 
 [params]
 

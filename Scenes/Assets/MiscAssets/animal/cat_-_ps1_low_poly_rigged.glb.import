@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dh6c4il7sl7bs"
-path="res://.godot/imported/cat_-_ps1_low_poly_rigged.glb-c01e040fa198f948282df89467b038f8.scn"
+path="res://.godot/imported/cat_-_ps1_low_poly_rigged.glb-f43271515fd74113b48e4a056cdb87cc.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/cat_-_ps1_low_poly_rigged.glb"
-dest_files=["res://.godot/imported/cat_-_ps1_low_poly_rigged.glb-c01e040fa198f948282df89467b038f8.scn"]
+source_file="res://Scenes/Assets/MiscAssets/animal/cat_-_ps1_low_poly_rigged.glb"
+dest_files=["res://.godot/imported/cat_-_ps1_low_poly_rigged.glb-f43271515fd74113b48e4a056cdb87cc.scn"]
 
 [params]
 

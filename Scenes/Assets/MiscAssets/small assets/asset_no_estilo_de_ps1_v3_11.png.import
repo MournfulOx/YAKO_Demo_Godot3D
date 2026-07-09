@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dephtc46bmlpg"
-path.s3tc="res://.godot/imported/asset_no_estilo_de_ps1_v3_11.png-f155f82966c89ed96429a739edd5d318.s3tc.ctex"
+path.s3tc="res://.godot/imported/asset_no_estilo_de_ps1_v3_11.png-be1149c44f5b0725fa189396923c7143.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/asset_no_estilo_de_ps1_v3_11.png"
-dest_files=["res://.godot/imported/asset_no_estilo_de_ps1_v3_11.png-f155f82966c89ed96429a739edd5d318.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/asset_no_estilo_de_ps1_v3_11.png"
+dest_files=["res://.godot/imported/asset_no_estilo_de_ps1_v3_11.png-be1149c44f5b0725fa189396923c7143.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caxl47e07yh4y"
-path.s3tc="res://.godot/imported/japanese_rural_shop_-_ps1_low_poly_0.jpg-e6d3909977e63c3cd9f0376395373f57.s3tc.ctex"
+path.s3tc="res://.godot/imported/japanese_rural_shop_-_ps1_low_poly_0.jpg-4c6ae0e30395a0fa24ec3f1f3b0fe064.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/japanese_rural_shop_-_ps1_low_poly_0.jpg"
-dest_files=["res://.godot/imported/japanese_rural_shop_-_ps1_low_poly_0.jpg-e6d3909977e63c3cd9f0376395373f57.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/environment/japanese_rural_shop_-_ps1_low_poly_0.jpg"
+dest_files=["res://.godot/imported/japanese_rural_shop_-_ps1_low_poly_0.jpg-4c6ae0e30395a0fa24ec3f1f3b0fe064.s3tc.ctex"]
 
 [params]
 

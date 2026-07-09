@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://n1wblhf1e3wo"
-path.s3tc="res://.godot/imported/psx_storage_shelves__cardboard_boxs_0.png-d7d085ae5b25d3b8db22a10e0f7dc94f.s3tc.ctex"
+path.s3tc="res://.godot/imported/psx_storage_shelves__cardboard_boxs_0.png-a9272fc3294149ca58256434caf42e6b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/psx_storage_shelves__cardboard_boxs_0.png"
-dest_files=["res://.godot/imported/psx_storage_shelves__cardboard_boxs_0.png-d7d085ae5b25d3b8db22a10e0f7dc94f.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/psx_storage_shelves__cardboard_boxs_0.png"
+dest_files=["res://.godot/imported/psx_storage_shelves__cardboard_boxs_0.png-a9272fc3294149ca58256434caf42e6b.s3tc.ctex"]
 
 [params]
 

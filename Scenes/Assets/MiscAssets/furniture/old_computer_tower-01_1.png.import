@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d02kfmwekv02x"
-path.s3tc="res://.godot/imported/old_computer_tower-01_1.png-6ac4a7bfde8ba55b78f234e172cfd116.s3tc.ctex"
+path.s3tc="res://.godot/imported/old_computer_tower-01_1.png-1beb4a2bed9f1a22343e209e0814dadf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/old_computer_tower-01_1.png"
-dest_files=["res://.godot/imported/old_computer_tower-01_1.png-6ac4a7bfde8ba55b78f234e172cfd116.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/old_computer_tower-01_1.png"
+dest_files=["res://.godot/imported/old_computer_tower-01_1.png-1beb4a2bed9f1a22343e209e0814dadf.s3tc.ctex"]
 
 [params]
 

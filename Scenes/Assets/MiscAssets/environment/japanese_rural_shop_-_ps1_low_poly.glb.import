@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b3d74cxdkfx2u"
-path="res://.godot/imported/japanese_rural_shop_-_ps1_low_poly.glb-2053b30e02efd423fc9800d8d455d56f.scn"
+path="res://.godot/imported/japanese_rural_shop_-_ps1_low_poly.glb-df07a6dd28b0578ca9250fc19f2527b4.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/japanese_rural_shop_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/japanese_rural_shop_-_ps1_low_poly.glb-2053b30e02efd423fc9800d8d455d56f.scn"]
+source_file="res://Scenes/Assets/MiscAssets/environment/japanese_rural_shop_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/japanese_rural_shop_-_ps1_low_poly.glb-df07a6dd28b0578ca9250fc19f2527b4.scn"]
 
 [params]
 

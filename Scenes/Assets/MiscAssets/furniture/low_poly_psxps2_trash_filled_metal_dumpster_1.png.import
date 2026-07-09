@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd4riudev5ed8"
-path.s3tc="res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster_1.png-8673b8a5b338dd5465a23003113ff241.s3tc.ctex"
+path.s3tc="res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster_1.png-7cfe5ca6bfaf34d7d6763f9c9985236e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/low_poly_psxps2_trash_filled_metal_dumpster_1.png"
-dest_files=["res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster_1.png-8673b8a5b338dd5465a23003113ff241.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/low_poly_psxps2_trash_filled_metal_dumpster_1.png"
+dest_files=["res://.godot/imported/low_poly_psxps2_trash_filled_metal_dumpster_1.png-7cfe5ca6bfaf34d7d6763f9c9985236e.s3tc.ctex"]
 
 [params]
 

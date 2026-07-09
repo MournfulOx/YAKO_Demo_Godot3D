@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cuip6y3n5sdhm"
-path="res://.godot/imported/kitchen_tools_pack.glb-4f18cb01e891d0eafcebc8710fef5a19.scn"
+path="res://.godot/imported/kitchen_tools_pack.glb-bd9bd631741caa8bc894e341b314563e.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/kitchen_tools_pack.glb"
-dest_files=["res://.godot/imported/kitchen_tools_pack.glb-4f18cb01e891d0eafcebc8710fef5a19.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/kitchen_tools_pack.glb"
+dest_files=["res://.godot/imported/kitchen_tools_pack.glb-bd9bd631741caa8bc894e341b314563e.scn"]
 
 [params]
 

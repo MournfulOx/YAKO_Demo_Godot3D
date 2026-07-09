@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://83cjtqjtnsxk"
-path.s3tc="res://.godot/imported/Cig_cig_carton_uv_test.png-28ed7513cae66ab3b161468fc0a40e62.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cig_cig_carton_uv_test.png-39cc1a89f3192d366140770c0a26319f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/Player/Cig_cig_carton_uv_test.png"
-dest_files=["res://.godot/imported/Cig_cig_carton_uv_test.png-28ed7513cae66ab3b161468fc0a40e62.s3tc.ctex"]
+source_file="res://Scenes/Assets/Cigarette/Cig_cig_carton_uv_test.png"
+dest_files=["res://.godot/imported/Cig_cig_carton_uv_test.png-39cc1a89f3192d366140770c0a26319f.s3tc.ctex"]
 
 [params]
 

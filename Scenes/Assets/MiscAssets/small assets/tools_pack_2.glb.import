@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://br4dnaij6sgwh"
-path="res://.godot/imported/tools_pack_2.glb-427ee6f73a551d8e1e2361001084fd3b.scn"
+path="res://.godot/imported/tools_pack_2.glb-8da7d5e65a82611634784d341bcbea21.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/tools_pack_2.glb"
-dest_files=["res://.godot/imported/tools_pack_2.glb-427ee6f73a551d8e1e2361001084fd3b.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/tools_pack_2.glb"
+dest_files=["res://.godot/imported/tools_pack_2.glb-8da7d5e65a82611634784d341bcbea21.scn"]
 
 [params]
 

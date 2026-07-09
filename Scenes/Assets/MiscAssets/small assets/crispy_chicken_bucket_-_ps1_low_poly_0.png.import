@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7h5b21l4657u"
-path.s3tc="res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly_0.png-a4fdc865853c7604fecbe16683b1e7f6.s3tc.ctex"
+path.s3tc="res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly_0.png-b15e20b119aa127e91828cad99bac49b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/crispy_chicken_bucket_-_ps1_low_poly_0.png"
-dest_files=["res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly_0.png-a4fdc865853c7604fecbe16683b1e7f6.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/crispy_chicken_bucket_-_ps1_low_poly_0.png"
+dest_files=["res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly_0.png-b15e20b119aa127e91828cad99bac49b.s3tc.ctex"]
 
 [params]
 

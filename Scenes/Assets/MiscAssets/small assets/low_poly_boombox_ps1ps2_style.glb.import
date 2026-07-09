@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://do1qij5hkf8d3"
-path="res://.godot/imported/low_poly_boombox_ps1ps2_style.glb-927183df083176283844e87c87fd1281.scn"
+path="res://.godot/imported/low_poly_boombox_ps1ps2_style.glb-f9d000a979c1598982c1aa83b277acea.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_boombox_ps1ps2_style.glb"
-dest_files=["res://.godot/imported/low_poly_boombox_ps1ps2_style.glb-927183df083176283844e87c87fd1281.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_boombox_ps1ps2_style.glb"
+dest_files=["res://.godot/imported/low_poly_boombox_ps1ps2_style.glb-f9d000a979c1598982c1aa83b277acea.scn"]
 
 [params]
 

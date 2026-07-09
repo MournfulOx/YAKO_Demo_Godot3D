@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy0ghogdfiqnn"
-path.s3tc="res://.godot/imported/subaru_impreza_0.png-f95e9655ff92f295e2e47b519ccc1349.s3tc.ctex"
+path.s3tc="res://.godot/imported/subaru_impreza_0.png-2a9199e5ebf5e188f928799a14d2bfd3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/subaru_impreza_0.png"
-dest_files=["res://.godot/imported/subaru_impreza_0.png-f95e9655ff92f295e2e47b519ccc1349.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/subaru_impreza_0.png"
+dest_files=["res://.godot/imported/subaru_impreza_0.png-2a9199e5ebf5e188f928799a14d2bfd3.s3tc.ctex"]
 
 [params]
 

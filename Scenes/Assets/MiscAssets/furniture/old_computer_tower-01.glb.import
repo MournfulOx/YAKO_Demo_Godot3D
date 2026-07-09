@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d3i0ckhjkwjmn"
-path="res://.godot/imported/old_computer_tower-01.glb-37331a1c83135d0ad80cc9e28a0f492f.scn"
+path="res://.godot/imported/old_computer_tower-01.glb-34c7beb8c2fc992e2832e2043bea1f94.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/old_computer_tower-01.glb"
-dest_files=["res://.godot/imported/old_computer_tower-01.glb-37331a1c83135d0ad80cc9e28a0f492f.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/old_computer_tower-01.glb"
+dest_files=["res://.godot/imported/old_computer_tower-01.glb-34c7beb8c2fc992e2832e2043bea1f94.scn"]
 
 [params]
 

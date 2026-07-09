@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bumt1w8a8t237"
-path.s3tc="res://.godot/imported/caixa_no_estilo_de_ps1_1.png-954c956be9a7d909fc352e7597b0fdac.s3tc.ctex"
+path.s3tc="res://.godot/imported/caixa_no_estilo_de_ps1_1.png-4d63f9968eb748def46ed43bcdc6e4cb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/caixa_no_estilo_de_ps1_1.png"
-dest_files=["res://.godot/imported/caixa_no_estilo_de_ps1_1.png-954c956be9a7d909fc352e7597b0fdac.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/caixa_no_estilo_de_ps1_1.png"
+dest_files=["res://.godot/imported/caixa_no_estilo_de_ps1_1.png-4d63f9968eb748def46ed43bcdc6e4cb.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0yd6d4y6ekwq"
-path.s3tc="res://.godot/imported/dirty_locker_256x256_retro_2.png-a64b788040fe49900d664f59ca6871d8.s3tc.ctex"
+path.s3tc="res://.godot/imported/dirty_locker_256x256_retro_2.png-dc78d8f30e1e500406fd5594ccf5cc10.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/dirty_locker_256x256_retro_2.png"
-dest_files=["res://.godot/imported/dirty_locker_256x256_retro_2.png-a64b788040fe49900d664f59ca6871d8.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/dirty_locker_256x256_retro_2.png"
+dest_files=["res://.godot/imported/dirty_locker_256x256_retro_2.png-dc78d8f30e1e500406fd5594ccf5cc10.s3tc.ctex"]
 
 [params]
 

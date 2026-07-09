@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ccocme41d1wx1"
-path="res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly.glb-f4fd8b8ac75b37d74850cce96c5bc267.scn"
+path="res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly.glb-4c5e5a2bbd64c67725abaef56d515590.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/volkswagen_golf_v_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly.glb-f4fd8b8ac75b37d74850cce96c5bc267.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/volkswagen_golf_v_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly.glb-4c5e5a2bbd64c67725abaef56d515590.scn"]
 
 [params]
 

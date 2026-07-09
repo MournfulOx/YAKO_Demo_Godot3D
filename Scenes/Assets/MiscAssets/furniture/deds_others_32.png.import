@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg1xb72sl2rs5"
-path.s3tc="res://.godot/imported/deds_others_32.png-23139771e2f5f38f82cb170701d8947d.s3tc.ctex"
+path.s3tc="res://.godot/imported/deds_others_32.png-c94ae00fc7ded937f1c47ff9c908967b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/deds_others_32.png"
-dest_files=["res://.godot/imported/deds_others_32.png-23139771e2f5f38f82cb170701d8947d.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/deds_others_32.png"
+dest_files=["res://.godot/imported/deds_others_32.png-c94ae00fc7ded937f1c47ff9c908967b.s3tc.ctex"]
 
 [params]
 

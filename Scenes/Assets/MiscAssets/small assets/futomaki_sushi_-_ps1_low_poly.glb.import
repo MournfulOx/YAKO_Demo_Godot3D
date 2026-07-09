@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dasxcdbwx80e4"
-path="res://.godot/imported/futomaki_sushi_-_ps1_low_poly.glb-9092d4b7eb94a4a751e403f1c6481859.scn"
+path="res://.godot/imported/futomaki_sushi_-_ps1_low_poly.glb-f3340a34f02ee92d163ec6bda544ba7e.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/futomaki_sushi_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/futomaki_sushi_-_ps1_low_poly.glb-9092d4b7eb94a4a751e403f1c6481859.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/futomaki_sushi_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/futomaki_sushi_-_ps1_low_poly.glb-f3340a34f02ee92d163ec6bda544ba7e.scn"]
 
 [params]
 

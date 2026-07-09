@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ddhvgp6gktp72"
-path="res://.godot/imported/low_poly_canned_soups.glb-be4bb20643927b95e0a76cfc9f135a7a.scn"
+path="res://.godot/imported/low_poly_canned_soups.glb-4910422b879ffbac8017d8045142771c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_canned_soups.glb"
-dest_files=["res://.godot/imported/low_poly_canned_soups.glb-be4bb20643927b95e0a76cfc9f135a7a.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_canned_soups.glb"
+dest_files=["res://.godot/imported/low_poly_canned_soups.glb-4910422b879ffbac8017d8045142771c.scn"]
 
 [params]
 

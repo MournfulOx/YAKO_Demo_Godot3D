@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0tq6leluhbwy"
-path.s3tc="res://.godot/imported/7_eleven_5.jpg-9f9803a3dcdcdca7845d7bd5ecf58904.s3tc.ctex"
+path.s3tc="res://.godot/imported/7_eleven_5.jpg-f0ba789813835f0b4952d1a61aabe3f5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/711/7_eleven_5.jpg"
-dest_files=["res://.godot/imported/7_eleven_5.jpg-9f9803a3dcdcdca7845d7bd5ecf58904.s3tc.ctex"]
+source_file="res://Scenes/Assets/SevenEleven/7_eleven_5.jpg"
+dest_files=["res://.godot/imported/7_eleven_5.jpg-f0ba789813835f0b4952d1a61aabe3f5.s3tc.ctex"]
 
 [params]
 

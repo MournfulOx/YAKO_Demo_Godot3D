@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpasronn0u0y2"
-path.s3tc="res://.godot/imported/kawasaki_spectre_-_ps1_low_poly_0.png-88b2162bee5518157f9eb796eb130bc0.s3tc.ctex"
+path.s3tc="res://.godot/imported/kawasaki_spectre_-_ps1_low_poly_0.png-98d305114cf6241907fd83323b53b80b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/kawasaki_spectre_-_ps1_low_poly_0.png"
-dest_files=["res://.godot/imported/kawasaki_spectre_-_ps1_low_poly_0.png-88b2162bee5518157f9eb796eb130bc0.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/kawasaki_spectre_-_ps1_low_poly_0.png"
+dest_files=["res://.godot/imported/kawasaki_spectre_-_ps1_low_poly_0.png-98d305114cf6241907fd83323b53b80b.s3tc.ctex"]
 
 [params]
 

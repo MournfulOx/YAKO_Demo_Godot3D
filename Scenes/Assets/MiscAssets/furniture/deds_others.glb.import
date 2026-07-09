@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c303xip0j8c5t"
-path="res://.godot/imported/deds_others.glb-854c5ca7720dee18fc5e0721c7eefd2c.scn"
+path="res://.godot/imported/deds_others.glb-dca27c8481508cbb02fc95caf6f54fd5.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/deds_others.glb"
-dest_files=["res://.godot/imported/deds_others.glb-854c5ca7720dee18fc5e0721c7eefd2c.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/deds_others.glb"
+dest_files=["res://.godot/imported/deds_others.glb-dca27c8481508cbb02fc95caf6f54fd5.scn"]
 
 [params]
 

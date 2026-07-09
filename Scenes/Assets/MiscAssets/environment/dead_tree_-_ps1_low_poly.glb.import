@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://pislllp67s1o"
-path="res://.godot/imported/dead_tree_-_ps1_low_poly.glb-f2dd0976cb98da6c4823e8c07beeb184.scn"
+path="res://.godot/imported/dead_tree_-_ps1_low_poly.glb-e33d531624d978854cc66310bd557ae6.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/dead_tree_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/dead_tree_-_ps1_low_poly.glb-f2dd0976cb98da6c4823e8c07beeb184.scn"]
+source_file="res://Scenes/Assets/MiscAssets/environment/dead_tree_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/dead_tree_-_ps1_low_poly.glb-e33d531624d978854cc66310bd557ae6.scn"]
 
 [params]
 

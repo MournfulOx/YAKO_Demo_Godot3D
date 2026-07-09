@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wmbl61sfdaxj"
-path.s3tc="res://.godot/imported/arcade_machine_-_pixel-art_low-poly_3.png-470532caeb98b578be6a4b2bd43f41db.s3tc.ctex"
+path.s3tc="res://.godot/imported/arcade_machine_-_pixel-art_low-poly_3.png-ea6d216ad5c00ed8099aaad607079e87.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/arcade_machine_-_pixel-art_low-poly_3.png"
-dest_files=["res://.godot/imported/arcade_machine_-_pixel-art_low-poly_3.png-470532caeb98b578be6a4b2bd43f41db.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/environment/arcade_machine_-_pixel-art_low-poly_3.png"
+dest_files=["res://.godot/imported/arcade_machine_-_pixel-art_low-poly_3.png-ea6d216ad5c00ed8099aaad607079e87.s3tc.ctex"]
 
 [params]
 

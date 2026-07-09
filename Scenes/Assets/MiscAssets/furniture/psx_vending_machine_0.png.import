@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctj5mchybu0im"
-path.s3tc="res://.godot/imported/psx_vending_machine_0.png-4bd7a8047fe0d2376dc384543f4a1c48.s3tc.ctex"
+path.s3tc="res://.godot/imported/psx_vending_machine_0.png-ba6104958424f9b6f7462ce511957920.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/psx_vending_machine_0.png"
-dest_files=["res://.godot/imported/psx_vending_machine_0.png-4bd7a8047fe0d2376dc384543f4a1c48.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/psx_vending_machine_0.png"
+dest_files=["res://.godot/imported/psx_vending_machine_0.png-ba6104958424f9b6f7462ce511957920.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dnms16o8ik7br"
-path="res://.godot/imported/ps1_style_newspaper__bloody_and_normal_versions.glb-2100ccb42c82d2c6fc34d44a480bf362.scn"
+path="res://.godot/imported/ps1_style_newspaper__bloody_and_normal_versions.glb-aca6eb9bfd443f5e2a8e4fceea1d4dc4.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_style_newspaper__bloody_and_normal_versions.glb"
-dest_files=["res://.godot/imported/ps1_style_newspaper__bloody_and_normal_versions.glb-2100ccb42c82d2c6fc34d44a480bf362.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_style_newspaper__bloody_and_normal_versions.glb"
+dest_files=["res://.godot/imported/ps1_style_newspaper__bloody_and_normal_versions.glb-aca6eb9bfd443f5e2a8e4fceea1d4dc4.scn"]
 
 [params]
 

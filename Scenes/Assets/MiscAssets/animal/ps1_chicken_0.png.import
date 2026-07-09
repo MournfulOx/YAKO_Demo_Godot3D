@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cogseghq30wf6"
-path.s3tc="res://.godot/imported/ps1_chicken_0.png-329cb0a4e2fe992893c81a074623a00b.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_chicken_0.png-d2cf0248fc7de241ed0be96bbf7bc23f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/ps1_chicken_0.png"
-dest_files=["res://.godot/imported/ps1_chicken_0.png-329cb0a4e2fe992893c81a074623a00b.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/animal/ps1_chicken_0.png"
+dest_files=["res://.godot/imported/ps1_chicken_0.png-d2cf0248fc7de241ed0be96bbf7bc23f.s3tc.ctex"]
 
 [params]
 

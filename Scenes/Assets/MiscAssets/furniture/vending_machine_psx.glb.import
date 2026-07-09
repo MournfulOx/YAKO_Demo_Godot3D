@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxh2d53fjeb5t"
-path="res://.godot/imported/vending_machine_psx.glb-10d53612418ec50e413353304ff26a4a.scn"
+path="res://.godot/imported/vending_machine_psx.glb-3efb2a88478ee875597dd93ee3a41e94.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/vending_machine_psx.glb"
-dest_files=["res://.godot/imported/vending_machine_psx.glb-10d53612418ec50e413353304ff26a4a.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/vending_machine_psx.glb"
+dest_files=["res://.godot/imported/vending_machine_psx.glb-3efb2a88478ee875597dd93ee3a41e94.scn"]
 
 [params]
 

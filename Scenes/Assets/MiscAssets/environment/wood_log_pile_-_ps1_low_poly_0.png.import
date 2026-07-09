@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1nbdf3krunn1"
-path.s3tc="res://.godot/imported/wood_log_pile_-_ps1_low_poly_0.png-4b5017e09ef8430fb9b31dbbf313448f.s3tc.ctex"
+path.s3tc="res://.godot/imported/wood_log_pile_-_ps1_low_poly_0.png-92277b4b3e2c27dde85411f3d57e7595.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/wood_log_pile_-_ps1_low_poly_0.png"
-dest_files=["res://.godot/imported/wood_log_pile_-_ps1_low_poly_0.png-4b5017e09ef8430fb9b31dbbf313448f.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/environment/wood_log_pile_-_ps1_low_poly_0.png"
+dest_files=["res://.godot/imported/wood_log_pile_-_ps1_low_poly_0.png-92277b4b3e2c27dde85411f3d57e7595.s3tc.ctex"]
 
 [params]
 

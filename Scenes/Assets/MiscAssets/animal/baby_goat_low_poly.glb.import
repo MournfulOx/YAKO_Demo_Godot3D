@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dtp4u6kjpxu82"
-path="res://.godot/imported/baby_goat_low_poly.glb-0b1bc47428a354115bdbdf13758c9fc9.scn"
+path="res://.godot/imported/baby_goat_low_poly.glb-e269853dcdd43064400065b5a3a0daab.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/baby_goat_low_poly.glb"
-dest_files=["res://.godot/imported/baby_goat_low_poly.glb-0b1bc47428a354115bdbdf13758c9fc9.scn"]
+source_file="res://Scenes/Assets/MiscAssets/animal/baby_goat_low_poly.glb"
+dest_files=["res://.godot/imported/baby_goat_low_poly.glb-e269853dcdd43064400065b5a3a0daab.scn"]
 
 [params]
 

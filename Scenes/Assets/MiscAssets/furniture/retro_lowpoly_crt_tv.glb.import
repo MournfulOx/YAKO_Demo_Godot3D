@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gp4241eyucyi"
-path="res://.godot/imported/retro_lowpoly_crt_tv.glb-3182a832399c604c94f7babf78080609.scn"
+path="res://.godot/imported/retro_lowpoly_crt_tv.glb-499652982ca587c20547b356561bd014.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/retro_lowpoly_crt_tv.glb"
-dest_files=["res://.godot/imported/retro_lowpoly_crt_tv.glb-3182a832399c604c94f7babf78080609.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/retro_lowpoly_crt_tv.glb"
+dest_files=["res://.godot/imported/retro_lowpoly_crt_tv.glb-499652982ca587c20547b356561bd014.scn"]
 
 [params]
 

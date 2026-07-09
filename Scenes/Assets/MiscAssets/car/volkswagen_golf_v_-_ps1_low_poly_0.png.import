@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmr1scfnk77lr"
-path.s3tc="res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly_0.png-b84aa4b7990ad4cf5fdad4a222565443.s3tc.ctex"
+path.s3tc="res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly_0.png-f31ecfb29c33a57ee0dfad4df6399f8d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/volkswagen_golf_v_-_ps1_low_poly_0.png"
-dest_files=["res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly_0.png-b84aa4b7990ad4cf5fdad4a222565443.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/volkswagen_golf_v_-_ps1_low_poly_0.png"
+dest_files=["res://.godot/imported/volkswagen_golf_v_-_ps1_low_poly_0.png-f31ecfb29c33a57ee0dfad4df6399f8d.s3tc.ctex"]
 
 [params]
 

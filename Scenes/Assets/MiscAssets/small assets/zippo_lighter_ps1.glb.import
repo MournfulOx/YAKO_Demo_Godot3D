@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8jgv55xl3ct0"
-path="res://.godot/imported/zippo_lighter_ps1.glb-9bed51ba4a2ea41c3777631c0c8db75f.scn"
+path="res://.godot/imported/zippo_lighter_ps1.glb-a24d8d2e0c0ea1a0c9cb4b7545dea614.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/zippo_lighter_ps1.glb"
-dest_files=["res://.godot/imported/zippo_lighter_ps1.glb-9bed51ba4a2ea41c3777631c0c8db75f.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/zippo_lighter_ps1.glb"
+dest_files=["res://.godot/imported/zippo_lighter_ps1.glb-a24d8d2e0c0ea1a0c9cb4b7545dea614.scn"]
 
 [params]
 

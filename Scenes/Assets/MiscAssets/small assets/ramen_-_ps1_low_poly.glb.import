@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwr6corjjbrx4"
-path="res://.godot/imported/ramen_-_ps1_low_poly.glb-e5b6f3994f3c8d995fe4e181974f1da5.scn"
+path="res://.godot/imported/ramen_-_ps1_low_poly.glb-63840b8cc2122c278a4693081533e753.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ramen_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/ramen_-_ps1_low_poly.glb-e5b6f3994f3c8d995fe4e181974f1da5.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ramen_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/ramen_-_ps1_low_poly.glb-63840b8cc2122c278a4693081533e753.scn"]
 
 [params]
 

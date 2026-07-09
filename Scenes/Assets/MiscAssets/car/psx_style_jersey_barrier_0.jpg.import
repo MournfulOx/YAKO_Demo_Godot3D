@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3r0k7kopgpol"
-path.s3tc="res://.godot/imported/psx_style_jersey_barrier_0.jpg-6dbc9bc768a4513d974f42ddef6b23c7.s3tc.ctex"
+path.s3tc="res://.godot/imported/psx_style_jersey_barrier_0.jpg-644d589e303adee3165a9b56a79c6074.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/psx_style_jersey_barrier_0.jpg"
-dest_files=["res://.godot/imported/psx_style_jersey_barrier_0.jpg-6dbc9bc768a4513d974f42ddef6b23c7.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/psx_style_jersey_barrier_0.jpg"
+dest_files=["res://.godot/imported/psx_style_jersey_barrier_0.jpg-644d589e303adee3165a9b56a79c6074.s3tc.ctex"]
 
 [params]
 

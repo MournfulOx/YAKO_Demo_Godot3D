@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctis0f3a4mltn"
-path.s3tc="res://.godot/imported/kitchen_tools_pack_3.png-1652d938be5d04cf6f8450ca76559437.s3tc.ctex"
+path.s3tc="res://.godot/imported/kitchen_tools_pack_3.png-2c120deb9823d8531e86669a6ecb0670.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/kitchen_tools_pack_3.png"
-dest_files=["res://.godot/imported/kitchen_tools_pack_3.png-1652d938be5d04cf6f8450ca76559437.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/kitchen_tools_pack_3.png"
+dest_files=["res://.godot/imported/kitchen_tools_pack_3.png-2c120deb9823d8531e86669a6ecb0670.s3tc.ctex"]
 
 [params]
 

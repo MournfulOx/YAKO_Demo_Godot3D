@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcomevh508gns"
-path.s3tc="res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro_0.png-35aaa364745b88e069825e7b8f9115dd.s3tc.ctex"
+path.s3tc="res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro_0.png-280e54eab228f6e1552f7710d5fbd347.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/vintage_canadian_books_18_512x512_psx_retro_0.png"
-dest_files=["res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro_0.png-35aaa364745b88e069825e7b8f9115dd.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/vintage_canadian_books_18_512x512_psx_retro_0.png"
+dest_files=["res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro_0.png-280e54eab228f6e1552f7710d5fbd347.s3tc.ctex"]
 
 [params]
 

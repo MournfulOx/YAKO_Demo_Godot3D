@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2rr1r665d2fa"
-path.s3tc="res://.godot/imported/parking_lot_16.jpg-33c318e367eade56a269a54d9b2ae2f2.s3tc.ctex"
+path.s3tc="res://.godot/imported/parking_lot_16.jpg-fb9ddd6fc4db5a063afe449fbb2afaec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/711/parking_lot_16.jpg"
-dest_files=["res://.godot/imported/parking_lot_16.jpg-33c318e367eade56a269a54d9b2ae2f2.s3tc.ctex"]
+source_file="res://Scenes/Assets/SevenEleven/parking_lot_16.jpg"
+dest_files=["res://.godot/imported/parking_lot_16.jpg-fb9ddd6fc4db5a063afe449fbb2afaec.s3tc.ctex"]
 
 [params]
 

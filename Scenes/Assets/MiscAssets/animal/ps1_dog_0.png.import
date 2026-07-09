@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt02to0vkuv4u"
-path.s3tc="res://.godot/imported/ps1_dog_0.png-5a4e4b27dea772743a9439532b15422b.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_dog_0.png-6af94cc3f3a5b8a5e08be5009e10c10f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/ps1_dog_0.png"
-dest_files=["res://.godot/imported/ps1_dog_0.png-5a4e4b27dea772743a9439532b15422b.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/animal/ps1_dog_0.png"
+dest_files=["res://.godot/imported/ps1_dog_0.png-6af94cc3f3a5b8a5e08be5009e10c10f.s3tc.ctex"]
 
 [params]
 

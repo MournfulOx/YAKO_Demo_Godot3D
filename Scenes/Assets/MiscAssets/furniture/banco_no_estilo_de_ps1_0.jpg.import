@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b42mmhbp78no8"
-path.s3tc="res://.godot/imported/banco_no_estilo_de_ps1_0.jpg-b5520ebad11e08d702ffd03f935213cb.s3tc.ctex"
+path.s3tc="res://.godot/imported/banco_no_estilo_de_ps1_0.jpg-1dbd6d7f798ca855b9be5d9dd42ad3b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/banco_no_estilo_de_ps1_0.jpg"
-dest_files=["res://.godot/imported/banco_no_estilo_de_ps1_0.jpg-b5520ebad11e08d702ffd03f935213cb.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/banco_no_estilo_de_ps1_0.jpg"
+dest_files=["res://.godot/imported/banco_no_estilo_de_ps1_0.jpg-1dbd6d7f798ca855b9be5d9dd42ad3b1.s3tc.ctex"]
 
 [params]
 

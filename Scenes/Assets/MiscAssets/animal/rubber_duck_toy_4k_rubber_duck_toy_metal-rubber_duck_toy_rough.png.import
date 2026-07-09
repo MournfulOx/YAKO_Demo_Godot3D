@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxkat237wl6mf"
-path.s3tc="res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png-171bbf8b755fb829ab411873a3cedca1.s3tc.ctex"
+path.s3tc="res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png-06b390d4d771568b1cf50f47bfdb0099.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png"
-dest_files=["res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png-171bbf8b755fb829ab411873a3cedca1.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/animal/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png"
+dest_files=["res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_metal-rubber_duck_toy_rough.png-06b390d4d771568b1cf50f47bfdb0099.s3tc.ctex"]
 
 [params]
 

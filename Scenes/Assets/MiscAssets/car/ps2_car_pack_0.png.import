@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvwkyebp16dyt"
-path.s3tc="res://.godot/imported/ps2_car_pack_0.png-0cb87d57c2a9b5e5f5287ad02cee346a.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps2_car_pack_0.png-8bf851dac73c4e9a0d57d0fd842da942.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps2_car_pack_0.png"
-dest_files=["res://.godot/imported/ps2_car_pack_0.png-0cb87d57c2a9b5e5f5287ad02cee346a.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps2_car_pack_0.png"
+dest_files=["res://.godot/imported/ps2_car_pack_0.png-8bf851dac73c4e9a0d57d0fd842da942.s3tc.ctex"]
 
 [params]
 

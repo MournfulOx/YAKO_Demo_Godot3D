@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d34s4c5m7q5e1"
-path="res://.godot/imported/psx_style_jersey_barrier.glb-f91dafa038ca6dcf1effd7247129d9a2.scn"
+path="res://.godot/imported/psx_style_jersey_barrier.glb-335ef84697c4391d16ff938ea54bf871.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/psx_style_jersey_barrier.glb"
-dest_files=["res://.godot/imported/psx_style_jersey_barrier.glb-f91dafa038ca6dcf1effd7247129d9a2.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/psx_style_jersey_barrier.glb"
+dest_files=["res://.godot/imported/psx_style_jersey_barrier.glb-335ef84697c4391d16ff938ea54bf871.scn"]
 
 [params]
 

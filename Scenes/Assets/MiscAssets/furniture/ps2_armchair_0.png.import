@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxvx8fbh664yq"
-path.s3tc="res://.godot/imported/ps2_armchair_0.png-db38c99a8e32dfa8ace8b61ce8111d3b.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps2_armchair_0.png-721df2a58f67c3e90a5d838779379901.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps2_armchair_0.png"
-dest_files=["res://.godot/imported/ps2_armchair_0.png-db38c99a8e32dfa8ace8b61ce8111d3b.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps2_armchair_0.png"
+dest_files=["res://.godot/imported/ps2_armchair_0.png-721df2a58f67c3e90a5d838779379901.s3tc.ctex"]
 
 [params]
 

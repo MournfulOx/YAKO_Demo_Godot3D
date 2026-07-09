@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cexhj04wqfy6j"
-path.s3tc="res://.godot/imported/foods_2_6.jpg-138fe9337c8b9c9c437a64f0e47dea15.s3tc.ctex"
+path.s3tc="res://.godot/imported/foods_2_6.jpg-fd7958bd926824d5a149fdd69c58809b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/foods_2_6.jpg"
-dest_files=["res://.godot/imported/foods_2_6.jpg-138fe9337c8b9c9c437a64f0e47dea15.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/foods_2_6.jpg"
+dest_files=["res://.godot/imported/foods_2_6.jpg-fd7958bd926824d5a149fdd69c58809b.s3tc.ctex"]
 
 [params]
 

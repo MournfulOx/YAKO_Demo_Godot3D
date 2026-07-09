@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b45rwld47gdgl"
-path="res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro.glb-e4df1c7eab598bb261d6ceb2c5e6a674.scn"
+path="res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro.glb-c245d17d17d3bfd70bff69b1a7943d79.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/vintage_canadian_books_18_512x512_psx_retro.glb"
-dest_files=["res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro.glb-e4df1c7eab598bb261d6ceb2c5e6a674.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/vintage_canadian_books_18_512x512_psx_retro.glb"
+dest_files=["res://.godot/imported/vintage_canadian_books_18_512x512_psx_retro.glb-c245d17d17d3bfd70bff69b1a7943d79.scn"]
 
 [params]
 

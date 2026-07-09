@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://k4cjcnmdiou1"
-path="res://.godot/imported/ganso_no_estilo_de_ps1.glb-f49b7e7b4df9fcec84543b281c1ecd29.scn"
+path="res://.godot/imported/ganso_no_estilo_de_ps1.glb-9ef2c514d8d8718948da86b21a474d54.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/ganso_no_estilo_de_ps1.glb"
-dest_files=["res://.godot/imported/ganso_no_estilo_de_ps1.glb-f49b7e7b4df9fcec84543b281c1ecd29.scn"]
+source_file="res://Scenes/Assets/MiscAssets/animal/ganso_no_estilo_de_ps1.glb"
+dest_files=["res://.godot/imported/ganso_no_estilo_de_ps1.glb-9ef2c514d8d8718948da86b21a474d54.scn"]
 
 [params]
 

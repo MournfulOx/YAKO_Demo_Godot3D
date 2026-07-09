@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b0l75nb6r4yb5"
-path="res://.godot/imported/ps2_soviet_tv_table.glb-e1ef332becc5986f601f2fc21b4b4663.scn"
+path="res://.godot/imported/ps2_soviet_tv_table.glb-daef7fe72a76ac63326812be4a3107d3.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps2_soviet_tv_table.glb"
-dest_files=["res://.godot/imported/ps2_soviet_tv_table.glb-e1ef332becc5986f601f2fc21b4b4663.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps2_soviet_tv_table.glb"
+dest_files=["res://.godot/imported/ps2_soviet_tv_table.glb-daef7fe72a76ac63326812be4a3107d3.scn"]
 
 [params]
 

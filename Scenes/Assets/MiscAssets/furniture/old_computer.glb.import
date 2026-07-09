@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b87d1gbgx7eti"
-path="res://.godot/imported/old_computer.glb-9899da8e5a5f5d5ff9e6d2c37d3697b4.scn"
+path="res://.godot/imported/old_computer.glb-258d7ac19be5ab6d3bac41cded8d490d.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/old_computer.glb"
-dest_files=["res://.godot/imported/old_computer.glb-9899da8e5a5f5d5ff9e6d2c37d3697b4.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/old_computer.glb"
+dest_files=["res://.godot/imported/old_computer.glb-258d7ac19be5ab6d3bac41cded8d490d.scn"]
 
 [params]
 

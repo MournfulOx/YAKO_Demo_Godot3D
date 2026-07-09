@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3snrb4ly4bik"
-path.s3tc="res://.godot/imported/baby_goat_low_poly_0.png-4f23f2b6af89cb4323d83eefd7e0f33f.s3tc.ctex"
+path.s3tc="res://.godot/imported/baby_goat_low_poly_0.png-130fa27ba67ee72d11e74929031eac62.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/baby_goat_low_poly_0.png"
-dest_files=["res://.godot/imported/baby_goat_low_poly_0.png-4f23f2b6af89cb4323d83eefd7e0f33f.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/animal/baby_goat_low_poly_0.png"
+dest_files=["res://.godot/imported/baby_goat_low_poly_0.png-130fa27ba67ee72d11e74929031eac62.s3tc.ctex"]
 
 [params]
 

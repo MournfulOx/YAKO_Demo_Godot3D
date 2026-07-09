@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqol5helm0bb"
-path="res://.godot/imported/chips_and_soda_in_ps1_style.glb-ea8d20fd075e8e2564fa17f747c9e028.scn"
+path="res://.godot/imported/chips_and_soda_in_ps1_style.glb-8b7756e89b37cc7743ca42b0be722d01.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/chips_and_soda_in_ps1_style.glb"
-dest_files=["res://.godot/imported/chips_and_soda_in_ps1_style.glb-ea8d20fd075e8e2564fa17f747c9e028.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/chips_and_soda_in_ps1_style.glb"
+dest_files=["res://.godot/imported/chips_and_soda_in_ps1_style.glb-8b7756e89b37cc7743ca42b0be722d01.scn"]
 
 [params]
 

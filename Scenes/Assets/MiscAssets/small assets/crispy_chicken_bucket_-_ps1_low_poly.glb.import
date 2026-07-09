@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bg2cj368ufeum"
-path="res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly.glb-f501661c6dc26b3179f3f779e61d7d8c.scn"
+path="res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly.glb-f8b7a3062e0f1f810637462c63bc3b8a.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/crispy_chicken_bucket_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly.glb-f501661c6dc26b3179f3f779e61d7d8c.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/crispy_chicken_bucket_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/crispy_chicken_bucket_-_ps1_low_poly.glb-f8b7a3062e0f1f810637462c63bc3b8a.scn"]
 
 [params]
 

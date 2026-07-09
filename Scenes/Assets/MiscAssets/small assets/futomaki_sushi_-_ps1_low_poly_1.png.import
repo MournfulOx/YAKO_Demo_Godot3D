@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmk080v53dcjw"
-path.s3tc="res://.godot/imported/futomaki_sushi_-_ps1_low_poly_1.png-60551deb9198521bfffedc40190d2c38.s3tc.ctex"
+path.s3tc="res://.godot/imported/futomaki_sushi_-_ps1_low_poly_1.png-8cb6af939a30e043fd4d17c5c82c60a5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/futomaki_sushi_-_ps1_low_poly_1.png"
-dest_files=["res://.godot/imported/futomaki_sushi_-_ps1_low_poly_1.png-60551deb9198521bfffedc40190d2c38.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/futomaki_sushi_-_ps1_low_poly_1.png"
+dest_files=["res://.godot/imported/futomaki_sushi_-_ps1_low_poly_1.png-8cb6af939a30e043fd4d17c5c82c60a5.s3tc.ctex"]
 
 [params]
 

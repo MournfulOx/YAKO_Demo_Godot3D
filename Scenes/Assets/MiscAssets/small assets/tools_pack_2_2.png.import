@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqn1ubnbuxwmy"
-path.s3tc="res://.godot/imported/tools_pack_2_2.png-b5e4b9802606baacff82245ebf8a458c.s3tc.ctex"
+path.s3tc="res://.godot/imported/tools_pack_2_2.png-c257c0763d19dc8520a48a0642410a74.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/tools_pack_2_2.png"
-dest_files=["res://.godot/imported/tools_pack_2_2.png-b5e4b9802606baacff82245ebf8a458c.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/tools_pack_2_2.png"
+dest_files=["res://.godot/imported/tools_pack_2_2.png-c257c0763d19dc8520a48a0642410a74.s3tc.ctex"]
 
 [params]
 

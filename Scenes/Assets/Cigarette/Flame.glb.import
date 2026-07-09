@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cknrk824oyksn"
-path="res://.godot/imported/Flame.glb-073228f481aabf1639b284748bf7131c.scn"
+path="res://.godot/imported/Flame.glb-94c9bab864d44dfa3555a978fedd3d44.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/Player/Flame.glb"
-dest_files=["res://.godot/imported/Flame.glb-073228f481aabf1639b284748bf7131c.scn"]
+source_file="res://Scenes/Assets/Cigarette/Flame.glb"
+dest_files=["res://.godot/imported/Flame.glb-94c9bab864d44dfa3555a978fedd3d44.scn"]
 
 [params]
 

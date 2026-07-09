@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bxnmpk6hc4chl"
-path="res://.godot/imported/caixa_no_estilo_de_ps1.glb-c093616987a9a5c3a4754c790eb76ce6.scn"
+path="res://.godot/imported/caixa_no_estilo_de_ps1.glb-9fe880eaed062ae72c25387476c2692e.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/caixa_no_estilo_de_ps1.glb"
-dest_files=["res://.godot/imported/caixa_no_estilo_de_ps1.glb-c093616987a9a5c3a4754c790eb76ce6.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/caixa_no_estilo_de_ps1.glb"
+dest_files=["res://.godot/imported/caixa_no_estilo_de_ps1.glb-9fe880eaed062ae72c25387476c2692e.scn"]
 
 [params]
 

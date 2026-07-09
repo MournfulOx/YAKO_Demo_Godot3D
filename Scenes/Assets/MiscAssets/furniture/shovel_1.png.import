@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6u38wha1yxis"
-path.s3tc="res://.godot/imported/shovel_1.png-5c22aa52955e80d2a9234ce33d9f2e03.s3tc.ctex"
+path.s3tc="res://.godot/imported/shovel_1.png-ab9de27e60d6871eebc847674fd0b5d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/shovel_1.png"
-dest_files=["res://.godot/imported/shovel_1.png-5c22aa52955e80d2a9234ce33d9f2e03.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/shovel_1.png"
+dest_files=["res://.godot/imported/shovel_1.png-ab9de27e60d6871eebc847674fd0b5d4.s3tc.ctex"]
 
 [params]
 

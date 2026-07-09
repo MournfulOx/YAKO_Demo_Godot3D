@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5n7e6asnja23"
-path.s3tc="res://.godot/imported/chips_and_soda_in_ps1_style_1.png-15f9645f705ed074e5e4a9522fe35037.s3tc.ctex"
+path.s3tc="res://.godot/imported/chips_and_soda_in_ps1_style_1.png-d45c67dd17d0674e0fe6d1b1462fdff9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/chips_and_soda_in_ps1_style_1.png"
-dest_files=["res://.godot/imported/chips_and_soda_in_ps1_style_1.png-15f9645f705ed074e5e4a9522fe35037.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/chips_and_soda_in_ps1_style_1.png"
+dest_files=["res://.godot/imported/chips_and_soda_in_ps1_style_1.png-d45c67dd17d0674e0fe6d1b1462fdff9.s3tc.ctex"]
 
 [params]
 

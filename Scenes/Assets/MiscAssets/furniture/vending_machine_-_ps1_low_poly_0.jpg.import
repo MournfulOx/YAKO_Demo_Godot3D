@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mgjnmuso4prp"
-path.s3tc="res://.godot/imported/vending_machine_-_ps1_low_poly_0.jpg-23e2e0151f11ae59ff344a487f4d446e.s3tc.ctex"
+path.s3tc="res://.godot/imported/vending_machine_-_ps1_low_poly_0.jpg-f7479f263962d4a5fac39afac646d193.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/vending_machine_-_ps1_low_poly_0.jpg"
-dest_files=["res://.godot/imported/vending_machine_-_ps1_low_poly_0.jpg-23e2e0151f11ae59ff344a487f4d446e.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/vending_machine_-_ps1_low_poly_0.jpg"
+dest_files=["res://.godot/imported/vending_machine_-_ps1_low_poly_0.jpg-f7479f263962d4a5fac39afac646d193.s3tc.ctex"]
 
 [params]
 

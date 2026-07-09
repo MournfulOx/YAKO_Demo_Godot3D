@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clnxxr74qaj6s"
-path.s3tc="res://.godot/imported/ps1_plate_2.png-c8a4368ced00feac23df8c72e2c1b966.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_plate_2.png-f90a2fec8f58be3b487d5b4eb23ad201.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_plate_2.png"
-dest_files=["res://.godot/imported/ps1_plate_2.png-c8a4368ced00feac23df8c72e2c1b966.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_plate_2.png"
+dest_files=["res://.godot/imported/ps1_plate_2.png-f90a2fec8f58be3b487d5b4eb23ad201.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0icyquxtns3f"
-path.s3tc="res://.godot/imported/low_poly_90s_electronics_assets_15.png-a3901f5a4109cd8ebff7c801f5806138.s3tc.ctex"
+path.s3tc="res://.godot/imported/low_poly_90s_electronics_assets_15.png-447468fba19cc067a5a7c1f692c660d6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_90s_electronics_assets_15.png"
-dest_files=["res://.godot/imported/low_poly_90s_electronics_assets_15.png-a3901f5a4109cd8ebff7c801f5806138.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_90s_electronics_assets_15.png"
+dest_files=["res://.godot/imported/low_poly_90s_electronics_assets_15.png-447468fba19cc067a5a7c1f692c660d6.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw3uk4ocbj1n5"
-path.s3tc="res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg-a527897d152bc4ebfd698bf8a71be962.s3tc.ctex"
+path.s3tc="res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg-151b3e10eb860e387aa8c727d6f26311.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg"
-dest_files=["res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg-a527897d152bc4ebfd698bf8a71be962.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/animal/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg"
+dest_files=["res://.godot/imported/rubber_duck_toy_4k_rubber_duck_toy_diff.jpg-151b3e10eb860e387aa8c727d6f26311.s3tc.ctex"]
 
 [params]
 

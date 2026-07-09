@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7334h66wb3c6"
-path.s3tc="res://.godot/imported/ps1_style_toilete_0.png-bbcb671087290c38741a8f6079e02d71.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_style_toilete_0.png-92bf22ec9581a121b7a7a9ae6c1b10da.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_style_toilete_0.png"
-dest_files=["res://.godot/imported/ps1_style_toilete_0.png-bbcb671087290c38741a8f6079e02d71.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_style_toilete_0.png"
+dest_files=["res://.godot/imported/ps1_style_toilete_0.png-92bf22ec9581a121b7a7a9ae6c1b10da.s3tc.ctex"]
 
 [params]
 

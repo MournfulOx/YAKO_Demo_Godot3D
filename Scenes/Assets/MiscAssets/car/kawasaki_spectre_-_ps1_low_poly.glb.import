@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8cohxsuj40cw"
-path="res://.godot/imported/kawasaki_spectre_-_ps1_low_poly.glb-2a2723b3c5c8676ded0990db575285de.scn"
+path="res://.godot/imported/kawasaki_spectre_-_ps1_low_poly.glb-f3ba2ef25ac4d0f67a02b9b804ff0d66.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/kawasaki_spectre_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/kawasaki_spectre_-_ps1_low_poly.glb-2a2723b3c5c8676ded0990db575285de.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/kawasaki_spectre_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/kawasaki_spectre_-_ps1_low_poly.glb-f3ba2ef25ac4d0f67a02b9b804ff0d66.scn"]
 
 [params]
 

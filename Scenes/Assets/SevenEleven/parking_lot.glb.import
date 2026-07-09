@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cndughrvjix1k"
-path="res://.godot/imported/parking_lot.glb-1040668ffcb9414cd92570da6cba3093.scn"
+path="res://.godot/imported/parking_lot.glb-9cceba6e0fbe24a1ff877c5fd857f413.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/711/parking_lot.glb"
-dest_files=["res://.godot/imported/parking_lot.glb-1040668ffcb9414cd92570da6cba3093.scn"]
+source_file="res://Scenes/Assets/SevenEleven/parking_lot.glb"
+dest_files=["res://.godot/imported/parking_lot.glb-9cceba6e0fbe24a1ff877c5fd857f413.scn"]
 
 [params]
 

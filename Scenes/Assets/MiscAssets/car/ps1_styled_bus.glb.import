@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b63qbthd2wn5"
-path="res://.godot/imported/ps1_styled_bus.glb-0ba9ba63193e99c0df772a6cdabad2b4.scn"
+path="res://.godot/imported/ps1_styled_bus.glb-aeabcf259f7ec1f1f5bfd499cc69eca4.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1_styled_bus.glb"
-dest_files=["res://.godot/imported/ps1_styled_bus.glb-0ba9ba63193e99c0df772a6cdabad2b4.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1_styled_bus.glb"
+dest_files=["res://.godot/imported/ps1_styled_bus.glb-aeabcf259f7ec1f1f5bfd499cc69eca4.scn"]
 
 [params]
 

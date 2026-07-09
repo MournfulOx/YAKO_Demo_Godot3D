@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dixtgychkowkt"
-path.s3tc="res://.godot/imported/low_poly_boombox_ps1ps2_style_0.png-1ce82ca38325d8401ec21d64d0c75cb6.s3tc.ctex"
+path.s3tc="res://.godot/imported/low_poly_boombox_ps1ps2_style_0.png-3842434ebbb97d745b3c02e04498762c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_boombox_ps1ps2_style_0.png"
-dest_files=["res://.godot/imported/low_poly_boombox_ps1ps2_style_0.png-1ce82ca38325d8401ec21d64d0c75cb6.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_boombox_ps1ps2_style_0.png"
+dest_files=["res://.godot/imported/low_poly_boombox_ps1ps2_style_0.png-3842434ebbb97d745b3c02e04498762c.s3tc.ctex"]
 
 [params]
 

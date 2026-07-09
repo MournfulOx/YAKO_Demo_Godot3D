@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dec6osj40n623"
-path="res://.godot/imported/ps2_armchair.glb-88586cd24c90e7471f604fe519da6222.scn"
+path="res://.godot/imported/ps2_armchair.glb-f92a84bef92f51b3c51baf0e58eeb252.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps2_armchair.glb"
-dest_files=["res://.godot/imported/ps2_armchair.glb-88586cd24c90e7471f604fe519da6222.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps2_armchair.glb"
+dest_files=["res://.godot/imported/ps2_armchair.glb-f92a84bef92f51b3c51baf0e58eeb252.scn"]
 
 [params]
 

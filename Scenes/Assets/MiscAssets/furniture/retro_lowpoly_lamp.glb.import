@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0jf044gh3qrs"
-path="res://.godot/imported/retro_lowpoly_lamp.glb-0f7ba17d48badde791720b2caf9c9b30.scn"
+path="res://.godot/imported/retro_lowpoly_lamp.glb-763c4c67d86880386615253867cb443e.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/retro_lowpoly_lamp.glb"
-dest_files=["res://.godot/imported/retro_lowpoly_lamp.glb-0f7ba17d48badde791720b2caf9c9b30.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/retro_lowpoly_lamp.glb"
+dest_files=["res://.godot/imported/retro_lowpoly_lamp.glb-763c4c67d86880386615253867cb443e.scn"]
 
 [params]
 

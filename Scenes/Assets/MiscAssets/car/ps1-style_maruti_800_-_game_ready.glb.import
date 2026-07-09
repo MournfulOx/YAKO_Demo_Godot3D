@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bpsj365fhmrjv"
-path="res://.godot/imported/ps1-style_maruti_800_-_game_ready.glb-e4dd0b23c6ec88224e05927cc5fc5cfc.scn"
+path="res://.godot/imported/ps1-style_maruti_800_-_game_ready.glb-dd3e74a9de3dca134a9a1a90dd231f27.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1-style_maruti_800_-_game_ready.glb"
-dest_files=["res://.godot/imported/ps1-style_maruti_800_-_game_ready.glb-e4dd0b23c6ec88224e05927cc5fc5cfc.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1-style_maruti_800_-_game_ready.glb"
+dest_files=["res://.godot/imported/ps1-style_maruti_800_-_game_ready.glb-dd3e74a9de3dca134a9a1a90dd231f27.scn"]
 
 [params]
 

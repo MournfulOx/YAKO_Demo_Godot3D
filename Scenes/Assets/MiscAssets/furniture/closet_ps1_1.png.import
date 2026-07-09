@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg5ldn4c0w6ye"
-path.s3tc="res://.godot/imported/closet_ps1_1.png-8124de6ea791ca2539f3837aab6b3cb9.s3tc.ctex"
+path.s3tc="res://.godot/imported/closet_ps1_1.png-9fe128542e6aa0e392802800d6f80da4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/closet_ps1_1.png"
-dest_files=["res://.godot/imported/closet_ps1_1.png-8124de6ea791ca2539f3837aab6b3cb9.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/closet_ps1_1.png"
+dest_files=["res://.godot/imported/closet_ps1_1.png-9fe128542e6aa0e392802800d6f80da4.s3tc.ctex"]
 
 [params]
 

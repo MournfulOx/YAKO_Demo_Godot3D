@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnkl0be5ny6vo"
-path="res://.godot/imported/ps1_style_morgue_medical_cabinet.glb-a303f7feae44d108cb89150de69f1288.scn"
+path="res://.godot/imported/ps1_style_morgue_medical_cabinet.glb-024d9731631859aad65580d7371f45e2.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_style_morgue_medical_cabinet.glb"
-dest_files=["res://.godot/imported/ps1_style_morgue_medical_cabinet.glb-a303f7feae44d108cb89150de69f1288.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_style_morgue_medical_cabinet.glb"
+dest_files=["res://.godot/imported/ps1_style_morgue_medical_cabinet.glb-024d9731631859aad65580d7371f45e2.scn"]
 
 [params]
 

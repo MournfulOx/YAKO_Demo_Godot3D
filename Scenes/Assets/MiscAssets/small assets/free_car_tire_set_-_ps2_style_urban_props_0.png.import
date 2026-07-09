@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnvplloupmfkv"
-path.s3tc="res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props_0.png-85ed0a42c393eaf81dc670e4e2f1a62e.s3tc.ctex"
+path.s3tc="res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props_0.png-a5a1b725095e871fe749caf735bd5da5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/free_car_tire_set_-_ps2_style_urban_props_0.png"
-dest_files=["res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props_0.png-85ed0a42c393eaf81dc670e4e2f1a62e.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/free_car_tire_set_-_ps2_style_urban_props_0.png"
+dest_files=["res://.godot/imported/free_car_tire_set_-_ps2_style_urban_props_0.png-a5a1b725095e871fe749caf735bd5da5.s3tc.ctex"]
 
 [params]
 

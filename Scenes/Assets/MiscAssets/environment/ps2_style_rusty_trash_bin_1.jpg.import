@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7jm42capalsi"
-path.s3tc="res://.godot/imported/ps2_style_rusty_trash_bin_1.jpg-daaeb6007f79f1d0dc343e1bb8fa1712.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps2_style_rusty_trash_bin_1.jpg-c4bd4e99b33e1d20d1df5e963e3d0b7a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/ps2_style_rusty_trash_bin_1.jpg"
-dest_files=["res://.godot/imported/ps2_style_rusty_trash_bin_1.jpg-daaeb6007f79f1d0dc343e1bb8fa1712.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/environment/ps2_style_rusty_trash_bin_1.jpg"
+dest_files=["res://.godot/imported/ps2_style_rusty_trash_bin_1.jpg-c4bd4e99b33e1d20d1df5e963e3d0b7a.s3tc.ctex"]
 
 [params]
 

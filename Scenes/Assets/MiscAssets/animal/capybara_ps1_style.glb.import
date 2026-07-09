@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cw2ppgxj1venh"
-path="res://.godot/imported/capybara_ps1_style.glb-dc9f9bc4ee7c52aef1559a6b7e429646.scn"
+path="res://.godot/imported/capybara_ps1_style.glb-d0147e35cdf6248e8e5d7bff261b5adf.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/capybara_ps1_style.glb"
-dest_files=["res://.godot/imported/capybara_ps1_style.glb-dc9f9bc4ee7c52aef1559a6b7e429646.scn"]
+source_file="res://Scenes/Assets/MiscAssets/animal/capybara_ps1_style.glb"
+dest_files=["res://.godot/imported/capybara_ps1_style.glb-d0147e35cdf6248e8e5d7bff261b5adf.scn"]
 
 [params]
 

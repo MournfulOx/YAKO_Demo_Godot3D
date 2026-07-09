@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36f75bkbk1ml"
-path.s3tc="res://.godot/imported/low_poly_melee_horror_weapons_pack_1_8.png-b313baaaca819065253446e3a92ef465.s3tc.ctex"
+uid="uid://2jkuwnr6j0ud"
+path="res://.godot/imported/low_poly_melee_horror_weapons_pack_1_8.png-0b769296c0b897710eb5ea353edac0aa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "26fafc52630012eaa180590601a37c2a"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_melee_horror_weapons_pack_1_8.png"
-dest_files=["res://.godot/imported/low_poly_melee_horror_weapons_pack_1_8.png-b313baaaca819065253446e3a92ef465.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_melee_horror_weapons_pack_1_8.png"
+dest_files=["res://.godot/imported/low_poly_melee_horror_weapons_pack_1_8.png-0b769296c0b897710eb5ea353edac0aa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

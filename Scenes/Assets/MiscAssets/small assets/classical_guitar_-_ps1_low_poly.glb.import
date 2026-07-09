@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dokuffknh20yc"
-path="res://.godot/imported/classical_guitar_-_ps1_low_poly.glb-367f5049ba43dea2138b8528e84fb526.scn"
+path="res://.godot/imported/classical_guitar_-_ps1_low_poly.glb-16f948b8357546c632024946d3a5eeef.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/classical_guitar_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/classical_guitar_-_ps1_low_poly.glb-367f5049ba43dea2138b8528e84fb526.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/classical_guitar_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/classical_guitar_-_ps1_low_poly.glb-16f948b8357546c632024946d3a5eeef.scn"]
 
 [params]
 

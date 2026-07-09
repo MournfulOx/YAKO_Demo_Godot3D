@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ow7wubkky8jv"
-path="res://.godot/imported/ps1_pizza.glb-3e5c7266a9ce6beee4878e236e153982.scn"
+path="res://.godot/imported/ps1_pizza.glb-ce04e356d569a0a7624ccbd6be7564a0.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_pizza.glb"
-dest_files=["res://.godot/imported/ps1_pizza.glb-3e5c7266a9ce6beee4878e236e153982.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_pizza.glb"
+dest_files=["res://.godot/imported/ps1_pizza.glb-ce04e356d569a0a7624ccbd6be7564a0.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dnolvf6oqfk6v"
-path="res://.godot/imported/toyota_corolla_-_ps1_low_poly.glb-2ba559157b6b1a3d0ed7b4314fc631c7.scn"
+path="res://.godot/imported/toyota_corolla_-_ps1_low_poly.glb-3e42747e95ed3089491d1dd0193b2e69.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/toyota_corolla_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/toyota_corolla_-_ps1_low_poly.glb-2ba559157b6b1a3d0ed7b4314fc631c7.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/toyota_corolla_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/toyota_corolla_-_ps1_low_poly.glb-3e42747e95ed3089491d1dd0193b2e69.scn"]
 
 [params]
 

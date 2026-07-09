@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl4hotyurvcw2"
-path.s3tc="res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris_0.png-4b9d11f9af9dd4484149b2ad9ce16913.s3tc.ctex"
+path.s3tc="res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris_0.png-490833f49de19d305a9ccfdd88f85e92.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/free_red_bricks_-_ps2_style_scattered_debris_0.png"
-dest_files=["res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris_0.png-4b9d11f9af9dd4484149b2ad9ce16913.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/free_red_bricks_-_ps2_style_scattered_debris_0.png"
+dest_files=["res://.godot/imported/free_red_bricks_-_ps2_style_scattered_debris_0.png-490833f49de19d305a9ccfdd88f85e92.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dr75pgsb0bur8"
-path="res://.godot/imported/ps2_style_rusty_trash_bin.glb-466e77e765cfeb168601cfb1a6334d7e.scn"
+path="res://.godot/imported/ps2_style_rusty_trash_bin.glb-6594bd9a81d7d29b69f4e03cfed1477a.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/ps2_style_rusty_trash_bin.glb"
-dest_files=["res://.godot/imported/ps2_style_rusty_trash_bin.glb-466e77e765cfeb168601cfb1a6334d7e.scn"]
+source_file="res://Scenes/Assets/MiscAssets/environment/ps2_style_rusty_trash_bin.glb"
+dest_files=["res://.godot/imported/ps2_style_rusty_trash_bin.glb-6594bd9a81d7d29b69f4e03cfed1477a.scn"]
 
 [params]
 

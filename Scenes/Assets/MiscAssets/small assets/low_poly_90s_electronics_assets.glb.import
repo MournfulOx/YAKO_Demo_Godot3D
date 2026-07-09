@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2u26wbnmen3b"
-path="res://.godot/imported/low_poly_90s_electronics_assets.glb-e807fcaba5be1e57617af3371ac105cd.scn"
+path="res://.godot/imported/low_poly_90s_electronics_assets.glb-b98f7c79f3edf32c89abf56601febdd4.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_90s_electronics_assets.glb"
-dest_files=["res://.godot/imported/low_poly_90s_electronics_assets.glb-e807fcaba5be1e57617af3371ac105cd.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_90s_electronics_assets.glb"
+dest_files=["res://.godot/imported/low_poly_90s_electronics_assets.glb-b98f7c79f3edf32c89abf56601febdd4.scn"]
 
 [params]
 

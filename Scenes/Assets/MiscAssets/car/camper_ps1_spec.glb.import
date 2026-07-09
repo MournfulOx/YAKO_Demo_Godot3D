@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://blb4rtkpqjuh1"
-path="res://.godot/imported/camper_ps1_spec.glb-a9866fa23fd39b2d18f70e36cedb9833.scn"
+path="res://.godot/imported/camper_ps1_spec.glb-3c4f58ce2e3543fcebffd36fb4ee3915.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/camper_ps1_spec.glb"
-dest_files=["res://.godot/imported/camper_ps1_spec.glb-a9866fa23fd39b2d18f70e36cedb9833.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/camper_ps1_spec.glb"
+dest_files=["res://.godot/imported/camper_ps1_spec.glb-3c4f58ce2e3543fcebffd36fb4ee3915.scn"]
 
 [params]
 

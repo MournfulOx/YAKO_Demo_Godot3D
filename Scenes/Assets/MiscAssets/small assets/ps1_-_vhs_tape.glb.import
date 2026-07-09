@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2i207y4aqpq0"
-path="res://.godot/imported/ps1_-_vhs_tape.glb-7dbe9aea6ba1fa2c8c927f245a5754b6.scn"
+path="res://.godot/imported/ps1_-_vhs_tape.glb-ef7c39d839a9d8c26c9916a0caa1e26e.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_-_vhs_tape.glb"
-dest_files=["res://.godot/imported/ps1_-_vhs_tape.glb-7dbe9aea6ba1fa2c8c927f245a5754b6.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_-_vhs_tape.glb"
+dest_files=["res://.godot/imported/ps1_-_vhs_tape.glb-ef7c39d839a9d8c26c9916a0caa1e26e.scn"]
 
 [params]
 

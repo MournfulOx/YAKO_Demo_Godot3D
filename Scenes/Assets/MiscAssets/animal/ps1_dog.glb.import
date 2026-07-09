@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhlwwpnh7c5xb"
-path="res://.godot/imported/ps1_dog.glb-72a6f9fac04e204103e281ae19b2cd32.scn"
+path="res://.godot/imported/ps1_dog.glb-c5e2ebe3f6404a0365cfb0d2b7e17fa6.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/animal/ps1_dog.glb"
-dest_files=["res://.godot/imported/ps1_dog.glb-72a6f9fac04e204103e281ae19b2cd32.scn"]
+source_file="res://Scenes/Assets/MiscAssets/animal/ps1_dog.glb"
+dest_files=["res://.godot/imported/ps1_dog.glb-c5e2ebe3f6404a0365cfb0d2b7e17fa6.scn"]
 
 [params]
 

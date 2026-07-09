@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bdpwelt1pa16d"
-path="res://.godot/imported/ps2_car_pack.glb-3a33357a760c748cad28b3544828d6a8.scn"
+path="res://.godot/imported/ps2_car_pack.glb-a74f39918e614ba34cfcec5c65969975.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps2_car_pack.glb"
-dest_files=["res://.godot/imported/ps2_car_pack.glb-3a33357a760c748cad28b3544828d6a8.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps2_car_pack.glb"
+dest_files=["res://.godot/imported/ps2_car_pack.glb-a74f39918e614ba34cfcec5c65969975.scn"]
 
 [params]
 

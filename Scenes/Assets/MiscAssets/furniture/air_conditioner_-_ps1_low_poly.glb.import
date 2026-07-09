@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://chqw65bj1w6lu"
-path="res://.godot/imported/air_conditioner_-_ps1_low_poly.glb-ded6a8dc3a22b131618518e01c741643.scn"
+path="res://.godot/imported/air_conditioner_-_ps1_low_poly.glb-ba9d4caf1a0a7df28a68088484cdb73a.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/air_conditioner_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/air_conditioner_-_ps1_low_poly.glb-ded6a8dc3a22b131618518e01c741643.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/air_conditioner_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/air_conditioner_-_ps1_low_poly.glb-ba9d4caf1a0a7df28a68088484cdb73a.scn"]
 
 [params]
 

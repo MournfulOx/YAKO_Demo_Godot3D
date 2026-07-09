@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cs5sfed22j5t6"
-path="res://.godot/imported/arcade_machine_-_pixel-art_low-poly.glb-e547fd5fe00f20f7026c587ba537feea.scn"
+path="res://.godot/imported/arcade_machine_-_pixel-art_low-poly.glb-f44a2f6a67fb7803392ead32d7cf413c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/environment/arcade_machine_-_pixel-art_low-poly.glb"
-dest_files=["res://.godot/imported/arcade_machine_-_pixel-art_low-poly.glb-e547fd5fe00f20f7026c587ba537feea.scn"]
+source_file="res://Scenes/Assets/MiscAssets/environment/arcade_machine_-_pixel-art_low-poly.glb"
+dest_files=["res://.godot/imported/arcade_machine_-_pixel-art_low-poly.glb-f44a2f6a67fb7803392ead32d7cf413c.scn"]
 
 [params]
 

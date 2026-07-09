@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dg06hvtcfyoqx"
-path="res://.godot/imported/ps1_90s_japanese_truck.glb-986513baea0fe073e2f1ab1649e3a173.scn"
+path="res://.godot/imported/ps1_90s_japanese_truck.glb-5edc6dddce8383b06b78b4aaf6bf878c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1_90s_japanese_truck.glb"
-dest_files=["res://.godot/imported/ps1_90s_japanese_truck.glb-986513baea0fe073e2f1ab1649e3a173.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1_90s_japanese_truck.glb"
+dest_files=["res://.godot/imported/ps1_90s_japanese_truck.glb-5edc6dddce8383b06b78b4aaf6bf878c.scn"]
 
 [params]
 

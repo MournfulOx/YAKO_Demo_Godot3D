@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmhfkeaoxubnv"
-path.s3tc="res://.godot/imported/building_08_building_08.png-6a9774ff5c5faa91c3a45eb5630515a9.s3tc.ctex"
+path.s3tc="res://.godot/imported/building_08_building_08.png-50f77960036672ce910256fdb0055b01.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/skyscraper_pack/glb/building_08_building_08.png"
-dest_files=["res://.godot/imported/building_08_building_08.png-6a9774ff5c5faa91c3a45eb5630515a9.s3tc.ctex"]
+source_file="res://Scenes/Assets/SkyscraperPack/glb/building_08_building_08.png"
+dest_files=["res://.godot/imported/building_08_building_08.png-50f77960036672ce910256fdb0055b01.s3tc.ctex"]
 
 [params]
 

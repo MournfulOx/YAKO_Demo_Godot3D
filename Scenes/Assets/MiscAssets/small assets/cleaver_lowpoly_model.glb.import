@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmofphy4j2lsx"
-path="res://.godot/imported/cleaver_lowpoly_model.glb-4f1d6fd0893607f524463e38b18cd08a.scn"
+path="res://.godot/imported/cleaver_lowpoly_model.glb-5255b81b95ccb50a86d72fd3490f308c.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/cleaver_lowpoly_model.glb"
-dest_files=["res://.godot/imported/cleaver_lowpoly_model.glb-4f1d6fd0893607f524463e38b18cd08a.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/cleaver_lowpoly_model.glb"
+dest_files=["res://.godot/imported/cleaver_lowpoly_model.glb-5255b81b95ccb50a86d72fd3490f308c.scn"]
 
 [params]
 

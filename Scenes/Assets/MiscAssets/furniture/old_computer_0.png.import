@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmuim5iqa3bay"
-path.s3tc="res://.godot/imported/old_computer_0.png-6032be15e58902d1545aba4a170389eb.s3tc.ctex"
+path.s3tc="res://.godot/imported/old_computer_0.png-db3435f446968463a47dc851d3bff375.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/old_computer_0.png"
-dest_files=["res://.godot/imported/old_computer_0.png-6032be15e58902d1545aba4a170389eb.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/old_computer_0.png"
+dest_files=["res://.godot/imported/old_computer_0.png-db3435f446968463a47dc851d3bff375.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d5j60yr4fkhp"
-path.s3tc="res://.godot/imported/Flame_lighter_uv_test_small.png-0f1b860459c88bcf65c59a40ed743e04.s3tc.ctex"
+path.s3tc="res://.godot/imported/Flame_lighter_uv_test_small.png-bd53174e183d608ee0683a79289b1dc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/Player/Flame_lighter_uv_test_small.png"
-dest_files=["res://.godot/imported/Flame_lighter_uv_test_small.png-0f1b860459c88bcf65c59a40ed743e04.s3tc.ctex"]
+source_file="res://Scenes/Assets/Cigarette/Flame_lighter_uv_test_small.png"
+dest_files=["res://.godot/imported/Flame_lighter_uv_test_small.png-bd53174e183d608ee0683a79289b1dc8.s3tc.ctex"]
 
 [params]
 

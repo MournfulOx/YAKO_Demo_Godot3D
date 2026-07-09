@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bdp021sbm8w43"
-path="res://.godot/imported/cigs_carton.glb-df815a0e0cbbd986abcf3bda3f22c7fc.scn"
+path="res://.godot/imported/cigs_carton.glb-df42d37e61fdbd9d02bbcc0541c7012f.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/Player/cigs_carton.glb"
-dest_files=["res://.godot/imported/cigs_carton.glb-df815a0e0cbbd986abcf3bda3f22c7fc.scn"]
+source_file="res://Scenes/Assets/Cigarette/cigs_carton.glb"
+dest_files=["res://.godot/imported/cigs_carton.glb-df42d37e61fdbd9d02bbcc0541c7012f.scn"]
 
 [params]
 

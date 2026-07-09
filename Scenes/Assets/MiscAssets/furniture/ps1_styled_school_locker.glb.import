@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cmkc84e35cibp"
-path="res://.godot/imported/ps1_styled_school_locker.glb-cb2b6f744f547ef378771ba38ea7f5d4.scn"
+path="res://.godot/imported/ps1_styled_school_locker.glb-a895dcd31fecd7a231b24d9a268444ad.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_styled_school_locker.glb"
-dest_files=["res://.godot/imported/ps1_styled_school_locker.glb-cb2b6f744f547ef378771ba38ea7f5d4.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_styled_school_locker.glb"
+dest_files=["res://.godot/imported/ps1_styled_school_locker.glb-a895dcd31fecd7a231b24d9a268444ad.scn"]
 
 [params]
 

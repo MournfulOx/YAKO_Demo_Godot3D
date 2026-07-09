@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1u8u8slv34bj"
-path.s3tc="res://.godot/imported/low_poly_melee_horror_weapons_pack_1_12.png-c4925587c8aa61a3fd28868f7790b2bc.s3tc.ctex"
+path.s3tc="res://.godot/imported/low_poly_melee_horror_weapons_pack_1_12.png-c1b960a99aa3b164f761740ad77d866e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/low_poly_melee_horror_weapons_pack_1_12.png"
-dest_files=["res://.godot/imported/low_poly_melee_horror_weapons_pack_1_12.png-c4925587c8aa61a3fd28868f7790b2bc.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/low_poly_melee_horror_weapons_pack_1_12.png"
+dest_files=["res://.godot/imported/low_poly_melee_horror_weapons_pack_1_12.png-c1b960a99aa3b164f761740ad77d866e.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b81ec41deb3ve"
-path="res://.godot/imported/ps1_car_delorian.glb-c249569d0a15f6a5ae255217a8edf07c.scn"
+path="res://.godot/imported/ps1_car_delorian.glb-e9cbdc104ba97d73e4f83e25fafc37ce.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/car/ps1_car_delorian.glb"
-dest_files=["res://.godot/imported/ps1_car_delorian.glb-c249569d0a15f6a5ae255217a8edf07c.scn"]
+source_file="res://Scenes/Assets/MiscAssets/car/ps1_car_delorian.glb"
+dest_files=["res://.godot/imported/ps1_car_delorian.glb-e9cbdc104ba97d73e4f83e25fafc37ce.scn"]
 
 [params]
 

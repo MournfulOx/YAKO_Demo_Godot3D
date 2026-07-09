@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bc17f0lrcw5sj"
-path="res://.godot/imported/ps1_tv.glb-34c9db90605cd1c4af388f41a95aa6f0.scn"
+path="res://.godot/imported/ps1_tv.glb-5cc7f76d106ba3d2f34e6540f0ec12b3.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_tv.glb"
-dest_files=["res://.godot/imported/ps1_tv.glb-34c9db90605cd1c4af388f41a95aa6f0.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_tv.glb"
+dest_files=["res://.godot/imported/ps1_tv.glb-5cc7f76d106ba3d2f34e6540f0ec12b3.scn"]
 
 [params]
 

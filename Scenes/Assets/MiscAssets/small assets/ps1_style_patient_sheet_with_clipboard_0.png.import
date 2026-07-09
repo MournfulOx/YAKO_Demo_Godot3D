@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnve8n6sqt4ip"
-path.s3tc="res://.godot/imported/ps1_style_patient_sheet_with_clipboard_0.png-b0ecc969b3ee914259a470180c03f736.s3tc.ctex"
+path.s3tc="res://.godot/imported/ps1_style_patient_sheet_with_clipboard_0.png-36795ce0e52b41eb13a3f70bd4d7601c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_style_patient_sheet_with_clipboard_0.png"
-dest_files=["res://.godot/imported/ps1_style_patient_sheet_with_clipboard_0.png-b0ecc969b3ee914259a470180c03f736.s3tc.ctex"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_style_patient_sheet_with_clipboard_0.png"
+dest_files=["res://.godot/imported/ps1_style_patient_sheet_with_clipboard_0.png-36795ce0e52b41eb13a3f70bd4d7601c.s3tc.ctex"]
 
 [params]
 

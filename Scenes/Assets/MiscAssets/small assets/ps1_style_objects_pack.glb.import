@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://di715bikam7rw"
-path="res://.godot/imported/ps1_style_objects_pack.glb-9abb3067d6b549e321f482d99fa52a55.scn"
+path="res://.godot/imported/ps1_style_objects_pack.glb-18256592ef544aaba2da91564297383f.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/small assets/ps1_style_objects_pack.glb"
-dest_files=["res://.godot/imported/ps1_style_objects_pack.glb-9abb3067d6b549e321f482d99fa52a55.scn"]
+source_file="res://Scenes/Assets/MiscAssets/small assets/ps1_style_objects_pack.glb"
+dest_files=["res://.godot/imported/ps1_style_objects_pack.glb-18256592ef544aaba2da91564297383f.scn"]
 
 [params]
 

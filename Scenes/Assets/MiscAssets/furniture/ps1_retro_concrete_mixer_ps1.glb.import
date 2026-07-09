@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dk0hx0pcdf0ts"
-path="res://.godot/imported/ps1_retro_concrete_mixer_ps1.glb-ae111b970241485f3b2f9dd89d45a3a9.scn"
+path="res://.godot/imported/ps1_retro_concrete_mixer_ps1.glb-af4970c41246277db47edc654b953924.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/ps1_retro_concrete_mixer_ps1.glb"
-dest_files=["res://.godot/imported/ps1_retro_concrete_mixer_ps1.glb-ae111b970241485f3b2f9dd89d45a3a9.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/ps1_retro_concrete_mixer_ps1.glb"
+dest_files=["res://.godot/imported/ps1_retro_concrete_mixer_ps1.glb-af4970c41246277db47edc654b953924.scn"]
 
 [params]
 

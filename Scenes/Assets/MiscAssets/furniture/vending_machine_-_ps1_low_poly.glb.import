@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cfmv4frk2afps"
-path="res://.godot/imported/vending_machine_-_ps1_low_poly.glb-106f99970e8e0eb26a859540858362d9.scn"
+path="res://.godot/imported/vending_machine_-_ps1_low_poly.glb-c2c6db4d4dd04bf160262a34a61fd0de.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/vending_machine_-_ps1_low_poly.glb"
-dest_files=["res://.godot/imported/vending_machine_-_ps1_low_poly.glb-106f99970e8e0eb26a859540858362d9.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/vending_machine_-_ps1_low_poly.glb"
+dest_files=["res://.godot/imported/vending_machine_-_ps1_low_poly.glb-c2c6db4d4dd04bf160262a34a61fd0de.scn"]
 
 [params]
 

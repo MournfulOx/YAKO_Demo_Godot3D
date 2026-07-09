@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ct00p8r2w3ksp"
-path="res://.godot/imported/dirty_locker_256x256_retro.glb-68a3cb2512e2a5a863fc1ee9503b2e6a.scn"
+path="res://.godot/imported/dirty_locker_256x256_retro.glb-01b21620ee2b6a04c94f3d41c4cdef27.scn"
 
 [deps]
 
-source_file="res://Scenes/Assets/more assets/furniture/dirty_locker_256x256_retro.glb"
-dest_files=["res://.godot/imported/dirty_locker_256x256_retro.glb-68a3cb2512e2a5a863fc1ee9503b2e6a.scn"]
+source_file="res://Scenes/Assets/MiscAssets/furniture/dirty_locker_256x256_retro.glb"
+dest_files=["res://.godot/imported/dirty_locker_256x256_retro.glb-01b21620ee2b6a04c94f3d41c4cdef27.scn"]
 
 [params]
 
