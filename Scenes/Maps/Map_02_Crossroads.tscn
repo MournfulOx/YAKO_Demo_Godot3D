@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bq3s5c35ji5e4" path="res://Scenes/Assets/Zee/all_road/Road/modular_road/modular_roads_pack_1.jpg" id="9_b1avh"]
 [ext_resource type="PackedScene" uid="uid://cmjki0j653yrc" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 05/Commercial 05.glb" id="12_qege4"]
 [ext_resource type="PackedScene" uid="uid://b7hmph1asc8rn" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 06/Commercial 06.glb" id="13_637xr"]
-[ext_resource type="Texture2D" uid="uid://c84wrj2lso02b" path="res://Scenes/Assets/Zee/all_road/Floor/Cracked Road/low_road_9.jpg" id="14_637xr"]
 [ext_resource type="PackedScene" uid="uid://dhto18vs04qn3" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 07/Untitled.glb" id="15_kt1fd"]
 [ext_resource type="PackedScene" uid="uid://vq65x42poy2q" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 08/Untitled.glb" id="16_4lfpb"]
 [ext_resource type="PackedScene" uid="uid://c8ipapk0e5vx8" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 09/Untitled.glb" id="17_eqvcl"]
@@ -565,7 +564,6 @@ shadow_mesh = SubResource("ArrayMesh_n34q7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jw6q2"]
 resource_name = "Material.007"
 cull_mode = 2
-albedo_texture = ExtResource("14_637xr")
 roughness = 0.82111454
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fl471"]
