@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://msvshfawt7wa"]
 
 [ext_resource type="Script" uid="uid://ddp50ulawqllt" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
-[ext_resource type="PackedScene" uid="uid://bdp021sbm8w43" path="res://Scenes/Assets/Player/cigs_carton.glb" id="2_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://bdp021sbm8w43" path="res://Scenes/Assets/Cigarette/cigs_carton.glb" id="2_xpcdj"]
 [ext_resource type="Script" uid="uid://dcntclnweb1ri" path="res://Scenes/Player/cigarette.gd" id="3_htcer"]
-[ext_resource type="PackedScene" uid="uid://781srdd6ui4j" path="res://Scenes/Assets/Player/Cig.glb" id="3_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://781srdd6ui4j" path="res://Scenes/Assets/Cigarette/Cig.glb" id="3_mtuoh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tugb3"]
 
