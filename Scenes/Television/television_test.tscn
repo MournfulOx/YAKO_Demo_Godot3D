@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dfpu1jhqt1y08"]
+
+[ext_resource type="PackedScene" uid="uid://msvshfawt7wa" path="res://Scenes/Player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://ciq5bdvmqwj42" path="res://Scenes/Television/television.tscn" id="2_tv"]
+[ext_resource type="Script" uid="uid://b2fwnefu18vqm" path="res://Scenes/Ending/ending_sequence.gd" id="3_ending"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_test"]
+sky_top_color = Color(0.012, 0.012, 0.045, 1)
+sky_horizon_color = Color(0.05, 0.04, 0.09, 1)
+sky_energy_multiplier = 0.15
+ground_horizon_color = Color(0.12, 0.07, 0.03, 1)
+
+[sub_resource type="Sky" id="Sky_test"]
+sky_material = SubResource("ProceduralSkyMaterial_test")
+
+[sub_resource type="Environment" id="Environment_test"]
+background_mode = 2
+sky = SubResource("Sky_test")
+ambient_light_source = 2
+ambient_light_color = Color(0.08, 0.1, 0.2, 1)
+ambient_light_energy = 0.18
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.4
+glow_bloom = 0.25
+glow_hdr_threshold = 0.75
+fog_enabled = true
+fog_light_color = Color(0.07, 0.08, 0.14, 1)
+fog_density = 0.014
+fog_sky_affect = 0.8
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(20, 0.1, 20)
+
+[node name="TelevisionTest" type="Node3D" unique_id=1205768891]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1028963970]
+environment = SubResource("Environment_test")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=824879051]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1150225072]
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1107404085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Player" parent="." unique_id=787216133 instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1257048, 0, 8.609726)
+
+[node name="Television" parent="." unique_id=764020777 instance=ExtResource("2_tv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022526741, 0)
+
+[node name="EndingSequence" type="Node" parent="." unique_id=637936446]
+script = ExtResource("3_ending")
+television_path = NodePath("../Television")

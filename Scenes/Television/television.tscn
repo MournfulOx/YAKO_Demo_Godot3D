@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpi7kg783ovts"]
+
+[ext_resource type="PackedScene" uid="uid://dk385hc43ry2n" path="res://Scenes/Assets/Television/psx_low-poly_televisions.glb" id="1_glb"]
+[ext_resource type="Script" uid="uid://bpx6imu77xj3q" path="res://Scenes/Television/television.gd" id="2_script"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv"]
+size = Vector3(3.9196777, 3.5, 2.772461)
+
+[node name="Television" type="StaticBody3D" unique_id=104915601]
+script = ExtResource("2_script")
+dialogue_lines = Array[String](["are you here", "present day.", "present time.", "we are always broadcasting."])
+repeat_lines = Array[String](["we are always broadcasting."])
+wobble_amount = 0.0
+light_color = Color(0.31, 0.765, 0.831, 1)
+
+[node name="Body" parent="." unique_id=1802821317 instance=ExtResource("1_glb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.5471326)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=939189787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0853167, -0.042015553)
+shape = SubResource("BoxShape3D_tv")

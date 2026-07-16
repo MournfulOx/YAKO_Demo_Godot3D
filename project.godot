@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DuckState="*res://autoload/DuckState.gd"
 SceneManager="*res://autoload/SceneManager.gd"
+YellowDuckState="*res://autoload/YellowDuckState.gd"
 
 [display]
 

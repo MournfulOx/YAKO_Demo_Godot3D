@@ -5,6 +5,12 @@
 PSX-style retro low-poly walking narrative game. Godot 4.6, Forward+ renderer, Jolt Physics.
 Gameplay: first-person exploration + NPC dialogue. No jumping, no combat.
 
+Narrative/content spec lives in the GDD (currently v0.7, held outside the repo) — 5 locations
+(Convenience Store, Crossroads, Under the Overpass, Arcade Alley, School Rooftop), 21 animal NPCs,
+a Duck "inner voice" companion, and a hidden fragment thread across 5 NPCs. Only the first 3
+locations and 8 NPCs are built so far — see `## NPC System` and `## Directory Structure` below for
+what's actually implemented vs pending.
+
 ## Engine & Settings
 
 - Godot 4.6, Direct3D 12 (Windows)
@@ -27,21 +33,36 @@ demo/
 │   ├── Maps/
 │   │   ├── Map_01_ConvenienceStore.tscn
 │   │   ├── Map_02_Crossroads.tscn
-│   │   └── Map_03_UnderTheOverPass.tscn
+│   │   ├── Map_03_UnderTheOverPass.tscn
+│   │   ├── Map_04_ArcadeAlley.tscn   # PLANNED — not created yet (GDD v0.7 §4)
+│   │   └── Map_05_SchoolRooftop.tscn # PLANNED — not created yet; drop in Scenes/Television/television.tscn +
+│   │                                 # an Ending/ending_sequence.gd node (wire its `television` export to it)
 │   ├── Duck/
 │   │   ├── duck.gd                   # Duck Node3D: PSX shader, warm light, one-shot dialogue, queue_free after lines
 │   │   ├── duck_dialogue_ui.gd       # CanvasLayer (layer=4): typewriter + blip audio (400 Hz, fixed pitch)
 │   │   └── duck_trigger.gd           # Area3D: fires duck.trigger() once on player entry
+│   ├── Television/
+│   │   ├── television.gd             # StaticBody3D, extends npc_base.gd: ending trigger, standard NPC dialogue/outline
+│   │   └── television.tscn           # prefab: GLB body + CollisionShape3D (npc_base.gd interaction)
+│   ├── Ending/
+│   │   ├── ending_sequence.gd        # Node: listens for Television's `ending_triggered`, plays ending_title_ui
+│   │   └── ending_title_ui.gd        # CanvasLayer (layer=25): immediate cut to black + "YAKO" title fade-in
+│   ├── Collectibles/
+│   │   ├── yellow_duck_collectible.gd/.tscn  # Area3D pickup, reports to YellowDuckState by duck_id
+│   │   └── backroom_teleporter.gd    # Area3D: instant same-scene teleport to a NodePath target
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
-│   │   ├── NPC_Cat.tscn              # Map 01
-│   │   ├── NPC_Cow.tscn              # Map 02 (Capybara model)
-│   │   ├── NPC_Penguin.tscn          # Map 02 (Goat model)
-│   │   ├── NPC_Otter.tscn            # Map 03
-│   │   ├── NPC_Raccoon.tscn          # Map 04
-│   │   ├── NPC_Fish.tscn             # Map 04
-│   │   ├── NPC_Dog.tscn              # Map 04
-│   │   └── NPC_Sheep.tscn            # Map 05 (ending trigger)
+│   │   ├── NPC_Cat.tscn               # Map 01
+│   │   ├── NPC_Sheep.tscn             # Map 01, fragment carrier [F]
+│   │   ├── NPC_Goat.tscn              # Map 02
+│   │   ├── NPC_Otter.tscn             # Map 03, fragment carrier [F]
+│   │   ├── NPC_Dog.tscn               # Map 03
+│   │   ├── NPC_Raccoon.tscn           # built, but Map 04 scene doesn't exist yet
+│   │   ├── NPC_Fish.tscn              # built, but Map 04 scene doesn't exist yet
+│   │   └── NPC_Capybara.tscn          # legacy — not in GDD v0.7's 21-NPC roster, currently unused
+│   │   # 14 more NPCs pending per GDD v0.7 roster: Prairie Dog, Rat (Map 01);
+│   │   # French Bulldog, Koi Fish, Baboon, Goose[F], Great White Shark (Map 02);
+│   │   # Giraffe, Deer, Panda (Map 03); Toucan, Octopus[F], T-Rex, Koala[F] (Map 04)
 │   ├── UI/
 │   │   └── dialogue_ui.gd            # CanvasLayer (layer=5): typewriter subtitle + blip audio, code-only
 │   ├── Fonts/
@@ -50,6 +71,11 @@ demo/
 │       ├── Cigarette/
 │       │   ├── Cig.glb               # cigarette mesh (4 burn stages: Cig, CigBurn0-2)
 │       │   └── cigs_carton.glb       # cigarette carton with CartonTopOpen animation
+│       ├── Television/
+│       │   └── psx_low-poly_televisions.glb  # 4 colour variants (Black/Box/Grey/Yellow) stacked at
+│       │                                      # the same origin; television.gd spreads all 4 into a wall
+│       ├── UI/
+│       │   └── YellowDuck.jpg        # studio logo (credits screen) — actually JPEG despite the name
 │       ├── LampPost/
 │       │   └── LampPost.tscn         # prefab: Node3D + MeshInstance3D + OmniLight3D
 │       ├── SevenEleven/              # convenience store model + textures (Map 01)
@@ -221,6 +247,18 @@ NPC_Xxx (StaticBody3D, npc_base.gd, group "npc" added automatically)
 - `set_outline(true/false)` — recursively finds MeshInstance3D children, applies/removes `npc_outline.gdshader` as `next_pass` on surface override materials
 - Called by player.gd when NPC enters/leaves aim
 
+**Roster status (GDD v0.7, 21 NPCs across 5 maps):**
+
+| Map | Built | Pending |
+|-----|-------|---------|
+| 01 Convenience Store | Cat, Sheep [F] | Prairie Dog, Rat |
+| 02 Crossroads | Goat | French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark |
+| 03 Under the Overpass | Otter [F], Dog | Giraffe, Deer, Panda |
+| 04 Arcade Alley | Raccoon, Fish (no map scene yet) | Toucan, Octopus [F], T-Rex, Koala [F] |
+| 05 School Rooftop | Television (`Scenes/Television/television.tscn`, ending trigger built as an NPC-style interactable) | — |
+
+`[F]` = fragment carrier — part of the hidden narrative thread (GDD v0.7 §5.5). `dialogue_lines`/`repeat_lines` content for built NPCs should be pulled from the GDD, not invented here.
+
 ## NPC Shader Pipeline
 
 `shaders/psx_lit_npc.gdshader` — defines `NPC_WOBBLE`, includes `psx_base.gdshaderinc`.
@@ -246,6 +284,12 @@ Registered in `project.godot` under `[autoload]`.
 - `has_played(map_id: String) → bool`
 - `mark_played(map_id: String) → void`
 
+**`autoload/YellowDuckState.gd`** — tracks which hidden Yellow Duck collectibles have been found (persists across scene loads). `TOTAL_DUCKS = 5` (1 hidden per map on Map_01–04, plus 1 more in the Map_03 Backrooms egg — see `## Collectibles` below).
+- `collect(duck_id: String) → void`
+- `has_collected(duck_id: String) → bool`
+- `collected_count() → int`
+- `has_collected_all() → bool`
+
 **`autoload/SceneManager.gd`** — CanvasLayer (layer=20, PROCESS_MODE_ALWAYS). Handles all scene transitions with a fade + location name display. Route all scene changes through `SceneManager.change_scene(path)` — never call `change_scene_to_file` directly.
 - Overlay: black ColorRect fades in (0.35 s) before switching; fades out (0.45 s) after
 - Location name: appears on black during fade-in, stays until 1.8 s after fade-out, then fades (0.6 s)
@@ -267,13 +311,62 @@ Registered in `project.godot` under `[autoload]`.
 - CollisionShape3D: use a thin BoxShape3D (`Vector3(5, 3, 0.5)`) spanning the exit edge
 - Collision Layer = 0 (none), Mask = Layer 1 (Player)
 
+## Collectibles
+
+Hidden Yellow Duck pickups (1 per map, Map_01–04) plus a Map_03 "Backrooms" easter egg
+(walk through a hidden gap in a wall → teleported to a hidden pocket space → 1 more duck
+there — 5 total). **This is currently just the reserved interface/plumbing** — no ducks,
+walls, or backroom space have actually been placed in any map yet; that's level-design work.
+Building blocks ready to drop in once placement happens:
+
+**`Scenes/Collectibles/yellow_duck_collectible.tscn`** (`Area3D`,
+`yellow_duck_collectible.gd`) — `@export var duck_id: String`, must be a unique string per
+placed instance. No ID scheme is enforced in code, but use exactly these 5 (matches
+`TOTAL_DUCKS=5` and what the design below assumes):
+
+| `duck_id` | Suggested hiding spot (thematic, not literal coordinates — Zee's call) |
+|---|---|
+| `Map_01_ConvenienceStore` | Tucked among shelf clutter, near the magazine hidden-detail spot (§4.2) |
+| `Map_02_Crossroads` | On/behind the vending machine with the faded sold-out row |
+| `Map_03_UnderTheOverPass` | Near the abandoned school bag, in pillar shadow |
+| `Map_03_Backroom` | Alone in the empty liminal space — the reward for finding the egg itself |
+| `Map_04_ArcadeAlley` | On top of/inside a cabinet, claw-machine-reject vibe |
+
+Tying each duck to an existing GDD hidden-detail beat keeps them feeling like part of the
+world instead of arbitrary meta-collectibles — not mandatory, just a suggestion for Zee's
+placement pass. On `body_entered` by a
+`CharacterBody3D`: calls `YellowDuckState.collect(duck_id)`, emits `signal collected`, then
+`queue_free()`s itself. Re-entering an already-collected `duck_id` on scene reload
+self-frees immediately in `_ready()` instead of re-triggering. Visual is a billboarded
+`Sprite3D` using `Scenes/Assets/UI/YellowDuck.jpg` (`pixel_size=0.0009` → ~0.35m across,
+`shaded=false`, nearest-filter) plus a small Duck Yellow (`#F5C842`) `OmniLight3D` glow — a
+placeholder look, not a real 3D duck model.
+
+**`Scenes/Collectibles/backroom_teleporter.gd`** (`Area3D`) — generic same-scene teleporter,
+not tied to the Backrooms egg specifically. `@export var target_path: NodePath`; on
+`body_entered` by a `CharacterBody3D`, sets `body.global_position` to the target node's
+`global_position`. No fade/transition — instant, since GDD-style liminal-space eggs read
+better as an unexplained snap-cut than a smoothed teleport. Attach to an `Area3D` placed
+inside/behind a wall's visible collision (i.e. a gap the player has to notice and walk into)
+in Map_03; `target_path` points at wherever the hidden backroom space ends up.
+
+**Television secret ending hook**: `Scenes/Television/television.gd` checks
+`YellowDuckState.has_collected_all()` in `_ready()` and, if true, swaps its
+`dialogue_lines`/`repeat_lines` for `secret_dialogue_lines`/`secret_repeat_lines` (exports on
+Television, editable in the Inspector like the normal lines, defaulting to real drafted text
+in the script) before `super._ready()` runs. Current draft: `"are you here" → "you found all
+of me." → "every little piece." → "we are always broadcasting."` — frames the 5 collectible
+ducks as scattered fragments of the Duck companion, so finding them all pays off narratively
+(not just a meta-achievement) without breaking the game's minimalist dialogue tone. Adjust
+wording directly on the Television node in the Inspector, no code changes needed.
+
 ## Duck Companion System
 
 `Scenes/Duck/` — one-shot NPC encounter that plays per-map dialogue then `queue_free()`s itself.
 
 **`duck.gd`** (Node3D):
 - `@export var map_id: String` — unique key passed to `DuckState` to guard replay
-- `@export var sheep_npc: NodePath` — on Map 05 only, connects to Sheep NPC's `ended` signal to trigger Duck lines after the ending
+- `@export var ending_trigger_path: NodePath` — on Map 05 only, resolved via `get_node_or_null()` in `_ready()` and connected to its `ending_triggered` signal (`CONNECT_ONE_SHOT`) to play Duck's final line once the rooftop Television fires. **Uses `NodePath` + manual `get_node()`, not a typed `@export var x: Node3D`** — the latter looked like it should auto-resolve a hand-written `x = NodePath("...")` line in a `.tscn` into a live node reference, but empirically it silently stayed null at runtime (caught via `ending_sequence.gd` hitting the exact same bug — see below). Don't revert to the typed-Node export style without re-verifying this.
 - `_ready()`: applies `psx_lit.gdshader` (no wobble) to all MeshInstance3D children; spawns `OmniLight3D` — warm `Color(1.0, 0.88, 0.55)`, energy 2.8, range 2.5, Y=0.3
 - `trigger()` — called by `duck_trigger.gd`; guards via `DuckState.has_played(map_id)`; plays `duck_dialogue_ui.play_lines()`; calls `queue_free()` when done
 - Duck does **not** follow the player; it disappears after dialogue on every map
@@ -282,6 +375,83 @@ Registered in `project.godot` under `[autoload]`.
 - Typewriter at `CHAR_INTERVAL=0.045 s`, hold `1.8 s`, fade `0.5 s`, gap between lines `0.25 s`
 - Blip audio: `BLIP_FREQ=400 Hz`, fixed pitch (no variation — distinguishes Duck from NPC's 520 Hz with per-character jitter)
 - Font: `res://Scenes/Fonts/pixel.ttf`, size 6, white + 1px outline via `LabelSettings`
+
+## Television / Ending System
+
+`Scenes/Television/` — the Map 05 (School Rooftop) ending trigger, per GDD v0.7 §5.4/§7.
+Deliberately built as an NPC (see below) rather than a bespoke interactable — GDD calls for no
+outline / a more atmospheric auto-triggered sequence, but that was cut for reliability under
+time pressure; revisit post-"pre" if there's time. Built and testable standalone before Map_05
+exists — see `Scenes/Television/television_test.tscn` (throwaway verification scene: Player +
+floor + Map_03-style night `Environment` + a wired `Television` + `EndingSequence`; safe to
+delete once the real Map_05 exists).
+
+**`television.gd`** (`StaticBody3D`) — `extends "res://Scenes/NPC/npc_base.gd"`. Television is
+just an NPC with a different mesh: it reuses the full outline/raycast/subtitle-UI interaction
+pipeline (`player.gd`'s NPC handling, `dialogue_ui.gd`) as-is, rather than the earlier custom
+"render text onto the 3D screen via SubViewport" approach — that approach went through several
+rounds of 3D geometry/UV debugging (wrong `QuadMesh` default orientation, then a font-wrapping
+red herring) without ever reliably working, so it was scrapped in favor of reusing proven code.
+- `signal ending_triggered` — re-emitted whenever the base class's `ended` fires (i.e. once the
+  player has clicked through all of `dialogue_lines`)
+- `dialogue_lines` = `["are you here", "present day.", "present time.", "we are always broadcasting."]`
+  — each requires a click to reveal (standard NPC advance), so the last click (dismissing "we are
+  always broadcasting.") is what fires `ended` → `ending_triggered`. **Order deliberately differs
+  from GDD v0.7 §5.4**, which has "present time." before "present day." — swapped per direct
+  request; don't "fix" this back to match the GDD without checking first.
+- `_spread_variants()`: the source GLB (`psx_low-poly_televisions.glb`) ships 4 colour variants
+  (`TVBlack`/`TVBox`/`TVGrey`/`TVYellow`) stacked at the same origin — this offsets each variant's
+  body+screen wrapper nodes (matched by name prefix) by a fixed `VARIANT_OFFSETS` grid position
+  into a 2×2 wall (Serial Experiments Lain nod), run *before* `super._ready()` applies the
+  standard NPC shader/outline/light setup to whatever's left in the tree.
+- `wobble_amount = 0.0` (export override in the .tscn) — the base class's per-vertex jitter is
+  tuned for organic NPCs and looks wrong on a rigid TV cabinet.
+- Single shared `CollisionShape3D` (one `BoxShape3D`, deliberately oversized — `Vector3(2.5, 3.5,
+  4.0)`) covers the whole 4-TV spread rather than one box per variant, since `npc_base.gd`/
+  `player.gd`'s raycast+outline system expects one interactable per NPC node, not four. Sized
+  generously on purpose: an undersized/misaligned hitbox (from an earlier pass, sized for a single
+  un-spread TV) was the actual cause of a "clicking does nothing" report — oversizing trades a
+  slightly-too-generous interact range for not missing the raycast again.
+- `_apply_screen_static()` (runs *after* `super._ready()`, overriding what it just set): any
+  mesh with `"Screen"` in its name gets `shaders/tv_screen_static.gdshader` instead of the
+  standard NPC material — a `shader_type spatial` unlit hash-noise flicker (same technique as
+  `sky_stars.gdshader`'s `hash()`), always playing. Being purely procedural per-fragment, this
+  is immune to the whole class of UV/geometry bugs the old text-on-screen approach hit — noise
+  doesn't care about orientation, so it was safe to keep even after that system was scrapped.
+- `_add_screen_lights()` adds one small cyan `OmniLight3D` (`GLOW_COLOR`) per variant at its
+  approximate screen centre (`SCREEN_CENTER`), parented under that variant's wrapper so it
+  follows the grid spread automatically — in addition to the single generic light `npc_base.gd`
+  already adds.
+- Text now goes through the same `dialogue_ui.gd` subtitle path every other NPC uses — no
+  per-screen text, no outline distinction from a normal NPC. This is a known, deliberate
+  simplification vs GDD v0.7 §5.4 (see note above); the cigarette/TV input-overlap gap noted in
+  an earlier pass is moot now too, since NPC dialogue already force-closes the cigarette.
+
+**`Scenes/Ending/ending_sequence.gd`** (Node) — `@export var television_path: NodePath`,
+resolved to `var television: Node3D` via `get_node_or_null()` in `_ready()` (see the
+`NodePath`-vs-typed-`Node3D`-export note above — this bit us here first). On
+`television.ending_triggered`: releases the mouse (`Input.mouse_mode = MOUSE_MODE_VISIBLE`),
+sets `get_tree().paused = true` (stops `player.gd` — it has no `PROCESS_MODE_ALWAYS` override,
+so pausing the tree freezes its `_process`/`_physics_process`/`_input` outright — this is what
+actually stops the player after the ending, not anything in `player.gd` itself), then
+instantiates `ending_title_ui.gd` (code-only `CanvasLayer`, same `.new()`-and-`add_child()`
+pattern as `dialogue_ui.gd`/`duck_dialogue_ui.gd`) under `get_tree().root`. Thin orchestrator by
+design so `television.gd` stays a generic reusable interactable — **sunrise sky tween and phone
+glow are still deferred** and will hang off this same script later.
+
+**`ending_title_ui.gd`** (CanvasLayer, layer=25, `PROCESS_MODE_ALWAYS` — required so its tweens
+still run once `ending_sequence.gd` pauses the tree) — immediate black `ColorRect` (no fade, per
+GDD: "CUT: Black. Immediate.") then fades in a centred "YAKO" title (pixel font, size 16, white
++ 1px black outline), holds `TITLE_HOLD=2s`, fades out, then fades in a studio logo
+(`TextureRect`, `Scenes/Assets/UI/YellowDuck.jpg`, `TEXTURE_FILTER_NEAREST` to stay crisp at
+this resolution, `LOGO_SIZE=64`), a `STUDIO_NAME` label ("YellowDuck Studio", size 8) below it,
+and a `CREDITS_TEXT` label (team names/roles, size 6 — matches the project's standard body-text
+size) below that, all three in parallel — and stops there: no rooftop-dawn background yet (GDD
+wants one), no auto-return to a main menu (doesn't exist yet). The text labels share a
+`_make_label()` helper.
+**Note**: `Scenes/Assets/UI/YellowDuck.jpg` — despite the source filename ending in `.png`, the
+file is actually JPEG data (checked the magic bytes: `FF D8 FF E0`), so it was copied in with a
+corrected `.jpg` extension rather than trusting the original name.
 
 **`duck_trigger.gd`** (Area3D):
 - Fires once; disconnects `body_entered` after first trigger to prevent replay in same scene load

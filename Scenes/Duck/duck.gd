@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var map_id: String = ""
-@export var sheep_npc: Node3D = null
+@export var ending_trigger_path: NodePath
 
 var _ui: CanvasLayer
 
@@ -10,8 +10,9 @@ func _ready() -> void:
 	_add_light()
 	_ui = load("res://Scenes/Duck/duck_dialogue_ui.gd").new()
 	add_child(_ui)
-	if sheep_npc != null:
-		sheep_npc.ended.connect(_on_sheep_ended, CONNECT_ONE_SHOT)
+	var ending_trigger: Node = get_node_or_null(ending_trigger_path)
+	if ending_trigger != null:
+		ending_trigger.ending_triggered.connect(_on_ending_triggered, CONNECT_ONE_SHOT)
 
 func trigger() -> void:
 	if DuckState.has_played(map_id):
@@ -19,7 +20,7 @@ func trigger() -> void:
 	DuckState.mark_played(map_id)
 	_play_lines()
 
-func _on_sheep_ended() -> void:
+func _on_ending_triggered() -> void:
 	if DuckState.has_played(map_id):
 		return
 	DuckState.mark_played(map_id)

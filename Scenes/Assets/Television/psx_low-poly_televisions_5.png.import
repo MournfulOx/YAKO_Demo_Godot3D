@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xfbt8rbjcnjg"
-path.s3tc="res://.godot/imported/7_eleven_39.jpg-4037ea6b00c7264ea7a0f78dc6ae43d7.s3tc.ctex"
+uid="uid://ct8hqenjh7cqd"
+path.s3tc="res://.godot/imported/psx_low-poly_televisions_5.png-20170c38a159d382721b8b3716b4613d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "24fd831d48015de1ec85f3547d7484b0"
+}
 
 [deps]
 
-source_file="res://Scenes/Assets/SevenEleven/7_eleven_39.jpg"
-dest_files=["res://.godot/imported/7_eleven_39.jpg-4037ea6b00c7264ea7a0f78dc6ae43d7.s3tc.ctex"]
+source_file="res://Scenes/Assets/Television/psx_low-poly_televisions_5.png"
+dest_files=["res://.godot/imported/psx_low-poly_televisions_5.png-20170c38a159d382721b8b3716b4613d.s3tc.ctex"]
 
 [params]
 
