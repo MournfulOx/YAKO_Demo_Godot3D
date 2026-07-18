@@ -52,19 +52,60 @@ demo/
 │   │   └── backroom_teleporter.gd    # Area3D: instant same-scene teleport to a NodePath target
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
-│   │   ├── NPC_Cat.tscn               # Map 01
-│   │   ├── NPC_Sheep.tscn             # Map 01, fragment carrier [F]
-│   │   ├── NPC_Goat.tscn              # Map 02
-│   │   ├── NPC_Otter.tscn             # Map 03, fragment carrier [F]
-│   │   ├── NPC_Dog.tscn               # Map 03
-│   │   ├── NPC_Raccoon.tscn           # built, but Map 04 scene doesn't exist yet
-│   │   ├── NPC_Fish.tscn              # built, but Map 04 scene doesn't exist yet
+│   │   ├── NPC_Cat.tscn               # for Map 01
+│   │   ├── NPC_Sheep.tscn             # for Map 01, fragment carrier [F]
+│   │   ├── NPC_PrairieDog.tscn        # for Map 01
+│   │   ├── NPC_Rat.tscn               # for Map 01
+│   │   ├── NPC_Goat.tscn              # for Map 02
+│   │   ├── NPC_FrenchBulldog.tscn     # for Map 02
+│   │   ├── NPC_KoiFish.tscn           # for Map 02
+│   │   ├── NPC_Baboon.tscn            # for Map 02
+│   │   ├── NPC_Goose.tscn             # for Map 02, fragment carrier [F]
+│   │   ├── NPC_GreatWhiteShark.tscn   # for Map 02
+│   │   ├── NPC_Otter.tscn             # for Map 03, fragment carrier [F]
+│   │   ├── NPC_Dog.tscn               # for Map 03
+│   │   ├── NPC_Giraffe.tscn           # for Map 03
+│   │   ├── NPC_Deer.tscn              # for Map 03
+│   │   ├── NPC_Panda.tscn             # for Map 03
+│   │   ├── NPC_Raccoon.tscn           # for Map 04 (map doesn't exist yet)
+│   │   ├── NPC_Fish.tscn              # for Map 04 (map doesn't exist yet)
+│   │   ├── NPC_Toucan.tscn            # for Map 04 (map doesn't exist yet)
+│   │   ├── NPC_Octopus.tscn           # for Map 04 (map doesn't exist yet), fragment carrier [F]
+│   │   ├── NPC_TRex.tscn              # for Map 04 (map doesn't exist yet)
+│   │   ├── NPC_Crab.tscn              # for Map 04 (map doesn't exist yet), fragment carrier [F] — replaces Koala
+│   │   ├── NPC_Caveman.tscn           # Map_03 Backrooms egg, one-off, not in the GDD roster
+│   │   ├── NPC_Chicken.tscn           # bonus, not in GDD roster — from a leftover unused model
+│   │   ├── NPC_Penguin.tscn           # bonus, not in GDD roster — from a leftover unused model
+│   │   ├── NPC_GreyAlien.tscn         # bonus, not in GDD roster — from a leftover unused model
 │   │   └── NPC_Capybara.tscn          # legacy — not in GDD v0.7's 21-NPC roster, currently unused
-│   │   # 14 more NPCs pending per GDD v0.7 roster: Prairie Dog, Rat (Map 01);
-│   │   # French Bulldog, Koi Fish, Baboon, Goose[F], Great White Shark (Map 02);
-│   │   # Giraffe, Deer, Panda (Map 03); Toucan, Octopus[F], T-Rex, Koala[F] (Map 04)
+│   │   # All 21 GDD roster slots now have a prefab. Koala[F] was swapped for Crab per direct
+│   │   # request (same fragment dialogue, no model ever sourced for Koala) — don't reintroduce
+│   │   # a Koala NPC without checking first.
+│   │   # IMPORTANT: "for Map NN" above means the prefab exists and is ready to drag in —
+│   │   # as of this writing NONE of these NPCs (old or new) have actually been placed into
+│   │   # any map scene yet. Placement is unstarted level-design work for every single one.
+│   │   # STILL UNRESOLVED: NPC_Otter/NPC_Raccoon/NPC_Sheep/NPC_Fish are dialogue-only stubs
+│   │   # with no 3D body at all (no `Body`/model child, no CollisionShape3D). Checked
+│   │   # C:\Users\furik\Downloads\Models and every asset folder in the project — no otter,
+│   │   # raccoon, sheep, or generic-fish model exists anywhere accessible. Can't fix these
+│   │   # without new source files; ask for/download matching models to unblock.
+│   │   # Bonus NPCs (Chicken/Penguin/GreyAlien) use placeholder dialogue I wrote myself, not
+│   │   # GDD content (there is none for them) — treat as a first draft, not final lines.
+│   │   # Deliberately NOT turned into NPCs despite being unused: `parappa_the_rapper.glb`
+│   │   # (a recognisable third-party licensed character — PaRappa the Rapper), and
+│   │   # `computer_-_serial_experiments_lain.glb` (a modeled recreation of a specific
+│   │   # copyrighted anime prop). Also found `mc_donalds_sign_bind.glb` sitting in the same
+│   │   # folder — that's a real trademarked brand's signage, not a creature at all, and
+│   │   # shouldn't ship in the project regardless of NPC plans; flag for removal/replacement
+│   │   # with the level-design team if it's not already spoken for. `psx_coffin.glb` is a
+│   │   # non-creature prop, left alone too (nothing to talk).
 │   ├── UI/
-│   │   └── dialogue_ui.gd            # CanvasLayer (layer=5): typewriter subtitle + blip audio, code-only
+│   │   ├── dialogue_ui.gd            # CanvasLayer (layer=5): typewriter subtitle + blip audio, code-only
+│   │   ├── MainMenu.tscn              # Start/Quit over a live 3D shot of the Television — see below
+│   │   ├── main_menu_ui.gd           # CanvasLayer (layer=10), code-built buttons, pixel font
+│   │   ├── menu_camera.gd            # Camera3D: self-aims at a NodePath target via look_at() on _ready()
+│   │   ├── OpeningQuote.tscn          # Psalm 102:6-7 black screen, reached from MainMenu's Start
+│   │   └── opening_quote_ui.gd       # CanvasLayer (layer=10): full text at once, hold, fade, then Map_01
 │   ├── Fonts/
 │   │   └── pixel.ttf                 # pixel bitmap font used for all in-game text
 │   └── Assets/
@@ -81,8 +122,10 @@ demo/
 │       ├── SevenEleven/              # convenience store model + textures (Map 01)
 │       ├── UrbanPack/                # street props (Map 02); Textures/, Textures Pack2/, Textures Pack3/
 │       ├── Zee/                      # third-party low-poly city pack (Map 02): Buildings/, Car, Road, etc.
-│       ├── MiscAssets/                # grab-bag of individually sourced props (Map 01), by category:
+│       ├── MiscAssets/                # grab-bag of individually sourced props, by category:
 │       │   └── animal/ car/ environment/ furniture/ small assets/
+│       │       # animal/ holds every NPC's GLB regardless of which map it's for (not just
+│       │       # Map 01) — source files come from C:\Users\furik\Downloads\Models
 │       └── SkyscraperPack/
 │           ├── models/               # source FBX + textures/
 │           └── glb/                  # converted GLB with emission baked in — currently unreferenced by any map
@@ -165,14 +208,34 @@ Player (CharacterBody3D)
 
 ## Player Controller (player.gd)
 
-- Mouse captured in `_ready()`, released on Esc
+- Mouse captured in `_ready()`; Esc no longer just releases the mouse — it now opens the pause
+  menu (see `## Pause Menu` below), which handles capture/release itself
 - Mouse X → rotate CharacterBody3D (yaw), Mouse Y → rotate Head (pitch, clamped ±90°)
 - Movement uses `transform.basis` so direction follows player facing
 - No gravity, no jumping — `velocity.y` is unused
 - Speed halved (`SPEED * 0.5`) while `cigarette.is_smoking` is true
 - `DialogueUI` CanvasLayer instantiated in `_ready()` from `Scenes/UI/dialogue_ui.gd`
+- `PauseMenuUI` CanvasLayer instantiated in `_ready()` from `Scenes/UI/pause_menu_ui.gd`
 - Head bob: `BOB_SPEED=1.3`, `BOB_AMP_Y=0.008`, `BOB_AMP_X=0.004`; accumulates only while velocity > 0
 - Footstep audio via `AudioStreamGenerator`: `STEP_INTERVAL=0.42s` (normal), `0.60s` (slow/smoking); 25% sine tone (55–95 Hz, pitch scales with speed) + 75% white noise, −18 dB
+
+## Pause Menu
+
+`Scenes/UI/pause_menu_ui.gd` — code-built `CanvasLayer` (layer=15, `PROCESS_MODE_ALWAYS`),
+instantiated by `player.gd` alongside `DialogueUI`, so it exists on every map that has a Player
+(not on `MainMenu`/`OpeningQuote`/the ending screens, which have no Player at all).
+
+- Listens for `KEY_ESCAPE` via `_unhandled_input()` (not `_input()`, so NPC/cigarette input in
+  `player.gd` still gets first look at every other key) and calls `toggle()`
+- `open()`: shows the menu, sets `get_tree().paused = true`, releases the mouse. Since `player.gd`
+  has no `PROCESS_MODE_ALWAYS` override, pausing the tree freezes movement/interaction outright —
+  same mechanism `ending_sequence.gd` already relies on to stop the player after the ending
+- `close()`: hides the menu, unpauses the tree, recaptures the mouse
+- Buttons: **Resume** (`close()`), **Main Menu** (`close()` then `SceneManager.change_scene()` to
+  `Scenes/UI/MainMenu.tscn` — unpausing first matters, since `paused` is tree-global and would
+  otherwise carry over and freeze the next scene too), **Quit** (`get_tree().quit()`)
+- **No Settings option** — same deliberate omission as `MainMenu`'s Start screen (GDD wants
+  language/volume options; not shipping a non-functional button until that's built)
 
 ### NPC Interaction (player.gd)
 
@@ -242,22 +305,67 @@ NPC_Xxx (StaticBody3D, npc_base.gd, group "npc" added automatically)
 - `advance()` → emits `line_shown` for next line, or emits `ended` and sets `_complete = true`
 - After `_complete`, subsequent `start()` calls use `repeat_lines`
 - `is_active() → bool`
+- `is_complete() → bool` — has this NPC been talked to all the way through at least once; used by `gated_scene_trigger.gd` to lock an exit until a required conversation is finished
 
 **Outline system:**
 - `set_outline(true/false)` — recursively finds MeshInstance3D children, applies/removes `npc_outline.gdshader` as `next_pass` on surface override materials
 - Called by player.gd when NPC enters/leaves aim
 
+**Face-player turn:**
+- `@export var face_player_on_interact: bool = true` — on `start()`, tweens the NPC's Y
+  rotation (`FACE_TURN_DURATION = 0.35s`, shortest-path via `wrapf`) to face whichever
+  `Camera3D` is active (`get_viewport().get_camera_3d()` — works without any direct reference
+  to the player, since Player's `Camera3D` is the only camera in these scenes); on `_finish()`,
+  tweens back to the rotation recorded in `_ready()`. Only rotates yaw (kept level) — pitch/roll
+  untouched. Set to `false` on `Television` (a wall-mounted object shouldn't swivel).
+- Target angle is computed by borrowing `Node3D.look_at()` itself (snap to face the target,
+  read the resulting `rotation.y`, then revert) rather than deriving the angle by hand via
+  `Basis`/trig — a first attempt using `Basis.looking_at()` + `get_euler()` produced
+  consistently wrong (backwards) results, so it was replaced with this approach instead.
+- `@export var face_offset_deg: float = 180.0` — **not every downloaded model was authored
+  facing -Z**, so pointing the root's -Z at the player only produces correct-looking results
+  for models whose front happens to already line up with Godot's convention. Defaults to 180
+  because that's what most of this project's models needed once tested across the roster; the
+  confirmed exception is `NPC_TRex`, which sets its own `face_offset_deg = 0.0` override in its
+  `.tscn` to protect it from the shared default. If some other NPC still turns to face
+  sideways instead of straight on, try 90 or -90 instead. Only affects the face-toward-player
+  angle — the resting/idle pose and the revert-on-`_finish()` target are untouched by it.
+
 **Roster status (GDD v0.7, 21 NPCs across 5 maps):**
 
-| Map | Built | Pending |
+| Map | Prefab built | Still missing |
 |-----|-------|---------|
-| 01 Convenience Store | Cat, Sheep [F] | Prairie Dog, Rat |
-| 02 Crossroads | Goat | French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark |
-| 03 Under the Overpass | Otter [F], Dog | Giraffe, Deer, Panda |
-| 04 Arcade Alley | Raccoon, Fish (no map scene yet) | Toucan, Octopus [F], T-Rex, Koala [F] |
+| 01 Convenience Store | Cat, Sheep [F], Prairie Dog, Rat | — |
+| 02 Crossroads | Goat, French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark | — |
+| 03 Under the Overpass | Otter [F], Dog, Giraffe, Deer, Panda | — |
+| 04 Arcade Alley | Raccoon, Fish, Toucan, Octopus [F], T-Rex, Crab [F] (map scene doesn't exist yet) | — |
 | 05 School Rooftop | Television (`Scenes/Television/television.tscn`, ending trigger built as an NPC-style interactable) | — |
 
-`[F]` = fragment carrier — part of the hidden narrative thread (GDD v0.7 §5.5). `dialogue_lines`/`repeat_lines` content for built NPCs should be pulled from the GDD, not invented here.
+All 21 GDD roster slots now have a built `.tscn` prefab — Koala was swapped for **Crab**
+(`Scenes/Assets/MiscAssets/low-poly_crab.glb`, already sitting unused in the project) per
+direct request, keeping Koala's exact fragment dialogue unchanged (the lines were never
+Koala-specific to begin with). Models sourced from `C:\Users\furik\Downloads\Models` plus
+whatever unused assets were already sitting in `Scenes/Assets/MiscAssets/`, copied/kept under
+`Scenes/Assets/MiscAssets/animal/`. **None of them — old or new — have actually been placed
+into a map scene yet**; "built" here only means the prefab exists and is ready to drag in.
+Also found `Scenes/Assets/MiscAssets/animal/ps1_chicken.glb` sitting unused with no matching
+roster slot (chicken isn't one of the 21 GDD animals) — left it alone rather than inventing an
+extra character; flag if you want it used for something.
+
+Placement (position/rotation, avoiding overlap with
+level geometry, picking a spot that reads well) is unstarted level-design work for every single
+one, left to the person doing map layout since it needs visual judgement in the editor.
+`dialogue_lines`/`repeat_lines` content for all of them is pulled directly from the GDD, not
+invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster), which is placeholder text.
+
+**Scale/collision caveat**: for the 14 new prefabs, `Body` transform scale and the
+`CollisionShape3D` size were computed from each GLB's raw bounding box (aiming for roughly
+plausible relative sizes — Giraffe deliberately tall enough to justify "head lodged against the
+overpass," Rat/Prairie Dog small, etc.) but **not visually confirmed in the editor**. Check each
+one after placing it and adjust `Body`'s scale / the collision box if something looks off —
+same caveat that already applied to `NPC_Caveman`.
+
+`[F]` = fragment carrier — part of the hidden narrative thread (GDD v0.7 §5.5).
 
 ## NPC Shader Pipeline
 
@@ -310,6 +418,24 @@ Registered in `project.godot` under `[autoload]`.
 - Set **Target Scene** in Inspector to the destination `.tscn` path
 - CollisionShape3D: use a thin BoxShape3D (`Vector3(5, 3, 0.5)`) spanning the exit edge
 - Collision Layer = 0 (none), Mask = Layer 1 (Player)
+
+**`Scenes/gated_scene_trigger.gd`** — same shape as `scene_trigger.gd` but locks the exit
+behind an NPC conversation. `@export var required_npc_path: NodePath` in addition to
+`target_scene`; on `body_entered`, resolves the NPC via `get_node_or_null()` and only calls
+`SceneManager.change_scene()` if `npc.is_complete()` is true (silently does nothing otherwise
+— no "locked" message/UI, matches the game's minimal-HUD style). Used on `Scenes/Maps/Backroom.tscn`'s
+exit, gated on `NPC_Caveman` — the player must finish talking to it before they can leave the
+Backrooms egg. Kept as a separate script rather than modifying `scene_trigger.gd` itself since
+every other exit trigger in the game should stay ungated.
+
+**`Scenes/NPC/NPC_Caveman.tscn`** — one-off NPC (not part of the GDD v0.7 21-animal roster)
+built for the Map_03 Backrooms egg specifically, using `npc_base.gd` like every other NPC.
+Model: `Scenes/Assets/Backroom/backrooms_movie_caveman_cutout.glb` (also includes an
+intercom/screen prop in the same file). Native mesh scale is huge (~74 units tall) — scaled
+down `0.025x` in the `.tscn` to read as roughly human-height; **not yet visually verified**,
+same caveat as other freshly-imported assets in this project — check in the editor and adjust
+the `Body` transform/`CollisionShape3D` if it looks off. `dialogue_lines`/`repeat_lines` are
+placeholder text, not final content.
 
 ## Collectibles
 
@@ -412,16 +538,38 @@ red herring) without ever reliably working, so it was scrapped in favor of reusi
   generously on purpose: an undersized/misaligned hitbox (from an earlier pass, sized for a single
   un-spread TV) was the actual cause of a "clicking does nothing" report — oversizing trades a
   slightly-too-generous interact range for not missing the raycast again.
-- `_apply_screen_static()` (runs *after* `super._ready()`, overriding what it just set): any
-  mesh with `"Screen"` in its name gets `shaders/tv_screen_static.gdshader` instead of the
-  standard NPC material — a `shader_type spatial` unlit hash-noise flicker (same technique as
-  `sky_stars.gdshader`'s `hash()`), always playing. Being purely procedural per-fragment, this
-  is immune to the whole class of UV/geometry bugs the old text-on-screen approach hit — noise
-  doesn't care about orientation, so it was safe to keep even after that system was scrapped.
+- `@export var show_screen_static: bool = true` — gates `_apply_screen_static()` (runs *after*
+  `super._ready()`, overriding what it just set): any mesh with `"Screen"` in its name gets
+  `shaders/tv_screen_static.gdshader` instead of the standard NPC material — a `shader_type
+  spatial` unlit hash-noise flicker (same technique as `sky_stars.gdshader`'s `hash()`), always
+  playing. Being purely procedural per-fragment, this is immune to the whole class of UV/geometry
+  bugs the old text-on-screen approach hit — noise doesn't care about orientation, so it was safe
+  to keep even after that system was scrapped. Set to `false` on the `Television` instance in
+  `Scenes/UI/MainMenu.tscn` — constant flicker read as too visually busy for a menu backdrop.
+- `@export var flicker_screen_static: bool = false` / `flicker_interval: float = 6.0` /
+  `flicker_duration: float = 2.5` / `flicker_noise_speed: float = 8.0` — alternative to
+  `show_screen_static` for exactly this "too busy for a background prop" case: screens stay on
+  their normal baked look and only swap to `tv_screen_static.gdshader` for `flicker_duration`
+  seconds every `flicker_interval` seconds (a looping `Timer` + `await
+  get_tree().create_timer(...)`, `_setup_screen_flicker()`/`_collect_screen_surfaces()`/
+  `_on_flicker_tick()`), then swap back to each surface's original material — a brief "signal
+  glitch" instead of continuous noise. `flicker_noise_speed` overrides the noise shader's own
+  `flicker_speed` uniform (default `24.0`, very fast) down to a slower per-instance value so the
+  static reads as a held glitch frame rather than a rapid strobe within the flash itself — first
+  pass used the shader's default speed with only a `0.15s` duration/`4.0s` interval and the user
+  reported it flickered too fast with no perceptible pause; both the hold duration and the
+  in-shader speed were slowed down together to fix it. Only takes effect when `show_screen_static`
+  is `false` (checked first in `_ready()`). Enabled on the `Television` instance in
+  `Scenes/UI/MainMenu.tscn` (`flicker_screen_static = true`, default interval/duration/speed) in
+  place of the old fully-static-off look. Not visually confirmed — tune further if still off.
 - `_add_screen_lights()` adds one small cyan `OmniLight3D` (`GLOW_COLOR`) per variant at its
   approximate screen centre (`SCREEN_CENTER`), parented under that variant's wrapper so it
   follows the grid spread automatically — in addition to the single generic light `npc_base.gd`
-  already adds.
+  already adds. Intensity/range are exported (`screen_glow_energy = 1.4`, `screen_glow_range =
+  1.5` by default) rather than hardcoded — the menu camera in `Scenes/UI/MainMenu.tscn` sits much
+  closer to the screens than a normal NPC conversation distance, which blew these out into
+  overexposed blobs (aggravated by the scene's low `glow_hdr_threshold = 0.75`), so that instance
+  overrides them down to `0.6` / `1.0`. Not visually confirmed — tune further if still too bright.
 - Text now goes through the same `dialogue_ui.gd` subtitle path every other NPC uses — no
   per-screen text, no outline distinction from a normal NPC. This is a known, deliberate
   simplification vs GDD v0.7 §5.4 (see note above); the cigarette/TV input-overlap gap noted in
@@ -458,6 +606,45 @@ corrected `.jpg` extension rather than trusting the original name.
 - Calls `duck.trigger()` via `call_deferred`
 
 **Per-map dialogue:** defined in `duck.gd` via `_lines_for(map_id)` `match` statement — covers all 5 maps.
+
+## Main Menu
+
+`Scenes/UI/MainMenu.tscn` — now `project.godot`'s `run/main_scene` (previously Map_01 directly;
+change this back if you need quick iteration on gameplay without going through the menu first).
+Background is a **live, real-time-rendered shot of the Television** (per GDD's "real-time
+rendered street scene" main menu spec), not a static image — reuses the same environment/floor
+setup as `Scenes/Television/television_test.tscn` plus a `Television` instance, but swaps out
+`Player` for a dedicated menu camera since there's no gameplay here.
+
+- `Scenes/UI/menu_camera.gd` (`Camera3D`) — `@export var look_at_path: NodePath`; on `_ready()`,
+  sets `current = true` and calls `look_at()` at the target. Deliberately touches rotation ONLY,
+  not position — an earlier version also computed `global_position` from `distance`/`height`
+  export floats, which silently overwrote whatever position was set by hand in the editor
+  (dragging the gizmo did nothing, since `_ready()` clobbered it on run) and was confusing/
+  surprising, so it was reverted. Position the camera by dragging it in the editor like any other
+  node; the script only takes care of aiming it at the target. **Note**: the small Camera3D
+  preview thumbnail in the Inspector does not match the real windowed output (different
+  aspect/post-processing handling) — always verify framing by actually running the scene, not by
+  eyeballing that preview.
+- `Scenes/UI/main_menu_ui.gd` (`CanvasLayer`, layer=10) — code-built "YAKO" title + `Start`/`Quit`
+  buttons (pixel font, white with black outline, matching the rest of the game's UI convention).
+  Sets `Input.mouse_mode = MOUSE_MODE_VISIBLE` in `_ready()` since there's no `Player` node here
+  to do it. `Start` calls `SceneManager.change_scene()` to `Scenes/UI/OpeningQuote.tscn` (see
+  below), not straight to Map_01. **No Settings button yet** — GDD wants language/volume options
+  there, deliberately deferred rather than shipping a non-functional button.
+
+## Opening Quote
+
+`Scenes/UI/OpeningQuote.tscn` — Psalm 102:6-7 on a black screen, per GDD §"Opening Quote"
+(referencing Death Stranding's opening-quote format). `opening_quote_ui.gd` (`CanvasLayer`,
+layer=10, `PROCESS_MODE_ALWAYS`): full quote text appears all at once (not typewriter — GDD is
+explicit about this, unlike every other text system in the game), holds for `QUOTE_HOLD = 12s`
+(GDD's 10-15s range), fades out over `FADE_DURATION = 1s`, then calls
+`SceneManager.change_scene("res://Scenes/Maps/Map_01_ConvenienceStore.tscn")`. No skip input —
+matches GDD ("No skip"). Reached via `MainMenu`'s `Start` button, not the project's actual
+`run/main_scene` (that's still `MainMenu.tscn`). Since the screen is already black when
+`SceneManager.change_scene()` fires, its own fade-to-black-then-back overlay reads as a
+continuation rather than a visible cut, which is what "fades into game" in the GDD describes.
 
 ## Procedural Audio
 

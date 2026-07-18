@@ -45,8 +45,10 @@ func _transition(path: String) -> void:
 	tw.tween_property(_overlay, "modulate:a", 1.0, 0.35)
 	await tw.finished
 
-	_label.text       = _parse_name(path)
-	_label.modulate.a = 1.0
+	var show_name := _resolve(path).begins_with("res://Scenes/Maps/")
+	if show_name:
+		_label.text       = _parse_name(path)
+		_label.modulate.a = 1.0
 	await get_tree().create_timer(0.6).timeout
 
 	get_tree().change_scene_to_file(path)
@@ -56,11 +58,12 @@ func _transition(path: String) -> void:
 	tw.tween_property(_overlay, "modulate:a", 0.0, 0.45)
 	await tw.finished
 
-	await get_tree().create_timer(1.8).timeout
+	if show_name:
+		await get_tree().create_timer(1.8).timeout
 
-	tw = create_tween()
-	tw.tween_property(_label, "modulate:a", 0.0, 0.6)
-	await tw.finished
+		tw = create_tween()
+		tw.tween_property(_label, "modulate:a", 0.0, 0.6)
+		await tw.finished
 
 static func _resolve(path: String) -> String:
 	if path.begins_with("uid://"):

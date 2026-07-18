@@ -12,6 +12,7 @@ dialogue_lines = Array[String](["are you here", "present day.", "present time.",
 repeat_lines = Array[String](["we are always broadcasting."])
 wobble_amount = 0.0
 light_color = Color(0.31, 0.765, 0.831, 1)
+face_player_on_interact = false
 
 [node name="Body" parent="." unique_id=1802821317 instance=ExtResource("1_glb")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.5471326)

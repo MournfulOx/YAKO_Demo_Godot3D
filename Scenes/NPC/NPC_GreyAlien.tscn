@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bny8bvnacy78b"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://ohp62qf43mb" path="res://Scenes/Assets/MiscAssets/alien.tscn" id="2_r7pey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0"]
+size = Vector3(0.85, 1.0067139, 0.1953125)
+
+[node name="NPC_GreyAlien" type="StaticBody3D" unique_id=299559314]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I've been observing for years.", "I still don't understand the little one.", "The Duck, I mean."])
+repeat_lines = Array[String](["Still observing."])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1836066169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50335693, 0)
+shape = SubResource("BoxShape3D_0")
+
+[node name="Alien" parent="." unique_id=1027889799 instance=ExtResource("2_r7pey")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)

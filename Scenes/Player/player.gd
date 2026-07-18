@@ -35,6 +35,7 @@ const BOB_AMP_X := 0.004
 var _aimed_npc   : Node3D = null
 var _current_npc : Node3D = null
 var _dialogue_ui : CanvasLayer
+var _pause_menu  : CanvasLayer
 
 var _step_audio : AudioStreamPlayer
 var _step_timer : float = 0.0
@@ -52,6 +53,9 @@ func _ready() -> void:
 	_dialogue_ui = load("res://Scenes/UI/dialogue_ui.gd").new()
 	add_child(_dialogue_ui)
 
+	_pause_menu = load("res://Scenes/UI/pause_menu_ui.gd").new()
+	add_child(_pause_menu)
+
 	var gen := AudioStreamGenerator.new()
 	gen.mix_rate      = STEP_BLIP_RATE
 	gen.buffer_length = STEP_BLIP_DURATION + 0.02
@@ -65,9 +69,6 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * sensitivity)
 		head.rotate_x(-event.relative.y * sensitivity)
 		head.rotation.x = clamp(head.rotation.x, -PI/2, PI/2)
-
-	if event is InputEventKey and event.keycode == KEY_ESCAPE:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if event is InputEventKey and event.is_action_pressed("Smoke") and not event.is_echo():
 		if _current_npc == null:

@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3]
 
-[ext_resource type="Texture2D" uid="uid://cq4o4akn28s1o" path="res://Scenes/Assets/UI/YellowDuck.jpg" id="1_tex"]
-[ext_resource type="Script" path="res://Scenes/Collectibles/yellow_duck_collectible.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://cq4o4akn28s1o" path="res://Scenes/Assets/Logo/YellowDuck.jpg" id="1_tex"]
+[ext_resource type="Script" uid="uid://bhdt06s7p2yn7" path="res://Scenes/Collectibles/yellow_duck_collectible.gd" id="2_script"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pickup"]
 radius = 0.35

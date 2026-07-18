@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dfpu1jhqt1y08"]
 
 [ext_resource type="PackedScene" uid="uid://msvshfawt7wa" path="res://Scenes/Player/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" uid="uid://ciq5bdvmqwj42" path="res://Scenes/Television/television.tscn" id="2_tv"]
+[ext_resource type="PackedScene" uid="uid://dpi7kg783ovts" path="res://Scenes/Television/television.tscn" id="2_tv"]
 [ext_resource type="Script" uid="uid://b2fwnefu18vqm" path="res://Scenes/Ending/ending_sequence.gd" id="3_ending"]
+[ext_resource type="PackedScene" uid="uid://bny8bvnacy78b" path="res://Scenes/NPC/NPC_GreyAlien.tscn" id="4_n85ts"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_test"]
 sky_top_color = Color(0.012, 0.012, 0.045, 1)
@@ -52,8 +53,12 @@ shape = SubResource("BoxShape3D_floor")
 [node name="Player" parent="." unique_id=787216133 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1257048, 0, 8.609726)
 
+[node name="NPC_GreyAlien" parent="." unique_id=299559314 instance=ExtResource("4_n85ts")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2.2321491)
+
 [node name="Television" parent="." unique_id=764020777 instance=ExtResource("2_tv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022526741, 0)
+light_energy = 0.0
 
 [node name="EndingSequence" type="Node" parent="." unique_id=637936446]
 script = ExtResource("3_ending")

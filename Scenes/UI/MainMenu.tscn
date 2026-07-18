@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dd7yfb3atb8io"]
+
+[ext_resource type="PackedScene" uid="uid://bny8bvnacy78b" path="res://Scenes/NPC/NPC_GreyAlien.tscn" id="1_k8um8"]
+[ext_resource type="PackedScene" uid="uid://dpi7kg783ovts" path="res://Scenes/Television/television.tscn" id="1_tv"]
+[ext_resource type="Script" uid="uid://dv0xrjtxhox7h" path="res://Scenes/UI/menu_camera.gd" id="2_cam"]
+[ext_resource type="Script" uid="uid://dyivw0ex45fnb" path="res://Scenes/UI/main_menu_ui.gd" id="3_ui"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="4_t6w0q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(20, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8um8"]
+shader = ExtResource("4_t6w0q")
+shader_parameter/color_top = Color(0.012, 0.012, 0.045, 1)
+shader_parameter/color_horizon = Color(0.03, 0.015, 0.06, 1)
+shader_parameter/color_ground = Color(0.08, 0.04, 0.01, 1)
+shader_parameter/star_density = 0.968
+shader_parameter/star_brightness = 0.65
+shader_parameter/star_size = 0.12
+shader_parameter/twinkle_speed = 0.9
+
+[sub_resource type="Sky" id="Sky_haaie"]
+sky_material = SubResource("ShaderMaterial_k8um8")
+
+[sub_resource type="Environment" id="Environment_jex3y"]
+background_mode = 2
+sky = SubResource("Sky_haaie")
+ambient_light_source = 2
+ambient_light_color = Color(0.08, 0.1, 0.2, 1)
+ambient_light_energy = 0.18
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.4
+glow_bloom = 0.25
+glow_hdr_threshold = 0.75
+fog_enabled = true
+fog_light_color = Color(0.07, 0.08, 0.14, 1)
+fog_density = 0.014
+fog_sky_affect = 0.8
+
+[node name="MainMenu" type="Node3D" unique_id=1531410557]
+
+[node name="NPC_GreyAlien" parent="." unique_id=299559314 instance=ExtResource("1_k8um8")]
+transform = Transform3D(1.4120708, 0, 3.7424667, 0, 4, 0, -3.7424667, 0, 1.4120708, -2.7617476, -0.019171238, -0.69074535)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1652605466]
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="Television" parent="." unique_id=1100080455 instance=ExtResource("1_tv")]
+show_screen_static = false
+flicker_screen_static = true
+flicker_interval = 6.0
+flicker_duration = 2.5
+flicker_noise_speed = 8.0
+screen_glow_energy = 0.6
+screen_glow_range = 1.0
+light_energy = 0.0
+light_color = Color(1, 1, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1891767231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.265, 1.875)
+keep_aspect = 0
+fov = 135.5
+script = ExtResource("2_cam")
+
+[node name="MenuUI" type="CanvasLayer" parent="." unique_id=784203397]
+script = ExtResource("3_ui")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=1833276443]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
+light_color = Color(0.7, 0.78, 1, 1)
+light_energy = 0.12
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=118584243]
+environment = SubResource("Environment_jex3y")

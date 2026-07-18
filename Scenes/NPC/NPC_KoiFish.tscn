@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/MiscAssets/animal/japanese_koi_fish_in_psxps1_style.glb" id="2_glb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0"]
+size = Vector3(0.55, 0.3, 0.15)
+
+[node name="NPC_KoiFish" type="StaticBody3D"]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I used to live in a pond.", "Someone moved me here.", "I don't remember who."])
+repeat_lines = Array[String](["The water is different here."])
+
+[node name="Body" parent="." instance=ExtResource("2_glb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_0")
