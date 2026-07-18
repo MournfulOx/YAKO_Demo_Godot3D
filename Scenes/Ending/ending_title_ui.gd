@@ -32,7 +32,7 @@ func _ready() -> void:
 	_label = _make_label("YAKO", 16, pf, Vector2.ZERO, Vector2(GAME_W, GAME_H))
 	add_child(_label)
 
-	var logo_tex := load("res://Scenes/Assets/UI/YellowDuck.jpg") as Texture2D
+	var logo_tex := load("res://Scenes/Assets/Logo/YellowDuck.jpg") as Texture2D
 	_logo = TextureRect.new()
 	_logo.texture = logo_tex
 	_logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE

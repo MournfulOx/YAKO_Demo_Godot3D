@@ -56,6 +56,8 @@ func _ready() -> void:
 	_pause_menu = load("res://Scenes/UI/pause_menu_ui.gd").new()
 	add_child(_pause_menu)
 
+	add_child(load("res://Scenes/Collectibles/duck_pickup_notification_ui.gd").new())
+
 	var gen := AudioStreamGenerator.new()
 	gen.mix_rate      = STEP_BLIP_RATE
 	gen.buffer_length = STEP_BLIP_DURATION + 0.02

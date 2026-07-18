@@ -48,7 +48,7 @@ demo/
 │   │   ├── ending_sequence.gd        # Node: listens for Television's `ending_triggered`, plays ending_title_ui
 │   │   └── ending_title_ui.gd        # CanvasLayer (layer=25): immediate cut to black + "YAKO" title fade-in
 │   ├── Collectibles/
-│   │   ├── yellow_duck_collectible.gd/.tscn  # Area3D pickup, reports to YellowDuckState by duck_id
+│   │   ├── yellow_duck_collectible.gd/.tscn  # npc_base.gd interactable, reports to YellowDuckState by duck_id
 │   │   └── backroom_teleporter.gd    # Area3D: instant same-scene teleport to a NodePath target
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
@@ -445,10 +445,16 @@ there — 5 total). **This is currently just the reserved interface/plumbing** �
 walls, or backroom space have actually been placed in any map yet; that's level-design work.
 Building blocks ready to drop in once placement happens:
 
-**`Scenes/Collectibles/yellow_duck_collectible.tscn`** (`Area3D`,
-`yellow_duck_collectible.gd`) — `@export var duck_id: String`, must be a unique string per
-placed instance. No ID scheme is enforced in code, but use exactly these 5 (matches
-`TOTAL_DUCKS=5` and what the design below assumes):
+**`Scenes/Collectibles/yellow_duck_collectible.tscn`** (`Area3D`, `yellow_duck_collectible.gd`)
+— proximity-triggered, but deliberately NOT an instant pickup-on-touch: the user wants "finding"
+a duck to require an actual (if brief) dialogue beat first, matching the existing Duck-companion
+pattern already used elsewhere in the game (`Scenes/Duck/duck_trigger.gd` → `duck.gd` →
+`duck_dialogue_ui.gd`) rather than the NPC raycast+click pipeline. `@export var duck_id: String`
+must be a unique string per placed instance; `@export var lines: Array[String]` defaults to
+`["a little piece of you."]` (a deliberate callback to the Television secret ending's "you
+found all of me... every little piece." line — these collectibles ARE the scattered Duck
+fragments), overridable per-instance for map-specific flavor. No ID scheme is enforced in code,
+but use exactly these 5 (matches `TOTAL_DUCKS=5` and what the design below assumes):
 
 | `duck_id` | Suggested hiding spot (thematic, not literal coordinates — Zee's call) |
 |---|---|
@@ -460,13 +466,45 @@ placed instance. No ID scheme is enforced in code, but use exactly these 5 (matc
 
 Tying each duck to an existing GDD hidden-detail beat keeps them feeling like part of the
 world instead of arbitrary meta-collectibles — not mandatory, just a suggestion for Zee's
-placement pass. On `body_entered` by a
-`CharacterBody3D`: calls `YellowDuckState.collect(duck_id)`, emits `signal collected`, then
-`queue_free()`s itself. Re-entering an already-collected `duck_id` on scene reload
-self-frees immediately in `_ready()` instead of re-triggering. Visual is a billboarded
-`Sprite3D` using `Scenes/Assets/UI/YellowDuck.jpg` (`pixel_size=0.0009` → ~0.35m across,
-`shaded=false`, nearest-filter) plus a small Duck Yellow (`#F5C842`) `OmniLight3D` glow — a
-placeholder look, not a real 3D duck model.
+placement pass. `_ready()`: self-frees immediately if `duck_id` is empty or
+`YellowDuckState.has_collected(duck_id)` is already true (re-entering an already-collected duck
+on scene reload doesn't re-trigger); otherwise applies the same `psx_lit.gdshader` +
+warm-`OmniLight3D` treatment `duck.gd` uses on the real Duck companion (`_apply_psx_shader()` /
+`_add_light()`, duplicated rather than shared — matches this codebase's existing pattern of each
+actor script keeping its own copy rather than a shared helper) and connects `body_entered`. On
+first `CharacterBody3D` entry: disconnects `body_entered` (same one-shot guard as
+`duck_trigger.gd`, prevents re-firing on repeated overlap in the same scene load), then
+`call_deferred`s into `_collect()`, which instantiates a fresh `Scenes/Duck/duck_dialogue_ui.gd`
+(reused as-is — same typewriter/blip subtitle every Duck encounter uses), `await`s
+`play_lines(lines)` (fully automatic, no click needed to advance, matching how the Duck
+companion's own lines play out), and only once that finishes calls
+`YellowDuckState.collect(duck_id)`, plays a short `_vanish()` tween (scale to zero with a
+`TRANS_BACK` ease so it "pops" rather than just shrinking, a small upward float, and a brief
+brightening flash on its own light), then `await`s that before `queue_free()`s itself —
+disappearing outright the instant it's collected read as jarring, so this softens it into a
+small dissolve-into-light beat. The pickup-notification UI (below) fires strictly after the
+dialogue beat, never on the instant the player walks in.
+`CollisionShape3D` is an oversized `SphereShape3D` (`radius = 2.0`) rather than something the
+player has to bump into directly — the trigger should fire from a comfortable few-metre
+distance while approaching it, not require exact contact. Visual is an instance of the same
+`Scenes/Assets/MiscAssets/animal/Duck.glb` model the Duck companion uses (`Body`, scale `3` —
+matching `duck.gd`'s own instance scale for visual consistency between "the Duck" and "a piece
+of the Duck"), not the earlier flat `Sprite3D`/jpg placeholder. **A placeholder instance
+(`duck_id = "Map_01_ConvenienceStore"`) has been dropped into `Map_01_ConvenienceStore.tscn`
+near the player spawn purely so the pickup-notification UI has something to test against** — its
+position is not the real thematic placement from the table above, that's still Zee's call. Note
+for whoever edits maps by hand: if a map scene is open in the Godot editor while this file (or
+any file inside it) is edited externally, the next editor-side save will silently overwrite the
+external edit — close the relevant scene tab first.
+
+**`Scenes/Collectibles/duck_pickup_notification_ui.gd`** (`CanvasLayer`, layer=6) —
+instantiated by `player.gd` alongside `DialogueUI`/`PauseMenuUI`, so it's live on every map
+with a Player. Connects to `YellowDuckState.duck_collected(count, total)` (emitted from
+`collect()`), so it only has to wire up once instead of per-instance. Shows `"Yellow Duck found.
+<count> / <total>"` near the top of the screen (or `"All 5 Yellow Ducks found."` once the last
+one is picked up), fades in (`0.3s`), holds (`2.2s`), fades out (`0.6s`) — same fade-tween idiom
+used everywhere else in the project's UI, no typewriter needed since it's a short status line,
+not dialogue.
 
 **`Scenes/Collectibles/backroom_teleporter.gd`** (`Area3D`) — generic same-scene teleporter,
 not tied to the Backrooms egg specifically. `@export var target_path: NodePath`; on
@@ -591,13 +629,13 @@ glow are still deferred** and will hang off this same script later.
 still run once `ending_sequence.gd` pauses the tree) — immediate black `ColorRect` (no fade, per
 GDD: "CUT: Black. Immediate.") then fades in a centred "YAKO" title (pixel font, size 16, white
 + 1px black outline), holds `TITLE_HOLD=2s`, fades out, then fades in a studio logo
-(`TextureRect`, `Scenes/Assets/UI/YellowDuck.jpg`, `TEXTURE_FILTER_NEAREST` to stay crisp at
+(`TextureRect`, `Scenes/Assets/Logo/YellowDuck.jpg`, `TEXTURE_FILTER_NEAREST` to stay crisp at
 this resolution, `LOGO_SIZE=64`), a `STUDIO_NAME` label ("YellowDuck Studio", size 8) below it,
 and a `CREDITS_TEXT` label (team names/roles, size 6 — matches the project's standard body-text
 size) below that, all three in parallel — and stops there: no rooftop-dawn background yet (GDD
 wants one), no auto-return to a main menu (doesn't exist yet). The text labels share a
 `_make_label()` helper.
-**Note**: `Scenes/Assets/UI/YellowDuck.jpg` — despite the source filename ending in `.png`, the
+**Note**: `Scenes/Assets/Logo/YellowDuck.jpg` — despite the source filename ending in `.png`, the
 file is actually JPEG data (checked the magic bytes: `FF D8 FF E0`), so it was copied in with a
 corrected `.jpg` extension rather than trusting the original name.
 

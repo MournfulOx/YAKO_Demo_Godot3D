@@ -1,10 +1,10 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" uid="uid://cq4o4akn28s1o" path="res://Scenes/Assets/Logo/YellowDuck.jpg" id="1_tex"]
+[ext_resource type="PackedScene" uid="uid://cl7mh5nj7qjy5" path="res://Scenes/Assets/MiscAssets/animal/Duck.glb" id="1_glb"]
 [ext_resource type="Script" uid="uid://bhdt06s7p2yn7" path="res://Scenes/Collectibles/yellow_duck_collectible.gd" id="2_script"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pickup"]
-radius = 0.35
+radius = 2.0
 
 [node name="YellowDuckCollectible" type="Area3D"]
 collision_layer = 0
@@ -14,17 +14,5 @@ script = ExtResource("2_script")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_pickup")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-texture = ExtResource("1_tex")
-shaded = false
-billboard = 1
-texture_filter = 0
-pixel_size = 0.0009
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-light_color = Color(0.961, 0.784, 0.259, 1)
-light_energy = 1.2
-omni_range = 1.2
-shadow_enabled = false
+[node name="Body" parent="." instance=ExtResource("1_glb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
