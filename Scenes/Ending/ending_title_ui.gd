@@ -19,7 +19,7 @@ func _ready() -> void:
 	layer        = 25
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
+	var pf := SettingsState.get_active_font()
 
 	_overlay          = ColorRect.new()
 	_overlay.color    = Color.BLACK
@@ -29,7 +29,7 @@ func _ready() -> void:
 	_overlay.modulate.a   = 0.0
 	add_child(_overlay)
 
-	_label = _make_label("YAKO", 16, pf, Vector2.ZERO, Vector2(GAME_W, GAME_H))
+	_label = _make_label("YAKO", SettingsState.get_active_font_size(16), pf, Vector2.ZERO, Vector2(GAME_W, GAME_H))
 	add_child(_label)
 
 	var logo_tex := load("res://Scenes/Assets/Logo/YellowDuck.jpg") as Texture2D
@@ -44,13 +44,13 @@ func _ready() -> void:
 	_logo.modulate.a = 0.0
 	add_child(_logo)
 
-	_studio = _make_label(STUDIO_NAME, 8, pf, Vector2(0.0, 94.0), Vector2(GAME_W, 16.0))
+	_studio = _make_label(STUDIO_NAME, SettingsState.get_active_font_size(8), pf, Vector2(0.0, 94.0), Vector2(GAME_W, 16.0))
 	add_child(_studio)
 
-	_credits = _make_label(CREDITS_TEXT, 6, pf, Vector2(0.0, 110.0), Vector2(GAME_W, GAME_H - 110.0))
+	_credits = _make_label(tr(CREDITS_TEXT), SettingsState.get_active_font_size(6), pf, Vector2(0.0, 110.0), Vector2(GAME_W, GAME_H - 110.0))
 	add_child(_credits)
 
-func _make_label(text: String, font_size: int, pf: FontFile, pos: Vector2, size: Vector2) -> Label:
+func _make_label(text: String, font_size: int, pf: Font, pos: Vector2, size: Vector2) -> Label:
 	var label := Label.new()
 	label.text     = text
 	label.position = pos

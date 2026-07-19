@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://cvydiaakdtbcg" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 18/Commercial 18.glb" id="28_rsf5s"]
 [ext_resource type="PackedScene" uid="uid://dqx7oexiee784" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 19/Commercial 19.glb" id="29_m17pf"]
 [ext_resource type="PackedScene" uid="uid://cnsgel780kne0" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 20/20.glb" id="30_bej06"]
+[ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="90_duck"]
+[ext_resource type="Script" path="res://Scenes/scene_trigger.gd" id="92_trig"]
 [ext_resource type="PackedScene" uid="uid://bcqxvs364mtbr" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/22/22.glb" id="32_hehmy"]
 [ext_resource type="PackedScene" uid="uid://cmjq6ym05hbha" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/21/21.glb" id="32_jpv0b"]
 [ext_resource type="PackedScene" uid="uid://cv5atfjpqtijy" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/23/23.glb" id="33_tkkyw"]
@@ -1331,6 +1333,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q5c5s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_map02exit"]
+size = Vector3(5, 3, 0.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=819991932]
 environment = SubResource("Environment_ohl52")
@@ -3074,3 +3079,24 @@ mesh = SubResource("ArrayMesh_cmn67")
 [node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, -0.7169399)
 speed = 10.0
+
+[node name="ExitToMap01" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, -5.7169399)
+script = ExtResource("92_trig")
+target_scene = "res://Scenes/Maps/Map_01_ConvenienceStore.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitToMap01"]
+shape = SubResource("BoxShape3D_map02exit")
+
+[node name="ExitToMap03" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, 4.2830601)
+script = ExtResource("92_trig")
+target_scene = "res://Scenes/Maps/Map_03_UnderTheOverPass.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitToMap03"]
+shape = SubResource("BoxShape3D_map02exit")
+
+[node name="YellowDuck_Crossroads" parent="." instance=ExtResource("90_duck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39586544, 2.6006729, -0.7169399)
+duck_id = "Map_02_Crossroads"
+lines = Array[String](["a little piece of you.", "everyone crosses somewhere.", "not everyone arrives."])

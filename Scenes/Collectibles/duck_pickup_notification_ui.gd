@@ -21,9 +21,6 @@ func _ready() -> void:
 	_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	_label.add_theme_constant_override("outline_size", 1)
 	_label.add_theme_font_size_override("font_size", 7)
-	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
-	if pf:
-		_label.add_theme_font_override("font", pf)
 	_label.modulate.a = 0.0
 	add_child(_label)
 
@@ -33,10 +30,12 @@ func _on_duck_collected(count: int, total: int) -> void:
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
 
+	_label.add_theme_font_override("font", SettingsState.get_active_font())
+	_label.add_theme_font_size_override("font_size", SettingsState.get_active_font_size(7))
 	if count >= total:
-		_label.text = "All %d Yellow Ducks found." % total
+		_label.text = tr("All %d Yellow Ducks found.") % total
 	else:
-		_label.text = "Yellow Duck found. %d / %d" % [count, total]
+		_label.text = tr("Yellow Duck found. %d / %d") % [count, total]
 	_label.modulate.a = 0.0
 
 	_tween = create_tween()

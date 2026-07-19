@@ -6,8 +6,9 @@ signal ending_triggered
 # YellowDuckState collectibles before reaching the TV.
 @export var secret_dialogue_lines : Array[String] = [
 	"are you here",
-	"you found all of me.",
-	"every little piece.",
+	"you found all of me. every little piece.",
+	"none of them added up to a whole person. that's alright.",
+	"distance never really separated us.",
 	"we are always broadcasting.",
 ]
 @export var secret_repeat_lines : Array[String] = ["we are always broadcasting."]

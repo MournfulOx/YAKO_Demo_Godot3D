@@ -29,13 +29,8 @@ func _ready() -> void:
 	_label.add_theme_color_override("font_color", Color.WHITE)
 	_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	_label.add_theme_constant_override("outline_size", 1)
-	_label.add_theme_font_size_override("font_size", 8)
+	_label.add_theme_font_size_override("font_size", 6)
 	add_child(_label)
-
-	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
-	if pf:
-		_label.add_theme_font_override("font", pf)
-		_label.add_theme_font_size_override("font_size", 6)
 
 func change_scene(path: String) -> void:
 	_transition(path)
@@ -47,6 +42,8 @@ func _transition(path: String) -> void:
 
 	var show_name := _resolve(path).begins_with("res://Scenes/Maps/")
 	if show_name:
+		_label.add_theme_font_override("font", SettingsState.get_active_font())
+		_label.add_theme_font_size_override("font_size", SettingsState.get_active_font_size(6))
 		_label.text       = _parse_name(path)
 		_label.modulate.a = 1.0
 	await get_tree().create_timer(0.6).timeout
@@ -85,4 +82,4 @@ static func _parse_name(path: String) -> String:
 				result += " "
 			result += p[i]
 		result += " "
-	return result.strip_edges()
+	return TranslationServer.translate(result.strip_edges())

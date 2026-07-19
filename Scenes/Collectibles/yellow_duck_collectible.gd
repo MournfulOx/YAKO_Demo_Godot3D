@@ -1,7 +1,10 @@
 extends Area3D
 
 @export var duck_id : String = ""
-@export var lines   : Array[String] = ["a little piece of you."]
+@export var lines   : Array[String] = [
+	"a little piece of you.",
+	"some birds just draw themselves smaller than they are.",
+]
 
 const VANISH_DURATION := 0.45
 const VANISH_RISE      := 0.6

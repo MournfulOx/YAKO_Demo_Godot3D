@@ -15,7 +15,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
+	var pf := SettingsState.get_active_font()
 
 	_overlay          = ColorRect.new()
 	_overlay.color    = Color.BLACK
@@ -25,7 +25,7 @@ func _ready() -> void:
 	add_child(_overlay)
 
 	_label = Label.new()
-	_label.text     = QUOTE_TEXT
+	_label.text     = tr(QUOTE_TEXT)
 	_label.position = Vector2(10, 0)
 	_label.size     = Vector2(GAME_W - 20, GAME_H)
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -35,7 +35,7 @@ func _ready() -> void:
 	_label.add_theme_color_override("font_color", Color.WHITE)
 	_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	_label.add_theme_constant_override("outline_size", 1)
-	_label.add_theme_font_size_override("font_size", 6)
+	_label.add_theme_font_size_override("font_size", SettingsState.get_display_font_size(10, 16))
 	if pf:
 		_label.add_theme_font_override("font", pf)
 	add_child(_label)

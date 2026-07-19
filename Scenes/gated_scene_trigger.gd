@@ -9,7 +9,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if not (body is CharacterBody3D) or target_scene.is_empty():
 		return
-	var npc: Node = get_node_or_null(required_npc_path)
-	if npc != null and npc.has_method("is_complete") and not npc.is_complete():
-		return
+	if not required_npc_path.is_empty():
+		var npc: Node = get_node_or_null(required_npc_path)
+		if npc == null or not npc.has_method("is_complete") or not npc.is_complete():
+			return
 	SceneManager.change_scene(target_scene)

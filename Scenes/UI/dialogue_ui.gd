@@ -9,6 +9,7 @@ var _label      : Label
 var _prompt     : Label
 var _audio      : AudioStreamPlayer
 var _type_timer : Timer
+var _label_settings : LabelSettings
 
 var _full_text  : String = ""
 var _char_idx   : int    = 0
@@ -21,21 +22,19 @@ func _ready() -> void:
 	_label = Label.new()
 	_label.name = "NPCText"
 	_label.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	_label.offset_top    = -52.0
+	_label.offset_top    = -80.0
 	_label.offset_bottom = -14.0
 	_label.offset_left   = 12.0
 	_label.offset_right  = -12.0
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_label.vertical_alignment   = VERTICAL_ALIGNMENT_CENTER
 	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	var ls := LabelSettings.new()
-	ls.font_color    = Color.WHITE
-	ls.font_size     = 6
-	ls.outline_size  = 1
-	ls.outline_color = Color.BLACK
-	var pf := load("res://Scenes/Fonts/pixel.ttf") as FontFile
-	if pf:
-		ls.font = pf
-	_label.label_settings = ls
+	_label_settings = LabelSettings.new()
+	_label_settings.font_color    = Color.WHITE
+	_label_settings.font_size     = 6
+	_label_settings.outline_size  = 1
+	_label_settings.outline_color = Color.BLACK
+	_label.label_settings = _label_settings
 	_label.visible = false
 	add_child(_label)
 
@@ -71,7 +70,9 @@ func _ready() -> void:
 
 func show_line(text: String, pitch: float = 1.0) -> void:
 	_type_timer.stop()
-	_full_text  = text
+	_label_settings.font      = SettingsState.get_active_font()
+	_label_settings.font_size = SettingsState.get_display_font_size(9, 16)
+	_full_text  = tr(text)
 	_char_idx   = 0
 	_base_pitch = pitch
 	_typing     = true

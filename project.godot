@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 DuckState="*res://autoload/DuckState.gd"
 SceneManager="*res://autoload/SceneManager.gd"
 YellowDuckState="*res://autoload/YellowDuckState.gd"
+BackroomState="*res://autoload/BackroomState.gd"
+Localization="*res://autoload/Localization.gd"
+SettingsState="*res://autoload/SettingsState.gd"
 
 [display]
 
