@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://s6h7nyta6i34" path="res://Scenes/NPC/NPC_Toucan.tscn" id="83_toucan"]
 [ext_resource type="PackedScene" uid="uid://7l3uu5q1w8uq" path="res://Scenes/NPC/NPC_Penguin.tscn" id="84_penguin"]
 [ext_resource type="PackedScene" uid="uid://dcdsjc2crj27g" path="res://Scenes/NPC/NPC_Pig.tscn" id="84_pig"]
+[ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="95_duck"]
 [ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
 [ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
 [ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
@@ -603,12 +604,12 @@ environment = SubResource("Environment_6i5j1")
 [node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=736451928]
 transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
 light_color = Color(0.7, 0.78, 1, 1)
-light_energy = 0.3
 shadow_enabled = true
 
 [node name="CityGlow" type="Node" parent="." unique_id=700333444]
 script = ExtResource("98_glow")
 target_paths = Array[NodePath]([NodePath("../Assets/Buildings"), NodePath("../school"), NodePath("../school_walls")])
+emission_energy = 0.0
 
 [node name="Map03_Map04" type="Area3D" parent="." unique_id=744111222]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 284.28363, 2.702, 0.5101118)
@@ -1617,4 +1618,8 @@ face_offset_deg = 90.0
 
 [node name="NPC_Penguin" parent="NPC" unique_id=100200608 instance=ExtResource("84_penguin")]
 transform = Transform3D(2.2205486, 0, -2.0172167, 0, 3, 0, 2.0172167, 0, 2.2205486, -1.2573414, 0.11002135, -22.007929)
-face_offset_deg = 90.0
+
+[node name="YellowDuck_ArcadeAlley" parent="." unique_id=100200610 instance=ExtResource("95_duck")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -83.77, 2.702, -10.42)
+duck_id = "Map_04_ArcadeAlley"
+lines = Array[String](["a little piece of you.", "stuck behind the glass.", "nobody paid to win you back."])

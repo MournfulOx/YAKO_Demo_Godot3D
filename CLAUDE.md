@@ -552,12 +552,23 @@ can't run the Godot editor to trigger an import pass, `NPC_Pig.tscn`'s `ext_reso
 it by path only, same as `NPC_Penguin.tscn` already does for its own glb. Godot will auto-import
 it the next time the project is opened in the editor; no action needed unless it doesn't pick it
 up automatically, in which case reimport it manually via the FileSystem dock.
-All three (Chicken/Penguin/Pig) were then instanced into `Map_04_ArcadeAlley.tscn` under the
-existing `NPC` container node, scattered around `Player`'s spawn point (`-73.77, 2.702, -0.42`)
-at the same `~15x` instance-level scale multiplier already used on Map_04's `Toucan`/`Crab`
-placements (this map's Zee/school assets are scaled up much more than Map_01–03's, so NPCs need
-a matching multiplier to read as the right size) — **not visually confirmed**, same standing
-caveat as literally every other blind placement this session.
+All three were initially instanced into `Map_04_ArcadeAlley.tscn` under the existing `NPC`
+container node, scattered around `Player`'s spawn point (`-73.77, 2.702, -0.42`) at the same
+`~15x` instance-level scale multiplier already used on Map_04's `Toucan`/`Crab` placements (this
+map's Zee/school assets are scaled up much more than Map_01–03's, so NPCs need a matching
+multiplier to read as the right size). **The user then opened the map in the editor and hand-
+tuned `Pig`'s and `Penguin`'s placement themselves** (both now carry real rotation + a more
+moderate ~3–5x scale instead of the blind 15x guess) — confirmed by diffing the file before/after
+an editor session. `NPC_Chicken` did not survive that same editor session (its `ext_resource`
+and node both disappeared), and **per direct request it was not re-added** — Map_04's bonus
+roster is `Penguin`/`Pig` only, `NPC_Chicken.tscn` itself is untouched and still exists as a
+prefab (not deleted, unlike `NPC_Fish`) in case it's wanted somewhere else later.
+**Live-editor-clobbering caveat applies here too** (see the recurring note under `## Scene
+Transition System`) — an attempt to write both `NPC_Chicken` and the Yellow Duck collectible
+into this file in the same pass got silently reverted by the editor's own next save because the
+Map_04 tab was still open; the Yellow Duck edit only stuck once the user confirmed the tab was
+closed. If an edit to a currently-open map doesn't seem to take, this is the first thing to
+check — same standing issue as the Map_01/Map_03 incidents earlier in this project's history.
 **`NPC_Fish` found missing from Map_04, then deleted outright per direct request** — while doing
 this pass, grep turned up zero references despite CLAUDE.md's own history claiming it had been
 added alongside Toucan/Crab (same silent-disappearance pattern as `NPC_TRex`'s two earlier
@@ -923,9 +934,12 @@ distance while approaching it, not require exact contact. Visual is an instance 
 been dropped near the player spawn in every map that currently exists** — `duck_id =
 "Map_01_ConvenienceStore"` in `Map_01_ConvenienceStore.tscn`, `"Map_02_Crossroads"` in
 `Map_02_Crossroads.tscn`, `"Map_03_UnderTheOverPass"` in `Map_03_UnderTheOverPass.tscn`, and
-`"Map_03_Backroom"` in `Backroom.tscn` — purely so the pickup-notification UI has something to
-test against in each one; none of these are the real thematic placement from the table above,
-that's still Zee's call. `Map_04_ArcadeAlley` has no instance yet since that map doesn't exist.
+`"Map_03_Backroom"` in `Backroom.tscn`, and `"Map_04_ArcadeAlley"` in `Map_04_ArcadeAlley.tscn`
+(added later, once that map existed — see the Map_04 bonus-NPC note under `## NPC System` above
+for the live-editor-clobbering snag hit while adding it) — purely so the pickup-notification UI
+has something to test against in each one; none of these are the real thematic placement from
+the table above, that's still Zee's call. All 5 duck slots (`TOTAL_DUCKS = 5`) now have a
+placeholder instance somewhere.
 Note for whoever edits maps by hand: if a map scene is open in the Godot editor while this file
 (or any file inside it) is edited externally, the next editor-side save will silently overwrite
 the external edit — close the relevant scene tab first.
