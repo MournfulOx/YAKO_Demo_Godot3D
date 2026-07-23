@@ -57,50 +57,36 @@ demo/
 │   │   └── backroom_teleporter.gd    # Area3D: instant same-scene teleport to a NodePath target
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
-│   │   ├── NPC_Cat.tscn               # for Map 01
-│   │   ├── NPC_Sheep.tscn             # for Map 01, fragment carrier [F]
-│   │   ├── NPC_PrairieDog.tscn        # for Map 01
-│   │   ├── NPC_Rat.tscn               # for Map 01
-│   │   ├── NPC_Goat.tscn              # for Map 02
-│   │   ├── NPC_FrenchBulldog.tscn     # for Map 02
-│   │   ├── NPC_KoiFish.tscn           # for Map 02
-│   │   ├── NPC_Baboon.tscn            # for Map 02
-│   │   ├── NPC_Goose.tscn             # for Map 02, fragment carrier [F]
-│   │   ├── NPC_GreatWhiteShark.tscn   # for Map 02
-│   │   ├── NPC_Otter.tscn             # for Map 03, fragment carrier [F]
-│   │   ├── NPC_Dog.tscn               # for Map 03
-│   │   ├── NPC_Giraffe.tscn           # for Map 03
-│   │   ├── NPC_Deer.tscn              # for Map 03
-│   │   ├── NPC_Panda.tscn             # for Map 03
-│   │   ├── NPC_Raccoon.tscn           # for Map 04 (map doesn't exist yet)
-│   │   ├── NPC_Toucan.tscn            # for Map 04 (map doesn't exist yet)
-│   │   ├── NPC_Octopus.tscn           # for Map 04 (map doesn't exist yet), fragment carrier [F]
-│   │   ├── NPC_TRex.tscn              # for Map 04 (map doesn't exist yet)
-│   │   ├── NPC_Crab.tscn              # for Map 04 (map doesn't exist yet), fragment carrier [F] — replaces Koala
-│   │   ├── NPC_Caveman.tscn           # Map_03 Backrooms egg, one-off, not in the GDD roster
-│   │   ├── NPC_Penguin.tscn           # bonus, not in GDD roster — from a leftover unused model
-│   │   ├── NPC_Pig.tscn               # bonus, not in GDD roster — freshly imported model, placed in Map_04
-│   │   ├── NPC_GreyAlien.tscn         # bonus, not in GDD roster — from a leftover unused model
-│   │   └── NPC_Capybara.tscn          # legacy — not in GDD v0.7's 21-NPC roster, currently unused
-│   │   # All 21 GDD roster slots now have a prefab. Koala[F] was swapped for Crab per direct
-│   │   # request (same fragment dialogue, no model ever sourced for Koala) — don't reintroduce
-│   │   # a Koala NPC without checking first.
-│   │   # IMPORTANT: "for Map NN" above means the prefab exists and is ready to drag in —
-│   │   # as of this writing NONE of these NPCs (old or new) have actually been placed into
-│   │   # any map scene yet. Placement is unstarted level-design work for every single one.
-│   │   # STILL UNRESOLVED: NPC_Otter/NPC_Raccoon/NPC_Sheep have no real model. Checked
-│   │   # C:\Users\furik\Downloads\Models and every asset folder in the project — no otter,
-│   │   # raccoon, or sheep model exists anywhere accessible. `NPC_Fish` had the same problem but
-│   │   # was deleted outright per direct request rather than left as a placeholder — see the
-│   │   # Map_04 bonus-NPC note under `## NPC System` below. Each of the three remaining ones has a
-│   │   # bright-magenta CapsuleMesh/CapsuleShape3D placeholder `Body` (radius 0.2, height 0.8)
-│   │   # instead of nothing, though — the earlier state (no `Body`, no CollisionShape3D at all)
-│   │   # meant they'd be invisible AND un-clickable if dragged into a map, silently broken with
-│   │   # no error. Magenta is the deliberate "missing asset" convention so nobody mistakes the
-│   │   # capsule for a finished look. Swap the mesh/material for a real model when one's found;
-│   │   # no other changes needed elsewhere since npc_base.gd just re-shades whatever's there.
-│   │   # Bonus NPCs (Penguin/Pig/GreyAlien) use placeholder dialogue I wrote myself, not
-│   │   # GDD content (there is none for them) — treat as a first draft, not final lines.
+│   │   ├── NPC_Cat.tscn               # placed in Map 01
+│   │   ├── NPC_PrairieDog.tscn        # placed in Map 01
+│   │   ├── NPC_Rat.tscn               # placed in Map 01
+│   │   ├── NPC_Goat.tscn              # placed in Map 02
+│   │   ├── NPC_FrenchBulldog.tscn     # placed in Map 02
+│   │   ├── NPC_KoiFish.tscn           # placed in Map 02
+│   │   ├── NPC_Baboon.tscn            # placed in Map 02
+│   │   ├── NPC_Goose.tscn             # placed in Map 02, fragment carrier [F]
+│   │   ├── NPC_GreatWhiteShark.tscn   # placed in Map 02
+│   │   ├── NPC_Octopus.tscn           # placed in Map 02 (redirected from its Map 04 GDD slot), fragment carrier [F]
+│   │   ├── NPC_Dog.tscn               # placed in Map 03
+│   │   ├── NPC_Giraffe.tscn           # placed in Map 03
+│   │   ├── NPC_Deer.tscn              # placed in Map 03
+│   │   ├── NPC_TRex.tscn              # placed in Map 03 (its GDD slot is Map 04, moved per direct request)
+│   │   ├── NPC_Toucan.tscn            # placed in Map 04
+│   │   ├── NPC_Crab.tscn              # placed in Map 04, fragment carrier [F] — replaces Koala
+│   │   ├── NPC_Penguin.tscn           # placed in Map 04, bonus not in GDD roster
+│   │   ├── NPC_Pig.tscn               # placed in Map 04, bonus not in GDD roster
+│   │   ├── NPC_Caveman.tscn           # placed in Backroom (Map_03 egg), one-off, not in the GDD roster
+│   │   └── NPC_GreyAlien.tscn         # placed in MainMenu (decorative) and television_test, bonus not in GDD roster
+│   │   # This list is now scoped to what's actually reachable in a real scene — see
+│   │   # `## NPC System` below for the roster-placement history and for what got dropped
+│   │   # (NPC_Fish, NPC_Chicken: no model ever existed, deleted entirely; NPC_Sheep/
+│   │   # NPC_Otter[F]/NPC_Raccoon: magenta capsule-placeholder prefabs that were never
+│   │   # actually placed anywhere, deleted per direct request rather than kept as unplaced
+│   │   # dead weight; NPC_Capybara: had a real model but was never part of the GDD roster
+│   │   # and was never placed either, deleted along with its model). `NPC_Panda.tscn` was
+│   │   # never actually created despite being documented once — Map_03 ships one short of
+│   │   # its original 5-NPC GDD table entry as a result; needs a model sourced before it can
+│   │   # exist at all.
 │   │   # Deliberately NOT turned into NPCs despite being unused: `parappa_the_rapper.glb`
 │   │   # (a recognisable third-party licensed character — PaRappa the Rapper), and
 │   │   # `computer_-_serial_experiments_lain.glb` (a modeled recreation of a specific
@@ -467,50 +453,42 @@ NPC_Xxx (StaticBody3D, npc_base.gd, group "npc" added automatically)
   sideways instead of straight on, try 90 or -90 instead. Only affects the face-toward-player
   angle — the resting/idle pose and the revert-on-`_finish()` target are untouched by it.
 
-**Roster status (GDD v0.7, 21 NPCs across 5 maps):**
+**Roster status (GDD v0.7, 21 NPCs across 5 maps) — reflects what's actually placed in a scene,
+not just what has a prefab:**
 
-| Map | Prefab built | Still missing |
+| Map | Actually placed | Still missing from the GDD's original 21 |
 |-----|-------|---------|
-| 01 Convenience Store | Cat, Sheep [F], Prairie Dog, Rat | — |
-| 02 Crossroads | Goat, French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark | — |
-| 03 Under the Overpass | Otter [F], Dog, Giraffe, Deer, Panda | — |
-| 04 Arcade Alley | Raccoon, Toucan, Octopus [F], Crab [F] (map scene doesn't exist yet); T-Rex placed in Map_03 instead, Fish deleted (no model), see notes below | — |
-| 05 School Rooftop | Television (`Scenes/Television/television.tscn`, ending trigger built as an NPC-style interactable) | — |
+| 01 Convenience Store | Cat, Prairie Dog, Rat | Sheep [F] — prefab deleted, no model ever sourced |
+| 02 Crossroads | Goat, French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark, Octopus [F] (redirected from Map 04) | — |
+| 03 Under the Overpass | Dog, Giraffe, Deer, T-Rex (redirected from Map 04) | Otter [F] — prefab deleted, no model ever sourced; Panda — prefab never built at all |
+| 04 Arcade Alley | Toucan, Crab [F], plus bonus Penguin/Pig | Raccoon — prefab deleted, no model ever sourced; Fish — deleted, no model ever sourced |
+| 05 School Rooftop | Television (`Scenes/Television/television.tscn`, ending trigger built as an NPC-style interactable), plus SecretAlienNPC (gated behind all-5-ducks-collected) | — |
 
-All 21 GDD roster slots now have a built `.tscn` prefab — Koala was swapped for **Crab**
-(`Scenes/Assets/MiscAssets/low-poly_crab.glb`, already sitting unused in the project) per
-direct request, keeping Koala's exact fragment dialogue unchanged (the lines were never
-Koala-specific to begin with). Models sourced from `C:\Users\furik\Downloads\Models` plus
-whatever unused assets were already sitting in `Scenes/Assets/MiscAssets/`, copied/kept under
-`Scenes/Assets/MiscAssets/animal/`. **None of them — old or new — have actually been placed
-into a map scene yet**; "built" here only means the prefab exists and is ready to drag in.
-`ps1_chicken.glb` was briefly used for a bonus `NPC_Chicken.tscn`, but both the prefab and the
-source model have since been deleted outright per direct request (see the Map_04 bonus-NPC note
-below) — there is no chicken NPC in the game anymore.
+Koala was swapped for **Crab** (`Scenes/Assets/MiscAssets/low-poly_crab.glb`, already sitting
+unused in the project) per direct request, keeping Koala's exact fragment dialogue unchanged
+(the lines were never Koala-specific to begin with).
 
-Placement (position/rotation, avoiding overlap with
-level geometry, picking a spot that reads well) is unstarted level-design work for every single
-one, left to the person doing map layout since it needs visual judgement in the editor.
-`dialogue_lines`/`repeat_lines` content for all of them is pulled directly from the GDD, not
-invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster), which is placeholder text.
+**Three prefabs were deleted outright rather than kept as unplaced dead weight**: `NPC_Sheep`,
+`NPC_Otter` [F], and `NPC_Raccoon` had no real model ever sourced (magenta
+CapsuleMesh/CapsuleShape3D placeholders only) and were never actually placed in any map — per
+direct request ("全按现在场景的NPC来,没有的全部移除即可" — go by what's actually in the scenes,
+remove anything that isn't), they were removed entirely: prefab `.tscn`, and their
+`ZH_STRINGS`/`JA_STRINGS` entries in `autoload/Localization.gd`. `NPC_Capybara` was removed the
+same pass for the same reason (never placed anywhere, and never part of the GDD roster to begin
+with) — its real sourced model (`capybara_ps1_style.glb` + textures) was deleted too. This
+follows the same precedent already set by `NPC_Fish`/`NPC_Chicken`'s deletion below. Losing
+`Sheep` and `Otter` means the GDD's 5-NPC hidden fragment thread (§5.5) now only has 3 live
+carriers in the actual game (`Goose`, `Octopus`, `Crab`) — worth knowing if the fragment thread
+needs revisiting later, though it wasn't flagged as a concern when the deletion was requested.
 
-**Map_01/02/03 roster placed (Map_04 deliberately skipped, per direct request)**: all 15 of
-Map_01–03's NPCs (`Cat`/`Sheep`/`PrairieDog`/`Rat`; `Goat`/`FrenchBulldog`/`KoiFish`/`Baboon`/
-`Goose`/`GreatWhiteShark`; `Otter`/`Dog`/`Giraffe`/`Deer`) are now instanced directly into their
-respective map scenes, scattered in a simple ring around each map's own `Player` spawn
-(`~10–25` units out, one per compass-ish direction) purely so each one exists *somewhere*
-reachable — **not visually confirmed, not tied to actual level geometry or points of interest**;
-this is placeholder-position-only, exactly like every other blind-placement pass this session
-(exit triggers, spawn points, `ExitArrow`s) — whoever does the real level-design pass needs to
-drag each one to an actual spot that reads well and doesn't clip into a wall/building. Map_04 was
-left untouched per the request's own scope (its roster — `Raccoon`/`Fish`/`Toucan`/`Octopus`/
-`TRex`/`Crab` — is still fully unplaced).
+`dialogue_lines`/`repeat_lines` content for all of the above is pulled directly from the GDD,
+not invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster) and the bonus
+Penguin/Pig, which are placeholder text (no GDD content exists for them).
 
-**`NPC_Panda.tscn` doesn't actually exist** despite being listed above and in the roster table —
-checked `Scenes/NPC/`, the file isn't there. This table entry is stale/aspirational; either the
-prefab was never actually created despite the note claiming "all 21 slots have a built .tscn," or
-it was lost at some point. Map_03 currently ships with only 4 of its 5 documented NPCs as a
-result. Needs a fresh prefab built from a giraffe... er, panda model before it can be placed.
+**`NPC_Panda.tscn` was never actually built** — checked `Scenes/NPC/`, the file isn't there and
+never has been in this session's history. Map_03 ships one short of its original 5-NPC GDD
+table entry as a result. Needs a fresh prefab built from a panda model before it can exist at
+all.
 
 **`NPC_TRex` moved from Map_03 to Map_04, then back out of Map_04 again** — it had originally
 been sitting in `Map_03_UnderTheOverPass.tscn` (stray/test placement, not this session's doing).
@@ -524,14 +502,15 @@ placed it in Map_03 themselves by hand instead, so it shouldn't also exist in Ma
 instance + its `ext_resource` (`id="83_trex"`) both removed from `Map_04_ArcadeAlley.tscn`;
 verified no dangling references remain. **Current state**: T-Rex lives in Map_03 (placed by the
 user directly, not this session's placeholder-ring convention), and Map_04's GDD-roster NPCs are
-`Toucan`/`Crab` only (`Fish` was later deleted outright — no model ever existed for it, see the
-Map_04 bonus-NPC note below — rather than left unplaced like Otter/Raccoon/Sheep) — one short of
-its original 6-NPC GDD table entry, with `Raccoon`/`Octopus` still redirected to Map_02 (direct
-request — Map_02's huge Zee-city scale left it
+`Toucan`/`Crab` only (`Fish` and `Raccoon` were both later deleted outright — no model ever
+existed for either, see the notes above and below) — two short of its original 6-NPC GDD table
+entry, with `Octopus` redirected to Map_02 (direct request — Map_02's huge Zee-city scale left it
 feeling sparse/empty relative to its size even with its own 6-NPC roster already placed),
-positioned far from the existing Map_02 cluster (~300 units out in two different directions) to
-actually help fill out the space rather than adding to the same corner. Their dialogue isn't
-location-specific, so the mismatch with the GDD's Map_04/Map_02 assignment doesn't read as wrong.
+positioned far from the existing Map_02 cluster (~300 units out) to actually help fill out the
+space rather than adding to the same corner. Its dialogue isn't location-specific, so the
+mismatch with the GDD's Map_04/Map_02 assignment doesn't read as wrong. `Raccoon` was originally
+redirected to Map_02 the same way, but a later check found it wasn't actually there — it was
+deleted outright instead of being re-added, see the roster-status note above.
 
 **Map_04 bonus NPCs (originally Chicken/Penguin/Pig, direct request)**: user newly imported
 three models — `low_poly_penguin.glb`, `ps1_pig.glb`, `ps1_chicken.glb` — into
@@ -583,10 +562,11 @@ node instance + `ext_resource` pulled from `Map_04_ArcadeAlley.tscn`, `Scenes/NP
 deleted outright, and its `ZH_STRINGS`/`JA_STRINGS` translation entries removed from
 `autoload/Localization.gd`. Map_04's roster is now Toucan/Crab plus the two remaining bonus
 animals (Penguin/Pig, see above for why Chicken didn't make the final cut) — Fish is dropped
-from the roster entirely rather than left as an unplaced placeholder, unlike Otter/Raccoon/Sheep
-(still magenta-capsule placeholders elsewhere, not
-deleted) since those are actual GDD-roster fragment/animal slots that still need a real model,
-whereas Fish's own map slot is filled by these three bonus animals now anyway.
+from the roster entirely rather than left as an unplaced placeholder. (Otter/Raccoon/Sheep were
+initially left as magenta-capsule placeholders under this same reasoning — they're actual
+GDD-roster fragment/animal slots, unlike Fish's now-filled Map_04 slot — but a later pass
+deleted all three anyway once it was confirmed none of them were ever actually placed in a map;
+see the roster-status note above.)
 
 **Scale/collision caveat**: for the 14 new prefabs, `Body` transform scale and the
 `CollisionShape3D` size were computed from each GLB's raw bounding box (aiming for roughly

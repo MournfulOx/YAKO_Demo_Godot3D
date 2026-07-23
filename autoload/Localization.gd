@@ -13,12 +13,6 @@ const ZH_STRINGS := {
 	"I'm just finishing my thought.": "我只是把这个念头想完。",
 	"It's a long thought.": "这个念头有点长。",
 
-	# NPC_Capybara
-	"The last train was cancelled.": "末班车取消了。",
-	"I've been here since Tuesday.": "我从星期二就在这儿了。",
-	"My wife makes very good soup.": "我老婆煲的汤很好喝。",
-	"She uses the good pot.": "她用的是那个好锅。",
-
 	# NPC_Cat
 	"Business has been slow.": "生意很清淡。",
 	"It's the economy.": "都是经济不景气。",
@@ -90,13 +84,6 @@ const ZH_STRINGS := {
 	"I'm still waiting.": "我还在等回复。",
 	"Maybe the signal was bad.": "也许是信号不好。",
 
-	# NPC_Otter
-	"I had a terrible day once.": "我曾经过了糟糕的一天。",
-	"1987, I think.": "大概是1987年吧。",
-	"Very cold. Terrible soup.": "很冷。汤也很难喝。",
-	"Or maybe it was 1988.": "或者是1988年。",
-	"Anyway.": "总之。",
-
 	# NPC_Penguin
 	"It's not cold here.": "这儿其实不冷。",
 	"I brought my own weather.": "我自带了天气。",
@@ -109,21 +96,11 @@ const ZH_STRINGS := {
 	"The number keeps changing.": "数字一直在变。",
 	"I'm going to count again.": "我要再数一遍。",
 
-	# NPC_Raccoon
-	"She said I was too much.": "她说我太过了。",
-	"I'm not that much.": "我没那么过分。",
-	"Do you think I'm too much?": "你觉得我过分吗？",
-
 	# NPC_Rat
 	"I was supposed to put these up last Tuesday.": "这些东西我上周二就该贴出来了。",
 	"It doesn't say anything.": "上面什么都没写。",
 	"I forgot what it was supposed to say.": "我忘了本来要写什么了。",
 	"Maybe it's better this way.": "也许这样更好。",
-
-	# NPC_Sheep
-	"I left my umbrella at school.": "我把伞落在学校了。",
-	"It wasn't even raining.": "其实当时也没下雨。",
-	"I should probably go home.": "我大概该回家了。",
 
 	# NPC_TRex
 	"I can't reach the door.": "我够不到门。",
@@ -192,12 +169,6 @@ const JA_STRINGS := {
 	"I know.": "分かってる。",
 	"I'm just finishing my thought.": "今、考えをまとめてるところなんだ。",
 	"It's a long thought.": "長い考えなんだよ。",
-
-	# NPC_Capybara
-	"The last train was cancelled.": "終電が運休になった。",
-	"I've been here since Tuesday.": "火曜日からずっとここにいる。",
-	"My wife makes very good soup.": "うちの妻はスープ作りが上手いんだ。",
-	"She uses the good pot.": "あのいい鍋を使ってね。",
 
 	# NPC_Cat
 	"Business has been slow.": "商売が暇でね。",
@@ -270,13 +241,6 @@ const JA_STRINGS := {
 	"I'm still waiting.": "まだ返事を待ってる。",
 	"Maybe the signal was bad.": "電波が悪かったのかもしれない。",
 
-	# NPC_Otter
-	"I had a terrible day once.": "昔、ひどい一日があった。",
-	"1987, I think.": "1987年だったと思う。",
-	"Very cold. Terrible soup.": "すごく寒くて。スープもまずかった。",
-	"Or maybe it was 1988.": "いや、1988年だったかも。",
-	"Anyway.": "まあ、とにかく。",
-
 	# NPC_Penguin
 	"It's not cold here.": "ここは寒くないんだ。",
 	"I brought my own weather.": "自分の天気を持ってきたから。",
@@ -289,21 +253,11 @@ const JA_STRINGS := {
 	"The number keeps changing.": "数字がずっと変わり続けてる。",
 	"I'm going to count again.": "もう一度数え直すよ。",
 
-	# NPC_Raccoon
-	"She said I was too much.": "彼女に「やりすぎ」だって言われた。",
-	"I'm not that much.": "そんなにやりすぎてないと思うけど。",
-	"Do you think I'm too much?": "君はどう思う、やりすぎかな？",
-
 	# NPC_Rat
 	"I was supposed to put these up last Tuesday.": "先週の火曜日に貼るはずだったんだ。",
 	"It doesn't say anything.": "何も書かれてないんだよ。",
 	"I forgot what it was supposed to say.": "何を書くはずだったか忘れてしまった。",
 	"Maybe it's better this way.": "こっちの方がいいのかもしれない。",
-
-	# NPC_Sheep
-	"I left my umbrella at school.": "傘を学校に忘れてきた。",
-	"It wasn't even raining.": "雨も降ってなかったのに。",
-	"I should probably go home.": "そろそろ家に帰ったほうがいいかな。",
 
 	# NPC_TRex
 	"I can't reach the door.": "ドアに手が届かないんだ。",
