@@ -837,6 +837,31 @@ happens again: `git show <old-commit>:<path>` to pull up the last-known-good ver
 as a reference for what needs reapplying, rather than assuming a git reset is safe (it would also
 discard whatever new work the teammate did in the same file).
 
+**Teammate-shared Map_01/Map_02 files had broken `ext_resource` paths, one file couldn't even
+open** — a teammate shared updated `Map_01_ConvenienceStore.tscn`/`Map_02_Crossroads.tscn` files
+via Desktop (not git) with new per-object collision work. After merging them in, Map_01 reportedly
+wouldn't open at all. Root cause: `res://Scenes/Assets/Zee/Doraemon/concreate_pipes_zenless_zone_
+zero_fanart.glb` (a concrete-pipe prop, despite the folder's joke name — not an actual Doraemon
+asset) was referenced in the `.tscn` at `Zee/all_sculpture_japanese_buildings/Doraemon/...`, one
+directory level off from where the folder actually sits (`Zee/Doraemon/` directly) — the `uid://`
+matched, but Godot still couldn't resolve a hard `instance=` `PackedScene` dependency from a wrong
+`path=` when the on-disk folder structure didn't match. A full sweep of every `ext_resource path=`
+in the file against what actually exists on disk (not just this one) turned up a second, unrelated
+problem: 18 more textures (`parking_lot_21`–`40`, applied to a `steel_m` material — likely a new
+carpark/parking-structure building model) pointing at `Zee/all_buildings/architecture/carpark/`,
+a folder that didn't exist anywhere in the repo at all (same-numbered textures already existed
+under `Zee/all_buildings/` and `SevenEleven/`, but their UIDs didn't match — confirmed these were
+a genuinely different, missing copy, not just a misplaced duplicate). Teammate re-shared that
+folder, which landed at `Zee/carpark/` (again one level off from the referenced path) — verified
+the UIDs matched this time before fixing the path. Both fixed by correcting the `.tscn`'s `path=`
+strings to match reality (`sed`-style bulk replace for the 18 near-identical carpark lines) rather
+than moving the asset folders, since relocating files risks breaking whatever path the teammate's
+own local project (which still has these folders) expects. **General lesson for this exact
+failure mode**: when a teammate reports "won't open" after sharing a `.tscn` out-of-band, sweep
+every `ext_resource path=` against the actual filesystem before touching anything else — a broken
+`instance=`-referenced `PackedScene` is far more likely to hard-fail scene loading than a missing
+`Texture2D`, which Godot usually just renders as a broken/pink placeholder instead.
+
 **Map connectivity (Map_01–03)**: `Map_01_ConvenienceStore` → `Map_02_Crossroads` (`ExitTrigger`)
 was already wired. `Map_02_Crossroads` had **no exit triggers at all** — a real dead end once
 the player arrived — and `Map_03_UnderTheOverPass` had no way back to `Map_02` either (only the

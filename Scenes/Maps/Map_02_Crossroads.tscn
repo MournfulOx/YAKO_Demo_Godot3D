@@ -1239,7 +1239,7 @@ shape = SubResource("BoxShape3D_map02exit")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="SpawnPoint" type="Marker3D" parent="Map02_Map03" unique_id=433999444]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 4)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 4)
 script = ExtResource("97_spawn")
 spawn_id = "Map02_Map03"
 
@@ -1259,7 +1259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5583458, -0.9920654, 0)
 shape = SubResource("BoxShape3D_uwgkb")
 
 [node name="Marker3D" type="Marker3D" parent="Map01_Map02" unique_id=336328174]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, -1, 0)
 script = ExtResource("97_spawn")
 spawn_id = "Map01_Map02"
 
@@ -1273,7 +1273,7 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -15.3768215, -0.2639198
 transform = Transform3D(-0.58402485, 0, 0.5467311, 0, 0.8, 0, -0.5467311, 0, -0.58402485, -0.5700598, 0.08474779, -2.0151443)
 
 [node name="NPC_FrenchBulldog" parent="NPC" unique_id=100200402 instance=ExtResource("81_frenchbulldog")]
-transform = Transform3D(-3.5, 0, -5.284853e-07, 0, 3.5, 0, 5.284853e-07, 0, -3.5, -66.15026, 0.1691168, -3.7935257)
+transform = Transform3D(-3, 0, -4.5298742e-07, 0, 3, 0, 4.5298742e-07, 0, -3, -67.24761, 0.1691168, -4.4682236)
 
 [node name="NPC_KoiFish" parent="NPC" unique_id=100200403 instance=ExtResource("81_koifish")]
 transform = Transform3D(5.395141, 0, -5.9069834, 0, 8, 0, 5.9069834, 0, 5.395141, -4.899531, 1.3977015, 95.61573)
