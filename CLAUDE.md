@@ -78,7 +78,6 @@ demo/
 │   │   ├── NPC_TRex.tscn              # for Map 04 (map doesn't exist yet)
 │   │   ├── NPC_Crab.tscn              # for Map 04 (map doesn't exist yet), fragment carrier [F] — replaces Koala
 │   │   ├── NPC_Caveman.tscn           # Map_03 Backrooms egg, one-off, not in the GDD roster
-│   │   ├── NPC_Chicken.tscn           # bonus, not in GDD roster — from a leftover unused model
 │   │   ├── NPC_Penguin.tscn           # bonus, not in GDD roster — from a leftover unused model
 │   │   ├── NPC_Pig.tscn               # bonus, not in GDD roster — freshly imported model, placed in Map_04
 │   │   ├── NPC_GreyAlien.tscn         # bonus, not in GDD roster — from a leftover unused model
@@ -100,7 +99,7 @@ demo/
 │   │   # no error. Magenta is the deliberate "missing asset" convention so nobody mistakes the
 │   │   # capsule for a finished look. Swap the mesh/material for a real model when one's found;
 │   │   # no other changes needed elsewhere since npc_base.gd just re-shades whatever's there.
-│   │   # Bonus NPCs (Chicken/Penguin/GreyAlien) use placeholder dialogue I wrote myself, not
+│   │   # Bonus NPCs (Penguin/Pig/GreyAlien) use placeholder dialogue I wrote myself, not
 │   │   # GDD content (there is none for them) — treat as a first draft, not final lines.
 │   │   # Deliberately NOT turned into NPCs despite being unused: `parappa_the_rapper.glb`
 │   │   # (a recognisable third-party licensed character — PaRappa the Rapper), and
@@ -485,9 +484,9 @@ Koala-specific to begin with). Models sourced from `C:\Users\furik\Downloads\Mod
 whatever unused assets were already sitting in `Scenes/Assets/MiscAssets/`, copied/kept under
 `Scenes/Assets/MiscAssets/animal/`. **None of them — old or new — have actually been placed
 into a map scene yet**; "built" here only means the prefab exists and is ready to drag in.
-`Scenes/Assets/MiscAssets/animal/ps1_chicken.glb` (no matching GDD roster slot — chicken isn't
-one of the 21 animals) was later used for the bonus `NPC_Chicken.tscn` below, so it's no longer
-unused; this note is kept only so nobody goes looking for a second use for the same file.
+`ps1_chicken.glb` was briefly used for a bonus `NPC_Chicken.tscn`, but both the prefab and the
+source model have since been deleted outright per direct request (see the Map_04 bonus-NPC note
+below) — there is no chicken NPC in the game anymore.
 
 Placement (position/rotation, avoiding overlap with
 level geometry, picking a spot that reads well) is unstarted level-design work for every single
@@ -534,8 +533,8 @@ positioned far from the existing Map_02 cluster (~300 units out in two different
 actually help fill out the space rather than adding to the same corner. Their dialogue isn't
 location-specific, so the mismatch with the GDD's Map_04/Map_02 assignment doesn't read as wrong.
 
-**Map_04 bonus NPCs (Chicken/Penguin/Pig, direct request)**: user newly imported three models —
-`low_poly_penguin.glb`, `ps1_pig.glb`, `ps1_chicken.glb` — into
+**Map_04 bonus NPCs (originally Chicken/Penguin/Pig, direct request)**: user newly imported
+three models — `low_poly_penguin.glb`, `ps1_pig.glb`, `ps1_chicken.glb` — into
 `Scenes/Assets/MiscAssets/animal/`. `NPC_Chicken.tscn`/`NPC_Penguin.tscn` already existed as
 prefabs (see roster table note above) but had never actually been placed anywhere; built a new
 `NPC_Pig.tscn` prefab from `ps1_pig.glb` (same `npc_base.gd` pattern as every other NPC — no
@@ -560,9 +559,14 @@ multiplier to read as the right size). **The user then opened the map in the edi
 tuned `Pig`'s and `Penguin`'s placement themselves** (both now carry real rotation + a more
 moderate ~3–5x scale instead of the blind 15x guess) — confirmed by diffing the file before/after
 an editor session. `NPC_Chicken` did not survive that same editor session (its `ext_resource`
-and node both disappeared), and **per direct request it was not re-added** — Map_04's bonus
-roster is `Penguin`/`Pig` only, `NPC_Chicken.tscn` itself is untouched and still exists as a
-prefab (not deleted, unlike `NPC_Fish`) in case it's wanted somewhere else later.
+and node both disappeared from Map_04) — and per a follow-up direct request, Chicken was then
+**removed from the project entirely** rather than just left out of Map_04: `NPC_Chicken.tscn`
+deleted, its source `ps1_chicken.glb`/`.import`/texture files deleted from
+`Scenes/Assets/MiscAssets/animal/` (the unrelated `crispy_chicken_bucket_-_ps1_low_poly.glb`
+prop in `MiscAssets/small assets/` was left alone — different asset, not part of this cleanup),
+and its `ZH_STRINGS`/`JA_STRINGS` translation entries removed from `autoload/Localization.gd`.
+Map_04's bonus roster is `Penguin`/`Pig` only; there is no chicken NPC anywhere in the game
+anymore.
 **Live-editor-clobbering caveat applies here too** (see the recurring note under `## Scene
 Transition System`) — an attempt to write both `NPC_Chicken` and the Yellow Duck collectible
 into this file in the same pass got silently reverted by the editor's own next save because the
@@ -577,9 +581,10 @@ re-added using its existing magenta capsule-placeholder prefab, but per direct r
 fish model has ever been sourced for it — it was removed again instead of restored: `NPC_Fish`'s
 node instance + `ext_resource` pulled from `Map_04_ArcadeAlley.tscn`, `Scenes/NPC/NPC_Fish.tscn`
 deleted outright, and its `ZH_STRINGS`/`JA_STRINGS` translation entries removed from
-`autoload/Localization.gd`. Map_04's roster is now Toucan/Crab plus the three new bonus animals
-(Chicken/Penguin/Pig) — Fish is dropped from the roster entirely rather than left as an unplaced
-placeholder, unlike Otter/Raccoon/Sheep (still magenta-capsule placeholders elsewhere, not
+`autoload/Localization.gd`. Map_04's roster is now Toucan/Crab plus the two remaining bonus
+animals (Penguin/Pig, see above for why Chicken didn't make the final cut) — Fish is dropped
+from the roster entirely rather than left as an unplaced placeholder, unlike Otter/Raccoon/Sheep
+(still magenta-capsule placeholders elsewhere, not
 deleted) since those are actual GDD-roster fragment/animal slots that still need a real model,
 whereas Fish's own map slot is filled by these three bonus animals now anyway.
 

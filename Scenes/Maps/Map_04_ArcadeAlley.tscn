@@ -31,9 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://s6h7nyta6i34" path="res://Scenes/NPC/NPC_Toucan.tscn" id="83_toucan"]
 [ext_resource type="PackedScene" uid="uid://7l3uu5q1w8uq" path="res://Scenes/NPC/NPC_Penguin.tscn" id="84_penguin"]
 [ext_resource type="PackedScene" uid="uid://dcdsjc2crj27g" path="res://Scenes/NPC/NPC_Pig.tscn" id="84_pig"]
-[ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="95_duck"]
 [ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
 [ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="95_duck"]
 [ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
 [ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
@@ -1613,13 +1613,13 @@ transform = Transform3D(2.8405445, 0, -14.728588, 0, 27.004, 0, 14.728588, 0, 2.
 face_offset_deg = 90.0
 
 [node name="NPC_Pig" parent="NPC" unique_id=100200606 instance=ExtResource("84_pig")]
-transform = Transform3D(-1.5228254, 0, -4.762458, 0, 5, 0, 4.762458, 0, -1.5228254, -177.09164, 0.21882582, 25.757044)
+transform = Transform3D(-1.5228254, 0, -4.762458, 0, 5, 0, 4.762458, 0, -1.5228254, -177.09164, 0.21882582, 28.776918)
 face_offset_deg = 90.0
 
 [node name="NPC_Penguin" parent="NPC" unique_id=100200608 instance=ExtResource("84_penguin")]
 transform = Transform3D(2.2205486, 0, -2.0172167, 0, 3, 0, 2.0172167, 0, 2.2205486, -1.2573414, 0.11002135, -22.007929)
 
 [node name="YellowDuck_ArcadeAlley" parent="." unique_id=100200610 instance=ExtResource("95_duck")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -83.77, 2.702, -10.42)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -284.26572, 0.15354562, -30.670317)
 duck_id = "Map_04_ArcadeAlley"
 lines = Array[String](["a little piece of you.", "stuck behind the glass.", "nobody paid to win you back."])

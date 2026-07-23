@@ -28,12 +28,6 @@ const ZH_STRINGS := {
 	"None of us are, really.": "其实我们谁都不应该在这儿。",
 	"Still here?": "还在这儿呢？",
 
-	# NPC_Chicken
-	"I don't remember learning to cross the street.": "我不记得学过怎么过马路。",
-	"I just do it now.": "现在就是直接走过去了。",
-	"Nobody's ever asked why.": "从来没人问过为什么。",
-	"Still haven't found a reason.": "还是没想明白原因。",
-
 	# NPC_Crab
 	"I was asleep.": "我当时睡着了。",
 	"Something woke me up.": "有什么东西把我吵醒了。",
@@ -213,12 +207,6 @@ const JA_STRINGS := {
 	"You're not supposed to be here.": "ここにいちゃいけないはずなんだが。",
 	"None of us are, really.": "まあ、誰もいちゃいけないんだけどな。",
 	"Still here?": "まだいたのか？",
-
-	# NPC_Chicken
-	"I don't remember learning to cross the street.": "道の渡り方を習った記憶がないんだ。",
-	"I just do it now.": "今はもう自然にやってる。",
-	"Nobody's ever asked why.": "誰も理由を聞いてこないし。",
-	"Still haven't found a reason.": "まだ理由は見つかってない。",
 
 	# NPC_Crab
 	"I was asleep.": "眠っていたんだ。",
