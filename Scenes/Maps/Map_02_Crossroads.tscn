@@ -39,10 +39,10 @@
 [ext_resource type="PackedScene" uid="uid://ceo28vbbwf7s6" path="res://Scenes/NPC/NPC_Octopus.tscn" id="81_octopus"]
 [ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_GreatWhiteShark.tscn" id="81_shark"]
 [ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="90_duck"]
-[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
-[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://bewwmrdgo0e0q" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://dscdlrxnm5x4" path="res://shaders/sky_stars.gdshader" id="93_stars"]
 [ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
-[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="Script" uid="uid://byo6yqp77kg6a" path="res://Scenes/city_glow.gd" id="98_glow"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
@@ -560,6 +560,35 @@ size = Vector3(1450, 298.53125, 4.7768555)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wallEW02"]
 size = Vector3(1, 252.64038, 1204.4473)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4hfl"]
+size = Vector3(5.645935, 2.6098633, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86jh1"]
+size = Vector3(199.93732, 69.24524, 5.020508)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52tj0"]
+size = Vector3(3.0500488, 10.292664, 242.79642)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qema"]
+size = Vector3(215.11281, 3.942871, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gt7j"]
+size = Vector3(4.4658203, 4.7039795, 232.71387)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fko25"]
+size = Vector3(30.643173, 12.602478, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x35aj"]
+size = Vector3(177.3236, 4.251465, 1.3833008)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dojg"]
+size = Vector3(5.4292526, 12.335602, 199.29683)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2t58l"]
+size = Vector3(76.20776, 3.9902344, 3.94104)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_slhpd"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=819991932]
 environment = SubResource("Environment_ohl52")
 
@@ -739,27 +768,27 @@ omni_range = 598.71625
 [node name="03" parent="Map 02/Asset New/Building/Commercial" unique_id=1210270473 instance=ExtResource("19_4lfpb")]
 transform = Transform3D(367.99, 0, 0, 0, 367.99, 0, 0, 0, 367.99, -35.952, 77.619, -352.823)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 8885219) index="0" unique_id=1392338383]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 1564805075) index="0" unique_id=1392338383]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj/StaticBody3D" unique_id=1607996148]
 shape = SubResource("ConcavePolygonShape3D_4p7yq")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 8885219) index="1" unique_id=1071317270]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 1564805075) index="1" unique_id=1071317270]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj/Gemini_Generated_Image_alwjlhalwjlhalwj_col" unique_id=1936303966]
 shape = SubResource("ConcavePolygonShape3D_n4hfl")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003" parent_id_path=PackedInt32Array(1210270473, 1637651446) index="0" unique_id=1552516961]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003" parent_id_path=PackedInt32Array(1210270473, 1488632634) index="0" unique_id=1552516961]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003/Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" unique_id=1781099556]
 shape = SubResource("ConcavePolygonShape3D_52tj0")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005" parent_id_path=PackedInt32Array(1210270473, 1874241246) index="0" unique_id=1067555538]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005" parent_id_path=PackedInt32Array(1210270473, 519903835) index="0" unique_id=1067555538]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005/Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" unique_id=339978492]
 shape = SubResource("ConcavePolygonShape3D_0qema")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006" parent_id_path=PackedInt32Array(1210270473, 1613730804) index="0" unique_id=1378594236]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006" parent_id_path=PackedInt32Array(1210270473, 1658176831) index="0" unique_id=1378594236]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006/Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" unique_id=1982018368]
 shape = SubResource("ConcavePolygonShape3D_86jh1")
@@ -1049,7 +1078,7 @@ mesh = SubResource("ArrayMesh_ivht8")
 shape = SubResource("ConcavePolygonShape3D_2t58l")
 
 [node name="29_3" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/29" unique_id=219397370]
-transform = Transform3D(1, 0, 0, 0, -4.6990554e-08, -1.0572653, 0, 1.0750185, -4.6214538e-08, -0.7691649, 0.49399996, 0.11650038)
+transform = Transform3D(1, 0, 0, 0, -1.833019e-07, -2.3143563, 0, 4.193459, -1.01163735e-07, 3.176848, 1.0246098, -0.8622271)
 mesh = SubResource("ArrayMesh_j1ec5")
 
 [node name="29_3_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/29/29_3" unique_id=832641112]
@@ -1058,7 +1087,7 @@ mesh = SubResource("ArrayMesh_j1ec5")
 shape = SubResource("ConcavePolygonShape3D_slhpd")
 
 [node name="29_6" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/29" unique_id=1537664715]
-transform = Transform3D(-1.5736099e-07, -3.8730001, 1.6627811e-07, 0, -1.692942e-07, -3.803999, 3.5999987, -1.692942e-07, 7.268247e-15, -0.05803013, 1.596, -2.348385)
+transform = Transform3D(-1.5736099e-07, -3.8730001, 1.6627811e-07, 0, -1.692942e-07, -3.803999, 3.5999987, -1.692942e-07, 7.268247e-15, -0.557294, 1.5548846, -2.348385)
 mesh = SubResource("ArrayMesh_j1ec5")
 
 [node name="29_6_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/29/29_6" unique_id=315352963]
@@ -1067,7 +1096,7 @@ mesh = SubResource("ArrayMesh_j1ec5")
 shape = SubResource("ConcavePolygonShape3D_v6pxj")
 
 [node name="29_7" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/29" unique_id=495830188]
-transform = Transform3D(-1.5736099e-07, -3.8730001, 1.6627811e-07, 0, -1.692942e-07, -3.803999, 3.5999987, -1.692942e-07, 7.268247e-15, -1.1711483, 1.596, -2.2707787)
+transform = Transform3D(-1.5736099e-07, -3.8730001, 1.6627811e-07, 0, -1.692942e-07, -3.803999, 3.5999987, -1.692942e-07, 7.268247e-15, -1.1711483, 1.596, -1.7942162)
 mesh = SubResource("ArrayMesh_j1ec5")
 
 [node name="29_7_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/29/29_7" unique_id=619076844]
@@ -1327,5 +1356,65 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 269.9428, -1.2007141, -25)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary/WallEast" unique_id=900200015]
 shape = SubResource("BoxShape3D_wallEW02")
+
+[node name="BuildingBoundary" type="Node3D" parent="." unique_id=840957995]
+
+[node name="01" type="Node3D" parent="BuildingBoundary" unique_id=1302698885]
+
+[node name="NorthBuildingCollision" type="StaticBody3D" parent="BuildingBoundary/01" unique_id=1546580844]
+
+[node name="CornerEast" type="CollisionShape3D" parent="BuildingBoundary/01/NorthBuildingCollision" unique_id=477698752]
+transform = Transform3D(2.2415285, 0, 2.2415285, 0, 3.17, 0, -2.2415285, 0, 2.2415285, -29.445892, 2.5516334, -30.829515)
+shape = SubResource("BoxShape3D_n4hfl")
+debug_color = Color(0.7607843, 0.18431373, 1, 1)
+
+[node name="SouthFace" type="CollisionShape3D" parent="BuildingBoundary/01/NorthBuildingCollision" unique_id=1401172775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.96698, 34.98527, -25.847885)
+shape = SubResource("BoxShape3D_86jh1")
+debug_color = Color(0.6666667, 0.3137255, 1, 1)
+
+[node name="WestFace" type="CollisionShape3D" parent="BuildingBoundary/01/NorthBuildingCollision" unique_id=1195977625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.29, 4.646, -147.507)
+shape = SubResource("BoxShape3D_52tj0")
+debug_color = Color(0.8156863, 0.003921569, 0.98039216, 1)
+
+[node name="NorthFace" type="CollisionShape3D" parent="BuildingBoundary/01/NorthBuildingCollision" unique_id=1329142341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.3981, 1.4714355, -268.302)
+shape = SubResource("BoxShape3D_0qema")
+debug_color = Color(0.79607844, 0.05882353, 1, 1)
+
+[node name="EastFace" type="CollisionShape3D" parent="BuildingBoundary/01/NorthBuildingCollision" unique_id=1222967944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.216127, 1.8519897, -152.39005)
+shape = SubResource("BoxShape3D_7gt7j")
+debug_color = Color(0.69803923, 0.2784314, 1, 1)
+
+[node name="02" type="Node3D" parent="BuildingBoundary" unique_id=866655340]
+
+[node name="SouthBuildingCollision" type="StaticBody3D" parent="BuildingBoundary/02" unique_id=1681969615]
+
+[node name="CornerNorth" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=534797202]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 34.096066, 5.6724253, 34.309044)
+shape = SubResource("BoxShape3D_fko25")
+debug_color = Color(0.0627451, 0.6509804, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=254526388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.26257, 1.6257324, 23.795395)
+shape = SubResource("BoxShape3D_x35aj")
+debug_color = Color(0.25882354, 0.63529414, 0, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=1137841973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.1661, 5.667801, 123.025475)
+shape = SubResource("BoxShape3D_6dojg")
+debug_color = Color(0, 0.6509804, 0.16078432, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=1301184881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185.87613, 1.4951172, 224.9461)
+shape = SubResource("BoxShape3D_2t58l")
+debug_color = Color(0.2509804, 0.63529414, 0, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=976493822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.01706, 0, 255.96143)
+shape = SubResource("BoxShape3D_slhpd")
+debug_color = Color(0.3019608, 0.627451, 0, 1)
 
 [editable path="Map 02/Asset New/Building/Commercial/03"]
