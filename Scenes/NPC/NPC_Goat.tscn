@@ -9,8 +9,8 @@ size = Vector3(1, 1.7634277, 3.190918)
 [node name="NPC_Goat" type="StaticBody3D" unique_id=874597358]
 script = ExtResource("1")
 voice_pitch = 1.15
-dialogue_lines = Array[String](["I am thinking."])
-repeat_lines = Array[String](["Still thinking."])
+dialogue_lines = Array[String](["I am thinking.", "About what, I forget."])
+repeat_lines = Array[String](["Still thinking. Still forgot."])
 
 [node name="Sketchfab_Scene" parent="." unique_id=1374367015 instance=ExtResource("2_oa2hp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

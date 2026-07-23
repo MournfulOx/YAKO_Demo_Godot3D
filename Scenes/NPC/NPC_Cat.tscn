@@ -9,8 +9,8 @@ size = Vector3(0.46704102, 1.9510498, 2.4943848)
 [node name="NPC_Cat" type="StaticBody3D" unique_id=338536109]
 script = ExtResource("1")
 voice_pitch = 1.35
-dialogue_lines = Array[String](["Business has been slow.", "It's the economy."])
-repeat_lines = Array[String](["Business has been slow."])
+dialogue_lines = Array[String](["Business has been slow.", "It's the economy.", "I don't actually sell anything, but still."])
+repeat_lines = Array[String](["It's always the economy."])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=698799738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95366424, 0.12264061)

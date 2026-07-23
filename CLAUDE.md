@@ -58,7 +58,7 @@ demo/
 │   ├── NPC/
 │   │   ├── npc_base.gd               # base class for all NPCs (extends StaticBody3D)
 │   │   ├── NPC_Cat.tscn               # placed in Map 01
-│   │   ├── NPC_PrairieDog.tscn        # placed in Map 01
+│   │   ├── NPC_PrairieDog.tscn        # placed in Map 01, fragment carrier [F] (reassigned, see below)
 │   │   ├── NPC_Rat.tscn               # placed in Map 01
 │   │   ├── NPC_Goat.tscn              # placed in Map 02
 │   │   ├── NPC_FrenchBulldog.tscn     # placed in Map 02
@@ -69,7 +69,7 @@ demo/
 │   │   ├── NPC_Octopus.tscn           # placed in Map 02 (redirected from its Map 04 GDD slot), fragment carrier [F]
 │   │   ├── NPC_Dog.tscn               # placed in Map 03
 │   │   ├── NPC_Giraffe.tscn           # placed in Map 03
-│   │   ├── NPC_Deer.tscn              # placed in Map 03
+│   │   ├── NPC_Deer.tscn              # placed in Map 03, fragment carrier [F] (reassigned, see below)
 │   │   ├── NPC_TRex.tscn              # placed in Map 03 (its GDD slot is Map 04, moved per direct request)
 │   │   ├── NPC_Toucan.tscn            # placed in Map 04
 │   │   ├── NPC_Crab.tscn              # placed in Map 04, fragment carrier [F] — replaces Koala
@@ -458,9 +458,9 @@ not just what has a prefab:**
 
 | Map | Actually placed | Still missing from the GDD's original 21 |
 |-----|-------|---------|
-| 01 Convenience Store | Cat, Prairie Dog, Rat | Sheep [F] — prefab deleted, no model ever sourced |
+| 01 Convenience Store | Cat, Prairie Dog [F], Rat | — |
 | 02 Crossroads | Goat, French Bulldog, Koi Fish, Baboon, Goose [F], Great White Shark, Octopus [F] (redirected from Map 04) | — |
-| 03 Under the Overpass | Dog, Giraffe, Deer, T-Rex (redirected from Map 04) | Otter [F] — prefab deleted, no model ever sourced; Panda — prefab never built at all |
+| 03 Under the Overpass | Dog, Giraffe, Deer [F], T-Rex (redirected from Map 04) | Panda — prefab never built at all |
 | 04 Arcade Alley | Toucan, Crab [F], plus bonus Penguin/Pig | Raccoon — prefab deleted, no model ever sourced; Fish — deleted, no model ever sourced |
 | 05 School Rooftop | Television (`Scenes/Television/television.tscn`, ending trigger built as an NPC-style interactable), plus SecretAlienNPC (gated behind all-5-ducks-collected) | — |
 
@@ -477,13 +477,34 @@ remove anything that isn't), they were removed entirely: prefab `.tscn`, and the
 same pass for the same reason (never placed anywhere, and never part of the GDD roster to begin
 with) — its real sourced model (`capybara_ps1_style.glb` + textures) was deleted too. This
 follows the same precedent already set by `NPC_Fish`/`NPC_Chicken`'s deletion below. Losing
-`Sheep` and `Otter` means the GDD's 5-NPC hidden fragment thread (§5.5) now only has 3 live
-carriers in the actual game (`Goose`, `Octopus`, `Crab`) — worth knowing if the fragment thread
-needs revisiting later, though it wasn't flagged as a concern when the deletion was requested.
+`Sheep` and `Otter` means the GDD's 5-NPC hidden fragment thread (§5.5) briefly dropped to 3 live
+carriers (`Goose`, `Octopus`, `Crab`) — since fixed, see below.
+
+**Fragment thread rebalanced onto `NPC_PrairieDog` and `NPC_Deer` (direct request)**: rather than
+resourcing a new Sheep/Otter model to restore the original 5 carriers, the `[F]` role itself was
+reassigned to two already-placed NPCs, one per map that lost its carrier (Map_01 had none left,
+Map_03 had none left). The three surviving carriers' dialogue all shares an unmarked but
+consistent motif — each alludes to the same unexplained nocturnal event from a different angle
+(`Goose`: "I was here that night too."; `Octopus`: "I sent a message that night."; `Crab`:
+"Something woke me up. ... It was quiet after that.") — so the two new carriers were picked for
+how easily their *existing* lines could carry that same thread, and had one line rewritten each
+to explicitly say "that night" rather than getting a full rewrite:
+- **`NPC_PrairieDog`** (Map_01): `"The number keeps changing."` → `"The number was off, that
+  night." / "I never got it to match again."`; repeat line → `"Still off. Still counting."`
+- **`NPC_Deer`** (Map_03): kept its original three lines, inserted `"It started that night."`
+  between them; repeat line gained a second beat → `"I can't remember what." / "Just that it
+  was that night."`
+
+Both got `ZH_STRINGS`/`JA_STRINGS` entries added for the new/changed lines (unlike the Map_05
+secret alien's dialogue, which still has no localization at all — see below). The thread is now
+back to 5 live carriers across 4 maps: `PrairieDog` [F] (Map_01), `Goose`/`Octopus` [F] (Map_02),
+`Deer` [F] (Map_03), `Crab` [F] (Map_04).
 
 `dialogue_lines`/`repeat_lines` content for all of the above is pulled directly from the GDD,
-not invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster) and the bonus
-Penguin/Pig, which are placeholder text (no GDD content exists for them).
+not invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster), the bonus
+Penguin/Pig, and the two rewritten fragment-carrier lines above, which are original text (no GDD
+content exists for a PrairieDog/Deer fragment beat, since neither was a fragment carrier in the
+GDD to begin with).
 
 **`NPC_Panda.tscn` was never actually built** — checked `Scenes/NPC/`, the file isn't there and
 never has been in this session's history. Map_03 ships one short of its original 5-NPC GDD
@@ -576,6 +597,24 @@ one after placing it and adjust `Body`'s scale / the collision box if something 
 same caveat that already applied to `NPC_Caveman`.
 
 `[F]` = fragment carrier — part of the hidden narrative thread (GDD v0.7 §5.5).
+
+**Dialogue tone pass (direct request)**: reviewed every placed NPC's lines for tone — the game's
+established voice is deadpan/melancholic-absurdist (compare `NPC_Otter`'s "Very cold. Terrible
+soup." or `NPC_TRex`'s "sixty-five million years. Give or take."), and a couple of lines read as
+too flat/generic against that bar:
+- **`NPC_Cat`**: `"Business has been slow." / "It's the economy."` had no twist and its repeat
+  line just restated the first line verbatim. Added `"I don't actually sell anything, but
+  still."` and changed the repeat to `"It's always the economy."`.
+- **`NPC_Goat`**: `"I am thinking."` / repeat `"Still thinking."` was too bare to land as a joke
+  rather than a placeholder. Added `"About what, I forget."`, tying it into the same
+  forgetting/amnesia motif already recurring across other NPCs (`Rat`, `Octopus`, the new
+  `Deer`/`PrairieDog` fragment lines); repeat is now `"Still thinking. Still forgot."`.
+Both got `ZH_STRINGS`/`JA_STRINGS` entries for the new/changed lines. **Flagged but left alone
+per direct request**: `NPC_GreyAlien`'s default dialogue includes `"The Duck, I mean."`,
+referencing the deprecated Duck companion system (see `## Duck Companion System (deprecated)`
+below) — stale relative to current lore, but low priority since this prefab's only two
+placements (`MainMenu.tscn` background decor, `television_test.tscn` throwaway scene) are both
+non-interactive, so a player can't actually trigger this line in the shipped game.
 
 ## NPC Shader Pipeline
 
@@ -984,7 +1023,11 @@ literally cannot change while the player is standing in Map_05 to begin with.
 **Direct request**: the alien reveals it has an Earth name, "Ronald" — added as two extra beats
 mid-dialogue ("i have an earth name, actually." / "they call me Ronald.") plus a callback on the
 repeat visit ("still Ronald."), landing as a small deadpan joke rather than derailing the
-"was watching the whole time" tone. Note: this NPC's dialogue was never added to
+"was watching the whole time" tone. **Follow-up direct request**: the original "the little
+pieces, i mean." line was too oblique about what it was actually referring to, so it's now split
+into "the yellow ducks, i mean." / "every little piece of it." — explicitly naming the Yellow
+Duck collectibles while keeping the "little piece(s)" callback to the Television's own secret
+line ("you found all of me. every little piece."). Note: this NPC's dialogue was never added to
 `autoload/Localization.gd`'s `ZH_STRINGS`/`JA_STRINGS` (a pre-existing gap, not something this
 edit introduced) — it currently only displays in English regardless of the active language
 setting.
@@ -1217,7 +1260,22 @@ language), UI button/label text (including the two `%d`-templated pickup-notific
 in `duck_pickup_notification_ui.gd` — translate the template *before* `%` substitution, e.g.
 `tr("Yellow Duck found. %d / %d") % [count, total]`), the derived location names shown during
 scene transitions, and the ending credits' role labels (team member names themselves are left
-untranslated). Registered *before* `SettingsState` in `project.godot`'s `[autoload]` list —
+untranslated).
+
+**Map_03's transition name silently failed to translate** — found while auditing every map's
+localization coverage end to end. `SceneManager._parse_name()` derives the on-screen name from
+the scene filename by camelCase-splitting it (inserting a space before every capital letter), so
+`Map_03_UnderTheOverPass.tscn` → `UnderTheOverPass` actually splits into **four** words at
+runtime — `"Under The Over Pass"` (capital `P` in `OverPass` counts as its own word boundary,
+same as every other capital) — not the three-word `"Under The Overpass"` that had been hand-typed
+as the dictionary key in both `ZH_STRINGS` and `JA_STRINGS`. Since `TranslationServer.translate()`
+falls back to the original (English) string on any non-exact key match rather than erroring, this
+failure was completely silent — Map_03 was the only one of the 6 scene-transition names
+(`Convenience Store`/`Crossroads`/`Under The Over Pass`/`Arcade Alley`/`School Rooftop`/
+`Backroom`) that didn't actually translate, and nothing in-game would have surfaced that short of
+someone testing the Map_03 transition specifically in `zh`/`ja`. Verified correct now by tracing
+`_parse_name()`'s exact character-by-character output for all 6 map filenames rather than
+guessing. Registered *before* `SettingsState` in `project.godot`'s `[autoload]` list —
 order matters here, since `SettingsState._ready()` calls `TranslationServer.set_locale()` and
 needs the target-language `Translation` already registered for that to have any effect.
 

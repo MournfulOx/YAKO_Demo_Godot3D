@@ -8,8 +8,8 @@ size = Vector3(0.3, 0.4, 0.21289063)
 
 [node name="NPC_PrairieDog" type="StaticBody3D" unique_id=8502538]
 script = ExtResource("1")
-dialogue_lines = Array[String](["I counted everyone on this street.", "Twice.", "The number keeps changing."])
-repeat_lines = Array[String](["I'm going to count again."])
+dialogue_lines = Array[String](["I counted everyone on this street.", "Twice.", "The number was off, that night.", "I never got it to match again."])
+repeat_lines = Array[String](["Still off. Still counting."])
 
 [node name="Body" parent="." unique_id=1666975073 instance=ExtResource("2_glb")]
 transform = Transform3D(-4.371139e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.371139e-11, 0, 0, 0)

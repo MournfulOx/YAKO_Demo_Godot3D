@@ -16,6 +16,8 @@ const ZH_STRINGS := {
 	# NPC_Cat
 	"Business has been slow.": "生意很清淡。",
 	"It's the economy.": "都是经济不景气。",
+	"I don't actually sell anything, but still.": "虽然我其实什么都没卖,但还是这样。",
+	"It's always the economy.": "反正一直都是经济不景气。",
 
 	# NPC_Caveman
 	"You're not supposed to be here.": "你不应该在这儿的。",
@@ -32,8 +34,10 @@ const ZH_STRINGS := {
 	# NPC_Deer
 	"I keep coming back to this street.": "我总是不由自主地回到这条街。",
 	"I don't know why.": "不知道为什么。",
+	"It started that night.": "是从那天晚上开始的。",
 	"Maybe I left something here.": "也许我把什么东西落在这儿了。",
 	"I can't remember what.": "想不起来是什么了。",
+	"Just that it was that night.": "只记得是那天晚上。",
 
 	# NPC_Dog
 	"I only have one.": "我只有一根。",
@@ -55,7 +59,8 @@ const ZH_STRINGS := {
 
 	# NPC_Goat
 	"I am thinking.": "我在想事情。",
-	"Still thinking.": "还在想。",
+	"About what, I forget.": "想什么来着,我忘了。",
+	"Still thinking. Still forgot.": "还在想。还是忘了。",
 
 	# NPC_Goose
 	"I'm on duty.": "我在值班。",
@@ -93,8 +98,9 @@ const ZH_STRINGS := {
 	# NPC_PrairieDog
 	"I counted everyone on this street.": "我数过这条街上所有人。",
 	"Twice.": "数了两遍。",
-	"The number keeps changing.": "数字一直在变。",
-	"I'm going to count again.": "我要再数一遍。",
+	"The number was off, that night.": "那天晚上,数字不对了。",
+	"I never got it to match again.": "从那以后就再也没对上过。",
+	"Still off. Still counting.": "还是不对。还在数。",
 
 	# NPC_Rat
 	"I was supposed to put these up last Tuesday.": "这些东西我上周二就该贴出来了。",
@@ -153,7 +159,7 @@ const ZH_STRINGS := {
 	# Location names (SceneManager._parse_name output)
 	"Convenience Store": "便利店",
 	"Crossroads": "十字路口",
-	"Under The Overpass": "高架桥下",
+	"Under The Over Pass": "高架桥下",
 	"Arcade Alley": "街机小巷",
 	"School Rooftop": "学校天台",
 	"Backroom": "后室",
@@ -173,6 +179,8 @@ const JA_STRINGS := {
 	# NPC_Cat
 	"Business has been slow.": "商売が暇でね。",
 	"It's the economy.": "景気のせいさ。",
+	"I don't actually sell anything, but still.": "実は何も売ってないんだけどね。",
+	"It's always the economy.": "いつだって景気のせいさ。",
 
 	# NPC_Caveman
 	"You're not supposed to be here.": "ここにいちゃいけないはずなんだが。",
@@ -189,8 +197,10 @@ const JA_STRINGS := {
 	# NPC_Deer
 	"I keep coming back to this street.": "何度もこの道に戻ってきてしまう。",
 	"I don't know why.": "理由は分からない。",
+	"It started that night.": "あの夜からだった。",
 	"Maybe I left something here.": "何か忘れ物をしたのかもしれない。",
 	"I can't remember what.": "何だったかは思い出せない。",
+	"Just that it was that night.": "あの夜だったことだけは覚えてる。",
 
 	# NPC_Dog
 	"I only have one.": "一本しか持ってない。",
@@ -212,7 +222,8 @@ const JA_STRINGS := {
 
 	# NPC_Goat
 	"I am thinking.": "考え中なんだ。",
-	"Still thinking.": "まだ考えてる。",
+	"About what, I forget.": "何についてかは忘れた。",
+	"Still thinking. Still forgot.": "まだ考えてる。まだ忘れてる。",
 
 	# NPC_Goose
 	"I'm on duty.": "任務中なんだ。",
@@ -250,8 +261,9 @@ const JA_STRINGS := {
 	# NPC_PrairieDog
 	"I counted everyone on this street.": "この通りの皆を数えたんだ。",
 	"Twice.": "二回もね。",
-	"The number keeps changing.": "数字がずっと変わり続けてる。",
-	"I'm going to count again.": "もう一度数え直すよ。",
+	"The number was off, that night.": "あの夜、数字がおかしくなった。",
+	"I never got it to match again.": "それ以来、二度と合わなくなった。",
+	"Still off. Still counting.": "まだ合わない。まだ数えてる。",
 
 	# NPC_Rat
 	"I was supposed to put these up last Tuesday.": "先週の火曜日に貼るはずだったんだ。",
@@ -310,7 +322,7 @@ const JA_STRINGS := {
 	# Location names (SceneManager._parse_name output)
 	"Convenience Store": "コンビニ",
 	"Crossroads": "交差点",
-	"Under The Overpass": "高架下",
+	"Under The Over Pass": "高架下",
 	"Arcade Alley": "ゲームセンター横丁",
 	"School Rooftop": "屋上",
 	"Backroom": "裏部屋",

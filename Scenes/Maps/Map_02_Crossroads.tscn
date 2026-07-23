@@ -39,10 +39,10 @@
 [ext_resource type="PackedScene" uid="uid://ceo28vbbwf7s6" path="res://Scenes/NPC/NPC_Octopus.tscn" id="81_octopus"]
 [ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_GreatWhiteShark.tscn" id="81_shark"]
 [ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="90_duck"]
-[ext_resource type="Script" uid="uid://bewwmrdgo0e0q" path="res://Scenes/scene_trigger.gd" id="92_trig"]
-[ext_resource type="Shader" uid="uid://dscdlrxnm5x4" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
 [ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
-[ext_resource type="Script" uid="uid://byo6yqp77kg6a" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
@@ -768,27 +768,27 @@ omni_range = 598.71625
 [node name="03" parent="Map 02/Asset New/Building/Commercial" unique_id=1210270473 instance=ExtResource("19_4lfpb")]
 transform = Transform3D(367.99, 0, 0, 0, 367.99, 0, 0, 0, 367.99, -35.952, 77.619, -352.823)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 1564805075) index="0" unique_id=1392338383]
+[node name="StaticBody3D" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 8885219) index="0" unique_id=1392338383]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj/StaticBody3D" unique_id=1607996148]
 shape = SubResource("ConcavePolygonShape3D_4p7yq")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 1564805075) index="1" unique_id=1071317270]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj" parent_id_path=PackedInt32Array(1210270473, 8885219) index="1" unique_id=1071317270]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj/Gemini_Generated_Image_alwjlhalwjlhalwj_col" unique_id=1936303966]
 shape = SubResource("ConcavePolygonShape3D_n4hfl")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003" parent_id_path=PackedInt32Array(1210270473, 1488632634) index="0" unique_id=1552516961]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003" parent_id_path=PackedInt32Array(1210270473, 1637651446) index="0" unique_id=1552516961]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_003/Gemini_Generated_Image_alwjlhalwjlhalwj_003_col" unique_id=1781099556]
 shape = SubResource("ConcavePolygonShape3D_52tj0")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005" parent_id_path=PackedInt32Array(1210270473, 519903835) index="0" unique_id=1067555538]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005" parent_id_path=PackedInt32Array(1210270473, 1874241246) index="0" unique_id=1067555538]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_005/Gemini_Generated_Image_alwjlhalwjlhalwj_005_col" unique_id=339978492]
 shape = SubResource("ConcavePolygonShape3D_0qema")
 
-[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006" parent_id_path=PackedInt32Array(1210270473, 1658176831) index="0" unique_id=1378594236]
+[node name="Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" type="StaticBody3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006" parent_id_path=PackedInt32Array(1210270473, 1613730804) index="0" unique_id=1378594236]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map 02/Asset New/Building/Commercial/03/Gemini_Generated_Image_alwjlhalwjlhalwj_006/Gemini_Generated_Image_alwjlhalwjlhalwj_006_col" unique_id=1982018368]
 shape = SubResource("ConcavePolygonShape3D_86jh1")
