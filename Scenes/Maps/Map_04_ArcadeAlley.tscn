@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://0xk6n73b3fcs"]
 
 [ext_resource type="PackedScene" uid="uid://b60blnbm3t66o" path="res://Scenes/Assets/Zee/all_road/sidawalk_tiles/sidewalk_tiles01.glb" id="1_jkekm"]
+[ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_TRex.tscn" id="83_trex"]
 [ext_resource type="Texture2D" uid="uid://daflj5423n38q" path="res://Scenes/Assets/Zee/all_road/Road/sing;e_dash_road/Single dash road pack_Image_0.jpg" id="2_f1pt6"]
 [ext_resource type="PackedScene" uid="uid://msvshfawt7wa" path="res://Scenes/Player/player.tscn" id="2_si4eo"]
 [ext_resource type="Texture2D" uid="uid://clsdcwk51v3s7" path="res://Scenes/Assets/Zee/all_road/Road/sing;e_dash_road/Single dash road pack_Image_1.jpg" id="3_y2x20"]
@@ -569,6 +570,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4952087, 3.2014787, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.320465)
 script = ExtResource("97_spawn")
 spawn_id = "Map04_Map05"
+
+[node name="NPC_TRex" parent="." unique_id=100200601 instance=ExtResource("83_trex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 317.919493, 2.702, -0.41979945)
 
 [node name="Players" type="Node3D" parent="." unique_id=1707387605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.7283, 0, 0)

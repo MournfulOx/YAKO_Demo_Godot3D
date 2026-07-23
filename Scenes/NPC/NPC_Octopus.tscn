@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://ceo28vbbwf7s6"]
 
 [ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/Assets/MiscAssets/animal/octopus.glb" id="2_glb"]
+[ext_resource type="PackedScene" uid="uid://bii8iw627bb10" path="res://Scenes/Assets/MiscAssets/animal/octopus.glb" id="2_glb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0"]
 size = Vector3(0.6, 0.7, 0.5)
 
-[node name="NPC_Octopus" type="StaticBody3D"]
+[node name="NPC_Octopus" type="StaticBody3D" unique_id=1850052013]
 script = ExtResource("1")
 dialogue_lines = Array[String](["I sent a message that night.", "I'm still waiting.", "Maybe the signal was bad."])
 repeat_lines = Array[String](["Maybe the signal was bad."])
 
-[node name="Body" parent="." instance=ExtResource("2_glb")]
-transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
+[node name="Body" parent="." unique_id=1537766747 instance=ExtResource("2_glb")]
+transform = Transform3D(-6.556708e-10, 0, -0.015, 0, 0.015, 0, 0.015, 0, -6.556708e-10, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1109445671]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("BoxShape3D_0")

@@ -493,6 +493,37 @@ one, left to the person doing map layout since it needs visual judgement in the 
 `dialogue_lines`/`repeat_lines` content for all of them is pulled directly from the GDD, not
 invented — except `NPC_Caveman` (Backrooms egg, not in the GDD roster), which is placeholder text.
 
+**Map_01/02/03 roster placed (Map_04 deliberately skipped, per direct request)**: all 15 of
+Map_01–03's NPCs (`Cat`/`Sheep`/`PrairieDog`/`Rat`; `Goat`/`FrenchBulldog`/`KoiFish`/`Baboon`/
+`Goose`/`GreatWhiteShark`; `Otter`/`Dog`/`Giraffe`/`Deer`) are now instanced directly into their
+respective map scenes, scattered in a simple ring around each map's own `Player` spawn
+(`~10–25` units out, one per compass-ish direction) purely so each one exists *somewhere*
+reachable — **not visually confirmed, not tied to actual level geometry or points of interest**;
+this is placeholder-position-only, exactly like every other blind-placement pass this session
+(exit triggers, spawn points, `ExitArrow`s) — whoever does the real level-design pass needs to
+drag each one to an actual spot that reads well and doesn't clip into a wall/building. Map_04 was
+left untouched per the request's own scope (its roster — `Raccoon`/`Fish`/`Toucan`/`Octopus`/
+`TRex`/`Crab` — is still fully unplaced).
+
+**`NPC_Panda.tscn` doesn't actually exist** despite being listed above and in the roster table —
+checked `Scenes/NPC/`, the file isn't there. This table entry is stale/aspirational; either the
+prefab was never actually created despite the note claiming "all 21 slots have a built .tscn," or
+it was lost at some point. Map_03 currently ships with only 4 of its 5 documented NPCs as a
+result. Needs a fresh prefab built from a giraffe... er, panda model before it can be placed.
+
+**`NPC_TRex` moved from Map_03 to Map_04** — it had been sitting in
+`Map_03_UnderTheOverPass.tscn` (stray/test placement, not this session's doing), but T-Rex is
+Map_04's roster NPC per the table above, not Map_03's. Removed the node + its now-unused
+`ext_resource` from Map_03, re-added it to `Map_04_ArcadeAlley.tscn` (same placeholder-ring
+placement convention as the rest of this pass, offset from Map_04's own `Player` spawn — not
+visually confirmed). **`Raccoon` and `Octopus` redirected to Map_02 instead** (direct request —
+Map_02's huge Zee-city scale left it feeling sparse/empty relative to its size even with its own
+6-NPC roster already placed), positioned far from the existing Map_02 cluster (~300 units out in
+two different directions) to actually help fill out the space rather than adding to the same
+corner. Their dialogue isn't location-specific, so the mismatch with the GDD's Map_04 assignment
+doesn't read as wrong. **Map_04 now only still needs `Fish`/`Toucan`/`Crab`** to round out what's
+left of its roster (T-Rex is placed; Raccoon/Octopus moved to Map_02 as above).
+
 **Scale/collision caveat**: for the 14 new prefabs, `Body` transform scale and the
 `CollisionShape3D` size were computed from each GLB's raw bounding box (aiming for roughly
 plausible relative sizes — Giraffe deliberately tall enough to justify "head lodged against the
@@ -710,6 +741,18 @@ that no longer exists, since the Duck companion system was deleted — see `## D
 (deprecated)`) resurrected this way after already having been removed once. If a value you (or I)
 just changed doesn't seem to be taking effect, this is the first thing to suspect — close the
 relevant scene tab / reload the project in the editor before making further external edits.
+
+**A teammate's git sync fully reverted Map_01/Map_03 to their pre-session state once** — Zee had
+uncommitted local changes to both files that conflicted with an incoming pull; committing those
+local changes and then merging appears to have resolved the conflict by keeping Zee's side
+wholesale for both files, discarding this session's entire history of changes to them (sky/
+moonlight unification, ambient/fog retuning, `CityGlow`, the `ExitArrow`/`SpawnPoint` additions,
+and the whole `Map03_Map04` connection — none of it touched Map_02/04/05, which came through
+fine). Recovered by reapplying every change from scratch on top of the post-merge file (not by
+resetting to an old commit, since Zee's own new edits in that merge needed to stay). If this
+happens again: `git show <old-commit>:<path>` to pull up the last-known-good version of a file
+as a reference for what needs reapplying, rather than assuming a git reset is safe (it would also
+discard whatever new work the teammate did in the same file).
 
 **Map connectivity (Map_01–03)**: `Map_01_ConvenienceStore` → `Map_02_Crossroads` (`ExitTrigger`)
 was already wired. `Map_02_Crossroads` had **no exit triggers at all** — a real dead end once
@@ -1265,6 +1308,37 @@ Source: `SkyscraperPack` (CC0). FBX files contain no embedded texture paths — 
 Naming convention: `building_01.x.fbx` → `building_01.png`. Script assigns the matching texture as both albedo and emission (strength 1.5) so buildings glow at night without requiring scene lighting.
 
 Output GLBs go to `Scenes/Assets/SkyscraperPack/glb/`.
+
+## Level Collision & Boundary Walls
+
+**Found: Map_01 had almost no collision anywhere in the level geometry** — before this pass, the
+*only* `CollisionShape3D` in the entire file belonged to the exit trigger's `Area3D`; the store
+shell, shelves, and every other prop had none, so the player could walk straight through all of
+them. This game has no gravity (`velocity.y` is unused per `player.gd`), so missing floor
+collision doesn't cause falling — the actual problem is purely "nothing stops horizontal
+movement," i.e. walking through walls and off the edge of the designed area.
+
+**Split into two deliberately separate jobs**, since only one of them is something that can be
+done without seeing the actual geometry:
+1. **Precise per-object collision** (walls, shelves, building shells reading as solid) needs
+   visual fitting and is left to whoever's in the editor: select the relevant `MeshInstance3D`
+   node(s), **Mesh menu → Create Trimesh Static Body** — Godot generates an exact collision shape
+   from the visible mesh, which is far more reliable than guessing box positions blind. Works on
+   multiple selected nodes at once for batch use across `Buildings`/`Cars`/etc.
+2. **A rough perimeter safety net**, added now: `Map_01_ConvenienceStore.tscn` gained a
+   `Boundary` node (`parent="."`) containing a `Floor` `StaticBody3D` (one large flat
+   `BoxShape3D`, `230×0.4×120`, centered under the map's known content — `Player`/NPC spawns,
+   `Shop` mesh, `ExitTrigger`'s true position all sit inside this footprint) plus four
+   `WallNorth`/`WallSouth`/`WallEast`/`WallWest` `StaticBody3D`s (tall thin `BoxShape3D`s) ringing
+   that same footprint, so at minimum the player can't wander out of the designed area into empty/
+   undecorated space even before the real walls get their own collision.
+**Not visually confirmed** — same standing caveat as everything else placed blind this session;
+the boundary was sized from known node positions (spawn points, NPCs, the `Shop` mesh, the exit
+trigger), not from seeing the room, so it may be too tight (clipping something at the edge) or too
+loose (leaving dead space outside the playable area) — check in the editor and resize the three
+`BoxShape3D_floor01`/`BoxShape3D_wallNS01`/`BoxShape3D_wallEW01` sub-resources if so. Same
+treatment (floor + 4 perimeter walls, sized from each map's own known positions) should be applied
+to Map_02–05 next; none of them have it yet.
 
 ## Code Conventions
 

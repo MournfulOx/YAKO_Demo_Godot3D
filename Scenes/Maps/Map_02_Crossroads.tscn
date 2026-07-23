@@ -30,6 +30,14 @@
 [ext_resource type="PackedScene" uid="uid://cv5atfjpqtijy" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/23/23.glb" id="33_tkkyw"]
 [ext_resource type="PackedScene" uid="uid://dlymbdkpx73cb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/24/24.glb" id="34_ppx1j"]
 [ext_resource type="Texture2D" uid="uid://c14nhidewxl2o" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/25/25_Gemini_Generated_Image_giz4okgiz4okgiz4.png" id="35_amfk7"]
+[ext_resource type="PackedScene" uid="uid://qk0buu82nor0" path="res://Scenes/Assets/LampPost/LampPost.tscn" id="45_52tj0"]
+[ext_resource type="PackedScene" uid="uid://isrx4iqri0xh" path="res://Scenes/NPC/NPC_Baboon.tscn" id="81_baboon"]
+[ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_FrenchBulldog.tscn" id="81_frenchbulldog"]
+[ext_resource type="PackedScene" uid="uid://bi7klq1yjoxpy" path="res://Scenes/NPC/NPC_Goat.tscn" id="81_goat"]
+[ext_resource type="PackedScene" uid="uid://d2dnukoegslow" path="res://Scenes/NPC/NPC_Goose.tscn" id="81_goose"]
+[ext_resource type="PackedScene" uid="uid://cc4kfedeaplsp" path="res://Scenes/NPC/NPC_KoiFish.tscn" id="81_koifish"]
+[ext_resource type="PackedScene" uid="uid://ceo28vbbwf7s6" path="res://Scenes/NPC/NPC_Octopus.tscn" id="81_octopus"]
+[ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_GreatWhiteShark.tscn" id="81_shark"]
 [ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="90_duck"]
 [ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
 [ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
@@ -1036,10 +1044,10 @@ transform = Transform3D(2.2810433, 0, 0, 0, 0.851132, 0, 0, 0, 6.9947433, -122.3
 
 [node name="CityGlow" type="Node" parent="Map 02" unique_id=700111222]
 script = ExtResource("98_glow")
-target_paths = Array[NodePath]([NodePath("Map 02/Asset New/Building")])
+target_paths = Array[NodePath]([NodePath("Asset New/Building")])
 
 [node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -155.2861, 3.4506729, -280.89838)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.099090576, 3.4506729, -11.380005)
 speed = 100.0
 
 [node name="Map02_Map03" type="Area3D" parent="." unique_id=1644620676]
@@ -1061,7 +1069,7 @@ script = ExtResource("97_spawn")
 spawn_id = "Map02_Map03"
 
 [node name="YellowDuck_Crossroads" parent="." unique_id=775613757 instance=ExtResource("90_duck")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3958654, 2.600673, -0.7169399)
+transform = Transform3D(-1.7016344, 0, -2.4707167, 0, 3, 0, 2.4707167, 0, -1.7016344, 32.6121, 0.023632765, 29.09606)
 duck_id = "Map_02_Crossroads"
 lines = Array[String](["a little piece of you.", "everyone crosses somewhere.", "not everyone arrives."])
 
@@ -1082,3 +1090,89 @@ spawn_id = "Map01_Map02"
 
 [node name="ExitArrow" parent="Map01_Map02" unique_id=611222333 instance=ExtResource("99_arrow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="NPC" type="Node3D" parent="." unique_id=677131711]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -15.3768215, -0.26391983, -263.8554)
+
+[node name="NPC_Goat" parent="NPC" unique_id=100200401 instance=ExtResource("81_goat")]
+transform = Transform3D(-0.58402485, 0, 0.5467311, 0, 0.8, 0, -0.5467311, 0, -0.58402485, -0.5700598, 0.08474779, -2.0151443)
+
+[node name="NPC_FrenchBulldog" parent="NPC" unique_id=100200402 instance=ExtResource("81_frenchbulldog")]
+transform = Transform3D(-3.5, 0, -5.284853e-07, 0, 3.5, 0, 5.284853e-07, 0, -3.5, -66.15026, 0.1691168, -3.7935257)
+
+[node name="NPC_KoiFish" parent="NPC" unique_id=100200403 instance=ExtResource("81_koifish")]
+transform = Transform3D(5.395141, 0, -5.9069834, 0, 8, 0, 5.9069834, 0, 5.395141, -4.899531, 1.3977015, 95.61573)
+face_offset_deg = 90.0
+
+[node name="NPC_Baboon" parent="NPC" unique_id=100200404 instance=ExtResource("81_baboon")]
+transform = Transform3D(0.61266816, 0, 2.9367733, 0, 3, 0, -2.9367733, 0, 0.61266816, 91.25652, 0.07443037, 112.258705)
+face_offset_deg = 90.0
+
+[node name="NPC_Goose" parent="NPC" unique_id=100200405 instance=ExtResource("81_goose")]
+transform = Transform3D(1.8392088, 0, 1.6933136, 0, 2.5, 0, -1.6933136, 0, 1.8392088, 82.97585, 0.15702637, 205.03296)
+
+[node name="NPC_GreatWhiteShark" parent="NPC" unique_id=100200406 instance=ExtResource("81_shark")]
+transform = Transform3D(2.9244347, 0, -4.0555744, 0, 5, 0, 4.0555744, 0, 2.9244347, 18.131563, 1.2635635, 91.70222)
+
+[node name="NPC_Octopus" parent="NPC" unique_id=100200408 instance=ExtResource("81_octopus")]
+transform = Transform3D(-0.011030358, 0, 3.9999847, 0, 4, 0, -3.9999847, 0, -0.011030358, -54.367252, 0.013309665, 110.56032)
+face_offset_deg = 90.0
+
+[node name="Lamp" type="Node3D" parent="." unique_id=344530836]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -15.3768215, -0.26391983, -263.8554)
+
+[node name="LampPost19" parent="Lamp" unique_id=592185119 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2121215, 0, 191.65936)
+
+[node name="LampPost18" parent="Lamp" unique_id=537393489 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.9997818, 0, 0.020890059, 0, 1, 0, -0.020890059, 0, -0.9997818, 10.58847, 0, 149.98738)
+
+[node name="LampPost17" parent="Lamp" unique_id=299122480 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.63018817, 0, -0.77644247, 0, 1, 0, 0.77644247, 0, -0.63018817, 11.025795, 0, 212.72212)
+
+[node name="LampPost16" parent="Lamp" unique_id=849079047 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.038230803, 0, -0.999269, 0, 1, 0, 0.999269, 0, -0.038230803, 35.09063, 0, 212.948)
+
+[node name="LampPost15" parent="Lamp" unique_id=561887970 instance=ExtResource("45_52tj0")]
+transform = Transform3D(0.11138224, 0, 0.9937777, 0, 1, 0, -0.9937777, 0, 0.11138224, 63.24047, 0, 221.8223)
+
+[node name="LampPost14" parent="Lamp" unique_id=1862648527 instance=ExtResource("45_52tj0")]
+transform = Transform3D(0.8328633, 0, -0.5534788, 0, 1, 0, 0.5534788, 0, 0.8328633, 99.94295, 0, 212.97614)
+
+[node name="LampPost13" parent="Lamp" unique_id=187238654 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.9999499, 0, 0.010018094, 0, 1, 0, -0.010018094, 0, -0.9999499, -90.452324, 0, 85.54712)
+
+[node name="LampPost12" parent="Lamp" unique_id=1774579867 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.4299, -0.1695446, 60.444157)
+
+[node name="LampPost11" parent="Lamp" unique_id=1833282661 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.22551222, 0, -0.9742404, 0, 1, 0, 0.9742404, 0, -0.22551222, -90.10947, 0, 100.55756)
+
+[node name="LampPost10" parent="Lamp" unique_id=36874212 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.12658, 0, 110.056046)
+
+[node name="LampPost9" parent="Lamp" unique_id=373584614 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.124536626, 0, 0.9922151, 0, 1, 0, -0.9922151, 0, -0.124536626, 46.882298, 0, 109.82902)
+
+[node name="LampPost8" parent="Lamp" unique_id=1106222095 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.276543)
+
+[node name="LampPost7" parent="Lamp" unique_id=1200564201 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.57905, 0.10556793, 26.711098)
+
+[node name="LampPost4" parent="Lamp" unique_id=669576088 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.9718048, 0, -0.23578666, 0, 1, 0, 0.23578666, 0, -0.9718048, -15.705708, 0, -12.099915)
+
+[node name="LampPost3" parent="Lamp" unique_id=671989087 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.041138, 0, -12.034203)
+
+[node name="LampPost2" parent="Lamp" unique_id=361297556 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.21804099, 0, 0.97593963, 0, 1, 0, -0.97593963, 0, -0.21804099, -64.51628, 0.10556803, -3.6387177)
+
+[node name="LampPost" parent="Lamp" unique_id=1056164940 instance=ExtResource("45_52tj0")]
+
+[node name="LampPost5" parent="Lamp" unique_id=445713527 instance=ExtResource("45_52tj0")]
+transform = Transform3D(-0.9824113, 0, -0.18672973, 0, 1, 0, 0.18672973, 0, -0.9824113, 9.87371, 0.10556793, 34.763855)
+
+[node name="LampPost6" parent="Lamp" unique_id=58892064 instance=ExtResource("45_52tj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.84574, 0.061269376, 111.402115)
