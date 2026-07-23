@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://ch3g7b18q11hr"]
+[gd_scene format=4 uid="uid://cu36b72wvnxe4"]
 
 [ext_resource type="PackedScene" uid="uid://g2040fdmy8ad" path="res://Scenes/Assets/Zee/all_buildings/architecture/school/school.glb" id="1_3jk3l"]
 [ext_resource type="Texture2D" uid="uid://b323qevchq1oh" path="res://Scenes/Assets/Zee/all_buildings/wall/Wall_Box/concreate_wall_Screenshot 2026-07-01 194659.png" id="2_68b28"]
@@ -11,6 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://bcqxvs364mtbr" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/22/22.glb" id="7_hmcir"]
 [ext_resource type="PackedScene" uid="uid://dud6bxwjeaotb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 10/Untitled.glb" id="9_4or2l"]
 [ext_resource type="PackedScene" uid="uid://cnsgel780kne0" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 20/20.glb" id="10_l2ggg"]
+[ext_resource type="PackedScene" uid="uid://dpi7kg783ovts" path="res://Scenes/Television/television.tscn" id="12_5xhxv"]
+[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://218j28fvxuxm" path="res://Scenes/NPC/secret_alien_npc.gd" id="94_alien"]
+[ext_resource type="PackedScene" uid="uid://ohp62qf43mb" path="res://Scenes/Assets/MiscAssets/alien.tscn" id="95_alienmesh"]
+[ext_resource type="Script" uid="uid://b2fwnefu18vqm" path="res://Scenes/Ending/ending_sequence.gd" id="96_ending"]
+[ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
+[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4jbc"]
 resource_name = "Screenshot 2026-07-01 194659"
@@ -94,21 +103,31 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fjjoh")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fwoy2"]
-sky_top_color = Color(0.012, 0.012, 0.045, 1)
-sky_horizon_color = Color(0.05, 0.04, 0.09, 1)
-sky_energy_multiplier = 0.15
-ground_horizon_color = Color(0.12, 0.07, 0.03, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_secretalien"]
+size = Vector3(0.85, 1.0067139, 0.1953125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_map04map05exit"]
+size = Vector3(8.098022, 7.238159, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
+shader = ExtResource("93_stars")
+shader_parameter/color_top = Color(0.012, 0.012, 0.045, 1)
+shader_parameter/color_horizon = Color(0.03, 0.015, 0.06, 1)
+shader_parameter/color_ground = Color(0.08, 0.04, 0.01, 1)
+shader_parameter/star_density = 0.968
+shader_parameter/star_brightness = 0.65
+shader_parameter/star_size = 0.12
+shader_parameter/twinkle_speed = 0.9
 
 [sub_resource type="Sky" id="Sky_test"]
-sky_material = SubResource("ProceduralSkyMaterial_fwoy2")
+sky_material = SubResource("ShaderMaterial_stars")
 
 [sub_resource type="Environment" id="Environment_4or2l"]
 background_mode = 2
 sky = SubResource("Sky_test")
 ambient_light_source = 2
 ambient_light_color = Color(0.08, 0.1, 0.2, 1)
-ambient_light_energy = 0.18
+ambient_light_energy = 0.4
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 1.4
@@ -116,7 +135,7 @@ glow_bloom = 0.25
 glow_hdr_threshold = 0.75
 fog_enabled = true
 fog_light_color = Color(0.07, 0.08, 0.14, 1)
-fog_density = 0.014
+fog_density = 0.008
 fog_sky_affect = 0.8
 
 [node name="Map_05" type="Node3D" unique_id=1710083984]
@@ -124,10 +143,10 @@ fog_sky_affect = 0.8
 [node name="assets" type="Node3D" parent="." unique_id=2138436313]
 
 [node name="school" parent="assets" unique_id=1089436232 instance=ExtResource("1_3jk3l")]
-transform = Transform3D(-2.6729512e-07, 0, -6.115, 0, 6.115, 0, 6.115, 0, -2.6729512e-07, 0, 0, 0)
+transform = Transform3D(-1.3364756e-07, 0, -3.0575, 0, 3.0575, 0, 3.0575, 0, -1.3364756e-07, 0, 0, 0)
 
 [node name="concreate_wall" type="Node3D" parent="assets" unique_id=1366631218]
-transform = Transform3D(13.685, 0, 0, 0, 13.685, 0, 0, 0, 13.685, 0, 117.96712, -145.74403)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 1.472023, 55.611183, -72.61084)
 
 [node name="Screenshot 2026-07-01 194660" type="MeshInstance3D" parent="assets/concreate_wall" unique_id=268774715]
 transform = Transform3D(0, 1.1288518, 0, 0, 0, -1.4507235, -0.99999976, 0, 0, 9.723881, -0.93457174, -1.496974)
@@ -176,20 +195,64 @@ transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.556708
 [node name="store" type="Node3D" parent="assets" unique_id=1878703999]
 
 [node name="22" parent="assets/store" unique_id=1931670058 instance=ExtResource("7_hmcir")]
-transform = Transform3D(-2.178204e-05, 0, -498.31497, 0, 498.31497, 0, 498.31497, 0, -2.178204e-05, 138.78268, 5.348, -276.16568)
+transform = Transform3D(-1.089102e-07, 0, -2.4915748, 0, 2.4915748, 0, 2.4915748, 0, -1.089102e-07, 138.78268, 5.348, -276.16568)
 
 [node name="11" parent="assets/store" unique_id=1359985373 instance=ExtResource("9_4or2l")]
-transform = Transform3D(-1.5518635e-05, 0, -355.025, 0, 355.025, 0, 355.025, 0, -1.5518635e-05, 169.99847, 143.66501, -281.95453)
+transform = Transform3D(-7.759318e-08, 0, -1.775125, 0, 1.775125, 0, 1.775125, 0, -7.759318e-08, 169.99847, 143.66501, -281.95453)
 
 [node name="20" parent="assets/store" unique_id=248001362 instance=ExtResource("10_l2ggg")]
-transform = Transform3D(-3.7050864e-05, 0, -847.625, 0, 847.625, 0, 847.625, 0, -3.7050864e-05, -56.508797, -0.033302307, -284.51233)
+transform = Transform3D(-1.8525432e-07, 0, -4.238125, 0, 4.238125, 0, 4.238125, 0, -1.8525432e-07, -56.508797, -0.033302307, -284.51233)
 
-[node name="Players" type="Node3D" parent="." unique_id=1690561935]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.1141, 86.84989, 0)
+[node name="Player" parent="." unique_id=455042879 instance=ExtResource("2_d8w34")]
+transform = Transform3D(0.17364824, 0, 0.98480785, 0, 1, 0, -0.98480785, 0, 0.17364824, 65.175, 56, -77.071)
+speed = 20.0
 
-[node name="Player" parent="Players" unique_id=455042879 instance=ExtResource("2_d8w34")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 286.75214, 26.683678, -154.2518)
-speed = 40.0
+[node name="Television" parent="." unique_id=104915601 instance=ExtResource("12_5xhxv")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -76.10751, 52.928223, -67.93166)
+
+[node name="SecretAlienNPC" type="StaticBody3D" parent="." unique_id=933111222]
+transform = Transform3D(-3.5300152, 0, 4.8517003, 0, 6, 0, -4.8517003, 0, -3.5300152, -73.10751, 52.928223, -61.533707)
+script = ExtResource("94_alien")
+dialogue_lines = Array[String](["oh. you actually found all of them.", "i wasn't sure anyone would.", "the little pieces, i mean.", "i've been watching this whole time.", "you can stop looking now."])
+repeat_lines = Array[String](["still here. still watching."])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecretAlienNPC" unique_id=933222333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50335693, 0)
+shape = SubResource("BoxShape3D_secretalien")
+
+[node name="Alien" parent="SecretAlienNPC" unique_id=933333444 instance=ExtResource("95_alienmesh")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="EndingSequence" type="Node" parent="." unique_id=977888111]
+script = ExtResource("96_ending")
+television_path = NodePath("../Television")
+
+[node name="Map04_Map05" type="Area3D" parent="." unique_id=866111222]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 73.733, 56, -76.013)
+script = ExtResource("92_trig")
+target_scene = "res://Scenes/Maps/Map_04_ArcadeAlley.tscn"
+spawn_id = "Map04_Map05"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map04_Map05" unique_id=866222333]
+shape = SubResource("BoxShape3D_map04map05exit")
+
+[node name="ExitArrow" parent="Map04_Map05" unique_id=866333444 instance=ExtResource("99_arrow")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="SpawnPoint" type="Marker3D" parent="Map04_Map05" unique_id=866444555]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 4.1730576)
+script = ExtResource("97_spawn")
+spawn_id = "Map04_Map05"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=96926472]
 environment = SubResource("Environment_4or2l")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=645192837]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
+light_color = Color(0.7, 0.78, 1, 1)
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="CityGlow" type="Node" parent="." unique_id=700444555]
+script = ExtResource("98_glow")
+target_paths = Array[NodePath]([NodePath("assets/school"), NodePath("assets/store")])

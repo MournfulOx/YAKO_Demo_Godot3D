@@ -12,6 +12,11 @@ func _ready() -> void:
 func _on_ending_triggered() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
+
+	var player := get_tree().get_first_node_in_group("player")
+	if player and player.has_method("lock_for_ending"):
+		player.lock_for_ending()
+
 	var ui: CanvasLayer = load("res://Scenes/Ending/ending_title_ui.gd").new()
 	get_tree().root.add_child(ui)
 	ui.play()

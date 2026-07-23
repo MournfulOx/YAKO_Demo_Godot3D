@@ -21,22 +21,31 @@
 [ext_resource type="Texture2D" uid="uid://brmr4nwfyj48m" path="res://Scenes/Assets/Zee/all_buildings/wall/school_gate/gate (1)_1.png" id="17_3c2v4"]
 [ext_resource type="Texture2D" uid="uid://ccm7yyknu6eth" path="res://Scenes/Assets/Zee/all_buildings/wall/school_gate/gate (1)_2.png" id="18_gcxpu"]
 [ext_resource type="Texture2D" uid="uid://d61760fnmcvd" path="res://Scenes/Assets/Zee/all_buildings/wall/school_gate/gate (1)_3.png" id="19_f55ek"]
+[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
+[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n2tul"]
-sky_top_color = Color(0.012, 0.012, 0.045, 1)
-sky_horizon_color = Color(0.05, 0.04, 0.09, 1)
-sky_energy_multiplier = 0.15
-ground_horizon_color = Color(0.12, 0.07, 0.03, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
+shader = ExtResource("93_stars")
+shader_parameter/color_top = Color(0.012, 0.012, 0.045, 1)
+shader_parameter/color_horizon = Color(0.03, 0.015, 0.06, 1)
+shader_parameter/color_ground = Color(0.08, 0.04, 0.01, 1)
+shader_parameter/star_density = 0.968
+shader_parameter/star_brightness = 0.65
+shader_parameter/star_size = 0.12
+shader_parameter/twinkle_speed = 0.9
 
 [sub_resource type="Sky" id="Sky_ppbka"]
-sky_material = SubResource("ProceduralSkyMaterial_n2tul")
+sky_material = SubResource("ShaderMaterial_stars")
 
 [sub_resource type="Environment" id="Environment_6i5j1"]
 background_mode = 2
 sky = SubResource("Sky_ppbka")
 ambient_light_source = 2
 ambient_light_color = Color(0.08, 0.1, 0.2, 1)
-ambient_light_energy = 0.18
+ambient_light_energy = 0.4
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 1.4
@@ -44,8 +53,14 @@ glow_bloom = 0.25
 glow_hdr_threshold = 0.75
 fog_enabled = true
 fog_light_color = Color(0.07, 0.08, 0.14, 1)
-fog_density = 0.014
+fog_density = 0.008
 fog_sky_affect = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_map03map04exit"]
+size = Vector3(5, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_map04map05exit"]
+size = Vector3(27.269775, 3, 8.991333)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0bwm"]
 resource_name = "City_Road_mat"
@@ -509,6 +524,51 @@ shadow_mesh = SubResource("ArrayMesh_0412f")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=503492159]
 environment = SubResource("Environment_6i5j1")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=736451928]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
+light_color = Color(0.7, 0.78, 1, 1)
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="CityGlow" type="Node" parent="." unique_id=700333444]
+script = ExtResource("98_glow")
+target_paths = Array[NodePath]([NodePath("Assets/Buildings"), NodePath("school"), NodePath("school_walls")])
+
+[node name="Map03_Map04" type="Area3D" parent="." unique_id=744111222]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 334.8393, 2.702, 0.5101118)
+script = ExtResource("92_trig")
+target_scene = "res://Scenes/Maps/Map_03_UnderTheOverPass.tscn"
+spawn_id = "Map03_Map04"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map03_Map04" unique_id=744222333]
+shape = SubResource("BoxShape3D_map03map04exit")
+
+[node name="ExitArrow" parent="Map03_Map04" unique_id=744333444 instance=ExtResource("99_arrow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="SpawnPoint" type="Marker3D" parent="Map03_Map04" unique_id=744444555]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 4)
+script = ExtResource("97_spawn")
+spawn_id = "Map03_Map04"
+
+[node name="Map04_Map05" type="Area3D" parent="." unique_id=855111222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230.92197, 1.5818455, 34.923584)
+script = ExtResource("92_trig")
+target_scene = "res://Scenes/Maps/Map_05_SchoolRooftop.tscn"
+spawn_id = "Map04_Map05"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map04_Map05" unique_id=855222333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.2456665)
+shape = SubResource("BoxShape3D_map04map05exit")
+
+[node name="ExitArrow" parent="Map04_Map05" unique_id=855333444 instance=ExtResource("99_arrow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4952087, 3.2014787, 0)
+
+[node name="SpawnPoint" type="Marker3D" parent="Map04_Map05" unique_id=855444555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.320465)
+script = ExtResource("97_spawn")
+spawn_id = "Map04_Map05"
 
 [node name="Players" type="Node3D" parent="." unique_id=1707387605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.7283, 0, 0)
