@@ -588,6 +588,34 @@ size = Vector3(5.4292526, 12.335602, 199.29683)
 size = Vector3(76.20776, 3.9902344, 3.94104)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_slhpd"]
+size = Vector3(1, 1.9737549, 6.479492)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6pxj"]
+size = Vector3(30.771133, 4.317505, 1.0596924)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68s0v"]
+size = Vector3(3.5268173, 5.9422607, 207.33228)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45qes"]
+size = Vector3(0.091674805, 1, 2.534378)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4p7yq"]
+size = Vector3(1.1341553, 1.9434814, 50.679047)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b02jd"]
+size = Vector3(115.36017, 3.8004456, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lp5co"]
+size = Vector3(0.43139648, 2.0997314, 2.057129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8717q"]
+size = Vector3(197.91014, 3.8953857, 4.3602295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyivj"]
+size = Vector3(7.4802246, 6.216858, 112.04422)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtuoc"]
+size = Vector3(7.251953, 14.292114, 24.015625)
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=819991932]
 environment = SubResource("Environment_ohl52")
@@ -1413,8 +1441,61 @@ shape = SubResource("BoxShape3D_2t58l")
 debug_color = Color(0.2509804, 0.63529414, 0, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=976493822]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 167.01706, 0, 255.96143)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 161.197, 2.4343872, 240.27711)
 shape = SubResource("BoxShape3D_slhpd")
 debug_color = Color(0.3019608, 0.627451, 0, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=1152357463]
+transform = Transform3D(4.43, 0, 0, 0, 4.43, 0, 0, 0, 4.43, 92.05693, 7.348273, 254.13222)
+shape = SubResource("BoxShape3D_v6pxj")
+debug_color = Color(0.101960786, 0.64705884, 0, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="BuildingBoundary/02/SouthBuildingCollision" unique_id=218977576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.906189, 2.4711304, 148.72751)
+shape = SubResource("BoxShape3D_68s0v")
+debug_color = Color(0, 0.6431373, 0.32941177, 1)
+
+[node name="03" type="Node3D" parent="BuildingBoundary" unique_id=1419434143]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BuildingBoundary/03" unique_id=799296285]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingBoundary/03/StaticBody3D" unique_id=847756855]
+transform = Transform3D(11.99253, 0, 11.99253, 0, 16.96, 0, -11.99253, 0, 11.99253, 40.66199, 0, -39.216564)
+shape = SubResource("BoxShape3D_45qes")
+debug_color = Color(0, 0.6156863, 0.59607846, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BuildingBoundary/03/StaticBody3D" unique_id=1164195279]
+transform = Transform3D(5.185, 0, 0, 0, 5.185, 0, 0, 0, 5.185, 27.082167, 2.4459755, -185.23361)
+shape = SubResource("BoxShape3D_4p7yq")
+debug_color = Color(0, 0.63529414, 0.44313726, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BuildingBoundary/03/StaticBody3D" unique_id=548120489]
+transform = Transform3D(2.045, 0, 0, 0, 2.045, 0, 0, 0, 2.045, 173.35356, 2.8634558, -24.224964)
+shape = SubResource("BoxShape3D_b02jd")
+debug_color = Color(0, 0.6392157, 0.37254903, 1)
+
+[node name="04" type="Node3D" parent="BuildingBoundary" unique_id=1157126439]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BuildingBoundary/04" unique_id=1451639774]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildingBoundary/04/StaticBody3D" unique_id=1376917438]
+transform = Transform3D(8.400429, 0, 8.400429, 0, 11.88, 0, -8.400429, 0, 8.400429, -34.4205, 6.532405, 30.80963)
+shape = SubResource("BoxShape3D_lp5co")
+debug_color = Color(1, 0, 0.15686275, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BuildingBoundary/04/StaticBody3D" unique_id=657117261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.26405, 1.4476929, 22.65772)
+shape = SubResource("BoxShape3D_8717q")
+debug_color = Color(0.9859908, 0, 0.32339355, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BuildingBoundary/04/StaticBody3D" unique_id=1820878068]
+transform = Transform3D(1.905, 0, 0, 0, 1.905, 0, 0, 0, 1.905, -30.486156, 4.969056, 144.1952)
+shape = SubResource("BoxShape3D_wyivj")
+debug_color = Color(1, 0, 0.13333334, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BuildingBoundary/04/StaticBody3D" unique_id=1624997471]
+transform = Transform3D(3.255, 0, 0, 0, 3.255, 0, 0, 0, 3.255, -42.15998, 21.632917, 310.76468)
+shape = SubResource("BoxShape3D_wtuoc")
+debug_color = Color(0.99607843, 0.047058824, 0, 1)
 
 [editable path="Map 02/Asset New/Building/Commercial/03"]
