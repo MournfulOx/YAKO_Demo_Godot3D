@@ -2,15 +2,25 @@ extends CanvasLayer
 
 const GAME_W := 320
 const GAME_H := 240
-const TITLE_FADE   := 1.0
-const TITLE_HOLD   := 2.0
-const CREDITS_FADE := 1.0
-const LOGO_SIZE     := 64.0
-const STUDIO_NAME   := "YellowDuck Studio"
-const CREDITS_TEXT  := "Producer / Programmer: FENG JIAQI (Jacky)\nMap & Art: LIM ZHI YUAN (Zee)"
+const TITLE_FADE      := 1.0
+const TITLE_HOLD      := 2.0
+const QUOTE_FADE      := 1.8
+const QUOTE_LINE_HOLD := 4.5
+const QUOTE_GAP       := 1.2
+const CREDITS_FADE    := 1.0
+const CREDITS_HOLD    := 4.0
+const LOGO_SIZE       := 64.0
+const STUDIO_NAME     := "YellowDuck Studio"
+const CREDITS_TEXT    := "Producer / Programmer: FENG JIAQI (Jacky)\nMap & Art: LIM ZHI YUAN (Zee)"
+const CLOSING_LINES : Array[String] = [
+	"the owl came down from the roof, at last.",
+	"it had somewhere to be, after all.",
+]
+const MAIN_MENU_SCENE := "res://Scenes/UI/MainMenu.tscn"
 
 var _overlay : ColorRect
 var _label   : Label
+var _quote   : Label
 var _logo    : TextureRect
 var _studio  : Label
 var _credits : Label
@@ -31,6 +41,10 @@ func _ready() -> void:
 
 	_label = _make_label("YAKO", SettingsState.get_active_font_size(16), pf, Vector2.ZERO, Vector2(GAME_W, GAME_H))
 	add_child(_label)
+
+	_quote = _make_label("", SettingsState.get_display_font_size(9, 16), pf, Vector2(24, 0), Vector2(GAME_W - 48, GAME_H))
+	_quote.add_theme_constant_override("line_spacing", 6)
+	add_child(_quote)
 
 	var logo_tex := load("res://Scenes/Assets/Logo/YellowDuck.jpg") as Texture2D
 	_logo = TextureRect.new()
@@ -83,8 +97,41 @@ func play() -> void:
 	tw.tween_property(_label, "modulate:a", 0.0, CREDITS_FADE)
 	await tw.finished
 
+	for line: String in CLOSING_LINES:
+		_quote.text = tr(line)
+
+		tw = create_tween()
+		tw.tween_property(_quote, "modulate:a", 1.0, QUOTE_FADE).set_trans(Tween.TRANS_SINE)
+		await tw.finished
+
+		await get_tree().create_timer(QUOTE_LINE_HOLD).timeout
+
+		tw = create_tween()
+		tw.tween_property(_quote, "modulate:a", 0.0, QUOTE_FADE).set_trans(Tween.TRANS_SINE)
+		await tw.finished
+
+		await get_tree().create_timer(QUOTE_GAP).timeout
+
 	tw = create_tween()
 	tw.tween_property(_logo, "modulate:a", 1.0, CREDITS_FADE)
 	tw.parallel().tween_property(_studio, "modulate:a", 1.0, CREDITS_FADE)
 	tw.parallel().tween_property(_credits, "modulate:a", 1.0, CREDITS_FADE)
 	await tw.finished
+
+	await get_tree().create_timer(CREDITS_HOLD).timeout
+
+	tw = create_tween()
+	tw.tween_property(_logo, "modulate:a", 0.0, CREDITS_FADE)
+	tw.parallel().tween_property(_studio, "modulate:a", 0.0, CREDITS_FADE)
+	tw.parallel().tween_property(_credits, "modulate:a", 0.0, CREDITS_FADE)
+	await tw.finished
+
+	get_tree().paused = false
+	SceneManager.change_scene(MAIN_MENU_SCENE)
+	await get_tree().create_timer(1.0).timeout
+
+	tw = create_tween()
+	tw.tween_property(_overlay, "modulate:a", 0.0, 0.6)
+	await tw.finished
+
+	queue_free()

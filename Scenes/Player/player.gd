@@ -42,7 +42,9 @@ var _step_timer : float = 0.0
 var _bob_time   : float = 0.0
 
 func _ready() -> void:
+	add_to_group("player")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	call_deferred("_apply_pending_spawn")
 	_carton_rest = carton.position
 	_cig_rest    = cigarette.position
 	carton.visible    = false
@@ -65,6 +67,20 @@ func _ready() -> void:
 	_step_audio.stream    = gen
 	_step_audio.volume_db = -18.0
 	add_child(_step_audio)
+
+func lock_for_ending() -> void:
+	if _pause_menu:
+		_pause_menu.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _apply_pending_spawn() -> void:
+	var pending := TravelState.consume_pending_spawn()
+	if pending.is_empty():
+		return
+	for marker in get_tree().get_nodes_in_group("spawn_point"):
+		if marker.spawn_id == pending:
+			global_position = marker.global_position
+			rotation.y = marker.global_rotation.y
+			break
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

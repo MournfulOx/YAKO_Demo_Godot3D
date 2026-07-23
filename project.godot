@@ -11,18 +11,18 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="res://Scenes/UI/MainMenu.tscn"
+run/main_scene="uid://dd7yfb3atb8io"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-DuckState="*res://autoload/DuckState.gd"
 SceneManager="*res://autoload/SceneManager.gd"
 YellowDuckState="*res://autoload/YellowDuckState.gd"
 BackroomState="*res://autoload/BackroomState.gd"
 Localization="*res://autoload/Localization.gd"
 SettingsState="*res://autoload/SettingsState.gd"
+TravelState="*res://autoload/TravelState.gd"
 
 [display]
 

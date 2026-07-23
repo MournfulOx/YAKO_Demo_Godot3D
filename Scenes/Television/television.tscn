@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bpx6imu77xj3q" path="res://Scenes/Television/television.gd" id="2_script"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tv"]
-size = Vector3(3.9196777, 3.5, 2.772461)
+size = Vector3(3.9196777, 3.5, 2.7579956)
 
 [node name="Television" type="StaticBody3D" unique_id=104915601]
 script = ExtResource("2_script")
@@ -18,5 +18,5 @@ face_player_on_interact = false
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.5471326)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=939189787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0853167, -0.042015553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0853167, 0.21753645)
 shape = SubResource("BoxShape3D_tv")

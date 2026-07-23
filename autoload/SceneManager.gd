@@ -36,11 +36,13 @@ func change_scene(path: String) -> void:
 	_transition(path)
 
 func _transition(path: String) -> void:
+	var resolved_path := _resolve(path)
+
 	var tw := create_tween()
 	tw.tween_property(_overlay, "modulate:a", 1.0, 0.35)
 	await tw.finished
 
-	var show_name := _resolve(path).begins_with("res://Scenes/Maps/")
+	var show_name := resolved_path.begins_with("res://Scenes/Maps/")
 	if show_name:
 		_label.add_theme_font_override("font", SettingsState.get_active_font())
 		_label.add_theme_font_size_override("font_size", SettingsState.get_active_font_size(6))
@@ -48,7 +50,7 @@ func _transition(path: String) -> void:
 		_label.modulate.a = 1.0
 	await get_tree().create_timer(0.6).timeout
 
-	get_tree().change_scene_to_file(path)
+	get_tree().change_scene_to_file(resolved_path)
 	await get_tree().create_timer(0.1).timeout
 
 	tw = create_tween()

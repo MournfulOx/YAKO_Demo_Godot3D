@@ -181,13 +181,138 @@ Main (Node)
 ## Night Atmosphere (WorldEnvironment)
 
 - Sky: uses `sky_stars.gdshader` (shader_type sky) — gradient matches original ProceduralSky colours + procedural pixel stars
-- Ambient: Color source, cool blue `(0.08, 0.1, 0.2)`, energy `0.18`
-- Moonlight (DirectionalLight3D): `Color(0.7, 0.78, 1.0)`, energy `0.12`, shadows on
-- Fog: enabled, blue-grey `(0.07, 0.08, 0.14)`, density `0.014`
+- Ambient: Color source, cool blue `(0.08, 0.1, 0.2)`, energy `0.4` (raised from `0.18` — see note below)
+- Moonlight (DirectionalLight3D): `Color(0.7, 0.78, 1.0)`, energy `0.3` (raised from `0.12`), shadows on
+- Fog: enabled, blue-grey `(0.07, 0.08, 0.14)`, density `0.014` on Map_01 — **`0.0015` on Map_02–05**
+  (see note below; the two densities are deliberately different, not a drift/inconsistency)
 - Glow: intensity `1.4`, bloom `0.25`, HDR threshold `0.75` (low threshold so lamp orange triggers bloom)
 - LampPost lights: `OmniLight3D` child at local `Y=0.085` — sodium orange `(1.0, 0.62, 0.18)`, energy `3.5`, range `10`, no shadow
 
 **LampPost prefab:** `Scenes/Assets/LampPost/LampPost.tscn` — Node3D root with Mesh + LampLight (OmniLight3D). Instancing this prefab in any map auto-includes the light with correct parameters.
+
+**Unified across all 5 maps**: Map_02–05 originally shipped (from Zee's map imports) with a plain
+`ProceduralSkyMaterial` sky (no stars) and no `MoonLight` node at all — only Map_01 had the full
+night atmosphere. Both gaps were closed by copying Map_01's setup exactly: each map's `Sky`
+sub-resource now points at a `ShaderMaterial` using `sky_stars.gdshader` with the same
+`shader_parameter/*` values as Map_01 (not each map's own slightly-different `ProceduralSkyMaterial`
+top/horizon colours — deliberately replaced outright for a single consistent sky across the game),
+and each map gained its own `MoonLight` (`DirectionalLight3D`) node with identical
+transform/color/energy/`shadow_enabled` to Map_01's. Ambient/fog/glow `Environment` properties were
+already identical across all 5 maps before this pass (Zee had already matched those), so only the
+sky material and the missing directional light needed touching.
+
+**Map_02 building lights (first pass)**: after the sky/moonlight fix, Map_02 still read as very
+dark — traced to Zee having wired up a `Light` node (with 2-3 `LampLight`/`LampLight2`/`LampLight3`
+`OmniLight3D` children, sodium orange `Color(1, 0.62, 0.18)`, `light_energy = 3.5`) on only 3 of
+its ~33 buildings (`Commercial/04`, `Commercial/27`, `Commercial/05` — two more, `Commercial/03`
+and `Commercial/06`, had an empty placeholder `Light` node with no light children at all). Every
+other building had zero point-light source, leaving most of the map lit by moonlight/ambient
+alone (deliberately very dim by design). Completed the pattern on the remaining 31 buildings
+(23 Commercial + 8 Station) by adding one `StreetLamp` `OmniLight3D` directly as a child of each
+building's own instance node, using **local position `(0,0,0)`** (an identity `Transform3D`,
+i.e. no `transform` line at all) rather than copying Zee's small hand-tuned offsets — those
+offsets are only safe on the specific building scale/model they were tuned against, since this
+city's building instances carry huge, wildly-varying scale factors (roughly 40–900×) baked into
+their own transform; a zero local position is scale-invariant (`0 × anything = 0`) and so is the
+one offset guaranteed not to end up floating in a wall or the sky regardless of the parent's
+scale. Color/energy/`omni_range` (`598.71625`, matching Zee's own already-placed lights rather
+than Map_01's much smaller `range = 10` LampPost convention — this city's buildings sit hundreds
+of units apart, so a small range would be pointless here) were copied verbatim from Zee's
+existing lights as the only real precedent for "what looks right at this coordinate scale."
+**Not visually confirmed** — same standing caveat as every other placeholder placement in this
+project: open Map_02 in the editor and check whether `598.71625` reads as too broad/blown-out
+now that ~30 buildings each cast one, and tune down if so. Map_03/04/05 have not had this same
+per-building lamp pass yet.
+
+**City-glow pass (80s city-pop look)**: even after the ambient/moonlight bump, Zee's skyscraper/
+building GLBs (`Scenes/Assets/Zee/all_buildings/...`) still read as flat dark silhouettes —
+their `StandardMaterial3D`s carry an albedo texture (often already painted with warm lit-window
+detail, e.g. `japan_house_restaurant_by_night..glb`) but never had `emission_enabled` set, so
+none of that texture actually glows; it just sits there unlit like every other surface. Fixed
+with a small reusable runtime script, **`Scenes/city_glow.gd`** (plain `Node`, not `Node3D`),
+following the same "duplicate-and-override at `_ready()`" idiom already used by `npc_base.gd`/
+`television.gd` rather than touching the imported `.glb`s or their `.import` files directly
+(equivalent in spirit to `tools/fbx_to_glb_with_texture.py`'s existing "bake texture as both
+albedo and emission" trick for `SkyscraperPack`, just applied at runtime instead of at import
+time, since reimporting isn't something this environment can trigger). `@export var
+target_paths: Array[NodePath]` lists the building-container node(s) to walk (scoped narrowly —
+deliberately not the whole map — to avoid accidentally lighting up roads/sidewalks/fences too);
+`@export var emission_energy: float = 1.5` matches the value the project's own
+`fbx_to_glb_with_texture.py` already uses for the same effect. `_apply_glow()` recurses from
+each target, and for every `MeshInstance3D` surface whose material is a `StandardMaterial3D`
+with an `albedo_texture` and `emission_enabled == false`, duplicates that material (so the glow
+doesn't leak onto every other instance sharing the same imported mesh resource) and sets
+`emission_texture = albedo_texture` at the configured energy. Instanced as a `CityGlow` node
+(`parent="."`) in Map_02/03/04/05 (Map_01 has no Zee buildings, so skipped), each with its own
+`target_paths` since every map's building container ended up named differently by Zee — Map_02:
+`Map 02/Asset New/Building`; Map_03: `buildings` + `commercial_buildings`; Map_04:
+`Assets/Buildings` + `school` + `school_walls`; Map_05: `assets/school` + `assets/store`.
+**Reported as still not visibly working** after the first pass — root cause: the type check was
+`mat is StandardMaterial3D`, but glTF/Sketchfab imports very commonly land as `ORMMaterial3D`
+(Godot's variant for models with a packed occlusion/roughness/metallic map) — a **sibling** of
+`StandardMaterial3D` under `BaseMaterial3D`, not a subclass of it, so `is StandardMaterial3D`
+silently failed to match most of these buildings' materials and the glow code never ran on them
+at all. Fixed by checking/duplicating as `BaseMaterial3D` instead (both classes expose the same
+`albedo_texture`/`emission_enabled`/`emission_texture`/`emission_energy_multiplier` properties,
+so the rest of the logic is unchanged). Also bumped the default `emission_energy` `1.5 → 3.5`
+(matching this project's own already-established "clearly visible light source" value, e.g. the
+street lamps' `light_energy = 3.5`) so the glow reads as unmistakable rather than subtle once it
+actually applies. **Still not visually confirmed** — same standing caveat, open each map and
+check the effect now actually shows up on the buildings, and tune each `CityGlow` node's own
+`emission_energy` export if still too dim or blown out.
+
+**Fog was hiding the glow on anything not close by**: user correctly diagnosed that even a
+correctly-glowing building would vanish at a distance because `fog_density = 0.014` (copied
+unchanged from Map_01 during the earlier "unify across all 5 maps" pass) is tuned for Map_01's
+much smaller SevenEleven-store scale. Godot's exponential depth fog is roughly `1 - exp(-density
+* distance)`; at `0.014`, fog reaches ~95% opacity by ~215 units — but Zee's city places
+buildings hundreds of units apart (the `omni_range = 598.71625` Zee used on their own working
+lights is a good proxy for the scale this content was actually built at), so most of Map_02–05
+was already fully fogged out well before reaching most buildings, regardless of how bright their
+emission is. Fixed by dropping `fog_density` on **Map_02/03/04/05 only** — Map_01 keeps its original `0.014`,
+since that value is correct for its own (much smaller) scale and was never the problem. First
+attempt went to `0.0015`, which fixed distant visibility but then reportedly felt like the fog had
+disappeared entirely — reasonable, since at that density even a 100-unit close-up view is barely
+~14% fogged, losing the hazy/misty look the night atmosphere depends on. Went to `0.003` next (~26%/59%/83%/95% at 100/300/600/1000 units) — still reported too light, then
+`0.0045` (~36%/74%/93%/99%) — still not foggy enough; the user's actual goal turned out to be
+stronger than "some haze": **regular geometry should become hard to see within a fairly short
+distance, while distant *lit* buildings should still be dimly, hazily perceptible** — i.e. the
+classic heavy-fog look where only bright light sources punch through. Currently **`0.008`**:
+~55% by 100 units, ~80% by 200, ~96% by 400, ~99.2% by 600 — unlit geometry is genuinely hard to
+read past a couple hundred units, which is the point. For a light source to still read as a hazy
+glow at 600+ units despite only ~0.8% of its color surviving that blend, it has to be *far*
+brighter than a normal surface to begin with — so `city_glow.gd`'s default `emission_energy` was
+also raised **`3.5 → 10.0`** alongside this fog increase (comfortably over the `glow_hdr_threshold
+= 0.75` bloom cutoff even after heavy fog attenuation, so bloom can still pick it up and let it
+visibly bleed through the haze). The fog number alone was never going to produce "dark fog +
+glowing windows" — that look needs the emissive buildings to be disproportionately bright
+*relative to* the fog, not just the fog itself tuned differently. **Not visually confirmed** —
+same standing caveat as everything else in this pass; reasoned from Godot's exponential depth-fog
+falloff (`1 - exp(-density * distance)`) and how HDR bloom interacts with fog-attenuated
+brightness, not measured in the editor.
+
+**Recurring gotcha while tuning this**: `Scenes/Maps/Map_03_UnderTheOverPass.tscn` reverted an
+external `fog_density` edit back to a stale value partway through this back-and-forth — almost
+certainly the documented "editor has the scene open, its next save clobbers external edits"
+pitfall (see the note under `## Scene Transition System` below) rather than anything wrong with
+the edit itself. If a map's value doesn't seem to be taking effect in-editor, check whether that
+scene tab is open and close it before any further external edits.
+
+**Still reported too dark after the above** — most likely because these per-building lights
+are children of each building's own instance node, and this city's building models carry wildly
+inconsistent scale factors (~40×–900×, several also pre-rotated 90° from FBX import) with a
+pivot origin that doesn't reliably sit near the model's street-facing exterior — confirmed
+indirectly by the fact that Zee's own 3 working lights needed hand-tuned local offsets rather
+than sitting at each building's raw origin. A `(0,0,0)`-local light is scale/rotation-safe
+positionally, but if the model's origin happens to fall inside its own solid mesh, the light is
+simply occluded and invisible regardless. Diagnosing/repositioning each of the 31 lights would
+need per-building visual inspection in the editor, which isn't available here, so per user's
+choice the fix instead went broad rather than per-building: `ambient_light_energy` raised
+`0.18 → 0.4` and `MoonLight`'s `light_energy` raised `0.12 → 0.3`, applied identically across all
+5 maps (kept unified rather than only brightening Map_02) — see the `## Night Atmosphere` section
+above for the current values. The 31 per-building `StreetLamp` nodes from the first pass are left
+in place (harmless even if several are currently occluded) rather than reverted; revisit their
+placement once someone can eyeball each building in the editor.
 
 ## Player Scene Structure
 
@@ -421,19 +546,170 @@ Localization` below.
 - `_parse_name(path)` — strips `Map_XX_` prefix, splits CamelCase by character iteration (not RegEx — RegEx in static func returns empty results)
 - Font: `res://Scenes/Fonts/pixel.ttf`, size 6, white with 1px black outline via `add_theme_*_override`
 
+**Fixed a real bug**: `_transition()` computed `_resolve(path)` only to decide whether to show the
+location-name label, then called `get_tree().change_scene_to_file(path)` with the original,
+*unresolved* `path` — so a `target_scene` stored as `uid://...` (which `@export_file` picks in
+Godot 4.4+'s file browser) could silently fail to load. Reported as "walked through the exit
+trigger, scene never changed." Now both the label-name check and the actual scene change use the
+same `resolved_path := _resolve(path)`.
+
+## Map_05 Television Never Triggered the Ending
+
+Reported bug: talking to the `Television` in Map_05 never produced the ending (cut to black +
+title card). Root cause: `television.gd` only *emits* `ending_triggered` — actually playing the
+ending is `Scenes/Ending/ending_sequence.gd`'s job, and that's a **separate node** that has to be
+placed in the map and pointed at the Television via `@export var television_path: NodePath`. Since
+`Map_05_SchoolRooftop.tscn` never had an `EndingSequence` node at all (confirmed by grep — zero
+matches), the signal fired into the void every time. Fixed by adding one (`television_path =
+NodePath("../Television")`), matching the exact pattern already used in
+`Scenes/Television/television_test.tscn`.
+
+Also explicitly set `show_screen_static = true` / `flicker_screen_static = false` on Map_05's
+`Television` instance — these already matched `television.gd`'s own defaults (so functionally
+nothing changes), but were made explicit per direct request rather than left implicit, since the
+ask was specifically "same look as `television_test.tscn`."
+
+## Map_05 Scale Mismatch (school.glb vs Zee's Commercial/store buildings)
+
+Reported as "player and buildings are out of proportion" — confirmed direction: buildings read as
+gigantic, player as tiny. Root cause: `school.glb` (the map's main building) is instanced at
+`6.115x`, matching the identical value used for the same asset in Map_04 — clearly a deliberate,
+consistent convention for this specific model. But the three `assets/store/*` Commercial-building
+instances (the same Zee city pack reused across Map_02–05) were scaled `355x`–`848x` — a ~50–150×
+mismatch against the school. This scale gap has existed since Map_02 (every map reuses the same
+Commercial building instances at similarly huge multipliers) but was never reported there, likely
+because those maps never place `school.glb` alongside them to make the contrast obvious.
+
+Fixed by dividing each `store` instance's scale by 100 (bringing `355x/498x/848x` down to
+`~3.55x/4.98x/8.48x`, the same order of magnitude as the school's `6.115x`), touching only the
+scale component of each `Transform3D` — position/rotation untouched. Also found and reset two
+other nodes that had apparently been scaled *up* as a workaround for the oversized buildings
+rather than fixing the buildings themselves: `Player` was at `5x` in this map specifically (every
+other map's `Player` is plain `1x`), and `Television` was at `4x` (its own doc note already
+states it's pre-scaled to real-world size, `1x`, needing no compensation). Both reset to `1x`.
+
+**Not visually confirmed** — the `÷100` correction factor was inferred from matching order-of-
+magnitude with `school.glb`'s already-consistent `6.115x`, not measured against each building's
+actual bounding box, so the three store buildings may still need individual fine-tuning once
+seen in the editor. **This same `355x`–`848x` scale likely still exists unfixed in Map_02/03/04**
+for these building instances — only Map_05 was reported/touched this pass.
+
+**Player still reported too small after the above** — rather than assume `school.glb`'s `6.115x`
+was itself the correct reference (it was only ever inferred from "used consistently in two maps,"
+not measured), treated this as the same kind of iterative, feedback-driven tuning as the fog-
+density pass earlier: halved every building's scale again (school `6.115x → 3.0575x`; the three
+store instances proportionally to `~2.49x/1.775x/4.238x`), keeping the ratios already matched
+between them. **Not visually confirmed** — same caveat; if still off, the next step is the same
+halving move again (or the reverse, if this overshot), not a full re-derivation.
+
 ## Scene Transition System
 
 `Scenes/scene_trigger.gd` — attach to any `Area3D` node to create a map exit trigger.
 
 ```gdscript
 @export_file("*.tscn") var target_scene: String = ""
+@export var spawn_id: String = ""
 ```
 
 - Detects `CharacterBody3D` entering the area via `body_entered`
+- If `spawn_id` is set, calls `TravelState.set_pending_spawn(spawn_id)` **before**
+  `SceneManager.change_scene(target_scene)` — see `## Reciprocal Spawn Points` below.
+  `gated_scene_trigger.gd` has the same `spawn_id` export, applied after its NPC-completion check
+  passes.
 - Calls `SceneManager.change_scene(target_scene)` — do NOT use `call_deferred(change_scene_to_file, …)` directly
 - Set **Target Scene** in Inspector to the destination `.tscn` path
 - CollisionShape3D: use a thin BoxShape3D (`Vector3(5, 3, 0.5)`) spanning the exit edge
 - Collision Layer = 0 (none), Mask = Layer 1 (Player)
+
+## Reciprocal Spawn Points
+
+Direct request, fixing a real bug: previously every map's `Player` node had one fixed authored
+position, so leaving Map_02 → Map_03 and immediately walking back into Map_02 always dropped the
+player at Map_02's single default spawn — not anywhere near the doorway they'd just walked back
+through. Fixed with a small three-piece system rather than special-casing it per map:
+
+- **`autoload/TravelState.gd`** (new autoload) — a single `pending_spawn_id: String`.
+  `set_pending_spawn(id)` / `consume_pending_spawn()` (returns the id and clears it — read-once,
+  so a later ordinary scene load with no pending id behaves exactly as before). Registered in
+  `project.godot`'s `[autoload]` list.
+- **`scene_trigger.gd`** / **`gated_scene_trigger.gd`** — both gained `@export var spawn_id: String`;
+  if set, they call `TravelState.set_pending_spawn(spawn_id)` right before `SceneManager.change_scene()`.
+- **`Scenes/spawn_point.gd`** (new, `extends Marker3D`) — `@export var spawn_id: String`; on
+  `_ready()`, adds itself to group `"spawn_point"` (skipped entirely if `spawn_id` is empty, so a
+  stray unconfigured marker can't silently match anything). Purely a position/rotation reference —
+  no visuals, no logic beyond registering itself.
+- **`player.gd`** — new `_apply_pending_spawn()`, called via `call_deferred()` at the top of
+  `_ready()` (before the cigarette/dialogue/pause-menu setup that already lived there): consumes
+  `TravelState.consume_pending_spawn()`; if non-empty, scans `get_tree().get_nodes_in_group("spawn_point")`
+  for a matching `spawn_id` and snaps `global_position`/`global_rotation.y` to it (yaw only —
+  pitch/roll stay untouched, matching how `npc_base.gd`'s face-player turn also only ever touches
+  yaw; reads the marker's *global* rotation rather than its local one, since a `SpawnPoint` sitting
+  under a rotated trigger `Area3D` would otherwise report the wrong facing direction). If no
+  pending id, or no matching marker is found in the new scene, the player just ends up at whatever
+  position was authored on the `Player` node in that scene, i.e. current behavior is unchanged
+  when this system isn't used.
+  **Must be `call_deferred()`, not a direct call** — reported bug: arriving back at a map always
+  landed on the map's plain authored `Player` position, never the matching `SpawnPoint`. Root
+  cause is Godot's `_ready()` ordering: it runs bottom-up per branch, but across *siblings* it
+  fires in tree order, and `Player` is declared before the exit-trigger `Area3D` (whose child
+  `SpawnPoint` only joins the `"spawn_point"` group in its own `_ready()`) in every map file. A
+  direct call to `_apply_pending_spawn()` from `Player._ready()` therefore always ran before that
+  `SpawnPoint` had registered itself, so the group lookup came up empty every time. Deferring the
+  call lets it run after the whole scene's `_ready()` pass finishes, by which point every
+  `SpawnPoint` sibling has already joined the group.
+
+**Naming convention**: one `spawn_id` per *connection*, shared by both directions — e.g.
+`"Map01_Map02"` is set on both Map_01's exit-to-02 trigger and Map_02's exit-to-01 trigger, and
+both maps each get their own `SpawnPoint` marker using that same id (positioned appropriately for
+*that* map's side of the doorway). This halves the bookkeeping versus a separate id per direction —
+each map only ever needs to define spawn markers for the connections *it itself* has an exit for.
+
+**Placement pattern that survived a live-editing session**: spawn markers are added as a **child
+of the trigger `Area3D` itself** (or, when that trigger's own `CollisionShape3D` carries a further
+local offset — as `Map_01`'s original `ExitTrigger` does — a child of the `CollisionShape3D`
+instead), with a small local position offset along whichever axis the trigger's own `BoxShape3D`
+is thinnest on (i.e. the "walk-through" axis) — e.g. `Vector3(0, 0, 2)` when the box's `size.z` is
+the small dimension, `Vector3(3, 0, 0)` when `size.x` is. This was deliberately chosen over
+computing an absolute world position by hand: this exact session had Map_02's `ExitToMap03` and
+Map_03's `ExitToMap02` triggers get **physically repositioned by the user mid-session** (Zee/the
+user actively placing these while this system was being built), and a hand-computed world offset
+would have gone stale immediately — a locally-offset child re-derives the correct world position
+automatically no matter where the parent trigger later moves. This is the same trick already used
+for `ExitArrow` (see below) once it got reparented under its trigger instead of living at the map
+root with an absolute transform.
+**Currently wired**: `"Map01_Map02"` (Map_01 `Area3D` ↔ Map_02 `Map01_Map02`), `"Map02_Map03"`
+(Map_02 `Map02_Map03` ↔ Map_03 `ExitToMap02`), `"Map03_Map04"` (Map_03 `Map03_Map04` ↔ Map_04
+`Map03_Map04`), and `"Map04_Map05"` (Map_04 `Map04_Map05` ↔ Map_05 `Map04_Map05`) — all 5 maps are
+now reciprocally connected end to end (Map_01↔02↔03↔04↔05). All positions on the Map_03↔04 and
+Map_04↔05 connections are placeholder guesses (offset from each map's own player spawn) since
+neither map's real layout could be seen from here — same pattern: pick a shared id, set
+`spawn_id` on both directions' triggers, add a `SpawnPoint` (`spawn_point.gd`) child under each
+trigger nudged clear of its own `BoxShape3D`'s thin axis.
+
+**Spawn-point clearance must account for the player's own collision radius, not just the box's
+half-extent** — first pass nudged each `SpawnPoint` by exactly (or barely past) the box's
+half-extent, which sounds safe until you remember `Player`'s `CapsuleShape3D` has no radius
+override, i.e. it uses Godot's default **0.5**. A marker sitting 0.5 units past the box edge still
+has the player's own capsule overlapping the trigger volume at the moment they spawn, which
+re-fires `body_entered` immediately and bounces them right back — this was reported and reproduced
+on both the Map01_Map02 and Map02_Map03 connections (margins of ~0 and ~0.07 respectively). Fixed
+by widening every `SpawnPoint` offset to clear (box half-extent + player radius + ~1.5-2 unit
+buffer), not just the bare half-extent. All new connections should size their nudge the same way:
+`offset > half_extent_along_that_axis + 0.5 + margin`.
+**Not visually confirmed** — same standing caveat as the rest of this pass; double check a fresh
+spawn doesn't immediately re-trigger the exit it just came from, and that facing direction (each
+`SpawnPoint`'s own rotation, read via `global_rotation.y`) looks right — it defaults to 0 or
+whatever rotation you last happened to set the marker to.
+
+**Live-editor-clobbering risk observed repeatedely this session**: `project.godot` and
+`Map_03_UnderTheOverPass.tscn` both had unrelated external edits silently reverted partway through
+this same session — almost certainly the Godot editor being open with these files' state already
+loaded, then re-saving its own (stale) in-memory copy over the external change. `project.godot`
+specifically had `DuckState="*res://autoload/DuckState.gd"` (an autoload pointing at a `.gd` file
+that no longer exists, since the Duck companion system was deleted — see `## Duck Companion System
+(deprecated)`) resurrected this way after already having been removed once. If a value you (or I)
+just changed doesn't seem to be taking effect, this is the first thing to suspect — close the
+relevant scene tab / reload the project in the editor before making further external edits.
 
 **Map connectivity (Map_01–03)**: `Map_01_ConvenienceStore` → `Map_02_Crossroads` (`ExitTrigger`)
 was already wired. `Map_02_Crossroads` had **no exit triggers at all** — a real dead end once
@@ -445,6 +721,23 @@ walkable both directions. `Map_03` still has no "continue forward" exit — `Map
 `Map_05_SchoolRooftop` don't exist yet, so there's deliberately nowhere for it to go until those
 are built. Placeholder positions again — not tied to actual level geometry/edges, that's Zee's
 placement pass.
+
+**`Scenes/Assets/ExitArrow/exit_arrow.tscn`** — a small retro gold arrow (`CylinderMesh` cone for
+the head, `bottom_radius=0` so the point faces down, plus a thin `CylinderMesh` shaft above it;
+unshaded `StandardMaterial3D` with emission so it reads clearly regardless of the scene's ambient
+level) that floats above a map exit to signal "you can leave to another map here." `exit_arrow.gd`
+just bobs it up/down forever via a looping `Tween` on `position.y` (`BOB_AMPLITUDE=0.15`,
+`BOB_DURATION=1.2s` per half-cycle) — no rotation, since a cone+cylinder is rotationally symmetric
+around Y and spinning it wouldn't be visible anyway. Instanced above all 4 existing cross-map
+exits: Map_01's `ExitTrigger`, Map_02's `ExitToMap01`/`ExitToMap03`, Map_03's `ExitToMap02` — each
+placed ~1.8 units above the trigger's true world position. **Note for `ExitTrigger` specifically**:
+its `CollisionShape3D` child carries its own non-zero local offset on top of the `Area3D`'s own
+90°-rotated transform, so the arrow's placement had to be computed by actually transforming that
+child offset through the parent's rotation+translation — not just read off the `Area3D` node's own
+transform line, which would have been off by roughly 54 units. Map_02/03's own trigger
+`CollisionShape3D` children have no offset (identity), so those two arrows use the trigger node's
+transform directly. Not placed on any Map_04/05 exit since neither map has a working exit trigger
+yet (per `## Scene Transition System` below).
 
 **`Scenes/gated_scene_trigger.gd`** — same shape as `scene_trigger.gd` but locks the exit
 behind an NPC conversation. `@export var required_npc_path: NodePath` in addition to
@@ -576,6 +869,29 @@ Same Eva/Lain/*Oyasumi Punpun*-flavored tribute pass as the collectible lines th
 `## Collectibles` above) — original wording, no direct quotes or copyrighted material. Adjust
 wording directly on the Television node in the Inspector, no code changes needed.
 
+**Secret Alien NPC (same all-ducks-collected condition)**: direct request — alongside the
+Television's secret dialogue swap, Map_05 now also gets a normally-hidden `NPC_GreyAlien`-style
+NPC standing next to the Television, only appearing/interactable once
+`YellowDuckState.has_collected_all()` is true. Rather than modify the shared `NPC_GreyAlien.tscn`
+prefab (still reused elsewhere, e.g. `television_test.tscn`, without this gating), added a small
+dedicated subclass, **`Scenes/NPC/secret_alien_npc.gd`** (`extends
+"res://Scenes/NPC/npc_base.gd"`): in `_ready()`, if `has_collected_all()` is false, sets
+`visible = false`, `collision_layer = 0`, `collision_mask = 0`, disables `_process`/
+`_physics_process`, and returns *without* calling `super._ready()` — so the node never joins the
+`"npc"` group, never gets `npc_base.gd`'s auto-shader/light treatment, and is both invisible and
+un-raycastable (Player's interaction raycast has no custom `collision_mask`, so a `layer = 0`
+body is the standard way to make something raycast-transparent). If ducks are already all
+collected when the map loads, `super._ready()` runs as normal and the NPC behaves like any other.
+Placed as a plain `StaticBody3D` node (`Scenes/Maps/Map_05_SchoolRooftop.tscn`'s `SecretAlienNPC`)
+using the same `alien.tscn` mesh + collision-box dimensions as `NPC_GreyAlien.tscn`, positioned a
+few units beside the Television (placeholder offset, not visually confirmed) with its own drafted
+dialogue leaning into "the alien was watching the whole time" rather than reusing
+`NPC_GreyAlien.tscn`'s own generic default lines, since this placement is specifically framed as
+a reward for 100% collection. The check only runs once, at `_ready()` — but unlike a hypothetical
+"collect the last duck mid-scene" case, this is a non-issue in practice: all 5 Yellow Ducks live
+in Map_01–04 and the Backroom easter egg, never in Map_05 itself, so the collected-all state
+literally cannot change while the player is standing in Map_05 to begin with.
+
 ## Duck Companion System (deprecated)
 
 The original "inner voice" companion — a one-shot NPC (`duck.gd` + `duck_trigger.gd`, guarded by
@@ -683,16 +999,62 @@ pattern as `dialogue_ui.gd`/`duck_dialogue_ui.gd`) under `get_tree().root`. Thin
 design so `television.gd` stays a generic reusable interactable — **sunrise sky tween and phone
 glow are still deferred** and will hang off this same script later.
 
+**Reported bug: player could still interact during the paused ending** — `get_tree().paused =
+true` freezes everything with default `process_mode` (which is why the player can't move/click
+during the ending), but `pause_menu_ui.gd` is deliberately `PROCESS_MODE_ALWAYS` (see `## Pause
+Menu` above) specifically so **Esc still opens it while paused** — the one loophole that same
+property leaves open is that Esc still opens the pause menu *during the ending too*, letting the
+player jump to Main Menu or Settings mid-cutscene. Fixed narrowly rather than pausing the whole
+game differently: `player.gd` now calls `add_to_group("player")` in `_ready()` and exposes
+`lock_for_ending()` (sets `_pause_menu.process_mode = Node.PROCESS_MODE_DISABLED`, which
+overrides `PROCESS_MODE_ALWAYS` and stops it receiving `_unhandled_input` regardless of tree-pause
+state). `_on_ending_triggered()` looks the player up via
+`get_tree().get_first_node_in_group("player")` and calls it right alongside setting
+`paused = true`. No other UI needed this treatment — `dialogue_ui.gd`/
+`duck_pickup_notification_ui.gd` have no `PROCESS_MODE_ALWAYS` override, so pausing already
+covers them.
+
 **`ending_title_ui.gd`** (CanvasLayer, layer=25, `PROCESS_MODE_ALWAYS` — required so its tweens
 still run once `ending_sequence.gd` pauses the tree) — immediate black `ColorRect` (no fade, per
 GDD: "CUT: Black. Immediate.") then fades in a centred "YAKO" title (pixel font, size 16, white
-+ 1px black outline), holds `TITLE_HOLD=2s`, fades out, then fades in a studio logo
-(`TextureRect`, `Scenes/Assets/Logo/YellowDuck.jpg`, `TEXTURE_FILTER_NEAREST` to stay crisp at
-this resolution, `LOGO_SIZE=64`), a `STUDIO_NAME` label ("YellowDuck Studio", size 8) below it,
-and a `CREDITS_TEXT` label (team names/roles, size 6 — matches the project's standard body-text
-size) below that, all three in parallel — and stops there: no rooftop-dawn background yet (GDD
-wants one), no auto-return to a main menu (doesn't exist yet). The text labels share a
-`_make_label()` helper.
++ 1px black outline), holds `TITLE_HOLD=2s`, fades out, then — direct request, to give the ending
+a beat to land on rather than cutting straight to credits — shows `CLOSING_LINES` (an
+`Array[String]`, not one combined block): each line fades in on its own (`QUOTE_FADE=1.8s`,
+`TRANS_SINE` for a slower, more deliberate "cinematic" ease rather than linear), holds
+`QUOTE_LINE_HOLD=4.5s`, fades out, then a `QUOTE_GAP=1.2s` beat of plain black before the next
+line — i.e. the two lines are never on screen together, shown as sequential title cards like film
+subtitles, per direct request ("两句分别显示", "更有电影感"). Text size dropped slightly to
+`get_display_font_size(9, 16)` (from an initial `10`) with the label box narrowed (`24px` side
+margins instead of `10px`) and `line_spacing` bumped to `6` — direct request for "更高级" framing:
+narrower measure + more line-air reads as more deliberately typeset than a nearly-full-width block.
+Only then does it fade in the studio logo (`TextureRect`, `Scenes/Assets/Logo/YellowDuck.jpg`,
+`TEXTURE_FILTER_NEAREST` to stay crisp at this resolution, `LOGO_SIZE=64`), a `STUDIO_NAME` label
+("YellowDuck Studio", size 8) below it, and a `CREDITS_TEXT` label (team names/roles, size 6 —
+matches the project's standard body-text size) below that, all three in parallel. The text labels
+share a `_make_label()` helper. `CLOSING_LINES` ("the owl came down from the roof, at last." /
+"it had somewhere to be, after all.") is original wording, not lifted from the opening Psalm —
+deliberately echoes its "owl on a rooftop" imagery (fitting, since the ending itself plays out on
+the Map_05 rooftop) as a bookend. **First-draft text, not final** — same caveat as every other
+placeholder line in this project (Caveman's dialogue, the bonus NPCs' lines); rewrite the array
+directly, no code changes needed, each element becomes its own title card.
+
+**Auto-return to Main Menu (direct request)**: after `CREDITS_HOLD=4s`, logo/studio/credits fade
+back out, then `get_tree().paused = false` (mirrors `pause_menu_ui.gd`'s own "Main Menu" button —
+`paused` is tree-global, so leaving it `true` would freeze the Main Menu scene the instant it
+loaded) before `SceneManager.change_scene(MAIN_MENU_SCENE)`. **Deliberately does not free this
+CanvasLayer immediately after calling `change_scene`** — `ending_sequence.gd` originally added it
+under `get_tree().root` (not the old scene tree), so it survives `change_scene_to_file()` and
+would otherwise sit on top of the freshly-loaded Main Menu forever at layer 25 (above
+`SceneManager`'s own layer 20), permanently hiding it behind an opaque black `ColorRect`. Since
+this layer's own overlay is already fully opaque and *above* `SceneManager`'s, it also has the
+side effect of fully masking `SceneManager`'s entire fade-in/switch/fade-out sequence underneath —
+harmless, since the net result is still just "black, then Main Menu," but worth knowing if the
+timing ever needs adjusting. Waits a flat `1.0s` (comfortably longer than `SceneManager`'s own
+~0.9s fade-in + switch + fade-out) for that transition to finish off-screen, then fades its own
+overlay out over `0.6s` for a clean final reveal of the Main Menu, then `queue_free()`s itself.
+**Not visually confirmed** — the `1.0s` buffer is sized from reading `SceneManager.gd`'s own
+hardcoded durations, not measured; if the Main Menu ever appears to "pop" in before the fade
+finishes (or there's an awkward extra-long hold of black), shorten/lengthen this buffer.
 **Note**: `Scenes/Assets/Logo/YellowDuck.jpg` — despite the source filename ending in `.png`, the
 file is actually JPEG data (checked the magic bytes: `FF D8 FF E0`), so it was copied in with a
 corrected `.jpg` extension rather than trusting the original name.

@@ -31,25 +31,31 @@
 [ext_resource type="PackedScene" uid="uid://dlymbdkpx73cb" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/24/24.glb" id="34_ppx1j"]
 [ext_resource type="Texture2D" uid="uid://c14nhidewxl2o" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/25/25_Gemini_Generated_Image_giz4okgiz4okgiz4.png" id="35_amfk7"]
 [ext_resource type="PackedScene" path="res://Scenes/Collectibles/yellow_duck_collectible.tscn" id="90_duck"]
-[ext_resource type="Script" uid="uid://bewwmrdgo0e0q" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
+[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4txy7"]
-sky_top_color = Color(0.012, 0.012, 0.045, 1)
-sky_horizon_color = Color(0.05, 0.04, 0.09, 1)
-sky_energy_multiplier = 0.15
-ground_horizon_color = Color(0.12, 0.07, 0.03, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
+shader = ExtResource("93_stars")
+shader_parameter/color_top = Color(0.012, 0.012, 0.045, 1)
+shader_parameter/color_horizon = Color(0.03, 0.015, 0.06, 1)
+shader_parameter/color_ground = Color(0.08, 0.04, 0.01, 1)
+shader_parameter/star_density = 0.968
+shader_parameter/star_brightness = 0.65
+shader_parameter/star_size = 0.12
+shader_parameter/twinkle_speed = 0.9
 
 [sub_resource type="Sky" id="Sky_2h353"]
-sky_material = SubResource("ProceduralSkyMaterial_4txy7")
+sky_material = SubResource("ShaderMaterial_stars")
 
 [sub_resource type="Environment" id="Environment_ohl52"]
 background_mode = 2
-background_color = Color(0.0005321407, 0.0009357875, 0.0014246163, 1)
-background_energy_multiplier = 0.8
 sky = SubResource("Sky_2h353")
 ambient_light_source = 2
 ambient_light_color = Color(0.08, 0.1, 0.2, 1)
-ambient_light_energy = 0.18
+ambient_light_energy = 0.4
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 1.4
@@ -57,7 +63,7 @@ glow_bloom = 0.25
 glow_hdr_threshold = 0.75
 fog_enabled = true
 fog_light_color = Color(0.07, 0.08, 0.14, 1)
-fog_density = 0.014
+fog_density = 0.008
 fog_sky_affect = 0.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7cem"]
@@ -493,12 +499,22 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n82x6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_map02exit"]
-size = Vector3(5, 3, 0.5)
+size = Vector3(24.231445, 4.545166, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwgkb"]
+size = Vector3(1, 6.0566406, 22.22876)
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=819991932]
 environment = SubResource("Environment_ohl52")
 
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=918273645]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 8, 0)
+light_color = Color(0.7, 0.78, 1, 1)
+light_energy = 0.3
+shadow_enabled = true
+
 [node name="Map 02" type="Node3D" parent="." unique_id=1261792792]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
 [node name="Asset New" type="Node3D" parent="Map 02" unique_id=384219701]
 
@@ -659,8 +675,18 @@ mesh = SubResource("ArrayMesh_kxe0e")
 [node name="02" parent="Map 02/Asset New/Building/Commercial" unique_id=1543060061 instance=ExtResource("18_kt1fd")]
 transform = Transform3D(-4.337481e-06, 0, 99.23, 0, 99.23, 0, -99.23, 0, -4.337481e-06, -435.12238, -19.72234, -413.2766)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/02" unique_id=670588666]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="03" parent="Map 02/Asset New/Building/Commercial" unique_id=1210270473 instance=ExtResource("19_4lfpb")]
 transform = Transform3D(367.99, 0, 0, 0, 367.99, 0, 0, 0, 367.99, -35.952, 77.619, -352.823)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/03" unique_id=686383701]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/03" unique_id=794803827]
 transform = Transform3D(0.012398487, 0, 0, 0, 0.012398487, 0, 0, 0, 0.012398487, 0.25830188, -0.2111519, 1.4442501)
@@ -733,38 +759,93 @@ omni_range = 598.71625
 [node name="06" parent="Map 02/Asset New/Building/Commercial" unique_id=1792814273 instance=ExtResource("13_637xr")]
 transform = Transform3D(-3.5893606e-06, 0, 82.115, 0, 82.115, 0, -82.115, 0, -3.5893606e-06, -683.5648, -0.7360563, -368.78156)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/06" unique_id=365404497]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="Light" type="Node3D" parent="Map 02/Asset New/Building/Commercial/06" unique_id=268664102]
 transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, -0.0128570795, 0, 0.10146658)
 
 [node name="07" parent="Map 02/Asset New/Building/Commercial" unique_id=1833221776 instance=ExtResource("15_kt1fd")]
 transform = Transform3D(-5.306563e-06, -0.42376506, 121.39926, 0, 121.39926, 0.42376506, -121.4, 1.8523359e-08, -5.30653e-06, -289.604, 54.408, 34.707)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/07" unique_id=454619476]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="08" parent="Map 02/Asset New/Building/Commercial" unique_id=791603546 instance=ExtResource("16_4lfpb")]
 transform = Transform3D(-468.19, 0, -7.0694725e-05, 0, 468.19, 0, 7.0694725e-05, 0, -468.19, 39.158802, -8.162545, -36.83551)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/08" unique_id=307458729]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="09" parent="Map 02/Asset New/Building/Commercial" unique_id=1233827115 instance=ExtResource("17_eqvcl")]
 transform = Transform3D(38, 0, 0, 0, 38, 0, 0, 0, 38, -250.58107, 14.5346985, -786.2595)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/09" unique_id=477232126]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="10" parent="Map 02/Asset New/Building/Commercial" unique_id=1359985373 instance=ExtResource("18_cdvdk")]
 transform = Transform3D(-1.5518635e-05, 0, -355.025, 0, 355.025, 0, 355.025, 0, -1.5518635e-05, -113.272, 143.665, -40.821)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/10" unique_id=621967517]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="11" parent="Map 02/Asset New/Building/Commercial" unique_id=1821302357 instance=ExtResource("19_l06od")]
 transform = Transform3D(312, 0, 0, 0, 312, 0, 0, 0, 312, -35.416, 145.352, -334.788)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/11" unique_id=687384844]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="12" parent="Map 02/Asset New/Building/Commercial" unique_id=1363601325 instance=ExtResource("20_k8cby")]
 transform = Transform3D(-2.2229644e-05, 0, -508.555, 0, 508.555, 0, 508.555, 0, -2.2229644e-05, -39.970825, 68.407, -40.051765)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/12" unique_id=850859397]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="13" parent="Map 02/Asset New/Building/Commercial" unique_id=2002412343 instance=ExtResource("21_fq61o")]
 transform = Transform3D(-1.9093133e-05, 0, 436.8, 0, 436.8, 0, -436.8, 0, -1.9093133e-05, -62.852474, -0.50015044, 58.807884)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/13" unique_id=692116545]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="14" parent="Map 02/Asset New/Building/Commercial" unique_id=306070433 instance=ExtResource("22_3ygvi")]
 transform = Transform3D(-1.4261496e-05, 0, 326.265, 0, 326.265, 0, -326.265, 0, -1.4261496e-05, 39.527596, -0.932, 38.90558)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/14" unique_id=595579237]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="15" parent="Map 02/Asset New/Building/Commercial" unique_id=640593737 instance=ExtResource("23_rsf5s")]
 transform = Transform3D(-1.0400032e-05, 0, -237.925, 0, 237.925, 0, 237.925, 0, -1.0400032e-05, 246.221, -0.799, 390.683)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/15" unique_id=595882253]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="16" type="Node3D" parent="Map 02/Asset New/Building/Commercial" unique_id=1659640197]
 transform = Transform3D(-128.04498, 0, -1.1194048e-05, 0, 128.045, 0, 1.1194048e-05, 0, -128.04498, -47.034546, -25.157661, 79.22857)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/16" unique_id=566974691]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="16_1" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/16" unique_id=1270766112]
 transform = Transform3D(-7.474646e-08, -1.7100005, 7.47465e-08, 0, -7.4746474e-08, -1.7100005, 1.7100005, -7.474646e-08, 3.2672718e-15, 0.6529975, -0.13706033, -0.4196446)
@@ -781,32 +862,82 @@ mesh = SubResource("ArrayMesh_7hnxc")
 [node name="17" parent="Map 02/Asset New/Building/Commercial" unique_id=369230251 instance=ExtResource("27_3ygvi")]
 transform = Transform3D(-905.985, 0, -0.00013679994, 0, 905.985, 0, 0.00013679994, 0, -905.985, 39.362, -216.626, -457.046)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/17" unique_id=425525484]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="18" parent="Map 02/Asset New/Building/Commercial" unique_id=480230990 instance=ExtResource("28_rsf5s")]
 transform = Transform3D(-431.015, 0, -6.5081455e-05, 0, 431.015, 0, 6.5081455e-05, 0, -431.015, 120.565, -6.769, -256.87)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/18" unique_id=756424057]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="19" parent="Map 02/Asset New/Building/Commercial" unique_id=1825714553 instance=ExtResource("29_m17pf")]
 transform = Transform3D(-186.94, 0, -2.8227156e-05, 0, 186.94, 0, 2.8227156e-05, 0, -186.94, 39.794, 75.391, 264.726)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/19" unique_id=737867322]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="20" parent="Map 02/Asset New/Building/Commercial" unique_id=248001362 instance=ExtResource("30_bej06")]
 transform = Transform3D(-3.7050864e-05, 0, -847.625, 0, 847.625, 0, 847.625, 0, -3.7050864e-05, -183.12756, -0.033302307, -40.670277)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/20" unique_id=332996245]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="21" parent="Map 02/Asset New/Building/Commercial" unique_id=84088429 instance=ExtResource("32_jpv0b")]
 transform = Transform3D(-1.6456244e-05, 0, 376.475, 0, 376.475, 0, -376.475, 0, -1.6456244e-05, -184.56, -9.101, 33.49)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/21" unique_id=388000306]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="22" parent="Map 02/Asset New/Building/Commercial" unique_id=1931670058 instance=ExtResource("32_hehmy")]
 transform = Transform3D(498.315, 0, 0, 0, 498.315, 0, 0, 0, 498.315, -38.53675, 5.347765, 232.41336)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/22" unique_id=434060363]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="23" parent="Map 02/Asset New/Building/Commercial" unique_id=41000299 instance=ExtResource("32_jpv0b")]
 transform = Transform3D(-536.55, 0, -8.10168e-05, 0, 536.55, 0, 8.10168e-05, 0, -536.55, 34.859, -12.796, -525.3)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/23" unique_id=561826437]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="26" parent="Map 02/Asset New/Building/Commercial" unique_id=1119204581 instance=ExtResource("33_tkkyw")]
 transform = Transform3D(394.105, 0, 0, 0, 394.105, 0, 0, 0, 394.105, -38.0531, -21.074162, -416.48947)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/26" unique_id=531014016]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="28" parent="Map 02/Asset New/Building/Commercial" unique_id=1080944712 instance=ExtResource("34_ppx1j")]
 transform = Transform3D(-9.234686e-06, 0, -211.265, 0, 211.265, 0, 211.265, 0, -9.234686e-06, 392.303, -6.85, 345.822)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/28" unique_id=403563841]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="29" type="Node3D" parent="Map 02/Asset New/Building/Commercial" unique_id=645491000]
 transform = Transform3D(173.895, 0, 0, 0, 173.895, 0, 0, 0, 173.895, -149.90901, -4.116274, 364.13022)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Commercial/29" unique_id=565498920]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="29_1" type="MeshInstance3D" parent="Map 02/Asset New/Building/Commercial/29" unique_id=588368717]
 transform = Transform3D(-1.197692e-07, 2.74, -1.197692e-07, 0, -1.197692e-07, -2.74, -2.74, -1.197692e-07, 5.235278e-15, 2.839, -0.027, -2.527)
@@ -837,53 +968,117 @@ mesh = SubResource("ArrayMesh_245gi")
 [node name="Station 01" parent="Map 02/Asset New/Building/Station" unique_id=459059252 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(290.635, 0, 0, 0, 290.635, 0, 0, 0, 290.635, 152.09767, 0, -741.75385)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 01" unique_id=473604127]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="Station 05" parent="Map 02/Asset New/Building/Station" unique_id=1485266755 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(253.395, 0, 0, 0, 253.395, 0, 0, 0, 253.395, -52.020584, 0, 1180.2947)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 05" unique_id=333674379]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="Station 02" parent="Map 02/Asset New/Building/Station" unique_id=948343945 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-1.2617729e-05, 0, -288.66, 0, 288.66, 0, 288.66, 0, -1.2617729e-05, -308.1342, -1.5258789e-05, -488.15207)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 02" unique_id=499554630]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="Station 06" parent="Map 02/Asset New/Building/Station" unique_id=1249006085 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-2.4230316e-05, 0, -554.325, 0, 554.325, 0, 554.325, 0, -2.4230316e-05, 1000.889, 0, -36.523)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 06" unique_id=480603124]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="Station 03" parent="Map 02/Asset New/Building/Station" unique_id=433601873 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-394.335, 0, -5.954293e-05, 0, 394.335, 0, 5.954293e-05, 0, -394.335, 417.45886, 0, -31.896637)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 03" unique_id=528613037]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="Station 08" parent="Map 02/Asset New/Building/Station" unique_id=1324692089 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-288.7, 0, -4.359249e-05, 0, 288.7, 0, 4.359249e-05, 0, -288.7, -533.4264, 0, -638.3611)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 08" unique_id=694240695]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="Station 04" parent="Map 02/Asset New/Building/Station" unique_id=1455870345 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-1.7279768e-05, 0, 395.315, 0, 395.315, 0, -395.315, 0, -1.7279768e-05, 355.19812, 0, 486.797)
 
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 04" unique_id=695219825]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
+
 [node name="Station 07" parent="Map 02/Asset New/Building/Station" unique_id=122733454 instance=ExtResource("18_bnl3i")]
 transform = Transform3D(-1.7279768e-05, 0, 395.315, 0, 395.315, 0, -395.315, 0, -1.7279768e-05, -845.96234, 0, 33.53871)
+
+[node name="StreetLamp" type="OmniLight3D" parent="Map 02/Asset New/Building/Station/Station 07" unique_id=435781527]
+light_color = Color(1, 0.62, 0.18, 1)
+light_energy = 3.5
+omni_range = 598.71625
 
 [node name="Plane" type="Node3D" parent="Map 02/Asset New" unique_id=1951805486]
 
 [node name="Sketchfab_Scene" parent="Map 02/Asset New/Plane" unique_id=557637832 instance=ExtResource("31_uwgkb")]
 transform = Transform3D(2.2810433, 0, 0, 0, 0.851132, 0, 0, 0, 6.9947433, -122.38513, -0.20635986, 79.73577)
 
+[node name="CityGlow" type="Node" parent="Map 02" unique_id=700111222]
+script = ExtResource("98_glow")
+target_paths = Array[NodePath]([NodePath("Map 02/Asset New/Building")])
+
 [node name="Player" parent="." unique_id=455042879 instance=ExtResource("3_6axr8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, -0.7169399)
-speed = 10.0
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -155.2861, 3.4506729, -280.89838)
+speed = 100.0
 
-[node name="ExitToMap01" type="Area3D" parent="." unique_id=26388503]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, -5.71694)
-script = ExtResource("92_trig")
-target_scene = "res://Scenes/Maps/Map_01_ConvenienceStore.tscn"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitToMap01" unique_id=1142918579]
-shape = SubResource("BoxShape3D_map02exit")
-
-[node name="ExitToMap03" type="Area3D" parent="." unique_id=1644620676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.89586544, 3.4506729, 4.28306)
+[node name="Map02_Map03" type="Area3D" parent="." unique_id=1644620676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.73482, 5.224522, -309.87366)
 script = ExtResource("92_trig")
 target_scene = "res://Scenes/Maps/Map_03_UnderTheOverPass.tscn"
+spawn_id = "Map02_Map03"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitToMap03" unique_id=1611162295]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map02_Map03" unique_id=1611162295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1812439)
 shape = SubResource("BoxShape3D_map02exit")
+
+[node name="ExitArrow03" parent="Map02_Map03" unique_id=433444555 instance=ExtResource("99_arrow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="SpawnPoint" type="Marker3D" parent="Map02_Map03" unique_id=433999444]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 4)
+script = ExtResource("97_spawn")
+spawn_id = "Map02_Map03"
 
 [node name="YellowDuck_Crossroads" parent="." unique_id=775613757 instance=ExtResource("90_duck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3958654, 2.600673, -0.7169399)
 duck_id = "Map_02_Crossroads"
 lines = Array[String](["a little piece of you.", "everyone crosses somewhere.", "not everyone arrives."])
+
+[node name="Map01_Map02" type="Area3D" parent="." unique_id=911608228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.73194, 5.1860056, 261.22107)
+script = ExtResource("92_trig")
+target_scene = "uid://1xmhq5qmb2pu"
+spawn_id = "Map01_Map02"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map01_Map02" unique_id=2108263156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5583458, -0.9920654, 0)
+shape = SubResource("BoxShape3D_uwgkb")
+
+[node name="Marker3D" type="Marker3D" parent="Map01_Map02" unique_id=336328174]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 0)
+script = ExtResource("97_spawn")
+spawn_id = "Map01_Map02"
+
+[node name="ExitArrow" parent="Map01_Map02" unique_id=611222333 instance=ExtResource("99_arrow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
