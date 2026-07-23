@@ -1,7 +1,7 @@
 extends Node
 
 @export var target_paths: Array[NodePath] = []
-@export var emission_energy: float = 10.0
+@export var emission_energy: float = 0.8
 
 func _ready() -> void:
 	for path: NodePath in target_paths:

@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://b5r527ernbcf2"]
 
 [ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/Assets/MiscAssets/animal/ps1low_poly_t-rex.glb" id="2_glb"]
+[ext_resource type="PackedScene" uid="uid://dc6yvgvfgqrem" path="res://Scenes/Assets/MiscAssets/animal/ps1low_poly_t-rex.glb" id="2_glb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0"]
 size = Vector3(0.5, 0.8, 2.2)
 
-[node name="NPC_TRex" type="StaticBody3D"]
+[node name="NPC_TRex" type="StaticBody3D" unique_id=72035924]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1")
 dialogue_lines = Array[String](["I can't reach the door.", "I've been trying for sixty-five million years.", "Give or take."])
 repeat_lines = Array[String](["The door is right there."])
 face_offset_deg = 0.0
 
-[node name="Body" parent="." instance=ExtResource("2_glb")]
+[node name="Body" parent="." unique_id=682684348 instance=ExtResource("2_glb")]
 transform = Transform3D(0.22, 0, 0, 0, 0.22, 0, 0, 0, 0.22, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1766865001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("BoxShape3D_0")

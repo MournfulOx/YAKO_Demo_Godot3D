@@ -255,4 +255,4 @@ shadow_enabled = true
 
 [node name="CityGlow" type="Node" parent="." unique_id=700444555]
 script = ExtResource("98_glow")
-target_paths = Array[NodePath]([NodePath("assets/school"), NodePath("assets/store")])
+target_paths = Array[NodePath]([NodePath("../assets/school"), NodePath("../assets/store")])

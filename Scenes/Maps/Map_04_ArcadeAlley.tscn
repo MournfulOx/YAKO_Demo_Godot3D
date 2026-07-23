@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://0xk6n73b3fcs"]
 
 [ext_resource type="PackedScene" uid="uid://b60blnbm3t66o" path="res://Scenes/Assets/Zee/all_road/sidawalk_tiles/sidewalk_tiles01.glb" id="1_jkekm"]
-[ext_resource type="PackedScene" path="res://Scenes/NPC/NPC_TRex.tscn" id="83_trex"]
 [ext_resource type="Texture2D" uid="uid://daflj5423n38q" path="res://Scenes/Assets/Zee/all_road/Road/sing;e_dash_road/Single dash road pack_Image_0.jpg" id="2_f1pt6"]
 [ext_resource type="PackedScene" uid="uid://msvshfawt7wa" path="res://Scenes/Player/player.tscn" id="2_si4eo"]
 [ext_resource type="Texture2D" uid="uid://clsdcwk51v3s7" path="res://Scenes/Assets/Zee/all_road/Road/sing;e_dash_road/Single dash road pack_Image_1.jpg" id="3_y2x20"]
@@ -28,10 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://cht33pl5u5gmx" path="res://Scenes/Assets/Zee/all_buildings/architecture/Commercial/Commercial 15/Untitled.glb" id="21_qhswr"]
 [ext_resource type="PackedScene" uid="uid://rocvl10focjn" path="res://Scenes/Assets/Zee/all_buildings/architecture/facilities/basketball_court.glb" id="23_852pa"]
 [ext_resource type="Texture2D" uid="uid://cdtmi83ul1ok6" path="res://Scenes/Assets/UrbanPack/Textures/LampPost1.png" id="31_125sg"]
-[ext_resource type="Script" uid="uid://bewwmrdgo0e0q" path="res://Scenes/scene_trigger.gd" id="92_trig"]
-[ext_resource type="Shader" uid="uid://dscdlrxnm5x4" path="res://shaders/sky_stars.gdshader" id="93_stars"]
+[ext_resource type="Script" uid="uid://dustct1l4psq4" path="res://Scenes/scene_trigger.gd" id="92_trig"]
+[ext_resource type="Shader" uid="uid://bb4yikmmaieki" path="res://shaders/sky_stars.gdshader" id="93_stars"]
 [ext_resource type="Script" uid="uid://dtgpf7dhntins" path="res://Scenes/spawn_point.gd" id="97_spawn"]
-[ext_resource type="Script" uid="uid://byo6yqp77kg6a" path="res://Scenes/city_glow.gd" id="98_glow"]
+[ext_resource type="Script" uid="uid://d2ty055es43fd" path="res://Scenes/city_glow.gd" id="98_glow"]
 [ext_resource type="PackedScene" path="res://Scenes/Assets/ExitArrow/exit_arrow.tscn" id="99_arrow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_stars"]
@@ -630,7 +629,7 @@ shadow_enabled = true
 
 [node name="CityGlow" type="Node" parent="." unique_id=700333444]
 script = ExtResource("98_glow")
-target_paths = Array[NodePath]([NodePath("Assets/Buildings"), NodePath("school"), NodePath("school_walls")])
+target_paths = Array[NodePath]([NodePath("../Assets/Buildings"), NodePath("../school"), NodePath("../school_walls")])
 
 [node name="Map03_Map04" type="Area3D" parent="." unique_id=744111222]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 334.8393, 2.702, 0.5101118)
@@ -666,9 +665,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4952087, 3.2014787, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.320465)
 script = ExtResource("97_spawn")
 spawn_id = "Map04_Map05"
-
-[node name="NPC_TRex" parent="." unique_id=100200601 instance=ExtResource("83_trex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 317.919493, 2.702, -0.41979945)
 
 [node name="Players" type="Node3D" parent="." unique_id=1707387605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.7283, 0, 0)

@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cdtmi83ul1ok6" path="res://Scenes/Assets/UrbanPack/Textures/LampPost1.png" id="1_cfcai"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfcai"]
+size = Vector3(1, 8.736938, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_546l2"]
 resource_name = "LampPost.001"
 vertex_color_use_as_albedo = true
@@ -43,6 +46,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fq2k5")
 
 [node name="LampPost" type="Node3D" unique_id=592185119]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1788615004]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=472318815]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 7.7369385, 0)
+shape = SubResource("BoxShape3D_cfcai")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1770965397]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

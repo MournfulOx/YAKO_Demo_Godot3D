@@ -1338,7 +1338,92 @@ trigger), not from seeing the room, so it may be too tight (clipping something a
 loose (leaving dead space outside the playable area) — check in the editor and resize the three
 `BoxShape3D_floor01`/`BoxShape3D_wallNS01`/`BoxShape3D_wallEW01` sub-resources if so. Same
 treatment (floor + 4 perimeter walls, sized from each map's own known positions) should be applied
-to Map_02–05 next; none of them have it yet.
+to Map_04–05 next; neither has it yet.
+
+**Map_02** got the same `Boundary` treatment, but sized much larger — this map's Zee-city
+buildings are scattered on the order of hundreds of units apart (vs. Map_01's tens-of-units
+SevenEleven scale), so the footprint was estimated from the widest known points instead: both
+cross-map exit triggers (`~Z=261` toward Map_01, `~Z=-310` toward Map_03), the two NPCs
+deliberately placed far out to fill empty space (`Raccoon` at `X≈145`, `Octopus` at `Z≈19`), and
+the most extreme building positions seen while working on this map earlier (roughly `X: -835` to
+`+500`). Landed on a floor/wall footprint of `X: -900 to 550`, `Z: -350 to 300`, floor around
+`Y≈3` (matching Player/NPC/exit-trigger height in this map, not the wildly-inconsistent Y values
+individual building meshes sit at), walls `15` units tall (taller than Map_01's `10`, since this
+city reads as multi-story). Same caveat as Map_01, doubly so given the rougher position data this
+was built from: **not visually confirmed**, margins around the known extreme points are as slim
+as ~40–65 units at this scale, so treat this as a coarse first pass more than Map_01's was.
+
+**Map_03** got the same treatment: footprint estimated from `Player`/NPC spawn cluster
+(`X:113–153, Z:-29–24`), the `BackroomEntryTrigger` (`Z≈24`), and — the widest outlier by far —
+the `Map03_Map04` connection sitting at `X≈245, Z≈-197`, since Zee had repositioned that trigger
+well away from the rest of the map's known content. Landed on `X: 50–300`, `Z: -230–50`, floor at
+`Y≈2.7` (matching this map's consistent Player/NPC/trigger height), `15`-unit walls (same
+convention as Map_02). Margins around the `Map03_Map04` outlier point are ~33–55 units — same
+coarse-first-pass caveat as Map_02, **not visually confirmed**.
+
+**`tools/bulk_add_collision.gd`** — an `EditorScript` (run via the Script editor's File → Run /
+Ctrl+Shift+X while the target map is the open scene, *not* attached to any node) for batch-adding
+collision to every `MeshInstance3D` under a given `TARGET_PATH`. Went through two revisions after
+reported failures:
+1. First version called `create_trimesh_collision()`/`create_convex_collision()` (the same thing
+   the editor's own Mesh menu → Create Trimesh/Convex Static Body does), parented under each mesh
+   — reported as producing wrong/misaligned collision on this project's buildings.
+2. Second version swapped the hull generation for a plain `BoxShape3D` sized to each mesh's own
+   `get_aabb()`, still parented locally under the mesh — **still misaligned**. Root cause: this
+   project uses **Jolt Physics** (`project.godot`'s `3d/physics_engine`), which does not reliably
+   apply inherited node scale to collision shapes the way rendering does — so a shape parented
+   under one of these heavily-scaled/rotated building instances (see the Sketchfab-style
+   `Sketchfab_Scene → fbx_root → RootNode → mesh` chains throughout `Scenes/Assets/Zee/...`) comes
+   out wrong regardless of whether the shape itself is a precise hull or a simple box.
+3. **Current version**: computes each mesh's axis-aligned bounding box **in world space** (transforms
+   all 8 local-AABB corners through the mesh's `global_transform`), then creates a fresh,
+   *unscaled* `StaticBody3D` directly under the scene root (in a new `GeneratedCollision_<target>`
+   container, not nested under the mesh at all) sized/positioned to match. Since this new body has
+   no inherited scale for Jolt to mishandle, it doesn't hit the same failure mode. Trade-off: an
+   axis-aligned box doesn't rotate to match an angled building, so it's generously oversized on
+   the diagonal for rotated instances — fine for "can't walk through it," not a precise hull.
+   **Not idempotent** (no "already has collision" check, since generated bodies live in a separate
+   container rather than as mesh children) — delete the previous `GeneratedCollision_<name>` node
+   before re-running on the same target.
+Explicitly sets `owner` on every created node so it actually persists on save — a real risk with
+editor-scripted node creation, not just theoretical.
+
+**Manually-placed `CollisionShape3D` nodes not working (Map_03)** — reported and fixed: several
+`CollisionShape3D`s had been hand-added directly as children of mesh/`Node3D` wrapper nodes
+(`Sculpture/Sketchfab_Scene`, `Sketchfab_Scene2`, and `commercial_buildings/Sketchfab_Scene3`/
+`05`/`0_7_1`/`0_8_1`), with reasonable shapes/transforms already tuned — but a bare
+`CollisionShape3D` does nothing unless its **direct parent** is a `CollisionObject3D`-derived node
+(`StaticBody3D`/`Area3D`/`RigidBody3D`/`CharacterBody3D`); parented straight under a mesh, it's
+inert (Godot flags this with a warning icon in the Scene dock, easy to miss). Fixed by inserting a
+plain `StaticBody3D` between each mesh and its existing `CollisionShape3D` child/children —
+transform and `shape` on each `CollisionShape3D` were left completely untouched, only the parent
+path changed, so nothing about the already-tuned positioning was lost.
+
+**`CityGlow`'s `target_paths` were broken on all 4 maps that have one** (Map_02/03/04/05) — found
+while debugging the above. `city_glow.gd`'s `_ready()` calls `get_node_or_null(path)` on `self`
+(the `CityGlow` node), which resolves a relative `NodePath` starting from `CityGlow` itself, not
+from the scene root. But every map's `CityGlow` node is a **sibling** of its building containers
+(both parented under the same parent — e.g. Map_03 has `CityGlow` and `buildings` both at
+`parent="."`), not a parent of them — so a plain path like `"buildings"` was actually asking
+"does `CityGlow` have a child named `buildings`?", which is always false, throwing `Found invalid
+node path 'buildings' on node '.../CityGlow'` and silently no-opping the whole glow pass on every
+map, this whole session. Fixed by prefixing every `target_paths` entry with `../` (go up to the
+shared parent first, then down to the sibling) — `Map_02`: `../Asset New/Building`; `Map_03`:
+`../buildings`, `../commercial_buildings`; `Map_04`: `../Assets/Buildings`, `../school`,
+`../school_walls`; `Map_05`: `../assets/school`, `../assets/store`. This means **city_glow.gd has
+never actually applied emission to a single building on any map until now** — the whole "make
+Zee's buildings glow at night" pass earlier this session looked complete in the code but was a
+no-op the entire time. Still not visually confirmed now that the path itself resolves.
+
+**First real test massively overexposed** — with the path bug fixed, `city_glow.gd` ran for the
+first time ever, and `emission_energy = 10.0` (tuned much earlier, for a *different* purpose:
+making a small lamp-sized light punch through heavy fog) turned out to be wildly wrong for this
+use, where the *entire building facade texture* becomes the emitter rather than a small point
+light — one building lit up as an overexposed white blob dominating the whole screen. Dropped the
+default to **`0.8`** (over 90% cut) as a much more conservative starting point. **Not visually
+confirmed** — this is a corrective guess after seeing the "way too much" extreme, not a tuned
+value; likely needs another round or two of adjustment (same iterative back-and-forth as the fog
+density tuning earlier) once actually seen at this new value.
 
 ## Code Conventions
 
