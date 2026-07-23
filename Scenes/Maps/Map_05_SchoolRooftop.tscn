@@ -222,8 +222,8 @@ transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474
 [node name="SecretAlienNPC" type="StaticBody3D" parent="." unique_id=933111222]
 transform = Transform3D(-3.5300152, 0, 4.8517003, 0, 6, 0, -4.8517003, 0, -3.5300152, -73.10751, 52.928223, -61.533707)
 script = ExtResource("94_alien")
-dialogue_lines = Array[String](["oh. you actually found all of them.", "i wasn't sure anyone would.", "the little pieces, i mean.", "i've been watching this whole time.", "you can stop looking now."])
-repeat_lines = Array[String](["still here. still watching."])
+dialogue_lines = Array[String](["oh. you actually found all of them.", "i wasn't sure anyone would.", "the little pieces, i mean.", "i've been watching this whole time.", "i have an earth name, actually.", "they call me Ronald.", "you can stop looking now."])
+repeat_lines = Array[String](["still here. still watching.", "still Ronald."])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SecretAlienNPC" unique_id=933222333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50335693, 0)

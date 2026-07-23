@@ -981,6 +981,13 @@ a reward for 100% collection. The check only runs once, at `_ready()` — but un
 "collect the last duck mid-scene" case, this is a non-issue in practice: all 5 Yellow Ducks live
 in Map_01–04 and the Backroom easter egg, never in Map_05 itself, so the collected-all state
 literally cannot change while the player is standing in Map_05 to begin with.
+**Direct request**: the alien reveals it has an Earth name, "Ronald" — added as two extra beats
+mid-dialogue ("i have an earth name, actually." / "they call me Ronald.") plus a callback on the
+repeat visit ("still Ronald."), landing as a small deadpan joke rather than derailing the
+"was watching the whole time" tone. Note: this NPC's dialogue was never added to
+`autoload/Localization.gd`'s `ZH_STRINGS`/`JA_STRINGS` (a pre-existing gap, not something this
+edit introduced) — it currently only displays in English regardless of the active language
+setting.
 
 ## Duck Companion System (deprecated)
 
