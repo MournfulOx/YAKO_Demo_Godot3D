@@ -53,12 +53,6 @@ const ZH_STRINGS := {
 	"It's a big decision.": "这是个重大决定。",
 	"It really is.": "确实是。",
 
-	# NPC_Fish
-	"I used to have a five year plan.": "我以前有个五年计划。",
-	"Present time.": "现在时刻。",
-	"Present day.": "现今时代。",
-	"I forgot to eat breakfast.": "我忘了吃早饭。",
-
 	# NPC_FrenchBulldog
 	"I've been staring at this machine for twenty minutes.": "我盯着这台机器看了二十分钟。",
 	"Everything I want is sold out.": "我想要的全都卖光了。",
@@ -244,12 +238,6 @@ const JA_STRINGS := {
 	"I have been deciding for forty minutes.": "もう四十分も迷ってる。",
 	"It's a big decision.": "大事な決断なんだ。",
 	"It really is.": "本当にそうだね。",
-
-	# NPC_Fish
-	"I used to have a five year plan.": "昔は五ヵ年計画ってやつがあった。",
-	"Present time.": "現在時刻。",
-	"Present day.": "現代。",
-	"I forgot to eat breakfast.": "朝ごはんを食べ忘れた。",
 
 	# NPC_FrenchBulldog
 	"I've been staring at this machine for twenty minutes.": "この機械を二十分も見つめてる。",

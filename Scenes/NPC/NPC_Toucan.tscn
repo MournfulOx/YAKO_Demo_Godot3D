@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://s6h7nyta6i34"]
 
 [ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/Assets/MiscAssets/animal/low_poly_toucan.glb" id="2_glb"]
+[ext_resource type="PackedScene" uid="uid://tdvqdij7ojyq" path="res://Scenes/Assets/MiscAssets/animal/low_poly_toucan.glb" id="2_glb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0"]
-size = Vector3(0.25, 0.55, 0.5)
+size = Vector3(0.46588135, 0.5835937, 0.5)
 
-[node name="NPC_Toucan" type="StaticBody3D"]
+[node name="NPC_Toucan" type="StaticBody3D" unique_id=1992612952]
 script = ExtResource("1")
 dialogue_lines = Array[String](["I won.", "I always win.", "The receipt says I lost, but the receipt is wrong."])
 repeat_lines = Array[String](["The receipt is wrong."])
 
-[node name="Body" parent="." instance=ExtResource("2_glb")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+[node name="Body" parent="." unique_id=432286596 instance=ExtResource("2_glb")]
+transform = Transform3D(-1.3113417e-09, 0, -0.030000001, 0, 0.03, 0, 0.030000001, 0, -1.3113417e-09, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1441502997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0093688965, 0.29679686, 0)
 shape = SubResource("BoxShape3D_0")

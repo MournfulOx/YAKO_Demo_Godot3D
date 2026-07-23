@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcdsjc2crj27g"]
+
+[ext_resource type="Script" uid="uid://yk7cafhqtuco" path="res://Scenes/NPC/npc_base.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cp74wiiypjj27" path="res://Scenes/Assets/MiscAssets/animal/ps1_pig.glb" id="2_glb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0"]
+size = Vector3(1.234143, 0.7, 0.5908203)
+
+[node name="NPC_Pig" type="StaticBody3D" unique_id=52814221]
+script = ExtResource("1")
+dialogue_lines = Array[String](["I used to have a name.", "Now I just have a pen.", "It's warmer in here, at least."])
+repeat_lines = Array[String](["Still warm."])
+
+[node name="Body" parent="." unique_id=68631074 instance=ExtResource("2_glb")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1956022218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115472436, 0.35, 0)
+shape = SubResource("BoxShape3D_0")
