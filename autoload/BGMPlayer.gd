@@ -11,7 +11,7 @@ const TRACKS := {
 }
 
 const BUS_NAME := "Music"
-const TARGET_VOLUME_DB := -14.0
+const TARGET_VOLUME_DB := -11.5
 const SILENT_VOLUME_DB := -80.0
 const FADE_TIME := 0.4
 
