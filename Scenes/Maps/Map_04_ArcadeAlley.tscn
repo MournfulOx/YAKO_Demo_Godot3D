@@ -652,7 +652,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.7283, 0, 0)
 
 [node name="Player" parent="Players" unique_id=455042879 instance=ExtResource("2_si4eo")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -73.769, 2.7, -0.42)
-speed = 40.0
+speed = 15.0
+speed_smoking = 7.0
 
 [node name="Assets" type="Node3D" parent="." unique_id=689065766]
 

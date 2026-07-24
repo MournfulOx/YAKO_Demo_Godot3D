@@ -23,6 +23,7 @@ BackroomState="*res://autoload/BackroomState.gd"
 Localization="*res://autoload/Localization.gd"
 SettingsState="*res://autoload/SettingsState.gd"
 TravelState="*res://autoload/TravelState.gd"
+BGMPlayer="*res://autoload/BGMPlayer.gd"
 
 [display]
 

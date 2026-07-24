@@ -42,6 +42,8 @@ func _transition(path: String) -> void:
 	tw.tween_property(_overlay, "modulate:a", 1.0, 0.35)
 	await tw.finished
 
+	BGMPlayer.play_for_scene(resolved_path)
+
 	var show_name := resolved_path.begins_with("res://Scenes/Maps/")
 	if show_name:
 		_label.add_theme_font_override("font", SettingsState.get_active_font())

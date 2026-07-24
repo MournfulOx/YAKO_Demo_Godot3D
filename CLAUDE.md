@@ -815,6 +815,26 @@ spawn doesn't immediately re-trigger the exit it just came from, and that facing
 `SpawnPoint`'s own rotation, read via `global_rotation.y`) looks right — it defaults to 0 or
 whatever rotation you last happened to set the marker to.
 
+**Spawn points also need their vertical (Y) offset checked, not just horizontal clearance** —
+reported as "player height feels inconsistent walking between maps." Computed each `SpawnPoint`'s
+*global* Y (parent trigger's Y + the marker's own local Y — rotation here is yaw-only, so it
+never mixes into the Y component) and compared it against that map's own default `Player` Y
+(the "normal standing height" reference for that map). Four of the eight spawn points were off by
+a full unit or more, not sub-centimeter noise: `Map01_Map02`'s Map_01 side landed the player
+`-0.96` low; both `Map01_Map02` and `Map02_Map03` on the Map_02 side landed `+2.2` high; and
+`Map02_Map03`'s Map_03 side (`ExitToMap02`'s `SpawnPoint`, local `y=1`) landed exactly `+1.0` high.
+Fixed the first three by adjusting local Y so the resulting global Y matches that map's default
+`Player` Y exactly. `Map03_Map04` (both sides) and `Map04_Map05` (both sides, off by only
+`~0.13`) were already correct/close enough and left alone.
+**The fourth one (`ExitToMap02`'s `y=1` → `y=0`) was wrong** — reported as still sunk into the
+floor after the change, so the assumption behind it (this map's floor is flat, so every spawn
+should match the single default-`Player` reference height) doesn't hold at this specific spot;
+`Map_03` is "Under the Overpass," terrain right at this exit plausibly isn't level with the rest
+of the map. Reverted back to `y=1` (the pre-existing, not-reported-as-broken value) rather than
+guessing a third number blind. If it's still off, the fix has to come from someone actually
+looking at the ground height in the editor at this exact spot — this environment has no way to
+measure that, only to compute against a same-map reference that turned out not to apply here.
+
 **Live-editor-clobbering risk observed repeatedely this session**: `project.godot` and
 `Map_03_UnderTheOverPass.tscn` both had unrelated external edits silently reverted partway through
 this same session — almost certainly the Godot editor being open with these files' state already
@@ -1415,7 +1435,8 @@ not visibly a problem in practice — nobody is mid-typewriter when they flip th
 
 ## Procedural Audio
 
-All in-game audio uses `AudioStreamGenerator` (PCM push) — no audio files required.
+All *sound effects* use `AudioStreamGenerator` (PCM push) — no audio files. Background music
+(below) is the one exception, using real audio files.
 
 **NPC dialogue blips** (`Scenes/UI/dialogue_ui.gd`):
 - Square wave, `BLIP_FREQ=520 Hz`, `BLIP_DURATION=0.055 s`, `BLIP_RATE=11025`
@@ -1433,6 +1454,55 @@ All in-game audio uses `AudioStreamGenerator` (PCM push) — no audio files requ
 **GDScript 4 audio notes:**
 - `AudioStreamWAV` format enums (`FORMAT_16_BIT`, `FORMAT_8_BIT`) are inaccessible at runtime in Godot 4.6 — always use `AudioStreamGenerator` + `push_frame()`
 - `lerp()` returns `Variant`; use `lerpf()` for float mixing to avoid type inference errors
+
+## Background Music
+
+Direct request: user generated a full set of BGM tracks externally (Suno, iterated several
+times over in this same session on style/tone — landed on a Nujabes/Cowboy Bebop/Samurai
+Champloo-inspired lo-fi jazz-hop palette, distinct per location, after going through "too smooth
+lounge jazz" → "too upbeat arcade" → "overcorrected into horror" passes first) and asked for them
+wired into every scene, looping, low presence, with a lo-fi filter on top. Tracks landed at
+`C:\Users\furik\Downloads\BGM\` as `MainMenu.mp3`/`Map01-05.mp3`/`Backroom.mp3` (plus ~10
+differently-named `.wav` files that are leftover unpicked candidates, not used) and were copied
+into `Scenes/BGM/` (the user independently copied the same files there too while this was being
+built — deleted the duplicate that landed under `Scenes/Assets/Audio/BGM/` from this session's
+own copy rather than the other way around, keeping the user's own placement).
+
+**`autoload/BGMPlayer.gd`** (new autoload, registered after `TravelState` in `project.godot`) —
+a single `AudioStreamPlayer` plus a `TRACKS: Dictionary` mapping scene path → track path (all 7
+scenes that have a track: `MainMenu`, `Map_01`–`Map_05`, `Backroom`; anything not in the dict,
+e.g. `OpeningQuote`/`television_test`, silences the music instead of erroring).
+`play_for_scene(scene_path)` no-ops if already on that scene's track, otherwise fades the current
+track out (`FADE_TIME=0.4s`), swaps the stream, sets `AudioStreamMP3.loop = true` in code (rather
+than relying on import-time loop settings, since that's set per-file and easy to miss), and fades
+the new track in to `TARGET_VOLUME_DB` — kept below the footstep/dialogue-blip procedural SFX
+rather than competing with them. First value (`-22.0`) was reported as too quiet after actually
+hearing it in-editor; raised to **`-14.0`**. Still a "low presence" background layer, just less so.
+Wired into **`SceneManager._transition()`**: `BGMPlayer.play_for_scene(resolved_path)` is called
+right after the overlay finishes fading to black, so the crossfade happens hidden behind the
+same blackout the location-name label already uses — a scene change never has BGM audibly cut
+under a visible frame. Not awaited from `SceneManager` (fire-and-forget) since the music
+crossfade doesn't need to block the rest of the transition timing.
+**First-scene coverage**: since `MainMenu.tscn` is `project.godot`'s `run/main_scene` and is
+therefore loaded directly by the engine rather than through `SceneManager.change_scene()`,
+`BGMPlayer._ready()` calls `play_for_scene()` itself for whatever `get_tree().current_scene`
+already is, deferred via `call_deferred()` (same ordering fix already established elsewhere in
+this project, e.g. `player.gd`'s `_apply_pending_spawn` — autoloads' `_ready()` can run before
+the main scene is attached, so `current_scene` isn't reliably set yet without deferring).
+**Lo-fi effect**: a dedicated `"Music"` audio bus is created at runtime in `_setup_bus()` (not a
+hand-edited bus layout resource — consistent with this project's general preference for
+applying effects at runtime rather than baking them into imported assets, e.g. `city_glow.gd`)
+with `AudioEffectLowPassFilter` (`cutoff_hz = 3200`) and `AudioEffectDistortion`
+(`mode = MODE_LOFI`, `pre_gain = -6.0`) — Godot's distortion effect has a literal built-in LOFI
+mode, so no custom bitcrush shader/script was needed. The bus's default send target is
+`"Master"` (Godot's default for any bus added via `AudioServer.add_bus()`), so `SettingsState`'s
+existing master-volume slider already scales BGM correctly with no extra wiring.
+**Not audibly confirmed** — same standing caveat as every other audio/visual choice in this
+project this environment can't directly play back: `TARGET_VOLUME_DB`/the lowpass cutoff/the
+distortion pre-gain are reasonable starting values, not tuned by ear. Also, the 7 new `.mp3`
+files have no `.import` file yet (same situation `ps1_pig.glb` hit earlier this session) — Godot
+will auto-import them the next time the project opens in the editor; reimport manually via the
+FileSystem dock if it doesn't pick them up.
 
 ## Skyscraper Background Buildings
 
