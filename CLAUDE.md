@@ -1052,10 +1052,12 @@ repeat visit ("still Ronald."), landing as a small deadpan joke rather than dera
 pieces, i mean." line was too oblique about what it was actually referring to, so it's now split
 into "the yellow ducks, i mean." / "every little piece of it." — explicitly naming the Yellow
 Duck collectibles while keeping the "little piece(s)" callback to the Television's own secret
-line ("you found all of me. every little piece."). Note: this NPC's dialogue was never added to
-`autoload/Localization.gd`'s `ZH_STRINGS`/`JA_STRINGS` (a pre-existing gap, not something this
-edit introduced) — it currently only displays in English regardless of the active language
-setting.
+line ("you found all of me. every little piece."). **Translation gap since fixed**: user caught
+that this NPC's dialogue (and `NPC_Pig`'s) had never been added to `autoload/Localization.gd`'s
+`ZH_STRINGS`/`JA_STRINGS`. Audited every placed NPC's `dialogue_lines`/`repeat_lines` plus
+Television's default/secret lines against both dictionaries (a small script diffing the two
+sets rather than eyeballing it) — `NPC_Pig` and this alien were the only two gaps; every other
+NPC already had full ZH/JA coverage. Both now have complete entries in both languages.
 
 ## Duck Companion System (deprecated)
 
@@ -1277,8 +1279,9 @@ string that was already sitting in NPC `dialogue_lines`/`repeat_lines` and UI co
 `.tscn` file needed touching — only the *display* layer wraps text in `tr()`. No English
 `Translation` is registered; when locale is `"en"` (the default) `tr()` calls simply have no
 match and fall through to the original string. `ZH_STRINGS`/`JA_STRINGS` are two big dictionary
-literals, each covering every NPC's dialogue (all 25 + Caveman + Television, regular and secret
-lines), all 5 Yellow Duck fragment lines, the Opening Quote (Psalm 102:6-7 — phrased to match
+literals, each covering every currently-placed NPC's dialogue (plus Caveman, Television's
+regular/secret lines, and the Map_05 secret alien), all 5 Yellow Duck fragment lines, the
+Opening Quote (Psalm 102:6-7 — phrased to match
 the specific "desert owl" / "owl among the ruins" imagery of the English text already in
 `opening_quote_ui.gd`, not lifted verbatim from a specific published Bible edition in either
 language), UI button/label text (including the two `%d`-templated pickup-notification strings

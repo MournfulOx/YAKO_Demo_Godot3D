@@ -95,6 +95,12 @@ const ZH_STRINGS := {
 	"Nobody asked me to.": "也没人让我这么做。",
 	"I like it better this way.": "我觉得这样更好。",
 
+	# NPC_Pig
+	"I used to have a name.": "我以前是有名字的。",
+	"Now I just have a pen.": "现在只有一个猪圈。",
+	"It's warmer in here, at least.": "至少这里面暖和一点。",
+	"Still warm.": "还是暖和的。",
+
 	# NPC_PrairieDog
 	"I counted everyone on this street.": "我数过这条街上所有人。",
 	"Twice.": "数了两遍。",
@@ -155,6 +161,18 @@ const ZH_STRINGS := {
 	"Back": "返回",
 	"All %d Yellow Ducks found.": "找到了全部 %d 只黄色小鸭。",
 	"Yellow Duck found. %d / %d": "找到黄色小鸭。%d / %d",
+
+	# SecretAlienNPC (Map_05, gated behind all-ducks-collected)
+	"oh. you actually found all of them.": "哦。你居然把它们全找齐了。",
+	"i wasn't sure anyone would.": "我还以为不会有人做到。",
+	"the yellow ducks, i mean.": "我是说,那些黄色小鸭子。",
+	"every little piece of it.": "每一小片都找到了。",
+	"i've been watching this whole time.": "我一直在看着这一切。",
+	"i have an earth name, actually.": "其实我有一个地球名字。",
+	"they call me Ronald.": "他们叫我罗纳德。",
+	"you can stop looking now.": "你现在可以不用再找了。",
+	"still here. still watching.": "还在这儿。还在看着。",
+	"still Ronald.": "还是罗纳德。",
 
 	# Location names (SceneManager._parse_name output)
 	"Convenience Store": "便利店",
@@ -258,6 +276,12 @@ const JA_STRINGS := {
 	"Nobody asked me to.": "誰にも頼まれてないけどね。",
 	"I like it better this way.": "この方が好きなんだ。",
 
+	# NPC_Pig
+	"I used to have a name.": "昔は名前があったんだ。",
+	"Now I just have a pen.": "今はただの囲いだけ。",
+	"It's warmer in here, at least.": "少なくともここは暖かい。",
+	"Still warm.": "まだ暖かい。",
+
 	# NPC_PrairieDog
 	"I counted everyone on this street.": "この通りの皆を数えたんだ。",
 	"Twice.": "二回もね。",
@@ -318,6 +342,18 @@ const JA_STRINGS := {
 	"Back": "戻る",
 	"All %d Yellow Ducks found.": "%d羽の黄色いアヒルを全部見つけた。",
 	"Yellow Duck found. %d / %d": "黄色いアヒルを見つけた。%d / %d",
+
+	# SecretAlienNPC (Map_05, gated behind all-ducks-collected)
+	"oh. you actually found all of them.": "おお。本当に全部見つけたのか。",
+	"i wasn't sure anyone would.": "誰かがやり遂げるとは思ってなかった。",
+	"the yellow ducks, i mean.": "つまり、あの黄色いアヒルたちのことだ。",
+	"every little piece of it.": "その欠片を全部。",
+	"i've been watching this whole time.": "ずっとこの目で見ていた。",
+	"i have an earth name, actually.": "実は地球の名前があるんだ。",
+	"they call me Ronald.": "ロナルドと呼ばれている。",
+	"you can stop looking now.": "もう探さなくていいよ。",
+	"still here. still watching.": "まだここにいる。まだ見ている。",
+	"still Ronald.": "まだロナルドだ。",
 
 	# Location names (SceneManager._parse_name output)
 	"Convenience Store": "コンビニ",
