@@ -142,6 +142,8 @@ const ZH_STRINGS := {
 	"everyone crosses somewhere.": "每个人都会在某处穿行而过。",
 	"not everyone arrives.": "但不是每个人都能抵达。",
 	"you just wanted to disappear for a while.": "你只是想暂时消失一会儿。",
+	"stuck behind the glass.": "困在玻璃后面。",
+	"nobody paid to win you back.": "没有人花钱把你赢回来。",
 	"the last one.": "最后一片了。",
 	"it's okay if it never adds up to a whole person.": "就算拼不成一个完整的人也没关系。",
 
@@ -181,6 +183,10 @@ const ZH_STRINGS := {
 	"Arcade Alley": "街机小巷",
 	"School Rooftop": "学校天台",
 	"Backroom": "后室",
+
+	# Ending closing lines
+	"the owl came down from the roof, at last.": "猫头鹰终于从屋顶上下来了。",
+	"it had somewhere to be, after all.": "原来它也有该去的地方。",
 
 	# Ending credits
 	"Producer / Programmer: FENG JIAQI (Jacky)\nMap & Art: LIM ZHI YUAN (Zee)":
@@ -323,6 +329,8 @@ const JA_STRINGS := {
 	"everyone crosses somewhere.": "誰もがどこかで道を渡る。",
 	"not everyone arrives.": "でも、誰もがたどり着けるわけじゃない。",
 	"you just wanted to disappear for a while.": "少しの間、消えてしまいたかっただけなんだ。",
+	"stuck behind the glass.": "ガラスの向こうに閉じ込められて。",
+	"nobody paid to win you back.": "誰もお金を払って取り戻してくれなかった。",
 	"the last one.": "これが最後の一つ。",
 	"it's okay if it never adds up to a whole person.": "一人の人間にならなくても、それでいい。",
 
@@ -362,6 +370,10 @@ const JA_STRINGS := {
 	"Arcade Alley": "ゲームセンター横丁",
 	"School Rooftop": "屋上",
 	"Backroom": "裏部屋",
+
+	# Ending closing lines
+	"the owl came down from the roof, at last.": "ふくろうはついに屋根から降りてきた。",
+	"it had somewhere to be, after all.": "結局、行くべき場所があったのだ。",
 
 	# Ending credits
 	"Producer / Programmer: FENG JIAQI (Jacky)\nMap & Art: LIM ZHI YUAN (Zee)":
